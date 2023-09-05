@@ -34,6 +34,16 @@
      }
 
 
+     #home_page{
+      display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+     }
+
+     
+
      /*EFFETTO TYPE*/
 
      #typed-text {
@@ -68,11 +78,6 @@
             #typed,
             #activity-text {
                 font-size: 20px;
-            }
-
-            .responsive_div1{
-                display: flex !important;
-                flex-direction: column !important;
             }
 
             .container{
@@ -410,9 +415,145 @@
 
 
 
-   
- 
-  
+
+      
+         /*LAYOUT RESPONSIVI*/
+
+        @media (max-width: 550px) {
+
+      .responsive_div1{
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+       
+      }
+
+
+      .img2{
+        display: none !important;
+      }
+
+
+      .iframe_responsive_animation1{
+        display: none !important;
+      }
+
+   }
+
+
+
+
+
+@media (min-width: 551px) {
+
+  .responsive_div1{
+        display: flex;
+        flex-direction: row;
+      
+      }
+
+
+      .h_1{
+        margin-top: 40px !important;
+        margin-left: 40px !important;
+      }
+
+
+      .p_1{
+        margin-left: 40px !important;
+      }
+
+     
+      
+      .img1{
+        display: none !important;
+      }
+
+      .img2{
+        display: flex !important;
+        width: 240px !important;
+        height: 240px !important;
+        margin-right: 30px !important;
+      }
+
+      .img3{
+        margin-left: 30px !important;
+      }
+
+
+      .h_2{
+        margin-left: 30px !important;
+        margin-right: 30px !important;
+      }
+
+      .p_2{
+        margin-left: 30px !important;
+        margin-right: 30px !important;
+      }
+
+      .div_img_1{
+        display: none !important;
+      }
+
+      .div_img_2{
+        display: flex !important;
+        flex-direction: column !important;
+        margin-top: 20px !important;
+      }
+
+      .h_3{
+        margin-top: 60px !important;
+        margin-left: 40px !important;
+      }
+
+      
+      .p_3{
+        margin-left: 40px !important;
+      }
+
+
+      .div_img_3{
+        margin-right: 30px !important;
+      }
+
+
+      .h_4{
+        margin-top: 50px !important;
+      }
+
+
+      .card{
+        margin-left: 50px !important;
+        width: 50% !important;
+      }
+
+      .iframe_responsive_animation1{
+        display: flex !important;
+      }
+
+
+}
+
+
+       @media (min-width: 1100px) {
+
+        .responsive_div1{
+        display: flex;
+        flex-direction: row;
+        width: 70%;
+      }
+
+      .card{
+        margin-left: 50px !important;
+        width: 30% !important;
+      }
+
+      .iframe_responsive_animation1{
+        display: flex !important;
+      }
+
+       }
+
 
 
 
@@ -455,46 +596,173 @@
             </div>
           </div>
 
+
+          
+          <iframe class="iframe_responsive_animation1" srcdoc='
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <style>
+        /* Inserisci qui il CSS del loader */
+        .loader {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          z-index: 10;
+          width: 160px;
+          height: 100px;
+          margin-left: -80px;
+          margin-top: -50px;
+          border-radius: 5px;
+          background: #1e3f57;
+          animation: dot1_ 3s cubic-bezier(0.55,0.3,0.24,0.99) infinite;
+        }
+
+        .loader:nth-child(2) {
+          z-index: 11;
+          width: 150px;
+          height: 90px;
+          margin-top: -45px;
+          margin-left: -75px;
+          border-radius: 3px;
+          background: #3c517d;
+          animation-name: dot2_;
+        }
+
+        .loader:nth-child(3) {
+          z-index: 12;
+          width: 40px;
+          height: 20px;
+          margin-top: 50px;
+          margin-left: -20px;
+          border-radius: 0 0 5px 5px;
+          background: #6bb2cd;
+          animation-name: dot3_;
+        }
+
+        @keyframes dot1_ {
+          3%,97% {
+            width: 160px;
+            height: 100px;
+            margin-top: -50px;
+            margin-left: -80px;
+          }
+
+          30%,36% {
+            width: 80px;
+            height: 120px;
+            margin-top: -60px;
+            margin-left: -40px;
+          }
+
+          63%,69% {
+            width: 40px;
+            height: 80px;
+            margin-top: -40px;
+            margin-left: -20px;
+          }
+        }
+
+        @keyframes dot2_ {
+          3%,97% {
+            height: 90px;
+            width: 150px;
+            margin-left: -75px;
+            margin-top: -45px;
+          }
+
+          30%,36% {
+            width: 70px;
+            height: 96px;
+            margin-left: -35px;
+            margin-top: -48px;
+          }
+
+          63%,69% {
+            width: 32px;
+            height: 60px;
+            margin-left: -16px;
+            margin-top: -30px;
+          }
+        }
+
+        @keyframes dot3_ {
+          3%,97% {
+            height: 20px;
+            width: 40px;
+            margin-left: -20px;
+            margin-top: 50px;
+          }
+
+          30%,36% {
+            width: 8px;
+            height: 8px;
+            margin-left: -5px;
+            margin-top: 49px;
+            border-radius: 8px;
+          }
+
+          63%,69% {
+            width: 16px;
+            height: 4px;
+            margin-left: -8px;
+            margin-top: -37px;
+            border-radius: 10px;
+          }
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+      </div>
+    </body>
+    </html>
+  ' frameborder="0"></iframe>
+
+     
+
+          
          </div>
         </div>
       </div>
        
 
-      <div style="display: none; flex-direction: row; align-items: center; justify-content: center;">
-        <div style="width: 50%;">
-        <h1 style="margin-left: 20px; margin-bottom: 0px; margin-top: 50px;">Who am I?</h1>
-        <p style="margin-left: 20px; margin-right: 20px; margin-top: 5px; width: 80%; font-size: 20px;">Hello, my name is Giacomo but you can call me VerDev, I'm an Italian developer. I code websites and apps for all devices since 2020, I started for passion and I published some apps on Google Play, some of them reached a lot downloads and active users, so I have a good experience with stores and internet in general.</p>
-      </div>
-    <div style="display: flex; align-items: center; justify-content: center;">
-        <img src="https://i.ibb.co/v4Y2s8X/Progetto-senza-titolo.png" style="width: 400px; border-radius: 50%; margin-top: 20px;">
-        </div>
-    </div>
+
+      
 
 
-    
 
+      <div id="home_page">
 
-  
-        <div>
+        <div class="responsive_div1">
          <div style="display: flex; align-items: center; justify-content: center;">
-         <img src="https://i.ibb.co/v4Y2s8X/Progetto-senza-titolo.png" style="width: 220px; border-radius: 50%; margin-top: 20px;">
+         <img class="img1" src="https://i.ibb.co/v4Y2s8X/Progetto-senza-titolo.png" style="width: 220px; border-radius: 50%; margin-top: 20px;">
          </div>
-         <h2 style="margin-left: 20px; margin-bottom: 0px; margin-top: 2px;">Who am I?</h2>
-         <p style="margin-left: 20px; margin-right: 20px; margin-top: 5px;">Hello, my name is Giacomo but you can call me VerDev, I'm an Italian developer. I code websites and apps for all devices since 2020, I started for passion and I published some apps on Google Play, some of them reached a lot downloads and active users, so I have a good experience with stores and internet in general.</p>
+         <div>
+         <h2 class="h_1" style="margin-left: 20px; margin-bottom: 0px; margin-top: 2px;">Who am I?</h2>
+         <p class="p_1" style="margin-left: 20px; margin-right: 20px; margin-top: 5px;">Hello, my name is Giacomo but you can call me VerDev, I'm an Italian developer. I code websites and apps for all devices since 2020, I started for passion and I published some apps on Google Play, some of them reached a lot downloads and active users, so I have a good experience with stores and internet in general.</p>
+        </div>
+        <img class="img2" src="https://i.ibb.co/v4Y2s8X/Progetto-senza-titolo.png" style=" border-radius: 50%; margin-top: 20px;">
         </div>
 
 
 
-        <div>
+        <div class="responsive_div1">
         <div style="display: flex; align-items: center; justify-content: center;">
-        <img src="https://i.ibb.co/9TmDLns/Progetto-senza-titolo-1.png" style="width: 280px; margin-top: 20px;">
+        <img class="img3" src="https://i.ibb.co/9TmDLns/Progetto-senza-titolo-1.png" style="width: 280px; margin-top: 20px;">
         </div>
-        <h2 style="margin-left: 20px; margin-bottom: 0px; margin-top: 20px;">What types of websites/app do I create?</h2>
-        <p style="margin-left: 20px; margin-right: 20px; margin-top: 5px;">Basically all types of sites and web apps, for any operating system and device type that has an internet connection and a browser, such as, Android, iOS, Windows, Mac, Linux, ...</p>
-        </div>
-
-
         <div>
+        <h2 class="h_2" style="margin-left: 20px; margin-bottom: 0px; margin-top: 20px;">What types of websites/app do I create?</h2>
+        <p class="p_2" style="margin-left: 20px; margin-right: 20px; margin-top: 5px;">Basically all types of sites and web apps, for any operating system and device type that has an internet connection and a browser, such as, Android, iOS, Windows, Mac, Linux, ...</p>
+       </div>
+      </div>
+
+
+        <div class="responsive_div1">
+           <div class="div_img_1">
             <div style="display: flex; align-items: center; justify-content: center; margin-bottom: -30px;">
                 <img src="https://i.ibb.co/Q9bPZjF/Progetto-senza-titolo-3.png" style="width: 100%; margin-top: 20px; ">
                 </div>
@@ -508,19 +776,39 @@
                     <div class="👍"></div>
                 </div>
                 </div>
-                <h2 style="margin-left: 20px; margin-bottom: 0px; margin-top: 20px;">How long will it take?</h2>
-                <p style="margin-left: 20px; margin-right: 20px; margin-top: 5px;">For simpler websites or apps I'm usually very fast and always deliver within a week, for more complex websites or apps it may take longer based on integrations and/or customer needs, usually for build I don't use more than 3/4 weeks.</p>
-        </div>
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                <h2 class="h_3" style="margin-left: 20px; margin-bottom: 0px; margin-top: 20px;">How long will it take?</h2>
+                <p class="p_3" style="margin-left: 20px; margin-right: 20px; margin-top: 5px;">For simpler websites or apps I'm usually very fast and always deliver within a week, for more complex websites or apps it may take longer based on integrations and/or customer needs, usually for build I don't use more than 3/4 weeks.</p>
+                </div>
+                <div class="div_img_2" style="display: none;">
+                  <div style="display: flex; align-items: center; justify-content: center; margin-bottom: -30px;">
+                      <img src="https://i.ibb.co/Q9bPZjF/Progetto-senza-titolo-3.png" style="width: 100%; margin-top: 20px; ">
+                      </div>
+                      <div style="display: flex; align-items: center; justify-content: right;">
+                      <div class="🤚" style="margin-right: 25px; margin-bottom: 35px;">
+                          <div class="👉"></div>
+                          <div class="👉"></div>
+                          <div class="👉"></div>
+                          <div class="👉"></div>
+                          <div class="🌴"></div>		
+                          <div class="👍"></div>
+                      </div>
+                      </div>
+                      </div>
+             </div>
 
 
-        <div>
-            <div style="display: flex;flex-direction: column ; align-items: center; justify-content: center; margin-bottom: -30px;">
+        <div class="responsive_div1">
+            <div class="div_img_3" style="display: flex;flex-direction: column ; align-items: center; justify-content: center; margin-bottom: -30px;">
                 <i class="material-icons notranslate" style="color: white; font-size: 130px; position: absolute; margin-bottom: 100px; margin-left: 180px;">rocket_launch</i>
                 <img src="https://i.ibb.co/Q9bPZjF/Progetto-senza-titolo-3.png" style="width: 100%; margin-top: 20px;">
                 </div>
-                <h2 style="margin-left: 20px; margin-bottom: 0px; margin-top: 30px;">How to start?</h2>
+                <div>
+                <h2 class="h_4" style="margin-left: 20px; margin-bottom: 0px; margin-top: 30px;">How to start?</h2>
                 <p style="margin-left: 20px; margin-right: 20px; margin-top: 5px;">I am very flexible and I try to adapt to the needs of each person, to try to best satisfy the customer, both in terms of design and functions and prices. Need a helping hand? I have two, click the button below, I can't wait to hear your idea!</p>
-        </div>
+              </div>
+          </div>
 
 
         <div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 50px; margin-top: 50px;">
@@ -530,7 +818,7 @@
             </label>
         </div>
 
-
+       </div>
         
 
      
