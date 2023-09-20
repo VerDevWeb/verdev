@@ -1,0 +1,1748 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/2yCy9yW/buildable-logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <style>
+
+      body {
+    background: #1e1f23;
+    margin:0;
+    padding:0;
+    font-family: 'poppins';
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.image-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            perspective: 1000px;
+            overflow: hidden;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: float 6s infinite alternate ease-in-out;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            50% {
+                transform: translate3d(10px, 10px, 50px) rotateX(20deg) rotateY(10deg);
+            }
+            100% {
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+  .login-box {
+    width: 400px;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.667);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.664);
+    border-radius: 15px;
+  }
+  
+  .login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .login-box .user-box {
+    position: relative;
+  }
+  
+  .login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent; 
+  }
+  .login-box .user-box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+  }
+  
+  .login-box .user-box input:focus ~ label,
+  .login-box .user-box input:active ~ label{
+    top: -20px;
+    left: 0;
+    color: #0d784b;
+    font-size: 12px;
+  }
+  
+  .login-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #0d784b;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+  }
+  
+  .login-box a:hover {
+    background: #0d784b;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px #166745,
+                0 0 25px #133f2d,
+                0 0 50px #2f805e,
+                0 0 100px #0d784b;
+  }
+  
+  .login-box a span {
+    position: absolute;
+    display: block;
+  }
+  
+  .login-box a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #0d784b);
+    animation: btn-anim1 3s linear infinite;
+  }
+  
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+    50%,100% {
+      left: 100%;
+    }
+  }
+  
+  .login-box a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #0d784b);
+    animation: btn-anim2 3s linear infinite;
+    animation-delay: .25s
+  }
+  
+  @keyframes btn-anim2 {
+    0% {
+      top: -100%;
+    }
+    50%,100% {
+      top: 100%;
+    }
+  }
+  
+  .login-box a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #0d784b);
+    animation: btn-anim3 3s linear infinite;
+    animation-delay: .5s
+  }
+  
+  @keyframes btn-anim3 {
+    0% {
+      right: -100%;
+    }
+    50%,100% {
+      right: 100%;
+    }
+  }
+  
+  .login-box a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #0d784b);
+    animation: btn-anim4 3s linear infinite;
+    animation-delay: .75s
+  }
+  
+  @keyframes btn-anim4 {
+    0% {
+      bottom: -100%;
+    }
+    50%,100% {
+      bottom: 100%;
+    }
+  }
+
+  #access_interface{
+    height: 100%;
+    width: 100%;
+  }
+
+  /*logged_interface*/
+
+   #logged_interface{
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+   }
+
+   #up_bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #27282b;
+    height: 6%;
+   }
+
+   .upbar_button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: transparent;
+    color: white;
+    font-family: 'Poppins';
+   }
+
+  /*home_interface*/
+
+  #home_interface{
+    width: 100%;
+    height: 94%;
+  }
+
+  .card1{
+    background: #27282b;
+    border-radius: 15px;
+    padding: 20px;
+  }
+
+  /*builder_interface*/
+
+  #builder_interface{
+    display: flex;
+    flex-direction: column;
+    height: 94%;
+    width: 100%;
+    align-items: center;
+  }
+
+   /* Stile per l'area dell'editor di codice */
+
+
+        .html_component{
+          color: white;
+          display: flex;
+          flex-direction: row;
+          justify-content: left;
+          align-items: center;
+        }
+
+        .html_component_button{
+          background-color: transparent;
+          border: transparent;
+          color: white;
+          font-family: 'poppins';
+          font-size: 16px;
+        }
+
+        #builder_left_bar{
+          display: flex; 
+          flex-direction: column;
+          height: 95%;
+          overflow: auto;
+          background-color: #27282b;
+          align-items: left;
+          border-top-right-radius: 15px;
+          border-bottom-right-radius: 15px;
+          padding-left: 10px;
+          border-color: white;
+          border-width: 2px;
+        }
+
+
+        #right_bar{
+          display: flex; 
+          flex-direction: column;
+          width: 260px;
+          height: 95%;
+          overflow-y: auto;
+          overflow-x: hidden;
+          background-color: #27282b;
+          align-items: left;
+          border-top-left-radius: 15px;
+          border-bottom-left-radius: 15px;
+          padding-left: 10px;
+          border-color: white;
+          border-width: 2px;    
+        }
+
+     /*manage_proprieties*/
+
+     #manage_proprieties{
+      background-color: #333;
+      border-radius: 15px;
+      margin-bottom: 30px;
+     }
+
+
+     .input-group {
+ position: relative;
+}
+
+.input {
+ border: solid 1.5px #9e9e9e;
+ border-radius: 1rem;
+ background: none;
+ padding: 1rem;
+ font-size: 1rem;
+ color: #f5f5f5;
+ transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+ margin-right: 10px;
+ font-family: 'poppins';
+}
+
+.user-label {
+ position: absolute;
+ left: 15px;
+ color: #e8e8e8;
+ pointer-events: none;
+ transform: translateY(1rem);
+ transition: 150ms cubic-bezier(0.4,0,0.2,1);
+}
+
+.input:focus, input:valid {
+ outline: none;
+ border: 2px solid #ffffff;
+}
+
+.input:focus ~ label, input:valid ~ label {
+ transform: translateY(-50%) scale(0.8);
+ background-color: #212121;
+ border-radius: 12px;
+ padding: 0 .2em;
+ color: white;
+}
+     
+
+
+     /*drag_and_drop_interface*/
+
+     .drag_card {
+      cursor: pointer;
+    }
+    #textbox2 {
+      width: 100%;
+      height: 10%;
+      color: white;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+
+    ::placeholder {
+    color: #ffffff;
+    font-family: 'poppins';
+  }
+
+
+            /* Stili CSS per la textarea e l'iframe */
+            #editor-container {
+            height: 550px;
+            width: 550px;
+            display: none;
+        }
+
+        #preview-container {
+            width: 380px;
+            height: 550px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .textarea1 {
+            width: 100%;
+            height: 100%;
+            color: white;
+            background-color: #27282b;
+            border-radius: 20px;
+            resize: none;
+            border: transparent;
+            padding: 20px;
+        }
+
+        .textarea2{
+            width: 100%;
+            height: 10%;
+            color: white;
+            background-color: #27282b;
+            text-align: center;
+            resize: none;
+            border-end-end-radius: 20px;
+            border-end-start-radius: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ffffff;
+            background-color: white;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+
+        #control_panel1{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+
+
+
+        .up_down_button{
+          background-color: #0d784b;
+          border-radius: 12px;
+          font-size: 20px;
+          width: 40px;
+          height: 40px;
+          border-color: transparent;
+          color: white;
+          font-weight: bold;
+        }
+
+
+
+        
+  /*LOGIN_SIGN_UP_PAGE*/
+
+  
+.form {
+font-family: 'Poppins';
+display: flex;
+flex-direction: column;
+gap: 10px;
+padding-bottom: 0.4em;
+background-color: #383840FF;
+border-radius: 15px;
+padding: 0;
+margin: 0;
+}
+
+#heading {
+text-align: center;
+margin: 2em;
+color: rgb(255, 255, 255);
+font-size: 1.2em;
+}
+
+.field {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 0.5em;
+border-radius: 25px;
+padding: 0.6em;
+border: none;
+outline: none;
+color: white;
+background-color: rgb(70, 70, 77);
+margin-left: 30px;
+margin-right: 30px;
+}
+
+.input-icon {
+height: 1.3em;
+width: 1.3em;
+fill: white;
+}
+
+.input-field {
+font-family: 'Poppins';
+background: none;
+border: none;
+outline: none;
+width: 100%;
+color: white;
+}
+
+.form .btn {
+display: flex;
+justify-content: center;
+flex-direction: row;
+margin-top: 2.5em;
+}
+
+.button1 {
+font-family: 'Poppins';
+padding: 0.5em;
+padding-left: 1.1em;
+padding-right: 1.1em;
+border-radius: 5px;
+margin-right: 0.5em;
+border: none;
+outline: none;
+transition: .4s ease-in-out;
+background-color: rgb(70, 70, 77);
+color: white;
+}
+
+.button1:hover {
+background-color: rgb(46, 46, 61);
+color: white;
+}
+
+.button2 {
+font-family: 'Poppins';
+padding: 0.5em;
+padding-left: 2.3em;
+padding-right: 2.3em;
+border-radius: 5px;
+border: none;
+outline: none;
+transition: .4s ease-in-out;
+background-color: rgb(70, 70, 77);
+color: white;
+}
+
+.button2:hover {
+background-color: rgb(46, 46, 61);
+color: white;
+}
+
+
+
+
+    </style>
+  </head>
+<body>
+
+  <div id="log_interface" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <h1 style="margin-top: 0px; font-family:Arial, Helvetica, sans-serif; font-weight: bold; color: white; font-size: 100px; margin-bottom: 0px;">&lt;/&gt;</h1>
+    <h1 class="notranslate" style="color: white; margin-top: -20px; margin-bottom: 0px;">Buildable</h1>
+    <p style="color: white; margin-top: 0px;">Coding revolution</p>
+    </div>
+
+    <form style="margin-top: 20px; padding-left: 20px; padding-right: 20px;" class="form">
+      <p id="heading">Login or register</p>
+      <div class="field">
+        <input id="access_email" autocomplete="off" placeholder="E-mail" class="input-field" type="text" style="border: none;">
+      </div>
+      <div class="field">
+        <input id="access_password" placeholder="Password" class="input-field" type="password" style="border: none;">
+      </div>
+      <div class="btn">
+        <button class="button1" type="button" onclick="login()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        <button class="button2" type="button" onclick="register()">Register</button>
+      </div>
+      <button id="forgot_password_button" style="background-color: transparent; border-color: transparent; color: white; font-family: 'Poppins'; margin-bottom: 50px;">Forgot password?</button>
+  </form>
+
+  </div>
+
+<div id="logged_interface"  style="display: none;">
+  
+  
+  <div id="up_bar">
+  <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; height: 100%; margin-left: 5px;">
+    <div style="height: 75%; display: flex; flex-direction: row; align-items: center; justify-content: center; padding-top: 15px;">
+    <button class="upbar_button" id="home_button"><i class="material-icons notranslate">dashboard</i><p style="margin-top: 0px;">Home</p></button>
+    <button class="upbar_button" id="builder_button"><i class="material-icons notranslate">construction</i><p style="margin-top: 0px;">Builder</p></button>
+   </div>
+   <div style="background-color: white; height: 70%; width: 1px; margin-right: 15px; margin-left: 15px;"><p> </p></div>
+   <div style="height: 75%; display: flex; flex-direction: row; align-items: center; justify-content: center; padding-top: 15px;">
+    <button class="upbar_button" id="account_button"><i class="material-icons notranslate">account_circle</i><p style="margin-top: 0px;">Account</p></button>
+    <button class="upbar_button" id="cloud_button"><i class="material-icons notranslate">cloud_done</i><p style="margin-top: 0px;">Cloud</p></button>
+  </div>
+  </div>
+  <h2 class="notranslate" style="color: white;"><span style="font-family: 'arial';">&lt;</span>/Buildable<span style="font-family: 'arial';">&gt;</span></h2>
+   <div style=" height: 100%; display: flex; flex-direction: row; align-items: center; justify-content: center; margin-right: 20px;">
+    <div style="height: 75%; display: flex; flex-direction: row; align-items: center; justify-content: center; padding-top: 15px;">
+      <button class="upbar_button" id="comunity_button"><i class="material-icons notranslate">settings</i><p style="margin-top: 0px;">Project</p></button>
+     </div>
+     <div style="background-color: white; height: 70%; width: 1px; margin-right: 15px; margin-left: 15px;"><p> </p></div>
+    <div style="height: 75%; display: flex; flex-direction: row; align-items: center; justify-content: center; padding-top: 15px;">
+   <button class="upbar_button" id="export_code_button"><i class="material-icons notranslate">system_update_alt</i><p style="margin-top: 0px;">Export</p></button>
+   <button class="upbar_button" id="publish_app_button"><i class="material-icons notranslate">dynamic_form</i><p style="margin-top: 0px;">Deploy</p></button>
+  </div>
+  <div style="background-color: white; height: 70%; width: 1px; margin-right: 15px; margin-left: 15px;"><p> </p></div>
+  <div style=" height: 75%; display: flex; flex-direction: row; align-items: center; justify-content: center; padding-top: 15px;">
+   <button class="upbar_button" id="interface_button"><i class="material-icons notranslate">devices</i><p style="margin-top: 0px;">Interface</p></button>
+   <button class="upbar_button" id="script_button"><i class="material-icons notranslate">data_object</i><p style="margin-top: 0px;">functions</p></button>
+   </div>
+  </div>
+  </div>
+
+
+
+
+<div id="home_interface" style="display: none;">
+  
+
+
+   <div style="display: flex; flex-direction: row; width: 100%; height: 100%; align-items: center;">
+
+    <div style="display: flex; width: 12%; height: 90%; align-items: center; justify-content: left;">
+      <div class="card1" style="height: 100%; width: auto; border-radius: 0px; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
+      <div style="display: flex; flex-direction: column; align-items: start; justify-content: left;">
+      <h3 style="color: white; margin-bottom: 5px; margin-top: 0px;">Ready for coding?</h3>
+      <div style="background-color: white; height: 1px; width: 100%; margin-top: 8px;"></div>
+      <button id="create_new_project_button" style="background-color: transparent; border: transparent;">
+      <div style="display: flex; flex-direction: row; align-items: center;">
+      <i class="material-icons notranslate" style="color:white; font-size: 30px; margin-right: 5px; margin-top: 15px;">architecture</i>
+      <p style="color: white; margin-bottom: 0px; font-family: 'Poppins'; font-size: 15px;">New project</p>
+      </div>
+     </button>
+     <button id="import_project_button" style="background-color: transparent; border: transparent;">
+      <div style="display: flex; flex-direction: row; align-items: center;">
+        <span class="material-symbols-outlined notranslate" style="color: white; font-size: 30px; margin-top: 10px; margin-right: 10px;">
+          cloud_upload
+          </span>
+      <p style="color: white; margin-bottom: 0px; font-family: 'Poppins'; font-size: 15px;">Import one</p>
+      </div>
+      </button>
+     <div style="background-color: white; height: 1px; width: 100%; margin-top: 10px;"></div>
+     <button id="account_button" style="background-color: transparent; border: transparent;">
+      <div style="display: flex; flex-direction: row; align-items: center;">
+      <span class="material-symbols-outlined notranslate" style="color: white; font-size: 30px; margin-top: 10px; margin-right: 10px;">
+          account_circle
+      </span>
+      <p style="color: white; margin-bottom: 0px; font-family: 'Poppins'; font-size: 15px;">Account</p>
+      </div>
+      </button>
+     <button id="support_button" style="background-color: transparent; border: transparent;">
+      <div style="display: flex; flex-direction: row; align-items: center;">
+        <span class="material-symbols-outlined notranslate" style="color: white; font-size: 30px; margin-top: 10px; margin-right: 10px;">
+          engineering
+          </span>
+      <p style="color: white; margin-bottom: 0px; font-family: 'Poppins'; font-size: 15px;">Comunity</p>
+      </div>
+     </button>
+      <div style="display: flex; flex-direction: row; align-items: center;">
+        <span class="material-symbols-outlined notranslate" style="color: white; font-size: 30px; margin-top: 10px; margin-right: 10px; margin-left: 4px;">
+          support_agent
+          </span>
+      <a href="mailto:verdevweb@gmail.com" style="color: white; margin-bottom: 0px; margin-top: 10px; font-family: 'Poppins'; font-size: 15px; text-decoration: none;">Support</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+  <div style="display: flex; align-items: center; justify-content: center; width: 88%; height: 95%;">
+  <div id="no_projects_yet" style="display: flex ;width: 97%; height: 100%; border: solid 1px rgba(255, 255, 255, 0.361); border-radius: 20px; align-items: center; justify-content: center;">
+  <p style="color: rgba(255, 255, 255, 0.361);">No projects yet</p>
+  </div>
+  <div id="projects_container">
+  
+  </div>
+</div>
+
+
+</div>
+
+</div>
+
+
+<div id="builder_interface" style="display: flex;">
+  <div id="html_css_editor" style="display: flex; flex-direction: row; height: 100%; width: 100%; align-items: center; justify-content: space-between;">
+
+    <div style="height: 100%; display: flex; align-items: center;">
+    <div id="builder_left_bar">
+
+
+      <h3 style="margin-left: 8px; color: white; font-weight: bold;">User interface</h3>
+
+      <div class="drag_card" draggable="true" ondragstart="titleComponentFunction(event)">  
+        <div class="html_component" style="display: flex; flex-direction: row;">
+          <i class="material-icons notranslate" style="color:white; font-size: 30px">title</i>
+          <button id="title_HTML_COMPONENT" class="html_component_button">Title</button>
+        </div>
+      </div>
+
+      <div style="margin-top: 15px;"></div>
+
+      <div class="drag_card" draggable="true" ondragstart="paragraphComponentFunction(event)">   
+      <div class="html_component" style="display: flex; flex-direction: row;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" fill="currentColor" class="bi bi-text-left" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/> </svg>
+        <button id="paragraph_HTML_COMPONENT" class="html_component_button">Paragraph</button>
+      </div>
+    </div>
+
+    <div style="margin-top: 15px;"></div>
+
+    <div class="drag_card" draggable="true" ondragstart="imageComponentFunction(event)">  
+      <div class="html_component" style="display: flex; flex-direction: row;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25"  fill="currentColor" class="bi bi-file-earmark-image" viewBox="0 0 16 16"> <path d="M6.502 7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/> <path d="M14 14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5V14zM4 1a1 1 0 0 0-1 1v10l2.224-2.224a.5.5 0 0 1 .61-.075L8 11l2.157-3.02a.5.5 0 0 1 .76-.063L13 10V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4z"/> </svg>    
+        <button id="image_HTML_COMPONENT" class="html_component_button">Image</button>
+      </div>
+    </div>
+
+      <div style="margin-top: 15px;"></div>
+
+      <div class="drag_card" draggable="true" ondragstart="buttonComponentFunction(event)">  
+      <div class="html_component" style="display: flex; flex-direction: row;">
+        <i class="material-icons notranslate" style="color:white; font-size: 30px">ads_click</i>
+        <button id="button_HTML_COMPONENT" class="html_component_button">Button</button>
+      </div>
+   </div>
+
+      <div style="margin-top: 15px;"></div>
+
+      <div class="drag_card" draggable="true" ondragstart="linkComponentFunction(event)">  
+      <div class="html_component" style="display: flex; flex-direction: row;">
+        <i class="material-icons notranslate style="color:white; font-size: 30px">link</i>
+        <button id="link_HTML_COMPONENT" class="html_component_button">Link</button>
+      </div>
+    </div>
+
+      <div style="margin-top: 15px;"></div>
+
+      <div class="drag_card" draggable="true" ondragstart="mailComponentFunction(event)"> 
+      <div class="html_component" style="display: flex; flex-direction: row;">
+        <i class="material-icons notranslate style="color:#ffffff; font-size: 30px">mail</i>
+        <button id="mail_HTML_COMPONENT" class="html_component_button">E-Mail</button>
+      </div>
+    </div>
+
+    <div style="margin-top: 15px;"></div>
+
+    <div class="drag_card" draggable="true" ondragstart="textareaComponentFunction(event)"> 
+      <div class="html_component" style="display: flex; flex-direction: row;">
+        <i class="material-icons notranslate style="color:#ffffff; font-size: 30px">edit_square
+        </i>
+        <button id="mail_HTML_COMPONENT" class="html_component_button">Text field</button>
+      </div>
+    </div>
+
+  
+
+      <div style="margin-top: 8; margin-right: 20px; background-color: white; width: 200px; height: 1px;"> </div>
+
+     
+      <h3 class="notranslate" style="margin-top: 20px; margin-right: 20px; color: white; font-weight: bold;">Firebase</h3>
+
+      <div class="html_component" style="display: flex; flex-direction: row;">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" zoomAndPan="magnify" viewBox="0 0 30 30.000001" height="40" preserveAspectRatio="xMidYMid meet" version="1.0"><defs><clipPath id="id1"><path d="M 6.371094 2 L 19 2 L 19 22 L 6.371094 22 Z M 6.371094 2 " clip-rule="nonzero"/></clipPath><clipPath id="id2"><path d="M 6.371094 8 L 17 8 L 17 22 L 6.371094 22 Z M 6.371094 8 " clip-rule="nonzero"/></clipPath><clipPath id="id3"><path d="M 6.371094 6 L 23.789062 6 L 23.789062 25.8125 L 6.371094 25.8125 Z M 6.371094 6 " clip-rule="nonzero"/></clipPath></defs><g clip-path="url(#id1)"><path fill="rgb(100%, 62.748718%, 0%)" d="M 15.628906 5.648438 C 15.417969 5.246094 14.832031 5.246094 14.625 5.648438 L 13.34375 8.003906 L 10.398438 2.445312 C 10.144531 1.980469 9.421875 2.097656 9.335938 2.617188 L 6.371094 21.3125 L 18.480469 11.070312 Z M 15.628906 5.648438 " fill-opacity="1" fill-rule="nonzero"/></g><g clip-path="url(#id2)"><path fill="rgb(96.078491%, 49.798584%, 9.01947%)" d="M 16.054688 13.121094 L 13.34375 8.003906 L 6.371094 21.3125 Z M 16.054688 13.121094 " fill-opacity="1" fill-rule="nonzero"/></g><g clip-path="url(#id3)"><path fill="rgb(100%, 79.219055%, 15.689087%)" d="M 21.535156 7.390625 C 21.464844 6.964844 20.929688 6.792969 20.613281 7.101562 L 6.371094 21.316406 L 14.253906 25.367188 C 14.753906 25.640625 15.359375 25.640625 15.859375 25.367188 L 23.789062 21.316406 Z M 21.535156 7.390625 " fill-opacity="1" fill-rule="nonzero"/></g></svg>
+      <button id="firebase_auth_HTML_COMPONENT" class="html_component_button notranslate">Firebase Auth</button>
+    </div>
+
+       <div style="margin-top: 8px;"></div>
+
+      <div class="html_component" style="display: flex; flex-direction: row;">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" zoomAndPan="magnify" viewBox="0 0 30 30.000001" height="40" preserveAspectRatio="xMidYMid meet" version="1.0"><defs><clipPath id="id1"><path d="M 6.371094 2 L 19 2 L 19 22 L 6.371094 22 Z M 6.371094 2 " clip-rule="nonzero"/></clipPath><clipPath id="id2"><path d="M 6.371094 8 L 17 8 L 17 22 L 6.371094 22 Z M 6.371094 8 " clip-rule="nonzero"/></clipPath><clipPath id="id3"><path d="M 6.371094 6 L 23.789062 6 L 23.789062 25.8125 L 6.371094 25.8125 Z M 6.371094 6 " clip-rule="nonzero"/></clipPath></defs><g clip-path="url(#id1)"><path fill="rgb(100%, 62.748718%, 0%)" d="M 15.628906 5.648438 C 15.417969 5.246094 14.832031 5.246094 14.625 5.648438 L 13.34375 8.003906 L 10.398438 2.445312 C 10.144531 1.980469 9.421875 2.097656 9.335938 2.617188 L 6.371094 21.3125 L 18.480469 11.070312 Z M 15.628906 5.648438 " fill-opacity="1" fill-rule="nonzero"/></g><g clip-path="url(#id2)"><path fill="rgb(96.078491%, 49.798584%, 9.01947%)" d="M 16.054688 13.121094 L 13.34375 8.003906 L 6.371094 21.3125 Z M 16.054688 13.121094 " fill-opacity="1" fill-rule="nonzero"/></g><g clip-path="url(#id3)"><path fill="rgb(100%, 79.219055%, 15.689087%)" d="M 21.535156 7.390625 C 21.464844 6.964844 20.929688 6.792969 20.613281 7.101562 L 6.371094 21.316406 L 14.253906 25.367188 C 14.753906 25.640625 15.359375 25.640625 15.859375 25.367188 L 23.789062 21.316406 Z M 21.535156 7.390625 " fill-opacity="1" fill-rule="nonzero"/></g></svg>
+        <button id="firebase_database_HTML_COMPONENT" class="html_component_button notranslate">Firebase Database</button>
+      </div>
+
+      <div style="margin-top: 8; background-color: white; width: 200px; height: 1px; margin-right: 20px;"> </div>
+
+     </div>
+    </div>
+
+
+
+ 
+    <div id="editor-container">
+      <textarea class="textarea1" id="code-input" placeholder="Inserisci qui il tuo codice HTML...">
+<html>
+<head>
+  <style>
+  </style>
+</head>
+<body>
+
+
+<script>
+</script>  
+
+
+</body>
+</html>
+</textarea>
+  </div>
+
+
+  <div id="preview-container">
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; width: 100%;">
+      <iframe id="preview-iframe"></iframe>
+     <textarea class="textarea2" id="textbox2" placeholder="Drag components here"></textarea>
+    </div>
+    <div id="control_panel1" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <div style="display: flex; flex-direction: column; margin-left: 50px; height: auto; width: auto; background-color: #27282b; border-radius: 10px; align-items: center; justify-content: center;">
+      <button  id="move-up" onclick="moveSelectedTextUp()" style="margin-bottom: 10px; align-items: center; justify-content: center; background-color: transparent; border:transparent; margin-top: 10px;"><i class="material-icons notranslate" style="color:white; font-size: 30px;">expand_less</i></button>
+      <div style="background-color: white; width: 80%; height: 1px; margin-bottom: 10px;"><p> </p></div>
+      <button id="move-down" onclick="moveSelectedTextDown()" style="background-color: transparent; border:transparent; margin-bottom: 10px;"><i class="material-icons notranslate" style="color:white; font-size: 30px;">expand_more</i></button>
+    </div>
+    <div style="display: flex; flex-direction: column; margin-left: 50px; height: auto; width: auto; background-color: #27282b; border-radius: 10px; align-items: center; justify-content: center; margin-top: 15px;">
+    <button id="show_code" style="align-items: center; justify-content: center; background-color: transparent; border:transparent; margin-top: 10px;"><i id="show_code_icon" class="material-icons notranslate" style="color:white; font-size: 30px;">code</i></button>
+    <button onclick="updatePreview()" style="margin-bottom: 10px; align-items: center; justify-content: center; background-color: transparent; border:transparent; margin-top: 10px;"><i class="material-icons notranslate" style="color:white; font-size: 30px;">restart_alt</i></button>
+  </div>
+  </div>
+  
+    </div>
+    
+       <div id="right_bar">
+        <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; margin-top: 5px;">
+          <h3 id="component_proprieties_name_display" style="color: white; margin-right: 0px; margin-bottom: 0px; margin-top: 0px;">Proprieties:</h3>
+          <button onclick="modcomponents()" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 50px; background-color: transparent; border: transparent; margin-top: 0px; margin-left: 0px; margin-right: 10px;"><i class="material-icons notranslate" style="color:white; font-size: 30px;">save</i></button>
+        </div>
+          <p style="color: white; width: 100%; padding-right: 30px; margin-bottom: 0px; margin-top: 0px;">Beta version: please apply 1 change at time</p>
+        <div class="input-group" style="margin-top: 20px;">
+          <input id="code-id" required="" type="text" name="text" autocomplete="off" class="input">
+          <label class="user-label">Element Id</label>
+        </div>
+        <div class="input-group" style="margin-top: 20px; margin-bottom: 20px;">
+          <input id="code-class" required="" type="text" name="text" autocomplete="off" class="input">
+          <label class="user-label">Element Class</label>
+        </div>
+        <div style="margin-top: 2px; background-color: white; width: 95%; height: 1px; margin-right: 20px;"><p> </p></div>
+        <h3 style="margin-left: 8px; margin-bottom: 1px ; color: white;">Text</h3>
+        <div class="input-group" style="margin-top: 20px;">
+          <input id="code-font-size" required="" type="text" name="text" autocomplete="off" class="input">
+          <label class="user-label">Font Size</label>
+        </div>
+        <div class="input-group" style="margin-top: 20px;">
+          <input required="" type="text" name="text" autocomplete="off" class="input">
+          <label class="user-label">Font family</label>
+        </div>
+        <div class="input-group" style="margin-top: 20px;">
+          <input id="code-placeholder" required="" type="text" name="text" autocomplete="off" class="input">
+          <label class="user-label">Hint</label>
+        </div>
+        <div style="margin-top: 20px; background-color: white; width: 95%; height: 1px; margin-right: 20px;"><p> </p></div>
+        <h3 style="margin-left: 8px; margin-bottom: 1px ; color: white;">Size</h3>
+        <div class="input-group" style="margin-top: 20px;">
+          <input id="code-width" required="" type="text" name="text" autocomplete="off" class="input">
+          <label class="user-label">Width</label>
+        </div>
+        <div class="input-group" style="margin-top: 20px;">
+          <input id="code-height" required="" type="text" name="text" autocomplete="off" class="input">
+          <label class="user-label">Height</label>
+        </div>
+        <div style="margin-top: 20px; background-color: white; width: 95%; height: 1px; margin-right: 20px;"><p> </p></div>
+        <h3 style="margin-left: 8px; margin-bottom: 1px ; color: white;">Margin</h3>
+        <div class="input-group" style="margin-top: 20px;">
+          <input id="code-margin-top" required="" type="text" name="text" autocomplete="off" class="input">
+          <label class="user-label">Margin top</label>
+        </div>
+        <div class="input-group" style="margin-top: 20px;">
+          <input id="code-margin-bottom" required="" type="text" name="text" autocomplete="off" class="input">
+          <label class="user-label">Margin bottom</label>
+        </div>
+        <div class="input-group" style="margin-top: 20px;">
+          <input id="code-margin-right" required="" type="text" name="text" autocomplete="off" class="input">
+          <label class="user-label">Margin rigth</label>
+        </div>
+        <div class="input-group" style="margin-top: 20px;">
+          <input id="code-margin-left" required="" type="text" name="text" autocomplete="off" class="input">
+          <label class="user-label">Margin left</label>
+        </div>
+
+        <div style="margin-top: 20px; background-color: white; width: 200px; height: 1px; margin-right: 20px;"><p> </p></div>
+        <h3 style="margin-left: 8px; margin-bottom: 1px ; color: white;">Border radius</h3>
+        <div class="input-group" style="margin-top: 20px;">
+          <input id="code-radius" required="" type="text" name="text" autocomplete="off" class="input">
+          <label class="user-label">Border Radius</label>
+        </div>
+        <div class="input-group" style="margin-top: 20px;">
+          <input id="code-radius-top-left" required="" type="text" name="text" autocomplete="off" class="input">
+          <label class="user-label">Top left</label>
+        </div>
+        <div class="input-group" style="margin-top: 20px;">
+          <input id="code-radius-top-right" required="" type="text" name="text" autocomplete="off" class="input">
+          <label class="user-label">Top right</label>
+        </div>
+        <div class="input-group" style="margin-top: 20px;">
+          <input id="code-radius-bottom-left" required="" type="text" name="text" autocomplete="off" class="input">
+          <label class="user-label">Bottom Left</label>
+        </div>
+        <div class="input-group" style="margin-top: 20px;">
+          <input id="code-radius-bottom-right" required="" type="text" name="text" autocomplete="off" class="input">
+          <label class="user-label">Bottom Right</label>
+          </div>
+          <div style="margin-top: 20px; background-color: white; width: 200px; height: 1px; margin-right: 20px;"><p> </p></div>
+          <h3 style="margin-left: 8px; margin-bottom: 1px ; color: white;">General</h3>
+          <div class="input-group" style="margin-top: 20px; margin-bottom: 20px;">
+            <input id="code-href" required="" type="text" name="text" autocomplete="off" class="input">
+            <label class="user-label">Link</label>
+            </div>
+            <div style="margin-top: 2px; background-color: white; width: 200px; height: 1px; margin-right: 20px;"><p> </p></div>
+            <h3 style="margin-left: 8px; margin-bottom: 1px ; color: white;">Image</h3>
+            <div class="input-group" style="margin-top: 20px;">
+              <input id="code-src" required="" type="text" name="text" autocomplete="off" class="input">
+              <label class="user-label">Image link</label>
+            </div>
+        
+     </div>
+
+    </div>
+   </div>
+  </div>
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+
+<script>
+
+
+  // Inizializza la tua app Firebase
+  var firebaseConfig = {
+    apiKey: "AIzaSyDbrJxtu9SUfefFy83dON75X872jgtvHCE",
+    authDomain: "https://hpn-it-database-default-rtdb.firebaseio.com/",
+    projectId: "hpn-it-database",
+    storageBucket: "hpn-it-database.appspot.com",
+    messagingSenderId: "SENDER_ID",
+    appId: "1:560490178687:android:4c7fa58726d3289708374a"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
+  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+.then(function() {
+
+// Verifica dello stato di autenticazione all'avvio
+firebase.auth().onAuthStateChanged(function(user) {
+if (user) {
+  // L'utente è già loggato
+  console.log("Utente già loggato");
+  document.getElementById("log_interface").style.display = "none";
+  document.getElementById("logged_interface").style.display = "block";
+  document.getElementById("up_bar").style.display = "flex";
+
+  // Ottieni l'UID dell'utente
+  var uid = user.uid;
+
+} else {
+  // L'utente non è loggato
+  console.log("Utente non loggato");
+  document.getElementById("log_interface").style.display = "flex";
+  document.getElementById("logged_interface").style.display = "none";
+}
+});
+
+})
+
+.catch(function(error) {
+  console.log(error);
+});
+
+
+    // Funzione di accesso
+    function login() {
+var email = document.getElementById("access_email").value;
+var password = document.getElementById("access_password").value;
+
+firebase.auth().signInWithEmailAndPassword(email, password)
+  .then(function(user) {
+    // Accesso avvenuto con successo
+    alert("Logged in");
+
+    document.getElementById("log_interface").style.display = "none";
+    document.getElementById("logged_interface").style.display = "block";
+  })
+
+  .catch(function(error) {
+    // Gestisci gli errori di accesso
+    var errorMessage = error.message;
+    if (errorMessage.includes("password")) {
+      alert("Wrong password, try again");
+    } else {
+      alert("Access error: " + errorMessage);
+    }
+  });
+}
+
+
+
+// Funzione di registrazione
+function register() {
+    var email = document.getElementById("access_email").value;
+    var password = document.getElementById("access_password").value;
+
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(function(user) {
+        // Registrazione avvenuta con successo
+        console.log("Signed in");
+
+        // Nascondi il container iniziale
+        document.getElementById("log_interface").style.display = "none";
+        // Mostra il container vuoto
+        document.getElementById("logged_interface").style.display = "block";
+      })
+
+      .catch(function(error) {
+  // Gestisci gli errori di registrazione
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  if (errorCode === "auth/email-already-in-use") {
+    alert("Mail already used");
+  } else {
+    alert("An error occurred signing in, try later");
+  }
+ });
+  }
+
+
+
+  // BOTTONI
+
+  // login or signup selection
+
+ document.getElementById("create_new_project_button").addEventListener("click", function() {
+  
+  document.getElementById("home_interface").style.display = "none";
+  document.getElementById("builder_interface").style.display = "block";
+
+ 
+ });
+
+ document.getElementById("home_button").addEventListener("click", function() {
+  
+  document.getElementById("home_interface").style.display = "flex";
+  document.getElementById("builder_interface").style.display = "none";
+
+ 
+ });
+
+ document.getElementById("builder_button").addEventListener("click", function() {
+  
+  document.getElementById("home_interface").style.display = "none";
+  document.getElementById("builder_interface").style.display = "flex";
+
+ 
+ });
+
+ 
+        const codeInput = document.getElementById("code-input");
+        const previewIframe = document.getElementById("preview-iframe");
+
+        codeInput.addEventListener("input", updatePreview);
+
+        function updatePreview() {
+            const code = codeInput.value;
+            const iframeDocument = previewIframe.contentDocument || previewIframe.contentWindow.document;
+            iframeDocument.open();
+            iframeDocument.write(code);
+            iframeDocument.close();
+        }
+
+
+
+        updatePreview();
+
+        /*drag and drop*/
+
+        let dragStartRow;
+
+
+
+        /*COMPONENTS*/
+
+function paragraphComponentFunction(event) {
+  event.dataTransfer.setData("text/plain", '<p id="" style="">Insersci qui il testo</p> \n');
+}
+
+function imageComponentFunction(event) {
+  event.dataTransfer.setData("text/plain", `<img id="" style="" src="https://your-image-link.com"> \n`);
+}
+
+function buttonComponentFunction(event) {
+  event.dataTransfer.setData("text/plain", '<button id="button_id" style="">button_text</button> \n ');
+}
+
+function titleComponentFunction(event) {
+  event.dataTransfer.setData("text/plain", '<h2 id="" style="">title_text</h2> \n');
+}
+
+function linkComponentFunction(event) {
+  event.dataTransfer.setData("text/plain", '<a id="" style="" href="https://www.your-link.com">link_text</a> \n');
+}
+
+function mailComponentFunction(event) {
+  event.dataTransfer.setData("text/plain", '<a id="" style="" href="mailto:yourmail@provider.com">mail_text</a> \n ');
+}
+
+function textareaComponentFunction(event) {
+  event.dataTransfer.setData("text/plain", '<textarea id="" style="" placeholder=""></textarea> \n ');
+}
+
+
+
+         textbox2.addEventListener("input", function () {
+            const textToAdd = textbox2.value;
+            const codeInputValue = codeInput.value;
+            const updatedCode = codeInputValue.replace(/<\/body>/i, textToAdd + "</body>");
+            codeInput.value = updatedCode;
+            updatePreview();
+            textbox2.value = "";
+        });
+
+
+
+        function highlightCodeInInput(clickedElement) {
+    const htmlInput = document.getElementById('code-input');
+    const codeToHighlight = clickedElement.outerHTML;
+    const startPosition = htmlInput.value.indexOf(codeToHighlight);
+    const endPosition = startPosition + codeToHighlight.length;
+    let highlightedClass = "NO_CLASS";
+    let highlightedId = "NO_ID";
+    let highlightedSrc = "";
+    let highlightedPlaceholder = "";
+    let highlightedMarginTop = "";
+    let highlightedMarginBottom = "";
+    let highlightedMarginRight = "";
+    let highlightedMarginLeft = "";
+    let highlightedBorderRadiusTopLeft = "";
+    let highlightedBorderRadiusTopRight = "";
+    let highlightedBorderRadiusBottomLeft = "";
+    let highlightedBorderRadiusBottomRight = "";
+    let highlightedBorderRadius = "";
+
+    const classMatch = codeToHighlight.match(/class="([^"]+)"/);
+    if (classMatch && classMatch[1]) {
+        highlightedClass = classMatch[1];
+    }
+
+    const idMatch = codeToHighlight.match(/id="([^"]+)"/);
+    if (idMatch && idMatch[1]) {
+        highlightedId = idMatch[1];
+    }
+    
+    const srcMatch = codeToHighlight.match(/src="([^"]+)"/);
+    if (srcMatch && srcMatch[1]) {
+        highlightedSrc = srcMatch[1];
+    }
+
+     const placeholderMatch = codeToHighlight.match(/placeholder="([^"]+)"/);
+    if (placeholderMatch && placeholderMatch[1]) {
+        highlightedPlaceholder = placeholderMatch[1];
+    }
+
+      const marginTopMatch = codeToHighlight.match(/margin\s*-\s*top\s*:\s*([^;]+);?/);
+    if (marginTopMatch && marginTopMatch[1]) {
+        highlightedMarginTop = marginTopMatch[1];
+    }
+
+    const marginBottomMatch = codeToHighlight.match(/margin\s*-\s*bottom\s*:\s*([^;]+);?/);
+if (marginBottomMatch && marginBottomMatch[1]) {
+    highlightedMarginBottom = marginBottomMatch[1];
+}
+
+const marginRightMatch = codeToHighlight.match(/margin\s*-\s*right\s*:\s*([^;]+);?/);
+if (marginRightMatch && marginRightMatch[1]) {
+    highlightedMarginRight = marginRightMatch[1];
+}
+
+const marginLeftMatch = codeToHighlight.match(/margin\s*-\s*left\s*:\s*([^;]+);?/);
+if (marginLeftMatch && marginLeftMatch[1]) {
+    highlightedMarginLeft = marginLeftMatch[1];
+}
+
+const borderRadiusTopMatch = codeToHighlight.match(/border-radius\s*-\s*top\s*-\s*left\s*:\s*([^;]+);?/);;
+if (borderRadiusTopMatch && borderRadiusTopMatch[1]) {
+    highlightedBorderRadiusTop = borderRadiusTopMatch[1];
+}
+
+const borderRadiusTopLeftMatch = codeToHighlight.match(/border-top-left-radius\s*:\s*([^;]+);?/);
+if (borderRadiusTopLeftMatch && borderRadiusTopLeftMatch[1]) {
+    highlightedBorderRadiusTopLeft = borderRadiusTopLeftMatch[1];
+}
+
+const borderTopRightMatch = codeToHighlight.match(/border-top-right-radius\s*:\s*([^;]+);?/);
+if (borderTopRightMatch && borderTopRightMatch[1]) {
+    highlightedBorderRadiusTopRight = borderTopRightMatch[1];
+}
+
+const borderBottomLeftMatch = codeToHighlight.match(/border-bottom-left-radius\s*:\s*([^;]+);?/);
+if (borderBottomLeftMatch && borderBottomLeftMatch[1]) {
+    highlightedBorderRadiusBottomLeft = borderBottomLeftMatch[1];
+}
+
+const borderBottomRightMatch = codeToHighlight.match(/border-bottom-right-radius\s*:\s*([^;]+);?/);
+if (borderBottomRightMatch && borderBottomRightMatch[1]) {
+    highlightedBorderRadiusBottomRight = borderBottomRightMatch[1];
+}
+
+const borderRadiusMatch = codeToHighlight.match(/border-radius\s*:\s*([^;]+);?/);
+if (borderRadiusMatch && borderRadiusMatch[1]) {
+    highlightedBorderRadius = borderRadiusMatch[1];
+}
+
+
+
+    if (startPosition !== -1) {
+        htmlInput.setSelectionRange(startPosition, endPosition);
+        htmlInput.focus();
+    }
+    //after_recognition
+    if (highlightedClass !== null) {
+        console.log(`Selected Class: ${highlightedClass}`);
+        const classInput = document.getElementById('code-class');
+        classInput.value = highlightedClass;
+    }
+
+    if (highlightedId !== null) {
+        console.log(`Selected Id: ${highlightedId}`);
+        const idInput = document.getElementById('code-id');
+        idInput.value = highlightedId;
+    }
+
+    if (highlightedSrc !== null) {
+        const srcInput = document.getElementById('code-src');
+        srcInput.value = highlightedSrc;
+    }
+
+    if (highlightedPlaceholder !== null) {
+        const placeholderInput = document.getElementById('code-placeholder');
+        placeholderInput.value = highlightedPlaceholder;
+    }
+
+    if (highlightedMarginTop !== null) {
+        const marginTopInput = document.getElementById('code-margin-top');
+        marginTopInput.value = highlightedMarginTop;
+    }
+
+    if (highlightedMarginBottom !== null) {
+    const marginBottomInput = document.getElementById('code-margin-bottom');
+    marginBottomInput.value = highlightedMarginBottom;
+    }
+
+    if (highlightedMarginRight !== null) {
+    const marginRightInput = document.getElementById('code-margin-right');
+    marginRightInput.value = highlightedMarginRight;
+    }
+
+    if (highlightedMarginLeft !== null) {
+    const marginLeftInput = document.getElementById('code-margin-left');
+    marginLeftInput.value = highlightedMarginLeft;
+    }
+
+    if (highlightedBorderRadiusTopLeft !== null) {
+    const borderRadiusTopLeftInput = document.getElementById('code-radius-top-left');
+    borderRadiusTopLeftInput.value = highlightedBorderRadiusTopLeft;
+    }
+
+    if (highlightedBorderRadiusTopRight !== "") {
+    const borderRadiusTopRightInput = document.getElementById('code-radius-top-right');
+    borderRadiusTopRightInput.value = highlightedBorderRadiusTopRight;
+    }
+
+    if (highlightedBorderRadiusBottomLeft !== "") {
+    const borderRadiusBottomLeftInput = document.getElementById('code-radius-bottom-left');
+    borderRadiusBottomLeftInput.value = highlightedBorderRadiusBottomLeft;
+    }
+
+    if (highlightedBorderRadiusBottomRight !== "") {
+    const borderRadiusBottomRightInput = document.getElementById('code-radius-bottom-right');
+    borderRadiusBottomRightInput.value = highlightedBorderRadiusBottomRight;
+    }
+
+    if (highlightedBorderRadius !== "") {
+    const borderRadiusInput = document.getElementById('code-radius');
+    borderRadiusInput.value = highlightedBorderRadius;
+    }
+
+}
+
+
+        function updatePreview() {
+            const htmlInput = document.getElementById('code-input').value;
+            const preview = document.getElementById('preview-iframe');
+            const previewDocument = preview.contentDocument || preview.contentWindow.document;
+            previewDocument.open();
+            previewDocument.write(htmlInput);
+            previewDocument.close();
+            const previewElements = previewDocument.querySelectorAll('*');
+            previewElements.forEach(function(element) {
+                element.addEventListener('click', function(event) {
+                    highlightCodeInInput(event.target);
+                });
+            });
+        }
+
+
+        //SHOW CODE
+        document.addEventListener("DOMContentLoaded", function () {
+    var showCodeButton = document.getElementById("show_code");
+    var textInputShowHidden = document.getElementById("editor-container");
+    var iconElement = document.getElementById("show_code_icon");
+
+    showCodeButton.addEventListener("click", function () {
+        if (textInputShowHidden.style.display === "none") {
+            textInputShowHidden.style.display = "block";
+            iconElement.innerHTML = "code_off";
+        } else {
+            textInputShowHidden.style.display = "none";
+            iconElement.innerHTML = "code";
+        }
+    });
+});
+
+     
+
+
+        //UP DOWN TEXT
+
+        var codeEditor = document.getElementById("code-input");
+        var moveUpButton = document.getElementById("move-up");
+        var moveDownButton = document.getElementById("move-down");
+
+        // Gestisci il click sul pulsante "Su"
+        moveUpButton.addEventListener("click", function() {
+            moveSelectedTextUp();
+        });
+
+        // Gestisci il click sul pulsante "Giù"
+        moveDownButton.addEventListener("click", function() {
+            moveSelectedTextDown();
+        });
+
+        // Funzione per spostare il testo selezionato verso l'alto
+        function moveSelectedTextUp() {
+            var selectedText = getSelectedText();
+            if (!selectedText) return;
+
+            var text = codeEditor.value;
+            var lines = text.split('\n');
+            var startIndex = getSelectedLineIndex();
+
+            if (startIndex > 0) {
+                lines.splice(startIndex, 1);
+                lines.splice(startIndex - 1, 0, selectedText);
+                codeEditor.value = lines.join('\n');
+            }
+            updatePreview();
+        }
+
+        // Funzione per spostare il testo selezionato verso il basso
+        function moveSelectedTextDown() {
+            var selectedText = getSelectedText();
+            if (!selectedText) return;
+
+            var text = codeEditor.value;
+            var lines = text.split('\n');
+            var startIndex = getSelectedLineIndex();
+
+            if (startIndex < lines.length - 1) {
+                lines.splice(startIndex, 1);
+                lines.splice(startIndex + 1, 0, selectedText);
+                codeEditor.value = lines.join('\n');
+            }
+            updatePreview();
+        }
+
+        // Funzione per ottenere il testo selezionato
+        function getSelectedText() {
+            var start = codeEditor.selectionStart;
+            var end = codeEditor.selectionEnd;
+            var text = codeEditor.value;
+
+            if (start !== end) {
+                return text.substring(start, end);
+            } else {
+                return null;
+            }
+        }
+
+        // Funzione per ottenere l'indice della riga in cui è selezionato il testo
+        function getSelectedLineIndex() {
+            var start = codeEditor.selectionStart;
+            var text = codeEditor.value;
+            var lines = text.split('\n');
+            var currentIndex = 0;
+
+            for (var i = 0; i < lines.length; i++) {
+                currentIndex += lines[i].length + 1; // +1 per il carattere di nuova riga
+                if (currentIndex > start) {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+
+
+        function modcomponents() {
+
+
+            var newID = document.getElementById('code-id').value;
+            var codeInput1 = document.getElementById('code-input');
+            var start = codeInput1.selectionStart;
+            var end = codeInput1.selectionEnd;
+            var modifyText = codeInput1.value.substring(start, end);
+            var modifedText1 = modifyText.replace(/id="[^"]*"/g, 'id="' + newID + '"');
+            var newText1 = codeInput1.value.substring(0, start) + modifedText1 + codeInput1.value.substring(end);
+            codeInput1.value = newText1;
+            codeInput1.setSelectionRange(start, start + modifedText1.length);
+      
+            var newCLASS = document.getElementById('code-class').value;
+            var codeInput2 = document.getElementById('code-input');
+            var start = codeInput2.selectionStart;
+            var end = codeInput2.selectionEnd;
+            var modifyText = codeInput2.value.substring(start, end);
+            var modifedText2 = modifyText.replace(/class="[^"]*"/g, 'class="' + newCLASS + '"');
+            var newText2 = codeInput2.value.substring(0, start) + modifedText2 + codeInput2.value.substring(end);
+            codeInput2.value = newText2;
+            codeInput2.setSelectionRange(start, start + modifedText2.length);
+
+            var newImgUrl = document.getElementById('code-src').value;
+            var codeInput2 = document.getElementById('code-input');
+            var start = codeInput2.selectionStart;
+            var end = codeInput2.selectionEnd;
+            var modifyText = codeInput2.value.substring(start, end);
+            var modifedText3 = modifyText.replace(/src="[^"]*"/g, 'src="' + newImgUrl + '"');
+            var newText3 = codeInput2.value.substring(0, start) + modifedText3 + codeInput2.value.substring(end);
+            codeInput2.value = newText3;
+            codeInput2.setSelectionRange(start, start + modifedText3.length);
+
+            var newPlaceholder = document.getElementById('code-placeholder').value;
+            var codeInput2 = document.getElementById('code-input');
+            var start = codeInput2.selectionStart;
+            var end = codeInput2.selectionEnd;
+            var modifyText = codeInput2.value.substring(start, end);
+            var modifedText4 = modifyText.replace(/placeholder="[^"]*"/g, 'placeholder="' + newPlaceholder + '"');
+            var newText4 = codeInput2.value.substring(0, start) + modifedText4 + codeInput2.value.substring(end);
+            codeInput2.value = newText4;
+            codeInput2.setSelectionRange(start, start + modifedText4.length);
+
+            var newPlaceholder = document.getElementById('code-href').value;
+            var codeInput2 = document.getElementById('code-input');
+            var start = codeInput2.selectionStart;
+            var end = codeInput2.selectionEnd;
+            var modifyText = codeInput2.value.substring(start, end);
+            var modifedText5 = modifyText.replace(/href="[^"]*"/g, 'href="' + newPlaceholder + '"');
+            var newText5 = codeInput2.value.substring(0, start) + modifedText5 + codeInput2.value.substring(end);
+            codeInput2.value = newText5;
+            codeInput2.setSelectionRange(start, start + modifedText5.length);
+
+            
+
+
+var textBoxWidth = document.getElementById("code-input");
+var codeWidthInput = document.getElementById("code-width");
+var textToAddWidth = codeWidthInput.value;
+var selectionStartWidth = textBoxWidth.selectionStart;
+var selectionEndWidth = textBoxWidth.selectionEnd;
+
+var textBoxHeight = document.getElementById("code-input"); 
+var codeHeightInput = document.getElementById("code-height");
+var textToAddHeight = codeHeightInput.value;
+var selectionStartHeight = textBoxHeight.selectionStart;
+var selectionEndHeight = textBoxHeight.selectionEnd;
+
+var textBoxRadius = document.getElementById("code-input");
+var codeRadiusInput = document.getElementById("code-radius");
+var textToAddRadius = codeRadiusInput.value;
+var selectionStartRadius = textBoxRadius.selectionStart;
+var selectionEndRadius = textBoxRadius.selectionEnd;
+
+var textBoxRadiusTopLeft = document.getElementById("code-input");
+var codeRadiusTopLeftInput = document.getElementById("code-radius-top-left");
+var textToAddRadiusTopLeft = codeRadiusTopLeftInput.value;
+var selectionStartRadiusTopLeft = textBoxRadiusTopLeft.selectionStart;
+var selectionEndRadiusTopLeft = textBoxRadiusTopLeft.selectionEnd;
+
+var textBoxRadiusTopRight = document.getElementById("code-input");
+var codeRadiusTopRightInput = document.getElementById("code-radius-top-right");
+var textToAddRadiusTopRight = codeRadiusTopRightInput.value;
+var selectionStartRadiusTopRight = textBoxRadiusTopRight.selectionStart;
+var selectionEndRadiusTopRight = textBoxRadiusTopRight.selectionEnd;
+
+var textBoxRadiusBottomLeft = document.getElementById("code-input");
+var codeRadiusBottomLeftInput = document.getElementById("code-radius-bottom-left");
+var textToAddRadiusBottomLeft = codeRadiusBottomLeftInput.value;
+var selectionStartRadiusBottomLeft = textBoxRadiusBottomLeft.selectionStart;
+var selectionEndRadiusBottomLeft = textBoxRadiusBottomLeft.selectionEnd;
+
+var textBoxRadiusBottomRight = document.getElementById("code-input");
+var codeRadiusBottomRightInput = document.getElementById("code-radius-bottom-right");
+var textToAddRadiusBottomRight = codeRadiusBottomRightInput.value;
+var selectionStartRadiusBottomRight = textBoxRadiusBottomRight.selectionStart;
+var selectionEndRadiusBottomRight = textBoxRadiusBottomRight.selectionEnd;
+
+var textBoxMarginTopLeft = document.getElementById("code-input");
+var codeMarginTopLeftInput = document.getElementById("code-margin-top");
+var textToAddMarginTopLeft = codeMarginTopLeftInput.value;
+var selectionStartMarginTopLeft = textBoxMarginTopLeft.selectionStart;
+var selectionEndMarginTopLeft = textBoxMarginTopLeft.selectionEnd;
+
+var textBoxMarginLeft = document.getElementById("code-input");
+var codeMarginLeftInput = document.getElementById("code-margin-left");
+var textToAddMarginLeft = codeMarginLeftInput.value;
+var selectionStartMarginLeft = textBoxMarginLeft.selectionStart;
+var selectionEndMarginLeft = textBoxMarginLeft.selectionEnd;
+
+var textBoxMarginRight = document.getElementById("code-input");
+var codeMarginRightInput = document.getElementById("code-margin-right");
+var textToAddMarginRight = codeMarginRightInput.value;
+var selectionStartMarginRight = textBoxMarginRight.selectionStart;
+var selectionEndMarginRight = textBoxMarginRight.selectionEnd;
+
+var textBoxMarginBottom = document.getElementById("code-input");
+var codeMarginBottomInput = document.getElementById("code-margin-bottom");
+var textToAddMarginBottom = codeMarginBottomInput.value;
+var selectionStartMarginBottom = textBoxMarginBottom.selectionStart;
+var selectionEndMarginBottom = textBoxMarginBottom.selectionEnd;
+
+if (textToAddHeight.length > 0) {
+var validHeightPattern = /^(\d+(px|%))|auto$/;
+if (validHeightPattern.test(textToAddHeight)) {
+    if (selectionStartHeight !== undefined && selectionEndHeight !== undefined) {
+        var selectedTextHeight = textBoxHeight.value.substring(selectionStartHeight, selectionEndHeight);
+        var newTextHeight = selectedTextHeight.replace(/style="([^"]*)"/, function(match, style) {
+            style = style.replace(/height:[^;]+;/, '');
+            style += "height:" + textToAddHeight + "; ";
+            return 'style="' + style + '"';
+        });
+        var updatedTextHeight = textBoxHeight.value.substring(0, selectionStartHeight) + newTextHeight + textBoxHeight.value.substring(selectionEndHeight);
+        textBoxHeight.value = updatedTextHeight;
+    }
+  } else {
+    alert("Please enter a valid height value (e.g., 100px, 50%, or auto).");
+  }
+}
+
+
+if (textToAddWidth.length > 0) {
+var validWidthPattern = /^(\d+(px|%))|auto$/;
+if (validWidthPattern.test(textToAddWidth)) {
+    if (selectionStartWidth !== undefined && selectionEndWidth !== undefined) {
+        var selectedTextWidth = textBoxWidth.value.substring(selectionStartWidth, selectionEndWidth);
+        var newTextWidth = selectedTextWidth.replace(/style="([^"]*)"/, function(match, style) {
+            style = style.replace(/width:[^;]+;/, '');
+            style += "width:" + textToAddWidth + "; ";
+            return 'style="' + style + '"';
+        });
+        var updatedTextWidth = textBoxWidth.value.substring(0, selectionStartWidth) + newTextWidth + textBoxWidth.value.substring(selectionEndWidth);
+        textBoxWidth.value = updatedTextWidth;
+    }
+  } else {
+    alert("Please enter a valid width value (e.g., 100px, 50% or auto).");
+}
+}
+
+
+if (textToAddRadius.length > 0) {
+  var validRadiusPattern = /^(\d+px|%|0|initial|inherit|unset)$/;
+  if (validRadiusPattern.test(textToAddRadius)) {
+    if (selectionStartRadius !== undefined && selectionEndRadius !== undefined) {
+      var selectedTextRadius = textBoxRadius.value.substring(selectionStartRadius, selectionEndRadius);
+      var newTextRadius = selectedTextRadius.replace(/style="([^"]*)"/, function(match, style) {
+        style = style.replace(/border-radius:[^;]+;/, '');
+        style += "border-radius:" + textToAddRadius + "; ";
+        return 'style="' + style + '"';
+      });
+      var updatedTextRadius = textBoxRadius.value.substring(0, selectionStartRadius) + newTextRadius + textBoxRadius.value.substring(selectionEndRadius);
+      textBoxRadius.value = updatedTextRadius;
+    }
+  } else {
+    alert("Please enter a valid border-radius value (e.g., 10px, 50%, 0, initial, inherit, or unset).");
+  }
+}
+
+
+if (textToAddRadiusTopLeft.length > 0) {
+  var validRadiusPattern = /^(\d+px|%|0|initial|inherit|unset)$/;
+  if (validRadiusPattern.test(textToAddRadiusTopLeft)) {
+    if (selectionStartRadiusTopLeft !== undefined && selectionEndRadiusTopLeft !== undefined) {
+      var selectedTextRadiusTopLeft = textBoxRadiusTopLeft.value.substring(selectionStartRadiusTopLeft, selectionEndRadiusTopLeft);
+      var newTextRadiusTopLeft = selectedTextRadiusTopLeft.replace(/style="([^"]*)"/, function(match, style) {
+        style = style.replace(/border-top-left-radius:[^;]+;/, '');
+        style += "border-top-left-radius:" + textToAddRadiusTopLeft + "; ";
+        return 'style="' + style + '"';
+      });
+      var updatedTextRadiusTopLeft = textBoxRadiusTopLeft.value.substring(0, selectionStartRadiusTopLeft) + newTextRadiusTopLeft + textBoxRadiusTopLeft.value.substring(selectionEndRadiusTopLeft);
+      textBoxRadiusTopLeft.value = updatedTextRadiusTopLeft;
+    }
+  } else {
+    alert("Please enter a valid border-top-left-radius value (e.g., 10px, 50%, 0, initial, inherit, or unset).");
+  }
+}
+
+if (textToAddRadiusTopRight.length > 0) {
+  var validRadiusPattern = /^(\d+px|%|0|initial|inherit|unset)$/;
+  if (validRadiusPattern.test(textToAddRadiusTopRight)) {
+    if (selectionStartRadiusTopRight !== undefined && selectionEndRadiusTopRight !== undefined) {
+      var selectedTextRadiusTopRight = textBoxRadiusTopRight.value.substring(selectionStartRadiusTopRight, selectionEndRadiusTopRight);
+      var newTextRadiusTopRight = selectedTextRadiusTopRight.replace(/style="([^"]*)"/, function(match, style) {
+        style = style.replace(/border-top-right-radius:[^;]+;/, '');
+        style += "border-top-right-radius:" + textToAddRadiusTopRight + "; ";
+        return 'style="' + style + '"';
+      });
+      var updatedTextRadiusTopRight = textBoxRadiusTopRight.value.substring(0, selectionStartRadiusTopRight) + newTextRadiusTopRight + textBoxRadiusTopRight.value.substring(selectionEndRadiusTopRight);
+      textBoxRadiusTopRight.value = updatedTextRadiusTopRight;
+    }
+  } else {
+    alert("Please enter a valid border-top-right-radius value (e.g., 10px, 50%, 0, initial, inherit, or unset).");
+  }
+}
+
+if (textToAddRadiusBottomLeft.length > 0) {
+  var validRadiusPattern = /^(\d+px|%|0|initial|inherit|unset)$/;
+  if (validRadiusPattern.test(textToAddRadiusBottomLeft)) {
+    if (selectionStartRadiusBottomLeft !== undefined && selectionEndRadiusBottomLeft !== undefined) {
+      var selectedTextRadiusBottomLeft = textBoxRadiusBottomLeft.value.substring(selectionStartRadiusBottomLeft, selectionEndRadiusBottomLeft);
+      var newTextRadiusBottomLeft = selectedTextRadiusBottomLeft.replace(/style="([^"]*)"/, function(match, style) {
+        style = style.replace(/border-bottom-left-radius:[^;]+;/, '');
+        style += "border-bottom-left-radius:" + textToAddRadiusBottomLeft + "; ";
+        return 'style="' + style + '"';
+      });
+      var updatedTextRadiusBottomLeft = textBoxRadiusBottomLeft.value.substring(0, selectionStartRadiusBottomLeft) + newTextRadiusBottomLeft + textBoxRadiusBottomLeft.value.substring(selectionEndRadiusBottomLeft);
+      textBoxRadiusBottomLeft.value = updatedTextRadiusBottomLeft;
+    }
+  } else {
+    alert("Please enter a valid border-bottom-left-radius value (e.g., 10px, 50%, 0, initial, inherit, or unset).");
+  }
+}
+
+if (textToAddRadiusBottomRight.length > 0) {
+  var validRadiusPattern = /^(\d+px|%|0|initial|inherit|unset)$/;
+  if (validRadiusPattern.test(textToAddRadiusBottomRight)) {
+    if (selectionStartRadiusBottomRight !== undefined && selectionEndRadiusBottomRight !== undefined) {
+      var selectedTextRadiusBottomRight = textBoxRadiusBottomRight.value.substring(selectionStartRadiusBottomRight, selectionEndRadiusBottomRight);
+      var newTextRadiusBottomRight = selectedTextRadiusBottomRight.replace(/style="([^"]*)"/, function(match, style) {
+        style = style.replace(/border-bottom-right-radius:[^;]+;/, '');
+        style += "border-bottom-right-radius:" + textToAddRadiusBottomRight + "; ";
+        return 'style="' + style + '"';
+      });
+      var updatedTextRadiusBottomRight = textBoxRadiusBottomRight.value.substring(0, selectionStartRadiusBottomRight) + newTextRadiusBottomRight + textBoxRadiusBottomRight.value.substring(selectionEndRadiusBottomRight);
+      textBoxRadiusBottomRight.value = updatedTextRadiusBottomRight;
+    }
+  } else {
+    alert("Please enter a valid border-bottom-right-radius value (e.g., 10px, 50%, 0, initial, inherit, or unset).");
+  }
+}
+
+if (textToAddMarginTopLeft.length > 0) {
+  var validMarginPattern = /^(\d+px|%|0|initial|inherit|unset)$/;
+  if (validMarginPattern.test(textToAddMarginTopLeft)) {
+    if (selectionStartMarginTopLeft !== undefined && selectionEndMarginTopLeft !== undefined) {
+      var selectedTextMarginTopLeft = textBoxMarginTopLeft.value.substring(selectionStartMarginTopLeft, selectionEndMarginTopLeft);
+      var newTextMarginTopLeft = selectedTextMarginTopLeft.replace(/style="([^"]*)"/, function(match, style) {
+        style = style.replace(/margin-top:[^;]+;/, '');
+        style += "margin-top:" + textToAddMarginTopLeft + "; ";
+        return 'style="' + style + '"';
+      });
+      var updatedTextMarginTopLeft = textBoxMarginTopLeft.value.substring(0, selectionStartMarginTopLeft) + newTextMarginTopLeft + textBoxMarginTopLeft.value.substring(selectionEndMarginTopLeft);
+      textBoxMarginTopLeft.value = updatedTextMarginTopLeft;
+    }
+  } else {
+    alert("Please enter a valid margin-top-left value (e.g., 10px, 0, initial, inherit, or unset).");
+  }
+}
+
+if (textToAddMarginLeft.length > 0) {
+  var validMarginPattern = /^(\d+px|%|0|initial|inherit|unset)$/;
+  if (validMarginPattern.test(textToAddMarginLeft)) {
+    if (selectionStartMarginLeft !== undefined && selectionEndMarginLeft !== undefined) {
+      var selectedTextMarginLeft = textBoxMarginLeft.value.substring(selectionStartMarginLeft, selectionEndMarginLeft);
+      var newTextMarginLeft = selectedTextMarginLeft.replace(/style="([^"]*)"/, function(match, style) {
+        style = style.replace(/margin-left:[^;]+;/, '');
+        style += "margin-left:" + textToAddMarginLeft + "; ";
+        return 'style="' + style + '"';
+      });
+      var updatedTextMarginLeft = textBoxMarginLeft.value.substring(0, selectionStartMarginLeft) + newTextMarginLeft + textBoxMarginLeft.value.substring(selectionEndMarginLeft);
+      textBoxMarginLeft.value = updatedTextMarginLeft;
+    }
+  } else {
+    alert("Please enter a valid margin-left value (e.g., 10px, 0, initial, inherit, or unset).");
+  }
+}
+
+if (textToAddMarginRight.length > 0) {
+  var validMarginPattern = /^(\d+px|%|0|initial|inherit|unset)$/;
+  if (validMarginPattern.test(textToAddMarginRight)) {
+    if (selectionStartMarginRight !== undefined && selectionEndMarginRight !== undefined) {
+      var selectedTextMarginRight = textBoxMarginRight.value.substring(selectionStartMarginRight, selectionEndMarginRight);
+      var newTextMarginRight = selectedTextMarginRight.replace(/style="([^"]*)"/, function(match, style) {
+        style = style.replace(/margin-right:[^;]+;/, '');
+        style += "margin-right:" + textToAddMarginRight + "; ";
+        return 'style="' + style + '"';
+      });
+      var updatedTextMarginRight = textBoxMarginRight.value.substring(0, selectionStartMarginRight) + newTextMarginRight + textBoxMarginRight.value.substring(selectionEndMarginRight);
+      textBoxMarginRight.value = updatedTextMarginRight;
+    }
+  } else {
+    alert("Please enter a valid margin-right value (e.g., 10px, 50%, 0, initial, inherit, or unset).");
+  }
+}
+
+if (textToAddMarginBottom.length > 0) {
+  var validMarginPattern = /^(\d+px|%|0|initial|inherit|unset)$/;
+  if (validMarginPattern.test(textToAddMarginBottom)) {
+    if (selectionStartMarginBottom !== undefined && selectionEndMarginBottom !== undefined) {
+      var selectedTextMarginBottom = textBoxMarginBottom.value.substring(selectionStartMarginBottom, selectionEndMarginBottom);
+      var newTextMarginBottom = selectedTextMarginBottom.replace(/style="([^"]*)"/, function(match, style) {
+        style = style.replace(/margin-bottom:[^;]+;/, '');
+        style += "margin-bottom:" + textToAddMarginBottom + "; ";
+        return 'style="' + style + '"';
+      });
+      var updatedTextMarginBottom = textBoxMarginBottom.value.substring(0, selectionStartMarginBottom) + newTextMarginBottom + textBoxMarginBottom.value.substring(selectionEndMarginBottom);
+      textBoxMarginBottom.value = updatedTextMarginBottom;
+    }
+  } else {
+    alert("Please enter a valid margin-bottom value (e.g., 10px, 50%, 0, initial, inherit, or unset).");
+  }
+}
+      updatePreview();
+  }
+
+
+
+
+</script>
+
+</body>
+</html>
