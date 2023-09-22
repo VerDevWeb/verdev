@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesso Fotocamera Posteriore</title>
+    <style>
+        #container {
+            width: 100%;
+            height: auto;
+            text-align: center;
+        }
+
+        #videoElement {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <video autoplay="true" id="videoElement"></video>
+    </div>
+
+    <script>
+        var constraints = {
+            video: {
+                facingMode: { exact: 'environment' } // Accedi alla fotocamera posteriore
+            }
+        };
+
+        navigator.mediaDevices.getUserMedia(constraints)
+            .then(function(stream) {
+                var videoElement = document.getElementById('videoElement');
+                videoElement.srcObject = stream;
+                videoElement.play();
+            })
+            .catch(function(error) {
+                console.error('Errore nell\'accesso alla fotocamera: ', error);
+            });
+    </script>
+</body>
+</html>
