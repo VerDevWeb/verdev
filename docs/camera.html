@@ -3,13 +3,25 @@
 <head>
 <meta charset="utf-8">
 <title>Display Webcam Stream</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
  
 <style>
 
+ body{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	border: 0;
+	background-color: rgb(26, 25, 25);
+ }
+
+
 #container {
-	width: 500px;
-	height: 380px;
-	border: transparent solid;
+	margin-top: 20px;
+	width: 90%;
+	height: 80vh;
 }
 
 #videoElement {
@@ -19,27 +31,93 @@
 	object-fit: cover;
 	border-radius: 20px;
 }
+
+.photo_button{
+	background-color: transparent;
+	border: 0px;
+	height: 80px;
+	width: 80px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+  #photo_control_panel{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-items: center;
+	justify-content: space-between;
+	overflow-x: auto;
+	overflow-y: hidden;
+	width: 100%;
+	height: 10vh;
+	margin-top: 35px;
+  }
+
+
+
 </style>
 </head>
  
 <body>
 <div id="container">
 	<video autoplay="true" id="videoElement">
-	
 	</video>
 </div>
+
+<div id="photo_control_panel" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+	<button id="device_media" class="photo_button"><i class="material-icons notranslate" style="color: white; font-size: 40px;">image</i></button>
+	<button id="take_photo_front" class="photo_button"><i class="material-icons notranslate" style="color: white; font-size: 80px;">radio_button_unchecked</i></button>
+	<button id="flip_camera" class="photo_button"><i class="material-icons notranslate" style="color: white; font-size: 40px;">flip_camera_android</i></button>
+</div>
+
 <script>
     
+
 var video = document.querySelector("#videoElement");
+var captureButton = document.getElementById('take_photo_front');
+var capturedPhoto = document.querySelector("#capturedPhoto");
 
 if (navigator.mediaDevices.getUserMedia) {
   navigator.mediaDevices.getUserMedia({ video: true })
     .then(function (stream) {
       video.srcObject = stream;
     })
-    .catch(function (err0r) {
-      console.log("Something went wrong!");
+    .catch(function (error) {
+      console.log("Something went wrong:", error);
     });
+
+	captureButton.addEventListener("click", function () {
+  // Assicurati che il video sia pronto
+  if (video.readyState === video.HAVE_ENOUGH_DATA) {
+    // Imposta le dimensioni del canvas come quelle del video
+    var canvas = document.createElement("canvas");
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    var context = canvas.getContext("2d");
+    
+    // Disegna l'immagine catturata dal video sul canvas
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+    
+    // Ottieni l'immagine come URL dati (DataURL)
+    var capturedImageDataURL = canvas.toDataURL("image/png");
+    
+    // Creare un link per il download dell'immagine
+    var downloadLink = document.createElement("a");
+    downloadLink.href = capturedImageDataURL;
+    downloadLink.download = "captured_photo.png"; // Il nome del file da scaricare
+    document.body.appendChild(downloadLink);
+    
+    // Simula un clic sul link per avviare il download
+    downloadLink.click();
+    
+    // Rimuovi il link dopo il download
+    document.body.removeChild(downloadLink);
+  }
+});
+
 }
 
 </script>
