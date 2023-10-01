@@ -7,7 +7,6 @@
         <link rel="icon" type="image/x-icon" href="https://i.ibb.co/2yCy9yW/buildable-logo.png">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
- 
         
         <style>
     
@@ -144,213 +143,15 @@
 
         @media (max-width: 550px) {
 
-      .responsive_div1{
-        display: flex !important;
-        flex-direction: column !important;
-        width: 100% !important;
       }
 
 
-      .img2{
-        display: none !important;
+        @media (min-width: 551px) {
+
       }
-
-      .img3{
-        width: 100% !important;
-        transform: skewY(0deg) !important;
-        transform: skewX(0deg) !important;
-        transform: rotate(10deg) !important;
-        width: 75% !important;
-      }
-
-   }
-
-
-
-
-
-@media (min-width: 551px) {
-
-  .responsive_div1{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-      
-      }
-
-
-      .h_1{
-        font-size: 30px !important;
-        margin-top: 40px !important;
-        margin-left: 40px !important;
-      }
-
-
-      .p_1{
-        font-size: 20px !important;
-        margin-left: 40px !important;
-      }
-
-     
-      
-      .img1{
-        display: none !important;
-      }
-
-      .img2{
-        display: flex !important;
-        width: 240px !important;
-        height: 240px !important;
-        margin-right: 30px !important;
-      }
-
-      .img3{
-        margin-left: 80px !important;
-      }
-
-
-      .h_2{
-        font-size: 30px !important;
-        margin-left: 100px !important;
-        margin-right: 30px !important;
-      }
-
-      .p_2{
-        font-size: 20px !important;
-        margin-left: 100px !important;
-        margin-right: 30px !important;
-      }
-
-      .div_img_1{
-        display: none !important;
-      }
-
-      .div_img_2{
-        display: flex !important;
-        flex-direction: column !important;
-        margin-top: 20px !important;
-        margin-left: 150px !important;
-        margin-right: 70px !important;
-      }
-
-      .h_3{
-        font-size: 30px !important;
-        margin-top: 60px !important;
-        margin-left: 40px !important;
-      }
-
-      
-      .p_3{
-        font-size: 20px !important;
-        margin-left: 40px !important;
-      }
-
-
-      .div_img_3{
-        margin-right: 30px !important;
-      }
-
-
-      .h_4{
-        font-size: 30px !important;
-        margin-top: 50px !important;
-      }
-
-      .p_4{
-        font-size: 20px !important;
-        
-      }
-
-
-      .card{
-        margin-left: 50px !important;
-        width: 50% !important;
-      }
-
-      .loader{
-        margin-right: 60px;
-      }
-
-      .img3{
-        width: 100% !important;
-      }
-    }
 
 
        @media (min-width: 1100px) {
-
-        .responsive_div1{
-        display: flex;
-        flex-direction: row;
-        width: 70%;
-      }
-
-      .card{
-        margin-left: 50px !important;
-        width: 30% !important;
-      }
-
-      .h_1{
-       font-size: 30px;
-      }
-
-      .p_1{
-        font-size: 20px;
-      }
-
-      .h_2{
-       font-size: 30px;
-       margin-left: 100px !important;
-      }
-
-      .p_2{
-        font-size: 20px;
-        margin-left: 100px !important;
-        margin-bottom: 100px !important;
-      }
-
-      .h_3{
-       font-size: 30px;
-      }
-
-      .p_3{
-        font-size: 20px;
-      }
-
-      .h_4{
-       font-size: 30px;
-      }
-
-      .p_4{
-        font-size: 20px;
-      }
-
-      .loader{
-        scale: 5.5;
-      }
-
-      .img3{
-        width: 100% !important;
-        transform: skewY(-10deg) !important;
-        transform: skewX(5deg) !important;
-        margin-right: 40px !important;
-        margin-left: 80px !important;
-      }
-
-      .iframe_responsive_animation1{
-        width: 200px;
-        margin-left: 30px !important;
-      }
-
-      .img_4{
-        margin-left: 40px !important;
-      }
-
-      .img_5{
-        margin-left: 40px !important;
-        width: 100% !important;
-      }
 
 
        }
@@ -455,18 +256,19 @@ transform: translateZ(35.2px);
 /*card*/
 
 .card {
+  margin-left: 50px;
   font-family: 'Poppins';
   position: relative;
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 320px;
+  width: 350px;
   background-color: transparent;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   padding: 32px;
   overflow: hidden;
   border-radius: 10px;
   transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  min-height: 500px;
 }
 
 .content {
@@ -568,6 +370,38 @@ button:hover svg {
 button:hover span {
   transform: translateX(7px);
 }
+
+
+
+
+/*server animation css*/
+.loader {
+                width: 500px;
+                --color: #a5a5b0;
+                --size: 40px;
+                position: relative;
+              }
+              
+            
+              .loader svg {
+                padding: 20%;
+                fill: var(--color);
+                animation: keyframes-blink .5s infinite ease-in-out;
+              }
+              
+              @keyframes keyframes-rotate {
+                0% {
+                  transform: rotate(360deg);
+                }
+              }
+              
+              @keyframes keyframes-blink {
+                50% {
+                  opacity: 0.8;
+                }
+              }
+
+
         </style>
     </head>
 
@@ -612,12 +446,12 @@ button:hover span {
 
      
       <h1 style="font-size: 60px; margin-bottom: 0px;">Why Buildable?</h1>
-        <div style="display: flex; flex-direction: row; overflow-x: auto; padding: 20px; margin-top: 0px;">
+        <div style="display: flex; flex-direction: row; padding: 20px; margin-top: 0px; overflow-x: auto; width: 100%; align-items: start; justify-content: center;">
         <div class="card">
           <div class="content">
             <p class="heading">No coding skills? No problem
             </p><p class="para">
-             Create your first web app in minutes, without 1 line of code!
+             Create your first web app in minutes, without 1 line of code! Try the power of Buildable.
             </p>
             <button onclick="goToBuildable()" class="btn">Let's create my first app</button>
           </div>
@@ -627,7 +461,7 @@ button:hover span {
           <div class="content">
             <p class="heading">Android, iOS, Windows, Mac, Linux, ...
             </p><p class="para">
-              With Buildable you can create powerful apps for any device who has a browser and an internet connection 
+              With Buildable you can create powerful apps for any device who has a browser and an internet connection.
             </p>
             <button onclick="goToBuildable()" class="btn">Let's create my first app</button>
           </div>
@@ -639,7 +473,7 @@ button:hover span {
         <div class="content">
           <p class="heading">Stop losing time downloading apps
           </p><p class="para">
-            With Buildable you can create an app and publish it globally on internet, without users download. If you need to publish your app to an online store you can do it
+            With Buildable you can create an app and publish it globally on internet, without users download. You can also publish your app to an online store if you need.
           </p>
           <button onclick="goToBuildable()" class="btn">Let's create my first app</button>
         </div>
@@ -649,7 +483,7 @@ button:hover span {
         <div class="content">
           <p class="heading">Powerful infrastructure
           </p><p class="para">
-           Buildable is hosted on some of the biggest cloud hosting companies, don't worry about data lost and slow servers
+           Buildable is hosted on some of the biggest cloud hosting companies, don't worry about data lost and slow servers.
           </p>
           <button onclick="goToBuildable()" class="btn">Let's create my first app</button>
         </div>
@@ -658,630 +492,586 @@ button:hover span {
     
 
     <div style="  background: #22252a; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 100px;">
-   <h1 style="font-size: 60px; margin-bottom: -70px;">Who we are?</h1>
-        <div class="responsive_div1">
+      <img class="img1" src="https://i.ibb.co/4fF0RCd/logo.png" style="border-radius: 50%; width: 350px; display: none;">
+      <h1 style="font-size: 60px;">Who we are?</h1>
+        <div class="responsive_div1" style="display: flex; flex-direction: row; margin-right: 150px; margin-left: 150px;">
          <div>
          <h1 style="font-size: 40px; margin-bottom: 0px; margin-top: 0px;">VerDev</h1>
          <p style="font-size: 25px; margin-top: 8px;">We are an italian team in love with coding and informatic sistems, we love to broke limits and we created Buildable for helping people to create their apps easly and faster.</p>
          <p style="font-size: 25px; margin-bottom: 100px;">We created Buildable for people who wants to create their apps easly but who still want have access to the app code for professional purposes.</p>
         </div>
-        <img src="https://i.ibb.co/4fF0RCd/logo.png" style="border-radius: 50%; width: 350px; margin-bottom: 150px; margin-left: 150px;">
+        <img class="img2" src="https://i.ibb.co/4fF0RCd/logo.png" style="border-radius: 50%; width: 350px; margin-bottom: 150px; margin-left: 150px;">
         </div>
       </div>
 
-
-        <div class="responsive_div1">
-        <div style="display: flex; align-items: center; justify-content: center;  overflow-x: hidden; overflow-y: hidden;padding-top: 100px;">
-        <iframe style="width: 800px; height: 500px; display: flex; flex-direction: column; align-items: center; overflow: hidden ;   border: 1px transparent; overflow-x: hidden; overflow-y: hidden;" srcdoc='
-        <html>
-          <head>
-            <style>
-
-              .loader {
-                scale: 1.4;
-                width:80%;
-                height: 80%;
-                --color: #a5a5b0;
-                --size: 40px;
-                position: relative;
-              }
-              
-            
-              .loader svg {
-                padding: 20%;
-                fill: var(--color);
-                animation: keyframes-blink .5s infinite ease-in-out;
-              }
-              
-              @keyframes keyframes-rotate {
-                0% {
-                  transform: rotate(360deg);
-                }
-              }
-              
-              @keyframes keyframes-blink {
-                50% {
-                  opacity: 0.8;
-                }
-              }
-              </style
-          </head>
-          <body>
-            <div class="loader">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V352c0-35.3-28.7-64-64-64H64zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm56 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"></path></svg>
-              <span></span>
-            </div>
-            </body
-          </html>
-        
-        
-        '></iframe>
-      </div>
+      <div style="display: flex; flex-direction: row; margin-left: 150px; margin-right: 150px; z-index: 1;">
+        <div class="loader">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V352c0-35.3-28.7-64-64-64H64zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm56 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"></path></svg>
+          <span></span>
+        </div>
         <div>
         <h2 style="margin-left: 100px; margin-bottom: 0px; margin-top: 20px; font-size: 60px;">Plans and costs?</h2>
         <p style="margin-left: 100px; margin-right: 20px; margin-top: 5px; font-size: 22px;">One of our biggest priorities is to mantain the free plan with some ads when you create your app because we love free things that works well.</p> 
         <p style="margin-left: 100px; margin-right: 20px; margin-top: 5px; font-size: 22px;">But we will have to implement a paid plan because as you will discover we need some income for mantaining our infrastructure and our team to squeeze the 100% from Buildable.</p>
      </div>
-      </div>
+    </div>
  
       <div>
         <div style="display: flex; flex-direction: column; background-color: #22252a;">
           <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <h1 style="font-size: 60px; width: 70%; margin-bottom: 0px;">What do I need to start?</h1>
-        <p style="font-size: 30px; width: 70%;">For start using Buildable the only thing that you need is a computer and an internet connection. Start your developer career whit us, click on the button below</p>
-        <iframe style="height: 500px; display: flex; flex-direction: column; align-items: center; overflow: hidden ; scale: 3; border: 1px transparent; overflow-x: hidden; overflow-y: hidden; margin-top: 100px;" srcdoc='
-        <html>
-          <head>
-            <style>
-              .macbook {
-                width: 150px;
-                height: 96px;
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                margin: -85px 0 0 -78px;
-                perspective: 500px;
-              }
-              
-              .shadow {
-                position: absolute;
-                width: 60px;
-                height: 0px;
-                left: 40px;
-                top: 160px;
-                transform: rotateX(80deg) rotateY(0deg) rotateZ(0deg);
-                box-shadow: 0 0 60px 40px rgba(0,0,0,0.3);
-                animation: shadow infinite 7s ease;
-              }
-              
-              .inner {
-                z-index: 20;
-                position: absolute;
-                width: 150px;
-                height: 96px;
-                left: 0;
-                top: 0;
-                transform-style: preserve-3d;
-                transform: rotateX(-20deg) rotateY(0deg) rotateZ(0deg);
-                animation: rotate infinite 7s ease;
-              }
-              
-              .screen {
-                width: 150px;
-                height: 96px;
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                border-radius: 7px;
-                background: #ddd;
-                transform-style: preserve-3d;
-                transform-origin: 50% 93px;
-                transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-                animation: lid-screen infinite 7s ease;
-                background-image: linear-gradient(45deg, rgba(0,0,0,0.34) 0%,rgba(0,0,0,0) 100%);
-                background-position: left bottom;
-                background-size: 300px 300px;
-                box-shadow: inset 0 3px 7px rgba(255,255,255,0.5);
-              }
-              
-              .screen .logo {
-                position: absolute;
-                width: 20px;
-                height: 24px;
-                left: 50%;
-                top: 50%;
-                margin: -12px 0 0 -10px;
-                transform: rotateY(180deg) translateZ(0.1px);
-              }
-              
-              .screen .face-one {
-                width: 150px;
-                height: 96px;
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                border-radius: 7px;
-                background: #d3d3d3;
-                transform: translateZ(2px);
-                background-image: linear-gradient(45deg,rgba(0,0,0,0.24) 0%,rgba(0,0,0,0) 100%);
-              }
-              
-              .screen .face-one .camera {
-                width: 3px;
-                height: 3px;
-                border-radius: 100%;
-                background: #000;
-                position: absolute;
-                left: 50%;
-                top: 4px;
-                margin-left: -1.5px;
-              }
-              
-              .screen .face-one .display {
-                width: 130px;
-                height: 74px;
-                margin: 10px;
-                background-color: #000;
-                background-size: 100% 100%;
-                border-radius: 1px;
-                position: relative;
-                box-shadow: inset 0 0 2px rgba(0,0,0,1);
-              }
-              
-              .screen .face-one .display .shade {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 130px;
-                height: 74px;
-                background: linear-gradient(-135deg, rgba(255,255,255,0) 0%,rgba(255,255,255,0.1) 47%,rgba(255,255,255,0) 48%);
-                animation: screen-shade infinite 7s ease;
-                background-size: 300px 200px;
-                background-position: 0px 0px;
-              }
-              
-              .screen .face-one span {
-                position: absolute;
-                top: 85px;
-                left: 57px;
-                font-size: 6px;
-                color: #666
-              }
-              
-              .macbody {
-                width: 150px;
-                height: 96px;
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                border-radius: 7px;
-                background: #cbcbcb;
-                transform-style: preserve-3d;
-                transform-origin: 50% bottom;
-                transform: rotateX(-90deg);
-                animation: lid-macbody infinite 7s ease;
-                background-image: linear-gradient(45deg, rgba(0,0,0,0.24) 0%,rgba(0,0,0,0) 100%);
-              }
-              
-              .macbody .face-one {
-                width: 150px;
-                height: 96px;
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                border-radius: 7px;
-                transform-style: preserve-3d;
-                background: #dfdfdf;
-                animation: lid-keyboard-area infinite 7s ease;
-                transform: translateZ(-2px);
-                background-image: linear-gradient(30deg, rgba(0,0,0,0.24) 0%,rgba(0,0,0,0) 100%);
-              }
-              
-              .macbody .touchpad {
-                width: 40px;
-                height: 31px;
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                border-radius: 4px;
-                margin: -44px 0 0 -18px;
-                background: #cdcdcd;
-                background-image: linear-gradient(30deg, rgba(0,0,0,0.24) 0%,rgba(0,0,0,0) 100%);
-                box-shadow: inset 0 0 3px #888;
-              }
-              
-              .macbody .keyboard {
-                width: 130px;
-                height: 45px;
-                position: absolute;
-                left: 7px;
-                top: 41px;
-                border-radius: 4px;
-                transform-style: preserve-3d;
-                background: #cdcdcd;
-                background-image: linear-gradient(30deg, rgba(0,0,0,0.24) 0%,rgba(0,0,0,0) 100%);
-                box-shadow: inset 0 0 3px #777;
-                padding: 0 0 0 2px;
-              }
-              
-              .keyboard .key {
-                width: 6px;
-                height: 6px;
-                background: #444;
-                float: left;
-                margin: 1px;
-                transform: translateZ(-2px);
-                border-radius: 2px;
-                box-shadow: 0 -2px 0 #222;
-                animation: keys infinite 30s ease;
-              }
-              
-              .key.space {
-                width: 45px;
-              }
-              
-              .key.f {
-                height: 3px;
-              }
-              
-              .macbody .pad {
-                width: 5px;
-                height: 5px;
-                background: #333;
-                border-radius: 100%;
-                position: absolute;
-              }
-              
-              .pad.one {
-                left: 20px;
-                top: 20px;
-              }
-              
-              .pad.two {
-                right: 20px;
-                top: 20px;
-              }
-              
-              .pad.three {
-                right: 20px;
-                bottom: 20px;
-              }
-              
-              .pad.four {
-                left: 20px;
-                bottom: 20px;
-              }
-              
-              @keyframes rotate {
-                0% {
-                  transform: rotateX(-20deg) rotateY(0deg) rotateZ(0deg);
-                }
-              
-                5% {
-                  transform: rotateX(-20deg) rotateY(-20deg) rotateZ(0deg);
-                }
-              
-                20% {
-                  transform: rotateX(30deg) rotateY(200deg) rotateZ(0deg);
-                }
-              
-                25% {
-                  transform: rotateX(-60deg) rotateY(150deg) rotateZ(0deg);
-                }
-              
-                60% {
-                  transform: rotateX(-20deg) rotateY(130deg) rotateZ(0deg);
-                }
-              
-                65% {
-                  transform: rotateX(-20deg) rotateY(120deg) rotateZ(0deg);
-                }
-              
-                80% {
-                  transform: rotateX(-20deg) rotateY(375deg) rotateZ(0deg);
-                }
-              
-                85% {
-                  transform: rotateX(-20deg) rotateY(357deg) rotateZ(0deg);
-                }
-              
-                87% {
-                  transform: rotateX(-20deg) rotateY(360deg) rotateZ(0deg);
-                }
-              
-                100% {
-                  transform: rotateX(-20deg) rotateY(360deg) rotateZ(0deg);
-                }
-              }
-              
-              @keyframes lid-screen {
-                0% {
-                  transform: rotateX(0deg);
-                  background-position: left bottom;
-                }
-              
-                5% {
-                  transform: rotateX(50deg);
-                  background-position: left bottom;
-                }
-              
-                20% {
-                  transform: rotateX(-90deg);
-                  background-position: -150px top;
-                }
-              
-                25% {
-                  transform: rotateX(15deg);
-                  background-position: left bottom;
-                }
-              
-                30% {
-                  transform: rotateX(-5deg);
-                  background-position: right top;
-                }
-              
-                38% {
-                  transform: rotateX(5deg);
-                  background-position: right top;
-                }
-              
-                48% {
-                  transform: rotateX(0deg);
-                  background-position: right top;
-                }
-              
-                90% {
-                  transform: rotateX(0deg);
-                  background-position: right top;
-                }
-              
-                100% {
-                  transform: rotateX(0deg);
-                  background-position: right center;
-                }
-              }
-              
-              @keyframes lid-macbody {
-                0% {
-                  transform: rotateX(-90deg);
-                }
-              
-                50% {
-                  transform: rotateX(-90deg);
-                }
-              
-                100% {
-                  transform: rotateX(-90deg);
-                }
-              }
-              
-              @keyframes lid-keyboard-area {
-                0% {
-                  background-color: #dfdfdf;
-                }
-              
-                50% {
-                  background-color: #bbb;
-                }
-              
-                100% {
-                  background-color: #dfdfdf;
-                }
-              }
-              
-              @keyframes screen-shade {
-                0% {
-                  background-position: -20px 0px;
-                }
-              
-                5% {
-                  background-position: -40px 0px;
-                }
-              
-                20% {
-                  background-position: 200px 0;
-                }
-              
-                50% {
-                  background-position: -200px 0;
-                }
-              
-                80% {
-                  background-position: 0px 0px;
-                }
-              
-                85% {
-                  background-position: -30px 0;
-                }
-              
-                90% {
-                  background-position: -20px 0;
-                }
-              
-                100% {
-                  background-position: -20px 0px;
-                }
-              }
-              
-              @keyframes keys {
-                0% {
-                  box-shadow: 0 -2px 0 #222;
-                }
-              
-                5% {
-                  box-shadow: 1 -1px 0 #222;
-                }
-              
-                20% {
-                  box-shadow: -1px 1px 0 #222;
-                }
-              
-                25% {
-                  box-shadow: -1px 1px 0 #222;
-                }
-              
-                60% {
-                  box-shadow: -1px 1px 0 #222;
-                }
-              
-                80% {
-                  box-shadow: 0 -2px 0 #222;
-                }
-              
-                85% {
-                  box-shadow: 0 -2px 0 #222;
-                }
-              
-                87% {
-                  box-shadow: 0 -2px 0 #222;
-                }
-              
-                100% {
-                  box-shadow: 0 -2px 0 #222;
-                }
-              }
-              
-              @keyframes shadow {
-                0% {
-                  transform: rotateX(80deg) rotateY(0deg) rotateZ(0deg);
-                  box-shadow: 0 0 60px 40px rgba(0,0,0,0.3);
-                }
-              
-                5% {
-                  transform: rotateX(80deg) rotateY(10deg) rotateZ(0deg);
-                  box-shadow: 0 0 60px 40px rgba(0,0,0,0.3);
-                }
-              
-                20% {
-                  transform: rotateX(30deg) rotateY(-20deg) rotateZ(-20deg);
-                  box-shadow: 0 0 50px 30px rgba(0,0,0,0.3);
-                }
-              
-                25% {
-                  transform: rotateX(80deg) rotateY(-20deg) rotateZ(50deg);
-                  box-shadow: 0 0 35px 15px rgba(0,0,0,0.1);
-                }
-              
-                60% {
-                  transform: rotateX(80deg) rotateY(0deg) rotateZ(-50deg) translateX(30px);
-                  box-shadow: 0 0 60px 40px rgba(0,0,0,0.3);
-                }
-              
-                100% {
-                  box-shadow: 0 0 60px 40px rgba(0,0,0,0.3);
-                }
-              }
-              
-              </style
-          </head>
-          <body>
-            <div class="macbook">
-              <div class="inner">
-                <div class="screen">
-                  <div class="face-one">
-                    <div class="camera"></div>
-                    <div class="display">
-                      <div class="shade"></div>
+            <iframe style="height: 500px; display: flex; flex-direction: column; align-items: center; overflow: hidden ; scale: 3; border: 1px transparent; overflow-x: hidden; overflow-y: hidden; margin-top: 100px;" srcdoc='
+            <html>
+              <head>
+                <style>
+                  .macbook {
+                    width: 150px;
+                    height: 96px;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    margin: -85px 0 0 -78px;
+                    perspective: 500px;
+                  }
+                  
+                  .shadow {
+                    position: absolute;
+                    width: 60px;
+                    height: 0px;
+                    left: 40px;
+                    top: 160px;
+                    transform: rotateX(80deg) rotateY(0deg) rotateZ(0deg);
+                    box-shadow: 0 0 60px 40px rgba(0,0,0,0.3);
+                    animation: shadow infinite 7s ease;
+                  }
+                  
+                  .inner {
+                    z-index: 20;
+                    position: absolute;
+                    width: 150px;
+                    height: 96px;
+                    left: 0;
+                    top: 0;
+                    transform-style: preserve-3d;
+                    transform: rotateX(-20deg) rotateY(0deg) rotateZ(0deg);
+                    animation: rotate infinite 7s ease;
+                  }
+                  
+                  .screen {
+                    width: 150px;
+                    height: 96px;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    border-radius: 7px;
+                    background: #ddd;
+                    transform-style: preserve-3d;
+                    transform-origin: 50% 93px;
+                    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+                    animation: lid-screen infinite 7s ease;
+                    background-image: linear-gradient(45deg, rgba(0,0,0,0.34) 0%,rgba(0,0,0,0) 100%);
+                    background-position: left bottom;
+                    background-size: 300px 300px;
+                    box-shadow: inset 0 3px 7px rgba(255,255,255,0.5);
+                  }
+                  
+                  .screen .logo {
+                    position: absolute;
+                    width: 20px;
+                    height: 24px;
+                    left: 50%;
+                    top: 50%;
+                    margin: -12px 0 0 -10px;
+                    transform: rotateY(180deg) translateZ(0.1px);
+                  }
+                  
+                  .screen .face-one {
+                    width: 150px;
+                    height: 96px;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    border-radius: 7px;
+                    background: #d3d3d3;
+                    transform: translateZ(2px);
+                    background-image: linear-gradient(45deg,rgba(0,0,0,0.24) 0%,rgba(0,0,0,0) 100%);
+                  }
+                  
+                  .screen .face-one .camera {
+                    width: 3px;
+                    height: 3px;
+                    border-radius: 100%;
+                    background: #000;
+                    position: absolute;
+                    left: 50%;
+                    top: 4px;
+                    margin-left: -1.5px;
+                  }
+                  
+                  .screen .face-one .display {
+                    width: 130px;
+                    height: 74px;
+                    margin: 10px;
+                    background-color: #000;
+                    background-size: 100% 100%;
+                    border-radius: 1px;
+                    position: relative;
+                    box-shadow: inset 0 0 2px rgba(0,0,0,1);
+                  }
+                  
+                  .screen .face-one .display .shade {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 130px;
+                    height: 74px;
+                    background: linear-gradient(-135deg, rgba(255,255,255,0) 0%,rgba(255,255,255,0.1) 47%,rgba(255,255,255,0) 48%);
+                    animation: screen-shade infinite 7s ease;
+                    background-size: 300px 200px;
+                    background-position: 0px 0px;
+                  }
+                  
+                  .screen .face-one span {
+                    position: absolute;
+                    top: 85px;
+                    left: 57px;
+                    font-size: 6px;
+                    color: #666
+                  }
+                  
+                  .macbody {
+                    width: 150px;
+                    height: 96px;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    border-radius: 7px;
+                    background: #cbcbcb;
+                    transform-style: preserve-3d;
+                    transform-origin: 50% bottom;
+                    transform: rotateX(-90deg);
+                    animation: lid-macbody infinite 7s ease;
+                    background-image: linear-gradient(45deg, rgba(0,0,0,0.24) 0%,rgba(0,0,0,0) 100%);
+                  }
+                  
+                  .macbody .face-one {
+                    width: 150px;
+                    height: 96px;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    border-radius: 7px;
+                    transform-style: preserve-3d;
+                    background: #dfdfdf;
+                    animation: lid-keyboard-area infinite 7s ease;
+                    transform: translateZ(-2px);
+                    background-image: linear-gradient(30deg, rgba(0,0,0,0.24) 0%,rgba(0,0,0,0) 100%);
+                  }
+                  
+                  .macbody .touchpad {
+                    width: 40px;
+                    height: 31px;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    border-radius: 4px;
+                    margin: -44px 0 0 -18px;
+                    background: #cdcdcd;
+                    background-image: linear-gradient(30deg, rgba(0,0,0,0.24) 0%,rgba(0,0,0,0) 100%);
+                    box-shadow: inset 0 0 3px #888;
+                  }
+                  
+                  .macbody .keyboard {
+                    width: 130px;
+                    height: 45px;
+                    position: absolute;
+                    left: 7px;
+                    top: 41px;
+                    border-radius: 4px;
+                    transform-style: preserve-3d;
+                    background: #cdcdcd;
+                    background-image: linear-gradient(30deg, rgba(0,0,0,0.24) 0%,rgba(0,0,0,0) 100%);
+                    box-shadow: inset 0 0 3px #777;
+                    padding: 0 0 0 2px;
+                  }
+                  
+                  .keyboard .key {
+                    width: 6px;
+                    height: 6px;
+                    background: #444;
+                    float: left;
+                    margin: 1px;
+                    transform: translateZ(-2px);
+                    border-radius: 2px;
+                    box-shadow: 0 -2px 0 #222;
+                    animation: keys infinite 30s ease;
+                  }
+                  
+                  .key.space {
+                    width: 45px;
+                  }
+                  
+                  .key.f {
+                    height: 3px;
+                  }
+                  
+                  .macbody .pad {
+                    width: 5px;
+                    height: 5px;
+                    background: #333;
+                    border-radius: 100%;
+                    position: absolute;
+                  }
+                  
+                  .pad.one {
+                    left: 20px;
+                    top: 20px;
+                  }
+                  
+                  .pad.two {
+                    right: 20px;
+                    top: 20px;
+                  }
+                  
+                  .pad.three {
+                    right: 20px;
+                    bottom: 20px;
+                  }
+                  
+                  .pad.four {
+                    left: 20px;
+                    bottom: 20px;
+                  }
+                  
+                  @keyframes rotate {
+                    0% {
+                      transform: rotateX(-20deg) rotateY(0deg) rotateZ(0deg);
+                    }
+                  
+                    5% {
+                      transform: rotateX(-20deg) rotateY(-20deg) rotateZ(0deg);
+                    }
+                  
+                    20% {
+                      transform: rotateX(30deg) rotateY(200deg) rotateZ(0deg);
+                    }
+                  
+                    25% {
+                      transform: rotateX(-60deg) rotateY(150deg) rotateZ(0deg);
+                    }
+                  
+                    60% {
+                      transform: rotateX(-20deg) rotateY(130deg) rotateZ(0deg);
+                    }
+                  
+                    65% {
+                      transform: rotateX(-20deg) rotateY(120deg) rotateZ(0deg);
+                    }
+                  
+                    80% {
+                      transform: rotateX(-20deg) rotateY(375deg) rotateZ(0deg);
+                    }
+                  
+                    85% {
+                      transform: rotateX(-20deg) rotateY(357deg) rotateZ(0deg);
+                    }
+                  
+                    87% {
+                      transform: rotateX(-20deg) rotateY(360deg) rotateZ(0deg);
+                    }
+                  
+                    100% {
+                      transform: rotateX(-20deg) rotateY(360deg) rotateZ(0deg);
+                    }
+                  }
+                  
+                  @keyframes lid-screen {
+                    0% {
+                      transform: rotateX(0deg);
+                      background-position: left bottom;
+                    }
+                  
+                    5% {
+                      transform: rotateX(50deg);
+                      background-position: left bottom;
+                    }
+                  
+                    20% {
+                      transform: rotateX(-90deg);
+                      background-position: -150px top;
+                    }
+                  
+                    25% {
+                      transform: rotateX(15deg);
+                      background-position: left bottom;
+                    }
+                  
+                    30% {
+                      transform: rotateX(-5deg);
+                      background-position: right top;
+                    }
+                  
+                    38% {
+                      transform: rotateX(5deg);
+                      background-position: right top;
+                    }
+                  
+                    48% {
+                      transform: rotateX(0deg);
+                      background-position: right top;
+                    }
+                  
+                    90% {
+                      transform: rotateX(0deg);
+                      background-position: right top;
+                    }
+                  
+                    100% {
+                      transform: rotateX(0deg);
+                      background-position: right center;
+                    }
+                  }
+                  
+                  @keyframes lid-macbody {
+                    0% {
+                      transform: rotateX(-90deg);
+                    }
+                  
+                    50% {
+                      transform: rotateX(-90deg);
+                    }
+                  
+                    100% {
+                      transform: rotateX(-90deg);
+                    }
+                  }
+                  
+                  @keyframes lid-keyboard-area {
+                    0% {
+                      background-color: #dfdfdf;
+                    }
+                  
+                    50% {
+                      background-color: #bbb;
+                    }
+                  
+                    100% {
+                      background-color: #dfdfdf;
+                    }
+                  }
+                  
+                  @keyframes screen-shade {
+                    0% {
+                      background-position: -20px 0px;
+                    }
+                  
+                    5% {
+                      background-position: -40px 0px;
+                    }
+                  
+                    20% {
+                      background-position: 200px 0;
+                    }
+                  
+                    50% {
+                      background-position: -200px 0;
+                    }
+                  
+                    80% {
+                      background-position: 0px 0px;
+                    }
+                  
+                    85% {
+                      background-position: -30px 0;
+                    }
+                  
+                    90% {
+                      background-position: -20px 0;
+                    }
+                  
+                    100% {
+                      background-position: -20px 0px;
+                    }
+                  }
+                  
+                  @keyframes keys {
+                    0% {
+                      box-shadow: 0 -2px 0 #222;
+                    }
+                  
+                    5% {
+                      box-shadow: 1 -1px 0 #222;
+                    }
+                  
+                    20% {
+                      box-shadow: -1px 1px 0 #222;
+                    }
+                  
+                    25% {
+                      box-shadow: -1px 1px 0 #222;
+                    }
+                  
+                    60% {
+                      box-shadow: -1px 1px 0 #222;
+                    }
+                  
+                    80% {
+                      box-shadow: 0 -2px 0 #222;
+                    }
+                  
+                    85% {
+                      box-shadow: 0 -2px 0 #222;
+                    }
+                  
+                    87% {
+                      box-shadow: 0 -2px 0 #222;
+                    }
+                  
+                    100% {
+                      box-shadow: 0 -2px 0 #222;
+                    }
+                  }
+                  
+                  @keyframes shadow {
+                    0% {
+                      transform: rotateX(80deg) rotateY(0deg) rotateZ(0deg);
+                      box-shadow: 0 0 60px 40px rgba(0,0,0,0.3);
+                    }
+                  
+                    5% {
+                      transform: rotateX(80deg) rotateY(10deg) rotateZ(0deg);
+                      box-shadow: 0 0 60px 40px rgba(0,0,0,0.3);
+                    }
+                  
+                    20% {
+                      transform: rotateX(30deg) rotateY(-20deg) rotateZ(-20deg);
+                      box-shadow: 0 0 50px 30px rgba(0,0,0,0.3);
+                    }
+                  
+                    25% {
+                      transform: rotateX(80deg) rotateY(-20deg) rotateZ(50deg);
+                      box-shadow: 0 0 35px 15px rgba(0,0,0,0.1);
+                    }
+                  
+                    60% {
+                      transform: rotateX(80deg) rotateY(0deg) rotateZ(-50deg) translateX(30px);
+                      box-shadow: 0 0 60px 40px rgba(0,0,0,0.3);
+                    }
+                  
+                    100% {
+                      box-shadow: 0 0 60px 40px rgba(0,0,0,0.3);
+                    }
+                  }
+                  
+                  </style
+              </head>
+              <body>
+                <div class="macbook">
+                  <div class="inner">
+                    <div class="screen">
+                      <div class="face-one">
+                        <div class="camera"></div>
+                        <div class="display">
+                          <div class="shade"></div>
+                        </div>
+                      </div>
+                  <title>Layer 1</title>
+                  </div>
+                    <div class="macbody">
+                      <div class="face-one">
+                        <div class="touchpad">
+                        </div>
+                        <div class="keyboard">
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key space"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key"></div>
+                          <div class="key f"></div>
+                          <div class="key f"></div>
+                          <div class="key f"></div>
+                          <div class="key f"></div>
+                          <div class="key f"></div>
+                          <div class="key f"></div>
+                          <div class="key f"></div>
+                          <div class="key f"></div>
+                          <div class="key f"></div>
+                          <div class="key f"></div>
+                          <div class="key f"></div>
+                          <div class="key f"></div>
+                          <div class="key f"></div>
+                          <div class="key f"></div>
+                          <div class="key f"></div>
+                          <div class="key f"></div>
+                        </div>
+                      </div>
+                      <div class="pad one"></div>
+                      <div class="pad two"></div>
+                      <div class="pad three"></div>
+                      <div class="pad four"></div>
                     </div>
                   </div>
-              <title>Layer 1</title>
-              </div>
-                <div class="macbody">
-                  <div class="face-one">
-                    <div class="touchpad">
-                    </div>
-                    <div class="keyboard">
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key space"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key"></div>
-                      <div class="key f"></div>
-                      <div class="key f"></div>
-                      <div class="key f"></div>
-                      <div class="key f"></div>
-                      <div class="key f"></div>
-                      <div class="key f"></div>
-                      <div class="key f"></div>
-                      <div class="key f"></div>
-                      <div class="key f"></div>
-                      <div class="key f"></div>
-                      <div class="key f"></div>
-                      <div class="key f"></div>
-                      <div class="key f"></div>
-                      <div class="key f"></div>
-                      <div class="key f"></div>
-                      <div class="key f"></div>
-                    </div>
-                  </div>
-                  <div class="pad one"></div>
-                  <div class="pad two"></div>
-                  <div class="pad three"></div>
-                  <div class="pad four"></div>
+                  <div class="shadow"></div>
                 </div>
-              </div>
-              <div class="shadow"></div>
-            </div>
-            
-            </body
-          </html>
-        
-        
-        '></iframe>
+                
+                </body
+              </html>
+            '></iframe>
+        <h1 style="font-size: 60px; width: 70%; margin-bottom: 0px; margin-top: 0px; z-index: 1;">What do I need to start?</h1>
+        <p style="font-size: 30px; width: 70%; z-index: 1;">For start using Buildable the only thing that you need is a computer (soon will be available the mobile phone version) and an internet connection. Start your developer career whit us, click on the button below</p>
       </div>
 
       <div style="display: flex;width: 100%; align-items: center; justify-content: center; margin-bottom: 100px; margin-top: 30px;">
