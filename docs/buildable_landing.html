@@ -392,7 +392,181 @@ button:hover span {
 
         /*LAYOUT RESPONSIVI*/
 
-      @media (max-width: 550px) {
+        @media (max-width: 600px) {
+
+#home_page{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  justify-items: center !important;
+}
+
+
+
+.overlay{
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+
+.spinner{
+  display: none !important;
+margin-top: 200px !important;
+margin-left: 0px;
+z-index: -1;
+scale: 5;
+width: 70px;
+height: 70px;
+--clr: #9db6eb;
+--clr-alpha: #9db6eb2b;
+animation: spinner 60s infinite ease;
+transform-style: preserve-3d;
+}
+
+
+.pp{
+  font-size: 20px !important;
+}
+
+
+.pp1{
+ font-size: 20px !important;
+}
+
+
+.header{
+border-end-start-radius: 25px !important;
+border-end-end-radius: 25px !important;
+}
+
+.responsive_div1{
+  display: flex !important;
+overflow-x: hidden !important;
+flex-direction: column !important;
+justify-content: center !important;
+align-items: center !important;
+}
+
+.card{
+  border: 0.2px solid rgb(56, 56, 56);
+  width: 80% !important;
+  margin-left: 0px !important;
+  margin-top: 10px !important;
+  scale: 0.9;
+}
+
+.h1{
+  margin-top: 50px !important;
+  font-size: 30px !important;
+}
+
+.h2{
+  font-size: 30px !important;
+}
+
+.p2{
+  font-size: 18px !important;
+}
+
+.p1{
+  font-size: 18px !important;
+}
+
+.responsive_div2{
+  display: flex !important;
+  flex-direction: column !important;
+  margin-top: 60px;
+  width: 90% !important;
+}
+
+.img1{
+  display: flex !important;
+  margin-top: 60px;
+  width: 80% !important;
+}
+
+.img2{
+  display: none;
+}
+
+.h3{
+  text-align: left;
+  width: 100%;
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+  font-size: 30px !important;
+}
+
+.p3{
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+  font-size: 18px !important;
+}
+
+.p4{
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+  font-size: 18px !important;
+}
+
+.responsive_div3{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 95% !important;
+}
+
+.loader{
+  width: 90%;
+}
+
+.iframe1{
+  scale: 1.5 !important;
+  margin-top: -70px !important;
+  margin-bottom: -100px !important;
+}
+
+.responsive_div4{
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.h5{
+  text-align: left;
+  width: 100%;
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+  font-size: 30px !important;
+}
+
+.p6{
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+  font-size: 18px !important;
+}
+
+.start_buildable{
+scale: 1 !important;
+display: flex;
+justify-content: center !important;
+align-items: center !important;
+width: 50% !important;
+}
+
+
+
+
+}
+
+
+      @media (min-width: 601px) {
+
+        
 
         #home_page{
           display: flex !important;
@@ -403,8 +577,8 @@ button:hover span {
         }
 
         .header{
-        border-end-start-radius: 25px !important;
-        border-end-end-radius: 25px !important;
+        border-end-start-radius: 50px !important;
+        border-end-end-radius: 50px !important;
         }
 
         .responsive_div1{
@@ -421,35 +595,37 @@ button:hover span {
           margin-left: 0px !important;
           margin-top: 10px !important;
           scale: 0.9;
+          min-height: 300px !important;
         }
 
+      
         .h1{
           display: none !important;
         }
 
         .h2{
-          font-size: 30px !important;
+          font-size: 50px !important;
         }
 
         .p2{
-          font-size: 18px !important;
+          font-size: 22px !important;
         }
 
         .p1{
-          font-size: 18px !important;
+          font-size: 22px !important;
         }
 
         .responsive_div2{
           display: flex !important;
           flex-direction: column !important;
           margin-top: 60px;
-          width: 90% !important;
+          width: 70% !important;
         }
 
         .img1{
           display: flex !important;
           margin-top: 60px;
-          width: 80% !important;
+          width: 30% !important;
         }
 
         .img2{
@@ -461,19 +637,19 @@ button:hover span {
           width: 100%;
           margin-right: 0px !important;
           margin-left: 0px !important;
-          font-size: 30px !important;
+          font-size: 50px !important;
         }
 
         .p3{
           margin-right: 0px !important;
           margin-left: 0px !important;
-          font-size: 18px !important;
+          font-size: 22px !important;
         }
 
         .p4{
           margin-right: 0px !important;
           margin-left: 0px !important;
-          font-size: 18px !important;
+          font-size: 22px !important;
         }
 
         .responsive_div3{
@@ -481,17 +657,18 @@ button:hover span {
           flex-direction: column !important;
           align-items: center !important;
           justify-content: center !important;
-          width: 95% !important;
+          width: 80% !important;
+          margin-bottom: 50px;
         }
 
         .loader{
-          width: 90%;
+          width: 60%;
         }
 
         .iframe1{
-          scale: 1.5 !important;
-          margin-top: -70px !important;
-          margin-bottom: -100px !important;
+          scale: 3 !important;
+          margin-top: 100px !important;
+          margin-bottom: 50px !important;
         }
 
         .responsive_div4{
@@ -499,7 +676,7 @@ button:hover span {
           flex-direction: column !important;
           justify-content: center !important;
           align-items: center !important;
-          width: 100% !important;
+          width: 70% !important;
         }
 
         .h5{
@@ -507,21 +684,22 @@ button:hover span {
           width: 100%;
           margin-right: 0px !important;
           margin-left: 0px !important;
-          font-size: 30px !important;
+          font-size: 50px !important;
         }
 
         .p6{
           margin-right: 0px !important;
           margin-left: 0px !important;
-          font-size: 18px !important;
+          font-size: 22px !important;
         }
 
        .start_buildable{
-        scale: 1 !important;
+        margin-top: 30px !important;
+        scale: 1.5 !important;
         display: flex;
         justify-content: center !important;
         align-items: center !important;
-        width: 50% !important;
+        width: auto !important;
        }
 
 
@@ -530,15 +708,166 @@ button:hover span {
     }
 
 
-      @media (min-width: 551px) {
-
-      
-
-    }
+   
 
 
      @media (min-width: 1100px) {
 
+      
+        #home_page{
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+          justify-content: center !important;
+          justify-items: center !important;
+        }
+
+        .header{
+        border-end-start-radius: 50px !important;
+        border-end-end-radius: 50px !important;
+        }
+
+        .responsive_div1{
+          display: flex !important;
+        overflow-x: hidden !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        }
+
+        .card{
+          border: 0.2px solid rgb(56, 56, 56);
+          width: 80% !important;
+          margin-left: 0px !important;
+          margin-top: 10px !important;
+          scale: 0.9;
+          min-height: 300px !important;
+        }
+
+      
+
+        .h2{
+          font-size: 60px !important;
+        }
+
+        .p2{
+          font-size: 30px !important;
+        }
+
+        .p1{
+          font-size: 30px !important;
+        }
+
+        .responsive_div2{
+          display: flex !important;
+          flex-direction: column !important;
+          margin-top: 60px;
+          width: 50% !important;
+        }
+
+        .img1{
+          display: flex !important;
+          margin-top: 60px;
+          width: 20% !important;
+        }
+
+        .img2{
+          display: none;
+        }
+
+        .h3{
+          text-align: left;
+          width: 100%;
+          margin-right: 0px !important;
+          margin-left: 0px !important;
+          font-size: 60px !important;
+        }
+
+        .p3{
+          margin-right: 0px !important;
+          margin-left: 0px !important;
+          font-size: 30px !important;
+        }
+
+        .p4{
+          margin-right: 0px !important;
+          margin-left: 0px !important;
+          font-size: 30px !important;
+        }
+
+        .responsive_div3{
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+          justify-content: center !important;
+          width: 70% !important;
+        }
+
+        .loader{
+          margin-top: -80px !important;
+          width: 45%;
+          margin-bottom: -100px !important;
+        }
+
+        .iframe1{
+          scale: 3.7 !important;
+          margin-top: 140px !important;
+          margin-bottom: 80px !important;
+        }
+
+        .responsive_div4{
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: center !important;
+          align-items: center !important;
+          width: 55% !important;
+        }
+
+        .h5{
+          text-align: left;
+          width: 100%;
+          margin-right: 0px !important;
+          margin-left: 0px !important;
+          font-size: 60px !important;
+        }
+
+        .p6{
+          margin-right: 0px !important;
+          margin-left: 0px !important;
+          font-size: 30px !important;
+        }
+
+       .start_buildable{
+        scale: 1.7 !important;
+        display: flex;
+        justify-content: center !important;
+        align-items: center !important;
+        width: auto !important;
+       }
+
+
+
+
+    }
+
+
+      @media (min-width: 1350px) {
+
+        .header{
+        border-end-start-radius: 50px !important;
+        border-end-end-radius: 50px !important;
+        }
+
+        .responsive_div1{
+          flex-direction: row !important;
+        }
+
+        .card{
+          min-height: 500px !important;
+        }
+
+
+        
 
      }
 
@@ -553,9 +882,9 @@ button:hover span {
         <div class="header">
             <div class="overlay">
            
-  <div style="display: flex; flex-direction: row;">
-    <div style="display: flex; flex-direction: row;">
-        <p style="font-size: 50px; margin-right: 20px;">Your idea is</p>
+  <div class="div_header_1" style="display: flex; flex-direction: row;">
+    <div class="div_header_2" style="display: flex; flex-direction: row;">
+        <p class="pp1" style="font-size: 50px; margin-right: 20px;">Your idea is</p>
         <div class="carousel-container">
             <div id="carousel" class="carousel">
                 <p class="pp">Creative</p>
