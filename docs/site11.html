@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Visualizza Codice HTML da Firestore</title>
+</head>
+<body>
+  <iframe id="myIframe" style="width: 100%; height: 90vh;"></iframe>
+ <!-- Carica le librerie di Firebase -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
+  <script>
+    // Inizializza Firebase con le tue credenziali
+    var firebaseConfig = {
+    apiKey: "AIzaSyBK8aB1PhRlX3ls_AAMqxElVLmK5hK9SoA",
+    authDomain: "https://buildable-4e170-default-rtdb.firebaseio.com",
+    projectId: "buildable-4e170",
+    storageBucket: "buildable-4e170.appspot.com",
+    messagingSenderId: "SENDER_ID",
+    appId: "1:905693761163:android:ef8213d762a85bc28f8e8e"
+  };
+
+    firebase.initializeApp(firebaseConfig);
+
+    // Ottieni un riferimento al database Firestore
+    const firestore = firebase.firestore();
+
+    // Esegui una query per leggere dati nel percorso "projects/service"
+    firestore.collection('projects').doc('service').get()
+      .then((doc) => {
+        if (doc.exists) {
+          const data = doc.data();
+          const htmlCode = data.code; // Supponiamo che il campo che contiene il codice HTML sia denominato "code"
+
+          // Seleziona l'elemento iframe
+          const iframe = document.getElementById('myIframe');
+
+          // Inserisci il codice HTML nel corpo dell'iframe
+          iframe.contentWindow.document.open();
+          iframe.contentWindow.document.write(htmlCode);
+          iframe.contentWindow.document.close();
+        } else {
+          console.log('Il documento non esiste.');
+        }
+      })
+      .catch((error) => {
+        console.error('Errore durante la lettura dei dati:', error);
+      });
+  </script>
+</body>
+</html>
