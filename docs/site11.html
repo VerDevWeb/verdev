@@ -59,25 +59,30 @@
         console.error('Errore durante la lettura dei dati:', error);
       });
 
-    // Aggiungi gestori di eventi per l'autenticazione
-    const loginButton = document.getElementById('loginButton');
-    loginButton.addEventListener('click', () => {
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
+   // Aggiungi gestori di eventi per l'autenticazione
+const loginButton = document.getElementById('loginButton');
+loginButton.addEventListener('click', () => {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
 
+  // Imposta l'autenticazione persistente
+  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+    .then(() => {
       // Effettua l'autenticazione con Firebase Authentication
-      firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          // Autenticazione riuscita
-          console.log('Autenticazione riuscita:', userCredential.user);
-          // Puoi aggiungere qui il codice per gestire l'autenticazione riuscita
-        })
-        .catch((error) => {
-          // Autenticazione fallita
-          console.error('Errore di autenticazione:', error);
-          // Puoi aggiungere qui il codice per gestire l'autenticazione fallita
-        });
+      return firebase.auth().signInWithEmailAndPassword(email, password);
+    })
+    .then((userCredential) => {
+      // Autenticazione riuscita
+      console.log('Autenticazione riuscita:', userCredential.user);
+      // Puoi aggiungere qui il codice per gestire l'autenticazione riuscita
+    })
+    .catch((error) => {
+      // Autenticazione fallita
+      console.error('Errore di autenticazione:', error);
+      // Puoi aggiungere qui il codice per gestire l'autenticazione fallita
     });
+});
+
   </script>
 </body>
 </html>
