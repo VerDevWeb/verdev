@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Casella di Testo per il Codice HTML</title>
+
+    <style>
+        body{
+            margin: 0;
+            border: 0;
+        }
+
+        .button1{
+           border-radius: 20px;
+           border: 1px solid rgba(255, 255, 255, 0.932);
+           background-color: gray; 
+           padding: 10px;
+           margin-top: 50px;
+           margin-bottom: 50px;
+        }
+
+        .button1:hover{
+           border-radius: 20px;
+           border: 1px solid rgba(255, 255, 255, 0.932);
+           background-color: rgb(46, 107, 56); 
+           color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+    <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+   
+        <iframe style="width: 90%; height: 500px; border-radius: 20px; margin-top: 50px;" src="https://www.youtube.com/embed/vj_ccFaHUGs?si=hfuN1qEE8AlI_X5L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+   
+        <textarea id="html-code"  rows="10" cols="50" style="width: 90%; height: 500px; border-radius: 20px; resize: none; margin-top: 50px;">
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Autenticazione Firebase con Email e Password</title>
+            <!-- Includi Firebase SDK versione 8.6.1 -->
+            <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+            
+            <script>
+                // Inizializza la tua configurazione Firebase
+                const firebaseConfig = {
+                    apiKey: "IL_TUO_API_KEY",
+                    authDomain: "IL_TUO_AUTH_DOMAIN",
+                    projectId: "IL_TUO_PROJECT_ID",
+                    storageBucket: "IL_TUO_STORAGE_BUCKET",
+                    messagingSenderId: "IL_TUO_MESSAGING_SENDER_ID",
+                    appId: "IL_TUO_APP_ID"
+                };
+        
+                // Inizializza Firebase
+                const app = firebase.initializeApp(firebaseConfig);
+                const auth = app.auth();
+        
+                // Funzione di accesso con email e password
+                function loginWithEmailAndPassword() {
+                    const email = document.getElementById("email").value;
+                    const password = document.getElementById("password").value;
+                    
+                    auth.signInWithEmailAndPassword(email, password)
+                        .then((userCredential) => {
+                            const user = userCredential.user;
+                            console.log("Accesso riuscito per " + user.email);
+                        })
+                        .catch((error) => {
+                            console.error("Errore di accesso:", error);
+                        });
+                }
+        
+                // Funzione di logout
+                function logout() {
+                    auth.signOut()
+                        .then(() => {
+                            console.log("Logout riuscito.");
+                        })
+                        .catch((error) => {
+                            console.error("Errore di logout:", error);
+                        });
+                }
+
+                    // Aggiungi un listener per il cambio di stato di autenticazione
+                    auth.onAuthStateChanged((user) => {
+                    const userInfo = document.getElementById("user-info");
+                    if (user) {
+                        userInfo.innerHTML = "Utente: " + user.email;
+                    } else {
+                        userInfo.innerHTML = "Utente non autenticato";
+                    }
+                });
+
+            </script>
+        </head>
+        <body>
+            <h1>Autenticazione Firebase con Email e Password</h1>
+            
+            <div id="user-info"></div>
+            
+            <!-- Campi email e password -->
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Password">
+            
+            <!-- Pulsante di accesso con email e password -->
+            <button onclick="loginWithEmailAndPassword()">Accedi</button>
+            
+            <!-- Pulsante di logout -->
+            <button onclick="logout()">Logout</button>
+        </body>
+        </html>
+        
+    </textarea>
+
+    <div style="display: flex; align-items: center; justify-content: center; width: 90%; border-radius: 20px; border: 1px solid rgba(108, 105, 105, 0.877); min-height: 200px; margin-top: 50px; " id="codice-visualizzato">
+    <h1>Clicca su "Prova il codice" per provare il codice</h1>
+    </div>
+
+    <button class="button1" onclick="visualizzaCodice()">Prova il codice</button>
+    </div>
+   
+  
+
+   
+    <script>
+        function visualizzaCodice() {
+            var textarea = document.getElementById("html-code");
+            var codiceVisualizzato = document.getElementById("codice-visualizzato");
+            codiceVisualizzato.innerHTML = textarea.value;
+        }
+    </script>
+</body>
+</html>
