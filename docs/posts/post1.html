@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Casella di Testo per il Codice HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verdev</title>
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/4fF0RCd/logo.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
 
     <style>
         body{
             margin: 0;
             border: 0;
+            background-color: #141413;
+            color: white;
+            font-family: 'Poppins';
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .button1{
@@ -17,6 +27,7 @@
            padding: 10px;
            margin-top: 50px;
            margin-bottom: 50px;
+           font-family: 'Poppins';
         }
 
         .button1:hover{
@@ -26,17 +37,63 @@
            color: white;
         }
 
+        .link1{
+            color: white;
+            font-weight: bold;
+        }
+
+        #html-code{
+          overflow-y: auto;
+          background-color: #292928;
+          color: white;
+        }
+
+        #html-code::-webkit-scrollbar{
+        background-color: transparent;
+        width: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+
+body::-webkit-scrollbar{
+        background-color: transparent;
+        width: 10px;
+        }
+
+        @media screen and (max-width: 500px) {
+       .responsive_div1{
+        width: 90% !important;
+       }
+        }
+
     </style>
 </head>
 <body>
 
 
 
-    <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+    <div class="responsive_div1" style="width: 50%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+   <div style="width: 90%;">
+    <h1>Firebase Auth: Login e Logout</h1>
+    <h3>Introduzione:</h3>
+    <p>Benvenuti in questo tutorial in cui impareremo come implementare gli sdk di Firebase Authenication (un servizio offerto da Google) nel nostro progetto, conosceremo e esploreremo la dashboard Firebase dedicata all'autenticazione e permetteremo di autenticare i nostri utenti tramite un account creato da noi tramite la dashboard Firebase. </p>
+    <h3>A chi è rivolto questo tutorial?</h3>
+    <p>Utilizzeremo JavaScript, ragione per la quale questo tutorial è stato configurato per funzionare in ambito web, per le app native (sviluppate principalmente per Android e Ios e si scaricano tramite gli store di app) sono presenti altri sdk che si possono trovare sul <a class="link1" href="https://firebase.google.com/docs/firestore/client/libraries?hl=it" target="none">sito ufficiale Google Firebase</a></p>
+    <h3>Video tutorial:</h3>
+    <p>Nel video tutorial (In italiano) sono presenti tutti i passaggi da seguire per effettuare l'implementazione e per comprendere il codice in generale.<br>Se è stato d'aiuto e di tuo gradimento, considera l'opzione di lasciare un mi piace e di inscriverti al mio canale per supportarmi e per non perderti ulteriori video riguardanti la programmazione e l'informatica in generale. <strong>Grazie mille!</strong></p>
+</div>
+        <iframe style="width: 90%; height: 500px; border-radius: 20px;" src="https://www.youtube.com/embed/vj_ccFaHUGs?si=hfuN1qEE8AlI_X5L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
    
-        <iframe style="width: 90%; height: 500px; border-radius: 20px; margin-top: 50px;" src="https://www.youtube.com/embed/vj_ccFaHUGs?si=hfuN1qEE8AlI_X5L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-   
-        <textarea id="html-code"  rows="10" cols="50" style="width: 90%; height: 500px; border-radius: 20px; resize: none; margin-top: 50px;">
+        <div style="width: 90%;">
+            <div style="width: 100%; height: 1px; background: white; margin-top: 50px;"><p> </p></div>
+            <h3>Test area</h3>
+            <p>Testa il codice mostrato nel video direttamente in questa sezione della pagina web.</p>
+             </div>
+        <textarea id="html-code"  rows="10" cols="50" style="width: 90%; height: 500px; border-radius: 20px; resize: none;">
         <!DOCTYPE html>
         <html>
         <head>
@@ -117,6 +174,7 @@
         </html>
         
     </textarea>
+    
 
     <div style="display: flex; align-items: center; justify-content: center; width: 90%; border-radius: 20px; border: 1px solid rgba(108, 105, 105, 0.877); min-height: 200px; margin-top: 50px; " id="codice-visualizzato">
     <h1>Clicca su "Prova il codice" per provare il codice</h1>
