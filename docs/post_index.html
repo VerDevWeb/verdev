@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+    <title>Index of posts</title>
+</head>
+<body>
+<h1>Index of posts</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Date Modified</th>
+        </tr>
+    </thead>
+    <tbody id="fileList">
+    </tbody>
+</table>
+
+<script>
+    const fileList = document.getElementById('fileList');
+    const pageDir = 'posts'; // Nome della cartella delle pagine HTML
+
+    // Funzione per generare dinamicamente i collegamenti alle pagine
+    async function generatePageLinks() {
+        const response = await fetch(`/list-pages.php?dir=${pageDir}`);
+        const data = await response.json();
+
+        data.forEach(page => {
+            const link = document.createElement('a');
+            link.href = `${pageDir}/${page}`;
+            link.textContent = page;
+            
+            const row = document.createElement('tr');
+            const nameCell = document.createElement('td');
+            nameCell.appendChild(link);
+            const sizeCell = document.createElement('td');
+            sizeCell.textContent = '8.2 kB'; // Dimensione fittizia
+            const dateCell = document.createElement('td');
+            dateCell.textContent = '10/17/23, 21:21:18'; // Data fittizia
+
+            row.appendChild(nameCell);
+            row.appendChild(sizeCell);
+            row.appendChild(dateCell);
+
+            fileList.appendChild(row);
+        });
+    }
+
+    generatePageLinks();
+</script>
+</body>
+</html>
