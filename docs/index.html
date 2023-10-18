@@ -22,6 +22,24 @@
         padding: 0;
      }
 
+
+     body::-webkit-scrollbar{
+ width: 10px;
+ background-color: transparent;
+ border-radius: 10px;
+  }
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+     #home_page::-webkit-scrollbar{
+      background-color: transparent;
+      width: 10px;
+     }
+     
+
      .card1{
         width: 200px;
         height: 100px;
@@ -36,16 +54,31 @@
      }
 
 
-     #home_page{
+     .home_page{
       display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 100%;
+        overflow: auto !important;
      }
 
      .responsive_div1{
       margin-top: 30px;
+     }
+
+     .bar_button{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      justify-items: center;
+      border: 1px solid transparent;
+      background: transparent;
+      color: white;
+      font-family: 'Poppins';
+      text-decoration: none;
+      font-size: 12px;
      }
 
      
@@ -447,6 +480,30 @@
         font-size: 14px !important;
       }
 
+      #up_bar{
+       display: none !important;
+      }
+
+      #home_page{
+       height: 90% !important;
+       overflow: auto;
+      }
+
+      #bottom_bar{
+        height: 10% !important;
+        display: flex !important;
+        background: #353433;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+        align-items: center !important;
+      }
+
+      #home_page::-webkit-scrollbar{
+      background-color: transparent;
+      width: 5px;
+     }
+
+
    }
 
 
@@ -454,6 +511,10 @@
 
 
 @media (min-width: 801px) {
+
+  #bottom_bar{
+    display: none !important;
+  }
 
   .responsive_div1{
         display: flex;
@@ -711,6 +772,8 @@ nav li a {
        </div>
 
 
+       
+<div id="home_page">
         <div class="header">
             <div class="overlay">
         <div class="responsive_div1" style="display: flex; flex-direction: row; width: 100%; height: 100%; align-items: center; justify-content: center;">
@@ -876,8 +939,7 @@ nav li a {
       </div>
 
 
-
-      <div id="home_page">
+      <div class="home_page">
         <div class="responsive_div1">
          <div style="display: flex; align-items: center; justify-content: center;">
          <img class="img1" src="https://i.ibb.co/4fF0RCd/logo.png" style="width: 220px; border-radius: 50%; margin-top: 20px;">
@@ -938,7 +1000,6 @@ nav li a {
              <div style="background-color: white; height: 1px; width: 70%; margin-top: 50px; margin-bottom: 50px;"></div>
         <div class="responsive_div1">
             <div class="div_img_3" style="display: flex;flex-direction: column ; align-items: center; justify-content: center; margin-bottom: -30px;">
-                <i class="material-icons notranslate" style="color: white; font-size: 130px; position: absolute; margin-bottom: 100px; margin-left: 180px;">rocket_launch</i>
                 <img src="https://i.ibb.co/Q9bPZjF/Progetto-senza-titolo-3.png" style="width: 100%; margin-top: 20px;">
                 </div>
                 <div>
@@ -954,6 +1015,12 @@ nav li a {
         </div>
 
        </div>
+      </div>
+       <div id="bottom_bar" style="display: flex; flex-direction: row; width: 100%; height: 10%; align-items: center; justify-content: space-between;">
+        <a href="camera.html" class="bar_button" id="home_button" style="margin-left: 10px;"><i class="material-icons notranslate" style="font-size: 30px;">play_lesson</i><p style="margin-block-start: 0px; margin-bottom: 0px;">Post</p></a>
+        <a href="index.html" class="bar_button" id="_button"><i class="material-icons notranslate" style="font-size: 30px;">home</i><p style="margin-block-start: 0px; margin-bottom: 0px;">Home</p></a>
+        <a href="buildable_landing.html" class="bar_button" id="home_button" style="margin-right: 10px;"><i class="material-icons notranslate" style="font-size: 30px;">public</i><p style="margin-block-start: 0px; margin-bottom: 0px;">App</p></a>
+      </div>
         
 
      
