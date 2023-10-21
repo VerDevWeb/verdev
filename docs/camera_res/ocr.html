@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Webcam OCR</title>
+
+<style>
+#container {
+    width: 100%;
+    height: 100%;
+    border: transparent solid;
+}
+
+#videoElement {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    object-fit: cover;
+    border-radius: 20px;
+}
+</style>
+</head>
+
+<body>
+<div id="container">
+    <video autoplay="true" id="videoElement"></video>
+    <p id="image-text"></p>
+</div>
+
+<script>
+var video = document.querySelector("#videoElement");
+
+if (navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.enumerateDevices()
+    .then(function (devices) {
+        var rearCamera = devices.find(function (device) {
+            return device.kind === 'videoinput' && device.label.includes('back');
+        });
+
+        if (rearCamera) {
+            navigator.mediaDevices.getUserMedia({ video: { deviceId: rearCamera.deviceId } })
+            .then(function (stream) {
+                video.srcObject = stream;
+                startRealTimeOCR();
+            })
+            .catch(function (error) {
+                console.log("Unable to access rear camera: " + error);
+            });
+        } else {
+            console.log("Rear camera not found.");
+        }
+    })
+    .catch(function (error) {
+        console.log("Error enumerating devices: " + error);
+    });
+} else {
+    console.log("getUserMedia not supported on this browser.");
+}
+
+function startRealTimeOCR() {
+    const imageText = document.getElementById('image-text');
+    
+    // Inizializza Tesseract.js
+    Tesseract.create({
+        workerPath: 'https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/worker.min.js',
+        langPath: 'https://cdn.rawgit.com/naptha/tessdata/gh-pages/3.02/',
+        corePath: 'https://cdn.rawgit.com/naptha/tesseract.js-core/1.0.10/index.js'
+    });
+    
+    // Avvia il riconoscimento OCR in tempo reale con un intervallo di 2 secondi
+    setInterval(function() {
+        Tesseract.recognize(video)
+        .then(function(result){
+            imageText.innerHTML = result.text;
+        })
+        .catch(function(err){
+            console.error(err);
+        });
+    }, 2000); // Intervallo di 2000 millisecondi (2 secondi)
+}
+</script>
+</body>
+</html>
