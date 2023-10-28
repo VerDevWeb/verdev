@@ -1,0 +1,231 @@
+body{
+    background: linear-gradient(#817a8fcb, #2c2e3c);
+    border: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    overflow-y: hidden;
+}
+
+
+   ::-webkit-scrollbar{
+    width: 10px;
+    background-color: transparent;
+    border-radius: 10px;
+     }
+   
+   ::-webkit-scrollbar-thumb {
+     background: #fffcfc68;
+     border-radius: 10px;
+   }
+
+.general_paragraph{
+    color: white;
+    margin-top: 0px;
+}
+
+.general_title{
+    color: white;
+    margin-top: 0px;
+}
+
+
+.master_container{
+    width: 100%;
+    height: 100%;
+}
+
+#container1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    padding-top: 1.5rem;
+    width: 100%;
+    height: 100%;
+}
+
+.card1{
+    backdrop-filter: blur(120px);
+    background-color: rgba(255, 255, 255, 0.068);
+    border: 1px solid rgba(255, 255, 255, 0.071);
+    border-radius: 1rem;
+    padding: 0.9rem;
+    min-width: 20rem;
+}
+
+.left1{
+    max-width: 20%;
+    height: 100%;
+    backdrop-filter: blur(120px);
+    background-color:  rgba(255, 255, 255, 0.068);
+    border: 1px solid rgba(255, 255, 255, 0.071);
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.button1{
+    width: 100%;
+    background: transparent;
+    border: transparent;
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 18px;
+    margin-left: 0.2rem;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    margin-right: 3rem;
+}
+
+.material_icons1{
+    margin-right: 5px;
+}
+
+#up_bar{
+    display: flex;
+    width: 100%;
+    height: 8%;
+    background-color: rgba(255, 255, 255, 0.027);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.071);
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dash{
+    display: none;
+    flex-direction: row;
+    justify-content: start;
+    width: 100%;
+    height: 100%;
+    margin-left: 30px;
+    overflow-y: auto;
+}
+
+.divider1{
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.279);
+}
+
+
+.general_link{
+    color: white;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.table_container1{
+    border: 1px solid rgba(255, 255, 255, 0.071);
+    border-radius: 10px; 
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.table1 {
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+
+.table1 th, .table1 td {
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.071);
+    padding: 8px;
+    color: white;
+}
+
+
+#notifications{
+    display: none;
+    width: 100%;
+    height: 100%;
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+    overflow-y: auto;
+    flex-direction: column;
+}
+
+#manage{
+    display: flex;
+    flex-direction: column;
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+    width: 100%;
+    height: 100%;
+}
+
+
+.button2{
+    background-color: rgba(255, 255, 255, 0.068);
+    border: 1px solid rgba(255, 255, 255, 0.107);
+    border-radius: 1rem;
+    padding: 0.3rem;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    color: white;
+    font-family: 'Montserrat';
+}
+
+.button2:hover{
+    background-color: rgba(255, 255, 255, 0.208);
+}
+
+.input1{
+    background-color: rgba(255, 255, 255, 0.068);
+    border: 1px solid rgba(255, 255, 255, 0.107);
+    border-radius: 1rem;
+    padding: 0.3rem;
+    color: white;
+    font-family: 'Montserrat';
+    width: 100%;
+}
+
+.input1::placeholder{
+    color: white;
+}
+
+.input1:focus{
+ outline: 1.5px solid rgba(255, 255, 255, 0.107);
+}
+
+.task_actions{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.task_actions_button1{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.107);
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    margin-left: 0.5rem;
+}
+
+.task_actions_button1:hover{
+    background-color: rgba(255, 255, 255, 0.208);
+}
+
+#team{
+    display: none;
+    flex-direction: column;
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+    width: 100%;
+    height: 100%;
+}
