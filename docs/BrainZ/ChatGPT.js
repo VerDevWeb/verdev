@@ -83,7 +83,7 @@ function Send() {
                 if (s == "") {
                     s = "No response";
                 } else {
-                    txtOutput.value += "" + s;
+                    txtOutput.value += "🟢" + s;
                     TextToSpeech(s);
                 }
             }
