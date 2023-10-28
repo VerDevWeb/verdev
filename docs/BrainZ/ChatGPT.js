@@ -1,24 +1,4 @@
-// Dichiarazione della variabile globale per la chiave API
-let OPENAI_API_KEY = null;
-
-// Fetch per ottenere i dati dal file JSON
-fetch('configuration.json')
-  .then(response => response.json())
-  .then(data => {
-    OPENAI_API_KEY = data.openai.apiKey;
-    eseguiCodiceCheUsaChiaveAPI();
-  })
-  .catch(error => {
-    console.error('Errore nel recupero dei dati da configuration.json', error);
-  });
-
-function eseguiCodiceCheUsaChiaveAPI() {
-  if (OPENAI_API_KEY) {
-  } else {
-    console.log('no valid api key');
-  }
-}
-
+var OPENAI_API_KEY = null;
 var bTextToSpeechSupported = false;
 var bSpeechInProgress = false;
 var oSpeechRecognizer = null
