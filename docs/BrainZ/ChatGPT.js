@@ -1,4 +1,27 @@
-var OPENAI_API_KEY = "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";
+// Dichiarazione della variabile globale per la chiave API
+let OPENAI_API_KEY = null;
+
+// Fetch per ottenere i dati dal file JSON
+fetch('configuration.json')
+  .then(response => response.json())
+  .then(data => {
+    OPENAI_API_KEY = data.openai.apiKey;
+
+    // Eseguire qui il codice che dipende da OPENAI_API_KEY
+    eseguiCodiceCheUsaChiaveAPI();
+  })
+  .catch(error => {
+    console.error('Errore nel recupero dei dati da configuration.json', error);
+  });
+
+function eseguiCodiceCheUsaChiaveAPI() {
+  // Assicurati che OPENAI_API_KEY sia stato assegnato prima di usarlo
+  if (OPENAI_API_KEY) {
+  } else {
+    console.log('no valid api key');
+  }
+}
+
 var bTextToSpeechSupported = false;
 var bSpeechInProgress = false;
 var oSpeechRecognizer = null
@@ -83,7 +106,7 @@ function Send() {
                 if (s == "") {
                     s = "No response";
                 } else {
-                    txtOutput.value += "🟢" + s;
+                    txtOutput.value += "" + s;
                     TextToSpeech(s);
                 }
             }
