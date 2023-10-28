@@ -6,8 +6,6 @@ fetch('configuration.json')
   .then(response => response.json())
   .then(data => {
     OPENAI_API_KEY = data.openai.apiKey;
-
-    // Eseguire qui il codice che dipende da OPENAI_API_KEY
     eseguiCodiceCheUsaChiaveAPI();
   })
   .catch(error => {
@@ -15,7 +13,6 @@ fetch('configuration.json')
   });
 
 function eseguiCodiceCheUsaChiaveAPI() {
-  // Assicurati che OPENAI_API_KEY sia stato assegnato prima di usarlo
   if (OPENAI_API_KEY) {
   } else {
     console.log('no valid api key');
