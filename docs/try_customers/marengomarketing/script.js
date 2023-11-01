@@ -3,7 +3,6 @@ document.getElementById("notifications_button").addEventListener("click", functi
     document.getElementById("notifications").style.display = "flex";
     document.getElementById("manage").style.display = "none";
     document.getElementById("team").style.display = "none";
-    document.getElementById("enterprise_areas").style.display = "none";
 });
 
 document.getElementById("dash_button").addEventListener("click", function () {
@@ -11,7 +10,6 @@ document.getElementById("dash_button").addEventListener("click", function () {
     document.getElementById("notifications").style.display = "none";
     document.getElementById("manage").style.display = "none";
     document.getElementById("team").style.display = "none";
-    document.getElementById("enterprise_areas").style.display = "none";
 });
 
 document.getElementById("manage_button").addEventListener("click", function () {
@@ -19,7 +17,6 @@ document.getElementById("manage_button").addEventListener("click", function () {
     document.getElementById("notifications").style.display = "none";
     document.getElementById("team").style.display = "none";
     document.getElementById("manage").style.display = "flex";
-    document.getElementById("enterprise_areas").style.display = "none";
 });
 
 document.getElementById("team_button").addEventListener("click", function () {
@@ -27,16 +24,26 @@ document.getElementById("team_button").addEventListener("click", function () {
     document.getElementById("notifications").style.display = "none";
     document.getElementById("manage").style.display = "none";
     document.getElementById("team").style.display = "flex";
-    document.getElementById("enterprise_areas").style.display = "none";
 });
 
-document.getElementById("enterprise_areas_button").addEventListener("click", function () {
-    document.getElementById("dash").style.display = "none";
-    document.getElementById("notifications").style.display = "none";
-    document.getElementById("manage").style.display = "none";
-    document.getElementById("team").style.display = "none";
-    document.getElementById("enterprise_areas").style.display = "flex";
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.body.classList.add("light-theme");
 });
+
+
+function toggleTheme() {
+    var body = document.body;
+    if (body.classList.contains("light-theme")) {
+        body.classList.remove("light-theme");
+        body.classList.add("dark-theme");
+    } else if (body.classList.contains("dark-theme")) {
+        body.classList.remove("dark-theme");
+        body.classList.add("light-theme");
+    }
+}
+
+
 
 
 
