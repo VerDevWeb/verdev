@@ -48,49 +48,23 @@ function toggleTheme() {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    var ctx = document.getElementById('chart1').getContext('2d');
-    var lineChart = new Chart(ctx, {
+ // Dati per il grafico (esempio)
+ const options = {
+    series: [{
+        name: 'Series 1',
+        data: [30, 40, 35, 50, 49, 60, 70, 91, 125]
+    }],
+    chart: {
+        height: 350,
         type: 'line',
-        data: {
-            labels: ['Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre'],
-            datasets: [{
-                label: '',
-                data: [12, 10, 3, 5, 2],
-                fill: true,
-                borderColor: 'rgba(255, 255, 255, 0.662)',
-                borderWidth: 3,
-                lineTension: 0.4,
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            }]
-        },
-        options: {
-            plugins: {
-                legend: {
-                    display: false // Disabilita la legenda
-                }
-            },
-            scales: {
-                x: {
-                    ticks: {
-                        color: 'white'
-                    },
+    },
+    xaxis: {
+        categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+    }
+};
 
-                    grid: {
-                        display: true,
-                        color: 'rgba(0, 0, 0, 0)'
-                    }
-                },
-                y: {
-                    ticks: {
-                        color: 'white'
-                    },
-
-                    grid: {
-                        display: true,
-                        color: 'rgba(0, 0, 0, 0)'
-                    }
-                }
-            }
-        }
-    });
+// Inizializzazione del grafico utilizzando ApexCharts
+const chart = new ApexCharts(document.querySelector("#chart1"), options);
+chart.render();
+    
 });
