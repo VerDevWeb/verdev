@@ -1,8 +1,9 @@
 document.getElementById("notifications_button").addEventListener("click", function () {
     document.getElementById("dash").style.display = "none";
-    document.getElementById("notifications").style.display = "flex";
+    document.getElementById("notifications").style.display = "none";
     document.getElementById("manage").style.display = "none";
-    document.getElementById("team").style.display = "none";
+    document.getElementById("team").style.display = "flex";
+    document.getElementById("account_settings").style.display = "none";
 });
 
 document.getElementById("dash_button").addEventListener("click", function () {
@@ -10,6 +11,7 @@ document.getElementById("dash_button").addEventListener("click", function () {
     document.getElementById("notifications").style.display = "none";
     document.getElementById("manage").style.display = "none";
     document.getElementById("team").style.display = "none";
+    document.getElementById("account_settings").style.display = "none";
 });
 
 document.getElementById("manage_button").addEventListener("click", function () {
@@ -17,6 +19,7 @@ document.getElementById("manage_button").addEventListener("click", function () {
     document.getElementById("notifications").style.display = "none";
     document.getElementById("team").style.display = "none";
     document.getElementById("manage").style.display = "flex";
+    document.getElementById("account_settings").style.display = "none";
 });
 
 document.getElementById("team_button").addEventListener("click", function () {
@@ -24,6 +27,7 @@ document.getElementById("team_button").addEventListener("click", function () {
     document.getElementById("notifications").style.display = "none";
     document.getElementById("manage").style.display = "none";
     document.getElementById("team").style.display = "flex";
+    document.getElementById("account_settings").style.display = "none";
 });
 
 
