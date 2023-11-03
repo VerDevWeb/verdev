@@ -68,3 +68,38 @@ const chart = new ApexCharts(document.querySelector("#chart1"), options);
 chart.render();
     
 });
+
+
+
+function notifications_function(){
+    document.getElementById("dash").style.display = "none";
+    document.getElementById("notifications").style.display = "none";
+    document.getElementById("manage").style.display = "none";
+    document.getElementById("team").style.display = "flex";
+    document.getElementById("account_settings").style.display = "none";
+}
+
+function dash_function(){
+    document.getElementById("dash").style.display = "flex";
+    document.getElementById("notifications").style.display = "none";
+    document.getElementById("manage").style.display = "none";
+    document.getElementById("team").style.display = "none";
+    document.getElementById("account_settings").style.display = "none";
+}
+
+
+function account_button(){
+    document.getElementById("dash").style.display = "none";
+    document.getElementById("notifications").style.display = "none";
+    document.getElementById("team").style.display = "none";
+    document.getElementById("manage").style.display = "none";
+    document.getElementById("account_settings").style.display = "flex";
+}
+
+function manage_function(){
+    document.getElementById("dash").style.display = "none";
+    document.getElementById("notifications").style.display = "none";
+    document.getElementById("team").style.display = "none";
+    document.getElementById("manage").style.display = "flex";
+    document.getElementById("account_settings").style.display = "none";
+}

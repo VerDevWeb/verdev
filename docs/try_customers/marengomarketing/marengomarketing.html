@@ -59,8 +59,7 @@
                             style="width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: space-around;">
                             <input type="text" class="input1" style="width:90%; padding: 1rem;"
                                 placeholder="Scrivi un messaggio">
-                            <button style="width: 50px; height: 50px;" class="task_actions_button1"
-                                id="delete_task_button"><i class="material-icons notranslate">send</i></button>
+                            <button style="width: 50px; height: 50px;" class="button4"><i class="material-icons notranslate">send</i></button>
                         </div>
                     </div>
                 </div>
@@ -336,30 +335,75 @@
                         </div>
                     </div>
                     </div>
+                    <div id="account_settings">
+                       <img src="res/undraw_app_wireframe_re_d467.svg" style="height: 200px; margin-top: 2rem; margin-bottom: 1rem;">
+                       <div style="width: 100%; height: 100%;">         
+                        <div style="display: flex; flex-direction: column; padding-left: 1rem; padding-right: 1rem;">
+                            <div class="card1">
+                                <h3 class="general_title" style="margin-bottom: 0.2rem;">Gestisci il tuo account</h3>
+                                <div class="divider1"></div>
+                                <button class="button1" id="reset_password_button" style="font-weight: bold; font-size: 15px;"><i class="material-icons notranslate" style="margin-right: 0.3rem;">lock_reset</i>Reset password</button>
+                                <button class="button1" id="logoutBtn" style="font-weight: bold; font-size: 15px;"><i class="material-icons notranslate"style="margin-right: 0.3rem;">logout</i>Disconnetti</button>
+                                <button class="button1" id="delete_account_button" style="font-weight: bold; font-size: 15px;"><i class="material-icons notranslate" style="margin-right: 0.3rem;">delete</i>Elimina il tuo account</button>
+                                <div class="divider1" style="margin-top: 0.5rem;"></div>
+                                <button class="button1" onclick="toggleTheme()" style="font-weight: bold; font-size: 15px;"><i class="material-icons notranslate" style="margin-right: 0.3rem;">bedtime</i>Cambia tema</button>
+                            </div>
+                            
+                           <form id="reset_password_form" style="display: none; inline-size: 100%; justify-content: center; align-items: center;">
+                           <div class="card1">
+                           <div style="display: flex; flex-direction: row; align-items: center; margin-bottom: 0px;">
+                           <h4 style="color: white; font-family: 'Lato'; margin-left: 10px; margin-bottom: 0px;">Reset password</h4>
+                           <i class="material-icons notranslate" style="color: white; margin-left: 10px; margin-top: 20px;">key</i>
+                           </div>
+                           <p style="color: white; font-family: 'Lato'; margin-left: 10px; margin-right: 10px; margin-top: 10px; font-size: 14px;">Cliccando su "Invia" riceverai una mail all'indirizzo inserito contenente le istruzioni per continuare</p>
+                           <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                           <input type="email" style="color: white; background-color: #212529; padding: 5px; border-radius: 12px; border: transparent; font-family: 'Lato'; width: 96%; border-color: transparent; outline: none; padding-left: 10px;" id="emailInput" placeholder="Inserisci l'indirizzo email" required>
+                           </div>
+                           <div class="landscape" style="display: flex; flex-direction: row; justify-content: center; align-items: center; margin-top: 20px;">
+                           <button type="button" id="resetPasswordBtn" style="margin-bottom: 20px; border-radius: 12px; border: transparent; padding: 5px; background-color: rgb(87, 87, 94); color: white; font-family: 'Lato';">Conferma</button>
+                           <div style="margin-inline-start: 20px"></div>
+                           <button type="button" id="CancelResetPasswordBtn" style="margin-bottom: 20px; border-radius: 12px; border: transparent; padding: 5px; background-color: rgb(87, 87, 94); color: white; font-family: 'Lato';">&nbsp&nbspAnnulla&nbsp&nbsp</button>
+                         </div>
+                       </div>
+                         </form>
+                         <div class="delete_account_card_container">
+                           <div class="delete_account_card">
+                             <div id="confirmation_form" style="display: none;">
+                                 <h3 style="font-family: 'Lato' ; color: white; font-size: 15px ; margin-block-start: 8px; margin-inline-start: 8px; margin-inline-end: 8px; ">Sei sicuro di voler eliminare il tuo account?</h3>
+                                 <button class="delete_account_button" style="font-family: 'Lato'" id="confirm_delete_button">Conferma</button>
+                                 <button class="delete_account_button" style="font-family: 'Lato'" id="cancel_delete_button">Annulla</button>
+                               </div>
+                             </div>
+                           </div>
+                        </div>
+                    
+                       
+                       </div>
+                    </div>  
                 </div>
                 <div id="under_bar">
                     <div style="flex: 1;"></div>
-                    <button class="under_button2">
+                    <button onclick="manage_function()" class="under_button2">
                         <span class="material-symbols-outlined notranslate" style="font-size: 30px;">
                          task_alt
                             </span>
                     </button> 
                     <div style="flex: 1;"></div>  
-                    <button class="under_button2">
+                    <button onclick="dash_function()" class="under_button2">
                         <span class="material-symbols-outlined notranslate" style="font-size: 30px;">
                             team_dashboard
                             </span>
                     </button> 
                     <div style="flex: 1;"></div>
-                    <button class="under_button1"><i class="material-icons notranslate">add</i></button> 
+                    <button onclick="add_function()" class="under_button1"><i class="material-icons notranslate">add</i></button> 
                     <div style="flex: 1;"></div>  
-                    <button class="under_button2">
+                    <button onclick="notifications_function()" class="under_button2">
                         <span class="material-symbols-outlined notranslate" style="font-size: 30px;">
                            chat
                             </span>
                     </button> 
                     <div style="flex: 1;"></div>  
-                    <button class="under_button2">
+                    <button onclick="account_button()" class="under_button2">
                         <span class="material-symbols-outlined notranslate" style="font-size: 30px;">
                             account_circle
                             </span>
@@ -367,6 +411,7 @@
                     <div style="flex: 1;"></div>  
                 </div>
         </div>
+
 </body>
 
 </html>
