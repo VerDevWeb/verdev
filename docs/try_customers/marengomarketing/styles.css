@@ -69,7 +69,9 @@ body{
     overflow-y: auto;
 }
 
-
+button:hover{
+    cursor: pointer
+}
 
 ::-webkit-scrollbar{
     width: 10px;
@@ -494,7 +496,7 @@ height: 100%;
     }
 
     .row{
-        height: 85% !important;
+        height: 88% !important;
         padding-top: 1.5rem;
     }
 }
