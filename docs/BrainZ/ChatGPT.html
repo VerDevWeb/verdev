@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="https://adalo.global.ssl.fastly.net/apps/676cda71-7b76-4567-b23b-c90f58014394/icon?size=undefined&radius=undefined?size=120">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+
     <style>
 
 body, html{
@@ -115,14 +116,13 @@ body, html{
     <div id="idContainer">
 
 <div class="txtOutput">
-    <div style="width: 100%; height: 100%; display: flex; flex-direction: row; align-items: start; justify-content: center;">
-        <div style="width: 20px; height: 20px; background: #cbf3867b; border-radius: 50%; margin-right: 0.5rem; margin-top: 0.3rem;"></div>
-        <textarea id="txtOutput" style="font-family: 'Figtree';" placeholder="Hello, i'm BrainZ, an AI trained with mental health tests that help you better understand you and what you're going through at the moment. How are you feeling today?" readonly ></textarea>
-    </div>
+    
+        <textarea id="txtOutput" placeholder="Hello, i'm BrainZ, an AI trained with mental health tests that help you better understand you and what you're going through at the moment. How are you feeling today?" readonly ></textarea>
         <div class="row1">
-            <textarea id="txtMsg" style="font-family: 'Figtree';" placeholder="Talk to me"></textarea>
+            <textarea id="txtMsg" placeholder="Talk to me"></textarea>
             <button type="button" onclick="Send()" id="btnSend"><i style="color: black;" class="material-icons notranslate">rocket_launch</i></button>
         </div>
+
 
         <label id="lblSpeak" style="display: none;"><input id="chkSpeak" type="checkbox" 
             onclick="SpeechToText()" />Listen</label>
@@ -161,5 +161,6 @@ body, html{
 
    
     </div>
+
 </body>
 </html>
