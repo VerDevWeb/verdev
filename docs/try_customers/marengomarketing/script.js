@@ -266,6 +266,7 @@ function registerUser() {
       var taskRef = databaseRef.child(taskName);
       
       taskRef.update({
+          name : document.getElementById('name_task_input').value,
           owner: document.getElementById('owner_task_input').value,
           company: document.getElementById('company_task_input').value,
           brand: document.getElementById('brand_task_input').value,
@@ -273,6 +274,8 @@ function registerUser() {
           end: document.getElementById('end_task_input').value
       }).then(function() {
           alert("Task aggiunta con successo");
+          manage_function();
+          getTasks();
       }).catch(function(error) {
           alert("Si è verificato un errore durante l'aggiunta della task: " + error);
       });    
@@ -297,6 +300,7 @@ function registerUser() {
           date: document.getElementById('outcome_date').value,
       }).then(function() {
           alert("Task aggiunta con successo");
+          manage_function();
       }).catch(function(error) {
           alert("Si è verificato un errore durante l'aggiunta della task: " + error);
       });    
@@ -304,4 +308,42 @@ function registerUser() {
   } else {
       alert("Inserisci l'oggetto della spesa strumentale");
   }
+  }
+
+
+
+  function getTasks(){
+   // Riferimento al nodo "users"
+   const uid = getCookieValue('uid');
+   var usersRef = firebase.database().ref('/user_datas/' + uid + '/tasks/');
+
+   // Recupera i dati da Firebase
+   usersRef.once('value', function(snapshot) {
+     snapshot.forEach(function(childSnapshot) {
+       var childData = childSnapshot.val();
+       // Manipola i dati come necessario, ad esempio, inseriscili in una tabella HTML
+       createTableRow(childData);
+     });
+   });
+ 
+   function createTableRow(data) {
+     // Crea righe della tabella con i dati recuperati
+     var table = document.getElementById("tableBody");
+ 
+     var row = table.insertRow();
+     var cell1 = row.insertCell(0);
+     var cell2 = row.insertCell(1);
+     var cell3 = row.insertCell(2);
+     var cell4 = row.insertCell(3);
+     var cell5 = row.insertCell(4);
+     var cell6 = row.insertCell(5);
+     
+     cell1.innerHTML = data.name; // Supponendo che "nome" sia un campo nel database
+     cell2.innerHTML = data.owner; // Supponendo che "email" sia un campo nel database
+     cell3.innerHTML = data.company;
+     cell4.innerHTML = data.brand;
+     cell5.innerHTML = data.start;
+     cell6.innerHTML = data.end;
+    }
+
   }
