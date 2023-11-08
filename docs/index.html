@@ -23,7 +23,7 @@
      }
 
 
-     body::-webkit-scrollbar{
+     ::-webkit-scrollbar{
  width: 10px;
  background-color: transparent;
  border-radius: 10px;
@@ -31,14 +31,8 @@
 
 ::-webkit-scrollbar-thumb {
   background: #888;
-  border-radius: 10px;
+  border-radius: 1rem;
 }
-
-     #home_page::-webkit-scrollbar{
-      background-color: transparent;
-      width: 10px;
-     }
-     
 
      .card1{
         width: 200px;
@@ -490,19 +484,22 @@
       }
 
       #bottom_bar{
+        position: absolute;
+        z-index: 4;
         height: 10% !important;
         display: flex !important;
-        background: #353433;
-        border-top-right-radius: 15px;
-        border-top-left-radius: 15px;
+        background: #7474741f;
+        border: 1px solid rgba(255, 255, 255, 0.094);
+        border-top-right-radius: 1rem;
+        border-top-left-radius: 1rem;
         align-items: center !important;
       }
 
-      #home_page::-webkit-scrollbar{
-      background-color: transparent;
-      width: 5px;
-     }
-
+      ::-webkit-scrollbar{
+ width: 1px;
+ background-color: transparent;
+ border-radius: 10px;
+  }
 
    }
 
