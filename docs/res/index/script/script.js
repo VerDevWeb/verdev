@@ -33,3 +33,15 @@ if (checkbox.checked) {
 }
 });
 
+
+
+function openMenu1(){
+  var exploreSite1 = document.getElementById('explore_site1');
+var currentDisplay = window.getComputedStyle(exploreSite1).getPropertyValue('display');
+
+if (currentDisplay === 'flex') {
+    exploreSite1.style.display = 'none';
+} else {
+    exploreSite1.style.display = 'flex';
+}
+}

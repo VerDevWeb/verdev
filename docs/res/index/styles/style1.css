@@ -11,8 +11,32 @@
         height: 100%;
      }
 
+     #explore_site1{
+        z-index: 10000;
+        display: none;
+        flex-direction: column;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background-color: #171515;
+        position: absolute;
+        width: 100%;
+        height: 90%;
+     }
+
+     .card2{
+        width: 85%;
+        background-color: #2d2c2a;
+        border-radius: 1rem;
+        color: white;
+        font-family: 'Poppins';
+        padding: 10px;
+     }
 
      .divider1{
+        height: 1px; 
+        width: 70%; 
+        margin-top: 50px; 
+        margin-bottom: 50px;
         background-color: rgba(255, 255, 255, 0.224);
      }
 
@@ -493,8 +517,7 @@
 
       #bottom_bar{
         position: relative;
-        z-index: 4;
-        height: 10% !important;
+        flex: 1;
         display: flex !important;
         flex-direction: row;
         align-items: center;
