@@ -496,6 +496,9 @@
         z-index: 4;
         height: 10% !important;
         display: flex !important;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
         background: #7474741f;
         border: 1px solid rgba(255, 255, 255, 0.094);
         border-top-right-radius: 1rem;
