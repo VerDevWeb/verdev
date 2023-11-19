@@ -114,6 +114,7 @@ body{
 }
 
 #add_selection{
+    display: flex;
     flex-direction: column;
 }
 
@@ -581,7 +582,6 @@ height: 100%;
     }
 
     #add_selection{
-       display: flex;
        height: auto;
        width: 50% !important;
     }
