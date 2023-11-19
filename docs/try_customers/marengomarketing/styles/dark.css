@@ -1,0 +1,284 @@
+/*TEMA SCURO*/
+
+.dark-theme {
+    background: linear-gradient(#3e3b45, #181924);
+    border: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    overflow-y: hidden;
+
+    .under_button1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 50px;
+        background-color: rgba(255, 255, 255, 0.068);
+        border: 1px solid rgba(255, 255, 255, 0.071);
+        border-radius: 50%;
+        background: transparent;
+        color: white;
+    }
+
+    #toggle_theme{
+        color: white;
+    }
+
+::-webkit-scrollbar-thumb {
+    background: #ffffffa0;
+    border-radius: 10px;
+   }
+
+
+   .button4{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.107);
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    }
+    
+
+
+
+    .under_button2{
+        background: transparent;
+        border: 1px solid transparent;
+        color: white;
+    }
+
+
+.image0{
+    background: transparent;
+    padding: 10px;
+    border-radius: 0.5rem;
+    }
+
+    #under_bar{
+        height: 9%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0.068);
+        border: 1px solid rgba(255, 255, 255, 0.071);
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+    }
+
+
+.general_paragraph{
+color: white;
+margin-top: 0px;
+}
+
+.general_title{
+color: white;
+margin-top: 0px;
+}
+
+
+.message_element1{
+border-bottom: 1px solid rgba(255, 255, 255, 0.176);
+margin-bottom: 1rem;
+}
+
+
+#container1{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 100%;
+}
+
+.card1{
+backdrop-filter: blur(120px);
+background-color: rgba(255, 255, 255, 0.068);
+border: 1px solid rgba(255, 255, 255, 0.071);
+border-radius: 1rem;
+padding: 0.9rem;
+
+}
+
+.left1{
+max-width: 20%;
+height: 100%;
+backdrop-filter: blur(120px);
+background-color:  rgba(255, 255, 255, 0.068);
+border: 1px solid rgba(255, 255, 255, 0.071);
+border-top-right-radius: 1rem;
+border-bottom-right-radius: 1rem;
+}
+
+.button1{
+width: 100%;
+background: transparent;
+border: transparent;
+color: white;
+font-family: 'Montserrat';
+font-size: 18px;
+margin-left: 0.2rem;
+margin-top: 10px;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: start;
+margin-right: 3rem;
+}
+
+.material_icons1{
+margin-right: 5px;
+}
+
+#up_bar{
+display: flex;
+width: 100%;
+height: 9%;
+background-color: rgba(255, 255, 255, 0.027);
+border-bottom: 1px solid rgba(255, 255, 255, 0.071);
+align-items: center;
+justify-content: space-between;
+border-bottom-left-radius: 1rem;
+border-bottom-right-radius: 1rem;
+}
+
+
+.divider1{
+width: 100%;
+height: 1px;
+background-color: rgba(255, 255, 255, 0.279);
+}
+
+
+.general_link{
+color: white;
+margin-top: 10px;
+text-decoration: none;
+}
+
+.table_container1{
+overflow-x: auto;
+border: 1px solid rgba(255, 255, 255, 0.071);
+border-radius: 10px; 
+margin-bottom: 1.5rem;
+}
+
+.table1 {
+border-collapse: collapse;
+border-radius: 10px;
+}
+
+.table1 th, .table1 td {
+text-align: left;
+border: 1px solid rgba(255, 255, 255, 0.071);
+padding: 8px;
+color: white;
+}
+
+
+#notifications{
+display: none;
+width: 100%;
+height: 100%;
+padding-left: 1.3rem;
+padding-right: 1.3rem;
+overflow-y: auto;
+flex-direction: column;
+}
+
+
+.button2{
+background-color: rgba(255, 255, 255, 0.068);
+border: 1px solid rgba(255, 255, 255, 0.107);
+border-radius: 1rem;
+padding: 0.3rem;
+padding-left: 0.3rem;
+padding-right: 0.3rem;
+color: white;
+font-family: 'Montserrat';
+}
+
+.button2:hover{
+background-color: rgba(255, 255, 255, 0.208);
+}
+
+.input1{
+background-color: rgba(255, 255, 255, 0.068);
+border: 1px solid rgba(255, 255, 255, 0.107);
+border-radius: 1rem;
+padding: 0.3rem;
+color: white;
+font-family: 'Montserrat';
+width: 100%;
+}
+
+.input1::placeholder{
+color: white;
+}
+
+.input1:focus{
+outline: 1.5px solid rgba(255, 255, 255, 0.107);
+}
+
+.date_input1{
+background-color: rgba(255, 255, 255, 0.068);
+border: 1px solid rgba(255, 255, 255, 0.107);
+border-radius: 1rem;
+padding: 0.3rem;
+color: white;
+font-family: 'Montserrat';
+width: 100%;
+}
+
+.date_input1:focus{
+outline: 1.5px solid rgba(255, 255, 255, 0.107);
+}
+
+.task_actions{
+display: none;
+flex-direction: row;
+align-items: center;
+justify-content: space-around;
+}
+
+
+.task_actions_button1{
+color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+background: transparent;
+border: 1px solid rgba(255, 255, 255, 0.107);
+border-radius: 50%;
+height: 40px;
+width: 40px;
+margin-left: 0.2rem;
+margin-right: 0.2rem;
+}
+
+.task_actions_button1:hover{
+background-color: rgba(255, 255, 255, 0.208);
+}
+
+#team{
+display: none;
+flex-direction: column;
+padding-left: 1.3rem;
+padding-right: 1.3rem;
+width: 100%;
+height: 100%;
+}
+
+.div1{
+border-top: 1px solid rgba(255, 255, 255, 0.11) !important;
+border-bottom: 1px solid rgba(255, 255, 255, 0.11) !important;
+}
+
+}

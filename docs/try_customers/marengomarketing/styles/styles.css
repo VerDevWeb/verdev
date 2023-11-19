@@ -1,0 +1,182 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+
+#master_container{
+    z-index: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    }
+
+    .dinamic_p1{
+        margin-top: 0rem !important;
+    }
+
+.cell9{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#change_task1{
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.left1{
+    margin-right: 1rem;
+}
+
+.button1:hover{
+    font-weight: bold;
+}
+
+#chat-messages{
+    overflow-y: auto;
+    flex-direction: column;
+    display: flex;
+}
+
+#team_selector1{
+    display: none;
+}
+
+#user_team_selector{
+    display: none;
+}
+
+#logged{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#no_logged{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+}
+
+#register{
+    display: none;
+}
+
+#dash{
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    flex: 1;
+    width: 100%;
+    padding-right: 1rem;
+}
+
+#account_settings{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    overflow-y: auto;
+    width: 100%;
+    flex: 1;
+}
+
+
+
+#add_task_form{
+    display: none;
+}
+
+#change_task_form{
+    display: none;
+}
+
+#instr_outcome_form{
+    display: none;
+    flex-direction: column;
+}
+
+#add_selection{
+    display: flex;
+    flex-direction: column;
+}
+
+#create1{
+    display: none;
+    width: 100%;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+button:hover{
+    cursor: pointer
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+    background-color: transparent;
+    border-radius: 10px;
+     }
+    
+    ::-webkit-scrollbar-thumb {
+     background: #989191a0;
+     border-radius: 10px;
+    }
+
+    
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    width: 100%;
+    height: 82%;
+    }
+
+    #toggle_theme{
+        width: 100%;
+background: transparent;
+border: transparent;
+color: rgb(40, 39, 39);
+font-family: 'Montserrat';
+font-size: 18px;
+margin-left: 0.2rem;
+margin-top: 10px;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: start;
+margin-right: 3rem;
+    }
+
+    .settings_button{
+        font-family: 'Montserrat';
+        display: flex;
+        flex-direction: row;
+        background: transparent;
+        border: 1px solid transparent;
+        align-items: center;
+        justify-content: start;
+        margin-top: 0.5rem;
+        font-weight: bold;
+    }
+    
