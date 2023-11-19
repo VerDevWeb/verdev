@@ -81,7 +81,7 @@ body{
 }
 
 #dash{
-    display: none;
+    display: flex;
     flex-direction: column;
     overflow-y: auto;
     flex: 1;
@@ -118,7 +118,7 @@ body{
 }
 
 #create1{
-    display: flex;
+    display: none;
     width: 100%;
     flex: 1;
     flex-direction: column;
