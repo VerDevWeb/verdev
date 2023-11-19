@@ -581,7 +581,7 @@ height: 100%;
     }
 
     #add_selection{
-        display: flex;
+       display: flex;
        height: auto;
        width: 50% !important;
     }
