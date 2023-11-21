@@ -15,9 +15,7 @@ document.getElementById("team_button").addEventListener("click", function () {
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    document.body.classList.add("light-theme");
-});
+
 
 
 function toggleTheme() {
@@ -519,6 +517,65 @@ function getTasks() {
   }
 
   document.addEventListener("DOMContentLoaded", function() {
-    refresh1();
+    //refresh1();
+    document.body.classList.add("light-theme");
   });
+
+
+  function add_accounting1(){
+   if (document.getElementById("accounting_create1").style.display === "flex"){
+    document.getElementById("accounting_create1").style.display = "none";
+   }else{
+    document.getElementById("accounting_create1").style.display = "flex";
+   }
+  }
+
+
   
+
+  function writeAccounting1(){
+    var taskName = document.getElementById('change1').value;
+    var accountingName = document.getElementById('accounting_title1').value;
+    if(accountingName !== "") {
+
+      const uid = getCookieValue('uid');
+      var databaseRef = firebase.database().ref('/datas/tasks/personal/' + uid + '/' + taskName + '/' + '/accountings/');
+      var accountingName = document.getElementById('accounting_title1').value;
+      var taskRef = databaseRef.child(accountingName);
+      
+      var inputStartDateElement = document.getElementById('accounting_start_date1');
+      var valoreStartDataStringa = inputStartDateElement.value;
+      var startData = new Date(valoreStartDataStringa);
+      var startDataFormatted = startData.toISOString().split('T')[0];
+
+      var inputEndDateElement = document.getElementById('accounting_end_date1');
+      var valoreEndDataStringa = inputEndDateElement.value;
+      var endData = new Date(valoreEndDataStringa);
+      var endDataFormatted = endData.toISOString().split('T')[0];
+
+
+      taskRef.update({
+        title : accountingName,
+        description: document.getElementById('accounting_description1').value,
+        owner: mail,
+        dedicated_time: document.getElementById('accounting_dedicated_time1').value,
+        start: startDataFormatted,
+        end: endDataFormatted,
+
+     
+      }).then(function() {
+
+        var data = {};
+        data.name = taskName;
+
+        getAccountings1(data);
+          alert("Contabilizzazione aggiunta con successo");
+      }).catch(function(error) {
+          alert("Si è verificato un errore durante l'aggiunta della contabilizzazione all'interno del task: " + error);
+      });    
+
+  } else {
+      alert("Il nome della contabilizzazione è vuoto. Si prega di inserire un nome valido.");
+  }
+  }
+

@@ -58,7 +58,7 @@ cell10.appendChild(editButton);
 
 var editButton = document.createElement("button");
 editButton.className = "task_actions_button1";
-editButton.innerHTML = "<i class='material-icons notranslate'>close</i>";
+editButton.innerHTML = "<i class='material-icons notranslate'>alarm_add</i>";
 editButton.onclick = function() {
   openTaskGET(data.name);
 };
@@ -128,6 +128,7 @@ cell10.appendChild(editButton);
     editButton.innerHTML = "<i class='material-icons notranslate'>edit</i>";
     editButton.onclick = function() {
       getTaskToChange1(data);
+      getAccountings1(data);
     };
     cell10.className = 'cell9';
     cell10.style.flexdirection = 'column';
@@ -295,4 +296,48 @@ cell10.appendChild(editButton);
         selezionaNodo.appendChild(option);
       });
     });
+  }
+
+
+ 
+  function getAccountings1(data){
+    // Seleziona la tabella
+    var table = document.getElementById("tableBody6");
+    var taskName = data.name;
+
+  
+    // Svuota tutte le righe presenti nella tabella
+    while (table.rows.length > 0) {
+      table.deleteRow(0);
+    }
+
+  const uid = getCookieValue('uid');
+  var usersRef = firebase.database().ref('/datas/tasks/personal/' + uid + '/' + taskName  + '/accountings/');
+
+  usersRef.once('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childData = childSnapshot.val();
+        createTableRow(childData);
+    });
+  });
+
+  function createTableRow(data) {
+    var table = document.getElementById("tableBody6");
+
+    var row = table.insertRow();
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
+  
+    cell1.innerHTML = data.title; 
+    cell2.innerHTML = data.description; 
+    cell3.innerHTML = data.owner; 
+    cell4.innerHTML = data.start;
+    cell5.innerHTML = data.end;
+  
+  
+
+  }
   }

@@ -16,6 +16,10 @@
             color: rgb(40, 39, 39);;
         }
 
+        #change_task1{
+            background-color: rgba(0, 0, 0, 0.372);
+        }
+
         .under_button2{
             background: transparent;
             border: 1px solid transparent;
@@ -94,6 +98,9 @@ width: 100%;
 height: 90%;
 }
 
+#crd1010{
+    background-color: rgb(255, 255, 255);
+}
 
 
 .card1{

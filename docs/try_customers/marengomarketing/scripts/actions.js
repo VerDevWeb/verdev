@@ -1,6 +1,6 @@
 function getTaskToChange1(data){
 
-  document.getElementById("dash").style.display = "none";
+  document.getElementById("dash").style.display = "flex";
   document.getElementById("notifications").style.display = "none";
   document.getElementById("team").style.display = "none";
   document.getElementById("account_settings").style.display = "none";
