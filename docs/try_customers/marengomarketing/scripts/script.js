@@ -517,7 +517,7 @@ function getTasks() {
   }
 
   document.addEventListener("DOMContentLoaded", function() {
-    //refresh1();
+    refresh1();
     document.body.classList.add("light-theme");
   });
 
