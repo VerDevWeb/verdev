@@ -517,8 +517,19 @@ function getTasks() {
   }
 
   document.addEventListener("DOMContentLoaded", function() {
-    refresh1();
+    //refresh1();
     document.body.classList.add("light-theme");
+
+    //change task, data di default accountings
+    // Ottieni l'elemento input
+let inputDate = document.getElementById('accounting_start_date1');
+
+// Ottieni la data corrente nel formato "yyyy-mm-dd"
+let today = new Date().toISOString().split('T')[0];
+
+// Imposta la data corrente come valore predefinito per l'input date
+inputDate.value = today;
+
   });
 
 
@@ -548,11 +559,6 @@ function getTasks() {
       var startData = new Date(valoreStartDataStringa);
       var startDataFormatted = startData.toISOString().split('T')[0];
 
-      var inputEndDateElement = document.getElementById('accounting_end_date1');
-      var valoreEndDataStringa = inputEndDateElement.value;
-      var endData = new Date(valoreEndDataStringa);
-      var endDataFormatted = endData.toISOString().split('T')[0];
-
 
       taskRef.update({
         title : accountingName,
@@ -560,7 +566,6 @@ function getTasks() {
         owner: mail,
         dedicated_time: document.getElementById('accounting_dedicated_time1').value,
         start: startDataFormatted,
-        end: endDataFormatted,
 
      
       }).then(function() {
@@ -578,4 +583,4 @@ function getTasks() {
       alert("Il nome della contabilizzazione è vuoto. Si prega di inserire un nome valido.");
   }
   }
-
+  

@@ -138,3 +138,19 @@ databaseRef.remove()
       });
     
   }
+
+  function deleteAccounting1(data, taskName) {
+    const uid = getCookieValue('uid');
+    const databaseRef = firebase.database().ref('/datas/tasks/personal/' + uid + '/' + taskName + '/accountings/' + data.title + '/');
+    
+    databaseRef.remove()
+      .then(function() {
+        refresh1();
+        alert("Contabilizzazione eliminata con successo");
+      })
+      .catch(function(error) {
+        refresh1();
+        alert("Errore nell'eliminazione della contabilizzazione:", error);
+      });
+    
+      }

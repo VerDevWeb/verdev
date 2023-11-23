@@ -50,6 +50,8 @@ editButton.className = "task_actions_button1";
 editButton.innerHTML = "<i class='material-icons notranslate'>edit</i>";
 editButton.onclick = function() {
   getTaskToChange1(data);
+  getAccountings1(data);
+  animateBox2();
 };
 cell10.className = 'cell9';
 cell10.style.flexdirection = 'column';
@@ -61,6 +63,14 @@ editButton.className = "task_actions_button1";
 editButton.innerHTML = "<i class='material-icons notranslate'>alarm_add</i>";
 editButton.onclick = function() {
   openTaskGET(data.name);
+};
+cell10.appendChild(editButton);
+
+var editButton = document.createElement("button");
+editButton.className = "task_actions_button1";
+editButton.innerHTML = "<i class='material-icons notranslate'>mail</i>";
+editButton.onclick = function() {
+  initTaskMail1(data);
 };
 cell10.appendChild(editButton);
 
@@ -129,6 +139,7 @@ cell10.appendChild(editButton);
     editButton.onclick = function() {
       getTaskToChange1(data);
       getAccountings1(data);
+      animateBox2();
     };
     cell10.className = 'cell9';
     cell10.style.flexdirection = 'column';
@@ -142,6 +153,15 @@ cell10.appendChild(editButton);
       closeTaskGET(data.name);
     };
     cell10.appendChild(editButton);
+
+    var editButton = document.createElement("button");
+    editButton.className = "task_actions_button1";
+    editButton.innerHTML = "<i class='material-icons notranslate'>mail</i>";
+    editButton.onclick = function() {
+     initTaskMail1(data);
+   };
+    cell10.appendChild(editButton);
+
 
     var editButton = document.createElement("button");
     editButton.className = "task_actions_button1";
@@ -317,11 +337,11 @@ cell10.appendChild(editButton);
   usersRef.once('value', function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       var childData = childSnapshot.val();
-        createTableRow(childData);
+        createTableRow(childData, taskName);
     });
   });
 
-  function createTableRow(data) {
+  function createTableRow(data, taskName) {
     var table = document.getElementById("tableBody6");
 
     var row = table.insertRow();
@@ -330,14 +350,35 @@ cell10.appendChild(editButton);
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
     var cell5 = row.insertCell(4);
-  
+
     cell1.innerHTML = data.title; 
     cell2.innerHTML = data.description; 
     cell3.innerHTML = data.owner; 
     cell4.innerHTML = data.start;
-    cell5.innerHTML = data.end;
-  
-  
+    cell5.innerHTML = data.dedicated_time;
 
+    var cell6 = row.insertCell(5);
+
+    cell6.className = 'cell9';
+    cell6.style.flexdirection = 'column';
+    var editButton = document.createElement("button");
+    editButton.className = "task_actions_button1";
+    editButton.innerHTML = "<i class='material-icons notranslate'>delete</i>";
+    editButton.onclick = function() {
+      deleteAccounting1(data, taskName);
+    };
+    cell6.appendChild(editButton);
+
+    var editButton = document.createElement("button");
+    editButton.className = "task_actions_button1";
+    editButton.innerHTML = "<i class='material-icons notranslate'>mail</i>";
+    editButton.onclick = function() {
+      initAccountingMail1(data, taskName);
+    };
+    cell6.appendChild(editButton);
+
+    }
   }
-  }
+
+  
+  

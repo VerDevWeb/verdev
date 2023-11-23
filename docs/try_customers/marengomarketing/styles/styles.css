@@ -58,7 +58,7 @@ body{
 }
 
 #logged{
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -67,7 +67,7 @@ body{
 }
 
 #no_logged{
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -187,4 +187,13 @@ margin-right: 3rem;
         display: none;
     }
 
- 
+    #send_mail1{
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+    }

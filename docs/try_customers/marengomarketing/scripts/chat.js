@@ -59,3 +59,39 @@ var minute = currentDate.getMinutes();
         chatMessages.appendChild(messageElement);
       }
       
+
+
+      //mail
+      function sendMail1() {
+        const recipient = document.getElementById('mail_recipient1').value;
+        const object = document.getElementById('mail_object1').value;
+        const cc = document.getElementById('mail_cc1').value;
+        const bcc = document.getElementById('mail_bcc1').value;
+        const mailInput1 = document.getElementById('mail_body1').value;
+
+        const mailBody = (mailInput1);
+
+        const mailtoLink = `mailto:${recipient}?cc=${cc}&bcc=${bcc}&subject=${encodeURIComponent(object)}&body=${encodeURIComponent(mailBody)}`;
+      
+        const tempLink = document.createElement('a');
+        tempLink.href = mailtoLink;
+        tempLink.target = '_blank';
+        tempLink.click();
+      }
+
+      
+      function initAccountingMail1(data, taskName){
+        document.getElementById("send_mail1").style.display = "flex";
+        document.getElementById("mail_object1").value = `Contabilizzazione "${data.title}" | Task "${taskName}"`;
+        document.getElementById("mail_body1").value = `Salve sono     , le scrivo per porre alla sua attenzione che la contabilizzazione ${data.title} appartenente al task ${taskName}, contabilizzata in data ${data.start}, con owner ${data.owner}, ha portato al completamento della task ${taskName} con un tempo dedicato a questa contabilizzazione pari a ${data.dedicated_time} ore.
+Cordiali saluti _______`;
+      }
+
+      function initTaskMail1(data){
+        document.getElementById("send_mail1").style.display = "flex";
+        document.getElementById("mail_object1").value = `Task "${data.name}"`;
+        document.getElementById("mail_body1").value = `Salve sono     , le scrivo per porre alla sua attenzione che il task ${data.name}, con rispettivamente data di inizio e fine ${data.start}, ${data.end}, con owner ${data.owner}, dedicata all'azienda "${data.company}", in possesso del marchio/brand "${data.brand}" è stata completata con successo.
+Cordiali saluti _______`;
+      }
+      
+      
