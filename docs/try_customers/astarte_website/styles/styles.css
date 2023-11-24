@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(234, 234, 234);
+    font-family: 'Epilogue', sans-serif;
+    height: 100%;
+    width: 100%;
+  }
+
+.general_text1{
+    font-family: 'Epilogue', sans-serif;
+    color: #ffffff;
+}
+
+#master_container{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.responsive_div1{
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.header {
+    position: relative;
+    width: 100%;
+    height: 100%; 
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.491);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    color: white;
+    text-align: center;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    overflow: hidden;
+}
+
+
+.button1{
+    background: #232224;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.128);
+    color: white;
+    font-family: 'Epilogue', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+    .responsive_div1{
+        flex-direction: row !important;
+        align-items: start !important;
+    }
+
+    #resp1{
+        flex: 1 !important;
+        padding-left: 1rem !important;
+    }
+
+    #resp2{
+        flex: 0.5 !important;
+        border-radius: 1rem !important;
+        height: 500px;
+        margin-right: 5rem !important;
+        margin-bottom: 2rem;
+    }
+
+    #resp_img1{
+        width: 90% !important;
+        border-radius: 1rem !important;
+        margin-bottom: 1rem;
+    }
+
+    .resp_p1{
+        font-size: 25px !important;
+    }
+
+    .resp_text1{
+        font-size: 40px !important;
+    }
+
+    .resp_text2{
+        font-size: 30px !important;
+    }
+
+    ::-webkit-scrollbar{
+        width: 10px;
+        background-color: transparent;
+        border-radius: 10px;
+         }
+        
+        ::-webkit-scrollbar-thumb {
+         background: rgb(26, 26, 26);
+         border-radius: 1rem;
+         border: 1px solid rgba(255, 255, 255, 0.139);
+        }
+    
+    
+}
