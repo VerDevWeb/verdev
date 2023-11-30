@@ -1,15 +1,19 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
     background-color: rgb(234, 234, 234);
-    font-family: 'Epilogue', sans-serif;
+    font-family: 'Epilogue' !important;
     height: 100%;
     width: 100%;
   }
 
+  @font-face {
+    font-family: 'Epilogue';
+    src: url('/fonts/Epilogue-Regular.ttf') format('truetype');
+  }
+
 .general_text1{
-    font-family: 'Epilogue', sans-serif;
+    font-family: 'Epilogue' !important;
     color: #ffffff;
 }
 
@@ -64,8 +68,7 @@ body {
     border-radius: 1rem;
     border: 1px solid rgba(0, 0, 0, 0.128);
     color: white;
-    font-family: 'Epilogue', sans-serif;
-    font-weight: bold;
+    font-family: 'Epilogue' !important;
     cursor: pointer;
 }
 
@@ -100,11 +103,109 @@ body {
     border-radius: 1.5rem;
    }
 
+   .a1{
+    margin-left: 0.2rem !important;
+    margin-right: 0.2rem !important;
+    text-decoration: none !important;
+    font-family: 'Epilogue' !important;
+    color: black !important;
+    font-size: 15px !important;
+   }
+
+.a1:hover{
+    color: #4d72ec !important;
+}
+ 
+  /* for all social containers*/
+  .socialContainer {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(44, 44, 44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition-duration: .3s;
+  }
+  /* instagram*/
+  .containerOne:hover {
+    background-color: #d62976;
+    transition-duration: .3s;
+  }
+  /* twitter*/
+  .containerTwo:hover {
+    background-color: #00acee;
+    transition-duration: .3s;
+  }
+  /* linkdin*/
+  .containerThree:hover {
+    background-color: #0072b1;
+    transition-duration: .3s;
+  }
+  /* Whatsapp*/
+  .containerFour:hover {
+    background-color: #128C7E;
+    transition-duration: .3s;
+  }
+  
+  .socialContainer:active {
+    transform: scale(0.9);
+    transition-duration: .3s;
+  }
+  
+  .socialSvg {
+    width: 17px;
+  }
+  
+  .socialSvg path {
+    fill: rgb(255, 255, 255);
+  }
+  
+  .socialContainer:hover .socialSvg {
+    animation: slide-in-top 0.3s both;
+  }
+  
+  @keyframes slide-in-top {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  
+
+
 
    @media screen and (max-width: 999px) {
     .form1{
         width: 90% !important;
        }
+
+       .desktop1{
+        display: none !important;
+       }
+
+       .desktop2{
+        display: flex !important;
+       }
+
+       #footer1{
+        flex-direction: column;
+       }
+
+       #resp3{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .div2{
+      height: 8rem;
+    }
    }
 
 
@@ -113,6 +214,16 @@ body {
         flex-direction: row !important;
         align-items: start !important;
     }
+
+    #resp3{
+        display: flex;
+        flex-direction: row;
+    }
+
+    #footer1{
+        flex-direction: column !important;
+        align-items: start;
+       }
 
     #resp1{
         flex: 1 !important;
