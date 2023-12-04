@@ -280,7 +280,9 @@ function registerUser() {
   }
 
   document.addEventListener("DOMContentLoaded", function() {
-    refresh1();
+    if (document.getElementById('logged').style.display === 'flex'){
+      refresh1();
+    }
 
     //change task, data di default accountings
 let inputDate = document.getElementById('accounting_start_date1');
