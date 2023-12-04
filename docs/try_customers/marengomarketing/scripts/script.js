@@ -4,12 +4,14 @@ document.getElementById("dash_button").addEventListener("click", function () {
     document.getElementById("team").style.display = "none";
     document.getElementById("account_settings").style.display = "none";
     document.getElementById("create1").style.display = "none";
+    document.getElementById("company1").style.display = "none";
 });
 
 document.getElementById("team_button").addEventListener("click", function () {
     document.getElementById("dash").style.display = "none";
     document.getElementById("notifications").style.display = "none";
     document.getElementById("team").style.display = "flex";
+    document.getElementById("company1").style.display = "none";
     document.getElementById("account_settings").style.display = "none";
     document.getElementById("create1").style.display = "none";
 });
@@ -23,9 +25,19 @@ function toggleTheme() {
     if (body.classList.contains("light-theme")) {
         body.classList.remove("light-theme");
         body.classList.add("dark-theme");
+        var scadenza = new Date();
+        scadenza.setTime(scadenza.getTime() + (365 * 24 * 60 * 60 * 1000));
+        var scadenzaUTC = scadenza.toUTCString();
+        document.cookie = "theme=dark-theme; expires=" + scadenzaUTC + "; path=/";
+        animateALL()
     } else if (body.classList.contains("dark-theme")) {
         body.classList.remove("dark-theme");
         body.classList.add("light-theme");
+        var scadenza = new Date();
+        scadenza.setTime(scadenza.getTime() + (365 * 24 * 60 * 60 * 1000));
+        var scadenzaUTC = scadenza.toUTCString();
+        document.cookie = "theme=light-theme; expires=" + scadenzaUTC + "; path=/";
+        animateALL()
     }
 }
 
@@ -35,6 +47,7 @@ function notifications_function(){
     document.getElementById("dash").style.display = "none";
     document.getElementById("notifications").style.display = "none";
     document.getElementById("team").style.display = "flex";
+    document.getElementById("company1").style.display = "none";
     document.getElementById("account_settings").style.display = "none";
     document.getElementById("create1").style.display = "none";
 }
@@ -42,6 +55,7 @@ function notifications_function(){
 function showNotifications(){
   document.getElementById("dash").style.display = "none";
   document.getElementById("team").style.display = "none";
+  document.getElementById("company1").style.display = "none";
   document.getElementById("account_settings").style.display = "none";
   document.getElementById("create1").style.display = "none";
   document.getElementById("notifications").style.display = "flex";
@@ -51,6 +65,7 @@ function dash_function(){
     document.getElementById("dash").style.display = "flex";
     document.getElementById("notifications").style.display = "none";
     document.getElementById("team").style.display = "none";
+    document.getElementById("company1").style.display = "none";
     document.getElementById("account_settings").style.display = "none";
     document.getElementById("create1").style.display = "none";
 }
@@ -58,6 +73,7 @@ function dash_function(){
 
 function account_button(){
     document.getElementById("dash").style.display = "none";
+    document.getElementById("company1").style.display = "none";
     document.getElementById("notifications").style.display = "none";
     document.getElementById("team").style.display = "none";
     document.getElementById("create1").style.display = "none";
@@ -67,12 +83,21 @@ function account_button(){
 
 function add_function(){
     document.getElementById("dash").style.display = "none";
+    document.getElementById("company1").style.display = "none";
     document.getElementById("notifications").style.display = "none";
     document.getElementById("team").style.display = "none";
     document.getElementById("account_settings").style.display = "none";
     document.getElementById("create1").style.display = "flex";
 }
 
+function company_function(){
+  document.getElementById("dash").style.display = "none";
+  document.getElementById("notifications").style.display = "none";
+  document.getElementById("team").style.display = "none";
+  document.getElementById("account_settings").style.display = "none";
+  document.getElementById("create1").style.display = "none";
+  document.getElementById("company1").style.display = "flex";
+}
 
 function show1(){
     document.getElementById("instr_outcome_form").style.display = "none";
@@ -103,20 +128,40 @@ function showLogin(){
 }
 
 
+  function getCookieValue(name) {
+    const cookieName = name + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const cookieArray = decodedCookie.split(';');
+    
+    for (let i = 0; i < cookieArray.length; i++) {
+      let cookie = cookieArray[i];
+      while (cookie.charAt(0) === ' ') {
+        cookie = cookie.substring(1);
+      }
+      if (cookie.indexOf(cookieName) === 0) {
+        return cookie.substring(cookieName.length, cookie.length);
+      }
+    }
+    return "";
+  }
 
+
+  
 
 const firebaseConfig = {
-    apiKey: "AIzaSyC1OehS_NbBUQVp_BIXrS6tWeALPkFADAc",
-    authDomain: "mmdb1-c34cb.firebaseapp.com",
-    projectId: "mmdb1-c34cb",
-    storageBucket: "mmdb1-c34cb.appspot.com",
-    messagingSenderId: "145231893655",
-    appId: "1:145231893655:web:9438fb4a6b59528ff645d2",
-    measurementId: "G-VF2TPCSJZN"
-  };
+  apiKey: "AIzaSyC1OehS_NbBUQVp_BIXrS6tWeALPkFADAc",
+  authDomain: "mmdb1-c34cb.firebaseapp.com",
+  databaseURL: "https://mmdb1-c34cb-default-rtdb.firebaseio.com",
+  projectId: "mmdb1-c34cb",
+  storageBucket: "mmdb1-c34cb.appspot.com",
+  messagingSenderId: "145231893655",
+  appId: "1:145231893655:web:9438fb4a6b59528ff645d2",
+  measurementId: "G-VF2TPCSJZN"
+};
 
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
+var db = firebase.firestore();
 firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
 .then(function() {
 
@@ -199,285 +244,7 @@ function registerUser() {
   }
 
 
-
-  function getCookieValue(name) {
-    const cookieName = name + "=";
-    const decodedCookie = decodeURIComponent(document.cookie);
-    const cookieArray = decodedCookie.split(';');
     
-    for (let i = 0; i < cookieArray.length; i++) {
-      let cookie = cookieArray[i];
-      while (cookie.charAt(0) === ' ') {
-        cookie = cookie.substring(1);
-      }
-      if (cookie.indexOf(cookieName) === 0) {
-        return cookie.substring(cookieName.length, cookie.length);
-      }
-    }
-    return "";
-  }
-
-
-  function writeTask() {
-      var selection = document.getElementById('select_task_type1').value;
-      switch (selection) {
-        case 'private':
-          writePrivateTask();
-          break;
-        case 'team':
-          writeTeamTask();
-          break;
-        case 'general':
-          writeGeneralTask();
-          break;
-        default:
-          console.log('Assicurati di aver selezionato un owner');
-      }
-    }
-
-
-    function writePrivateTask(){
-    var taskName = document.getElementById('name_task_input').value;
-    if(taskName !== "") {
-
-      const uid = getCookieValue('uid');
-      var databaseRef = firebase.database().ref('/datas/tasks/personal/' + uid + '/');
-      var taskName = document.getElementById('name_task_input').value;
-      var taskRef = databaseRef.child(taskName);
-      
-      var inputStartDateElement = document.getElementById('end_task_date_input');
-      var valoreStartDataStringa = inputStartDateElement.value;
-      var startData = new Date(valoreStartDataStringa);
-      var startDataFormatted = startData.toISOString().split('T')[0];
-
-      var inputEndDateElement = document.getElementById('start_task_date_input');
-      var valoreEndDataStringa = inputEndDateElement.value;
-      var endData = new Date(valoreEndDataStringa);
-      var endDataFormatted = endData.toISOString().split('T')[0];
-
-
-      taskRef.update({
-          name : document.getElementById('name_task_input').value,
-          description: document.getElementById('description_task_input').value,
-          owner: document.getElementById('owner_task_input').value,
-          company: document.getElementById('company_task_input').value,
-          brand: document.getElementById('brand_task_input').value,
-          project: document.getElementById('project_task_input').value,
-          start: startDataFormatted,
-          end: endDataFormatted,
-          status: 'APERTA'
-
-     
-      }).then(function() {
-          alert("Task aggiunta con successo");
-          refresh1();
-          dash_function();
-      }).catch(function(error) {
-          alert("Si è verificato un errore durante l'aggiunta della task: " + error);
-      });    
-
-  } else {
-      alert("Il nome della task è vuoto. Si prega di inserire un nome valido.");
-  }
-  }
-
-
-  function writeGeneralTask(){
-    var taskName = document.getElementById('name_task_input').value;
-    if(taskName !== "") {
-
-      const uid = getCookieValue('uid');
-      var databaseRef = firebase.database().ref('/datas/tasks/general/');
-      var taskName = document.getElementById('name_task_input').value;
-      var taskRef = databaseRef.child(taskName);
-      
-      var inputStartDateElement = document.getElementById('end_task_date_input');
-      var valoreStartDataStringa = inputStartDateElement.value;
-      var startData = new Date(valoreStartDataStringa);
-      var startDataFormatted = startData.toISOString().split('T')[0];
-
-      var inputEndDateElement = document.getElementById('start_task_date_input');
-      var valoreEndDataStringa = inputEndDateElement.value;
-      var endData = new Date(valoreEndDataStringa);
-      var endDataFormatted = endData.toISOString().split('T')[0];
-
-
-      taskRef.update({
-          name : document.getElementById('name_task_input').value,
-          description: document.getElementById('description_task_input').value,
-          owner: document.getElementById('owner_task_input').value,
-          company: document.getElementById('company_task_input').value,
-          brand: document.getElementById('brand_task_input').value,
-          project: document.getElementById('project_task_input').value,
-          start: startDataFormatted,
-          end: endDataFormatted,
-          status: 'APERTA'
-
-     
-      }).then(function() {
-          alert("Task aggiunta con successo");
-          refresh1();
-      }).catch(function(error) {
-          alert("Si è verificato un errore durante l'aggiunta della task: " + error);
-      });    
-
-  } else {
-      alert("Il nome della task è vuoto. Si prega di inserire un nome valido.");
-  }
-  }
-
-  
-  function writeTeamTask(){
-    var taskName = document.getElementById('name_task_input').value;
-    if(taskName !== "") {
-      var teamSelector = document.getElementById("team_selector1");
-      const uid = getCookieValue('uid');
-      var databaseRef = firebase.database().ref('/datas/tasks/team/' + teamSelector.value + '/');
-      var taskName = document.getElementById('name_task_input').value;
-      var taskRef = databaseRef.child(taskName);
-      
-      var inputStartDateElement = document.getElementById('end_task_date_input');
-      var valoreStartDataStringa = inputStartDateElement.value;
-      var startData = new Date(valoreStartDataStringa);
-      var startDataFormatted = startData.toISOString().split('T')[0];
-
-      var inputEndDateElement = document.getElementById('start_task_date_input');
-      var valoreEndDataStringa = inputEndDateElement.value;
-      var endData = new Date(valoreEndDataStringa);
-      var endDataFormatted = endData.toISOString().split('T')[0];
-
-
-      taskRef.update({
-          name : document.getElementById('name_task_input').value,
-          description: document.getElementById('description_task_input').value,
-          owner: document.getElementById('owner_task_input').value,
-          company: document.getElementById('company_task_input').value,
-          brand: document.getElementById('brand_task_input').value,
-          project: document.getElementById('project_task_input').value,
-          start: startDataFormatted,
-          end: endDataFormatted,
-          status: 'APERTA'
-
-     
-      }).then(function() {
-          alert("Task aggiunta con successo");
-          dash_function();
-          refresh1();
-      }).catch(function(error) {
-          alert("Si è verificato un errore durante l'aggiunta della task: " + error);
-      });    
-
-  } else {
-      alert("Il nome della task è vuoto. Si prega di inserire un nome valido.");
-  }
-  }
-
-
-
-  function writeInstrOutcome() {
-    var outcomeObject = document.getElementById('outcome_object').value;
-    if(outcomeObject !== "") {
-
-      const uid = getCookieValue('uid');
-      var databaseRef1 = firebase.database().ref('/datas/tasks/personal/' + uid +'/');
-      var taskRef1 = databaseRef1.child(outcomeObject);
-      
-      taskRef1.update({
-          amount: document.getElementById('outcome_amount').value,
-          note: document.getElementById('outcome_notes').value,
-          date: document.getElementById('outcome_date').value,
-      }).then(function() {
-          alert("Task aggiunta con successo");
-          dash_function();
-          refresh1();
-      }).catch(function(error) {
-          alert("Si è verificato un errore durante l'aggiunta della task: " + error);
-      });    
-      
-  } else {
-      alert("Inserisci l'oggetto della spesa strumentale");
-  }
-  }
-
-
-function getTasks() {
-      // Seleziona la tabella
-      var table = document.getElementById("tableBody1");
-
-      // Svuota tutte le righe presenti nella tabella
-      while (table.rows.length > 0) {
-        table.deleteRow(0);
-      }
-
-  const uid = getCookieValue('uid');
-  var usersRef = firebase.database().ref('/datas/tasks/personal/' + uid + '/');
-
-  usersRef.once('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
-      createTableRow(childData);
-    });
-  });
-
-  function createTableRow(data) {
-    var table = document.getElementById("tableBody1");
-
-    var row = table.insertRow();
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-    var cell5 = row.insertCell(4);
-    var cell6 = row.insertCell(5);
-    var cell7 = row.insertCell(6);
-    var cell8 = row.insertCell(7);
-    var cell9 = row.insertCell(8);
-
-    cell1.innerHTML = data.name; 
-    cell2.innerHTML = data.owner; 
-    cell3.innerHTML = data.company;
-    cell4.innerHTML = data.project;
-    cell5.innerHTML = data.brand;
-    cell6.innerHTML = data.start;
-    cell7.innerHTML = data.end;
-    cell8.innerHTML = data.status;
-
-
-    var editButton = document.createElement("button");
-    editButton.className = "task_actions_button1";
-    editButton.innerHTML = "<i class='material-icons notranslate'>edit</i>";
-    editButton.onclick = function() {
-      editTask(data.name);
-    };
-    cell9.className = 'cell9';
-    cell9.style.flexdirection = 'column';
-    cell9.appendChild(editButton);
-
-    
-    var editButton = document.createElement("button");
-    editButton.className = "task_actions_button1";
-    editButton.innerHTML = "<i class='material-icons notranslate'>done</i>";
-    editButton.onclick = function() {
-      deleteTaskGET(data.name);
-    };
-    cell9.appendChild(editButton);
-
-    var editButton = document.createElement("button");
-    editButton.className = "task_actions_button1";
-    editButton.innerHTML = "<i class='material-icons notranslate'>delete</i>";
-    editButton.onclick = function() {
-      deleteTaskGET(data.name);
-    };
-    cell9.appendChild(editButton);
-  }
-
-
-  
-}
-
-  
-  
-
     var selectElement = document.getElementById('select_task_type1');
     selectElement.addEventListener('change', function() {
 
@@ -506,81 +273,34 @@ function getTasks() {
 
     
    function refresh1(){
-    getTeams2();
-    getTeams3();
-    getTeams();
     getOpenTasks();
-    getClosedTasks();
-    getClosedTeamTasks();
-    getOpenTeamTasks();
+    getCompanies1();
     animateDash();
+    fillSelectionsTeams();
   }
 
   document.addEventListener("DOMContentLoaded", function() {
-    refresh1();
-    document.body.classList.add("light-theme");
+    //refresh1();
 
     //change task, data di default accountings
-    // Ottieni l'elemento input
 let inputDate = document.getElementById('accounting_start_date1');
-
-// Ottieni la data corrente nel formato "yyyy-mm-dd"
 let today = new Date().toISOString().split('T')[0];
-
-// Imposta la data corrente come valore predefinito per l'input date
 inputDate.value = today;
 
+    //cookie per ricordare al sito quale tema hai scelto
+    const selectedTheme1 = getCookieValue('theme');
+    if (selectedTheme1 === 'light-theme'){
+      document.body.classList.add("light-theme");
+    }else{
+      if (selectedTheme1 === 'dark-theme'){
+        document.body.classList.add("dark-theme");
+      }else{
+        document.body.classList.add("light-theme");
+      }
+    }
   });
 
 
-  function add_accounting1(){
-   if (document.getElementById("accounting_create1").style.display === "flex"){
-    document.getElementById("accounting_create1").style.display = "none";
-   }else{
-    document.getElementById("accounting_create1").style.display = "flex";
-   }
-  }
-
-
-  
-
-  function writeAccounting1(){
-    var taskName = document.getElementById('change1').value;
-    var accountingName = document.getElementById('accounting_title1').value;
-    if(accountingName !== "") {
-
-      const uid = getCookieValue('uid');
-      var databaseRef = firebase.database().ref('/datas/tasks/personal/' + uid + '/' + taskName + '/' + '/accountings/');
-      var accountingName = document.getElementById('accounting_title1').value;
-      var taskRef = databaseRef.child(accountingName);
-      
-      var inputStartDateElement = document.getElementById('accounting_start_date1');
-      var valoreStartDataStringa = inputStartDateElement.value;
-      var startData = new Date(valoreStartDataStringa);
-      var startDataFormatted = startData.toISOString().split('T')[0];
-
-
-      taskRef.update({
-        title : accountingName,
-        description: document.getElementById('accounting_description1').value,
-        owner: mail,
-        dedicated_time: document.getElementById('accounting_dedicated_time1').value,
-        start: startDataFormatted,
-
-     
-      }).then(function() {
-
-        var data = {};
-        data.name = taskName;
-
-        getAccountings1(data);
-          alert("Contabilizzazione aggiunta con successo");
-      }).catch(function(error) {
-          alert("Si è verificato un errore durante l'aggiunta della contabilizzazione all'interno del task: " + error);
-      });    
-
-  } else {
-      alert("Il nome della contabilizzazione è vuoto. Si prega di inserire un nome valido.");
-  }
-  }
-  
+  document.getElementById('start_task_date_input').addEventListener('change', function() {
+    document.getElementById('start_div1').style.display = "block"
+  });

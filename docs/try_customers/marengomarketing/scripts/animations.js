@@ -25,6 +25,30 @@ mioElemento.addEventListener('animationend', function() {
 });
 }
 
+function animate_company(){
+  var mioElemento = document.getElementById('company1');
+  
+  // Definisci le keyframes per l'animazione di dissolvenza
+  var keyframes = [
+    { opacity: 0 },
+    { opacity: 1 }
+  ];
+  
+  // Opzioni per l'animazione
+  var options = {
+    duration: masterDuration, // durata in millisecondi
+    easing: 'ease-in-out' // tipo di transizione
+  };
+  
+  // Avvia l'animazione
+  mioElemento.animate(keyframes, options);
+  
+  // Puoi anche aggiungere un listener per gestire l'animazione completata
+  mioElemento.addEventListener('animationend', function() {
+    console.log('Animazione completata!');
+  });
+  }
+
 function animateAccountings1(){
   var mioElemento = document.getElementById('accounting_create1');
   
@@ -175,3 +199,24 @@ function animateSettings(){
     });
     }
     
+
+    function animateALL(){
+      var mioElemento = document.getElementById('master_container');
+      
+      var keyframes = [
+        { opacity: 0 },
+        { opacity: 1 }
+      ];
+      
+      var options = {
+        duration: 500, 
+        easing: 'ease-in-out' 
+      };
+      
+      // Avvia l'animazione
+      mioElemento.animate(keyframes, options);
+      
+      mioElemento.addEventListener('animationend', function() {
+        console.log('Animazione completata!');
+      });
+      }

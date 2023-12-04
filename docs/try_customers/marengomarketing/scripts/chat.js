@@ -31,37 +31,8 @@ var minute = currentDate.getMinutes();
       }
     }
 
-    function getMessage(message) {
-        var chatMessages = document.getElementById("chat-messages");
-        var messageElement = document.createElement("div");
-        messageElement.className = "message_element1";
-        messageElement.style.display = "flex";
-        messageElement.style.flexDirection = "column";
 
-        var textParagraph = document.createElement("strong");
-        textParagraph.className = "general_paragraph";
-        textParagraph.innerText = message.mail;
-        messageElement.appendChild(textParagraph);
-
-        var textParagraph = document.createElement("p");
-        textParagraph.style.paddingTop = "0.5rem";
-        textParagraph.className = "general_paragraph";
-        textParagraph.innerText = message.testo;
-        messageElement.appendChild(textParagraph);
-
-        var dateElement = document.createElement("p");
-        dateElement.style.paddingTop = "0.2rem";
-        dateElement.style.marginTop = "0.2rem";
-        dateElement.className = "general_paragraph";
-        dateElement.innerText = message.date;
-        messageElement.appendChild(dateElement);
       
-        chatMessages.appendChild(messageElement);
-      }
-      
-
-
-      //mail
       function sendMail1() {
         const recipient = document.getElementById('mail_recipient1').value;
         const object = document.getElementById('mail_object1').value;
@@ -95,3 +66,32 @@ Cordiali saluti _______`;
       }
       
       
+
+  
+    function getMessage(message) {
+      var chatMessages = document.getElementById("chat-messages");
+      var messageElement = document.createElement("div");
+      messageElement.className = "message_element1";
+      messageElement.style.display = "flex";
+      messageElement.style.flexDirection = "column";
+
+      var textParagraph = document.createElement("strong");
+      textParagraph.className = "general_paragraph";
+      textParagraph.innerText = message.mail;
+      messageElement.appendChild(textParagraph);
+
+      var textParagraph = document.createElement("p");
+      textParagraph.style.paddingTop = "0.5rem";
+      textParagraph.className = "general_paragraph";
+      textParagraph.innerText = message.testo;
+      messageElement.appendChild(textParagraph);
+
+      var dateElement = document.createElement("p");
+      dateElement.style.paddingTop = "0.2rem";
+      dateElement.style.marginTop = "0.2rem";
+      dateElement.className = "general_paragraph";
+      dateElement.innerText = message.date;
+      messageElement.appendChild(dateElement);
+    
+      chatMessages.appendChild(messageElement);
+    }
