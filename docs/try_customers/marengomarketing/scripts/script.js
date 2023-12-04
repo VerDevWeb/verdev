@@ -176,6 +176,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     var uid = user.uid;
     document.cookie = "uid=" + uid + ";";
 
+    refresh1();
   } else {
     document.getElementById("logged").style.display = "none";
     document.getElementById("no_logged").style.display = "flex";
@@ -201,6 +202,8 @@ console.log(error);
 
           var uid = user.uid;
           document.cookie = "uid=" + uid + ";";
+
+          refresh1();
           })
         
           .catch(function(error) {
@@ -230,6 +233,8 @@ function registerUser() {
 
         var uid = user.uid;
         document.cookie = "uid=" + uid + ";";
+
+        refresh1();
       })
 
       .catch(function(error) {
@@ -280,9 +285,8 @@ function registerUser() {
   }
 
   document.addEventListener("DOMContentLoaded", function() {
-    if (document.getElementById('logged').style.display === 'flex'){
-      refresh1();
-    }
+
+    //NON INSERIRE MAI QUI DELLE FUNZIONI CON FIRESTORE DATABASE, VANNO INSERITE NELLA PARTE DI LOGIN, REGISTRAZIONE E CONTROLLO DEL SE L'UTENTE è LOGGATO, POICHè ALTRIMENTI NON CI SONO I PARAMETRI FONDAMENTALI PER LEGGERE I DATI DAL DATABASE COME UID
 
     //change task, data di default accountings
 let inputDate = document.getElementById('accounting_start_date1');
