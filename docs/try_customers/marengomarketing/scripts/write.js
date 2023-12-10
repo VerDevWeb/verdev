@@ -7,17 +7,7 @@ function add_accounting1(){
    }
  
 function writeTask() {
-    var selection = document.getElementById('select_task_type1').value;
-    switch (selection) {
-      case 'private':
-        writePrivateTask();
-        break;
-      case 'company':
         writeCompanyTask();
-        break;
-      default:
-        console.log('Assicurati di aver selezionato un owner');
-    }
   }
 
 
@@ -34,10 +24,6 @@ function writeTask() {
       
       const name = document.getElementById('name_task_input').value;
       const description = document.getElementById('description_task_input').value;
-      const owner = document.getElementById('owner_task_input').value;
-      const company = document.getElementById('company_task_input').value;
-      const brand = document.getElementById('brand_task_input').value;
-      const project = document.getElementById('project_task_input').value;
       
       var inputStartDateElement = document.getElementById('start_task_date_input');
       var valoreStartDataStringa = inputStartDateElement.value;
@@ -57,10 +43,6 @@ function writeTask() {
 const datiDaAggiornare = {
 name: name,
 description: description,
-owner: owner,
-company: company,
-brand: brand,
-project: project,
 start: startDataFormatted,
 end: endDataFormatted,
 status: 'APERTA'
@@ -102,20 +84,18 @@ userTasksRef.add(datiDaAggiornare)
 
 
   
-  function writeAccounting1(){
+  function writeAccounting(){
     var accountingDescription = document.getElementById('accounting_description1').value;
     if(accountingDescription !== "") {
 
-      const uid = getCookieValue('uid');
       var accountingDescription = document.getElementById('accounting_description1').value;
-
       var inputStartDateElement = document.getElementById('accounting_start_date1');
       var valoreStartDataStringa = inputStartDateElement.value;
       var startData = new Date(valoreStartDataStringa);
       var startDataFormatted = startData.toISOString().split('T')[0];
 
       const db = firebase.firestore();
-      const docRef = db.collection('users').doc(uid).collection('tasks').doc(globalThis.currentTask1.id).collection('accountings').doc();
+      const docRef = db.collection('companies').doc(globalThis.currentTask.company_id).collection('tasks').doc(globalThis.currentTask.id).collection('accountings').doc();
       const accountingId = docRef.id;
       
       // Dati da aggiungere o aggiornare nel documento
@@ -130,6 +110,8 @@ userTasksRef.add(datiDaAggiornare)
       // Scrivi i dati nel documento usando il metodo set()
       docRef.set(datiDaAggiungere)
         .then(() => {
+          getTaskAccountings(globalThis.currentTask);
+          renderGraph();
           alert("Contabilizzazione aggiunta con successo");
         })
         .catch((error) => {
@@ -149,7 +131,6 @@ userTasksRef.add(datiDaAggiornare)
 
     if(document.getElementById('company_name_input1').value !== "") {
       if (document.getElementById('company_start_input1').value !== '') {
-        if (document.getElementById('company_end_input1').value !== '') {
 
 const status = document.getElementById('company_status_input1').value;
 const path = db.collection('companies');
@@ -162,8 +143,14 @@ var startDataFormatted = startData.toISOString().split('T')[0];
 
 var inputEndDateElement = document.getElementById('company_end_input1');
 var valoreEndDataStringa = inputEndDateElement.value;
-var endData = new Date(valoreEndDataStringa);
-var endDataFormatted = endData.toISOString().split('T')[0];
+var endDataFormatted;
+if (valoreEndDataStringa.trim() === '') {
+    endDataFormatted = ' ';
+} else {
+    var endData = new Date(valoreEndDataStringa);
+    endDataFormatted = endData.toISOString().split('T')[0];
+}
+
 
 const data = {
   id : path.doc().id,
@@ -178,8 +165,7 @@ const data = {
 path.add(data)
   .then((docRef) => {
     const newDocId = docRef.id;
-    alert(`Azienda aggiunta con successo:`);
-    getCompanies1();
+    refresh1();
     document.getElementById('edit_company1').style.display = "none";
     return path.doc(newDocId).update({
       id: newDocId
@@ -190,10 +176,7 @@ path.add(data)
   });
 
 
-  
-} else {
-  alert('Si prega di inserire una data di fine collaborazione valida')
-}  
+
 } else {
 alert('Si prega di inserire una data di inizio collaborazione valida')
 }
@@ -227,7 +210,6 @@ const data = {
   estimated_days : document.getElementById('project_day1').value,
   estimated_hours : document.getElementById('project_time1').value,
   end : endDataFormatted,
-  
 };
 
 
@@ -299,13 +281,15 @@ function writeCompanyTask() {
       
     const uid = getCookieValue('uid');
     const db = firebase.firestore();
-    const company = document.getElementById('company_task_input').value;
+    const company_id = document.getElementById('company_task_input').value;
 
-    const userTasksRef = db.collection('companies').doc(company).collection('tasks');
+    const userTasksRef = db.collection('companies').doc(company_id).collection('tasks');
     
     const name = document.getElementById('name_task_input').value;
     const description = document.getElementById('description_task_input').value;
-    const owner = document.getElementById('owner_task_input').value;
+    var selectElement = document.getElementById('select_task_owner');
+    var owner = selectElement.options[selectElement.selectedIndex].text;
+    const owner_id = document.getElementById('select_task_owner').value;
     const brand = document.getElementById('brand_task_input').value;
     const project = document.getElementById('project_task_input').value;
     
@@ -318,17 +302,15 @@ function writeCompanyTask() {
     var valoreEndDataStringa = inputEndDateElement.value;
     var endData = new Date(valoreEndDataStringa);
     var endDataFormatted = endData.toISOString().split('T')[0];
-
-
-    const documentRef = db.collection('users').doc(uid).collection('tasks').doc();
-
+    
 
 // Dati da aggiungere o aggiornare nel documento esistente
 const datiDaAggiornare = {
 name: name,
 description: description,
 owner: owner,
-company: company,
+owner_id : owner_id,
+company_id: company_id,
 brand: brand,
 project: project,
 start: startDataFormatted,
@@ -348,6 +330,7 @@ return userTasksRef.doc(newDocId).update({
 });
 })
 .then(() => {
+getOpenCompanyTasks();
 alert("Task aziendale aggiunto con successo");
 })
 .catch((error) => {

@@ -1,11 +1,5 @@
 @media screen and (max-width: 1000px){
 
-    #add_task_form{
-        width: 90%; 
-        flex-direction: column; 
-        align-items: start; 
-        justify-content: start;
-    }
 
     #company1{
         align-items: center;
@@ -112,13 +106,6 @@
 
 
 @media screen and (min-width: 1001px) {
-
-    #add_task_form{
-        width: 60%; 
-        flex-direction: column; 
-        align-items: start; 
-        justify-content: start;
-    }
 
 
     #under_bar{

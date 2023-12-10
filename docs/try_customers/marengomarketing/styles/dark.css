@@ -20,6 +20,9 @@
         color: white;
     }
 
+    #add_task_form{
+        background-color: rgba(0, 0, 0, 0.338);
+    }
     
     #change_task1{
         background-color: rgba(0, 0, 0, 0.338);
@@ -38,6 +41,10 @@
         background-color: rgba(0, 0, 0, 0.372);
     }
 
+
+    #add_task_card1{
+        background: linear-gradient(#3e3b45, #2d2e3d);
+    }
     
     #create_team1{
         background-color: rgba(0, 0, 0, 0.372);

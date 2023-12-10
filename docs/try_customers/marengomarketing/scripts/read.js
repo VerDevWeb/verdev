@@ -1,31 +1,36 @@
-function getOpenTasks() {
-    const uid = getCookieValue('uid');
+  function getOpenCompanyTasks() {
     const db = firebase.firestore();
-    const userTasksRef = db.collection('users').doc(uid).collection('tasks');
+    const companiesRef = db.collection('companies');
   
-    userTasksRef.get()
+    companiesRef.get()
       .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          const data = doc.data();
-          createTableRow(data);
+        querySnapshot.forEach((companyDoc) => {
+          const tasksRef = companyDoc.ref.collection('tasks');
+  
+          tasksRef.get()
+            .then((tasksQuerySnapshot) => {
+              tasksQuerySnapshot.forEach((taskDoc) => {
+                const data = taskDoc.data();
+                createTableRow(data);
+              });
+            })
+            .catch((error) => {
+              console.error('Errore durante il recupero dei task: ', error);
+            });
         });
       })
       .catch((error) => {
-        console.error('Errore durante il recupero dei dati:', error);
+        console.error('Errore durante il recupero dei task: ', error);
       });
   
-      var table = document.getElementById("tableBody1");
+      var table = document.getElementById("tableBody2");
       while (table.firstChild) {
         table.removeChild(table.firstChild);
       }
    
     function createTableRow(data) {
-      // Qui popoli la tua tabella HTML usando i dati recuperati da Firestore
-      // Ad esempio:
+
       var row = table.insertRow();
-    
-      // Aggiungi i valori dei campi nei singoli elementi della riga della tabella
-      // Ad esempio:
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
       var cell3 = row.insertCell(2);
@@ -36,28 +41,29 @@ function getOpenTasks() {
       var cell8 = row.insertCell(7);
       var cell9 = row.insertCell(8);
       var cell10 = row.insertCell(9);
-      
+      var cell12 = row.insertCell(10);
+
       cell1.innerHTML = data.name;
       cell2.innerHTML = data.description;
       cell3.innerHTML = data.owner;
-      cell4.innerHTML = data.company;
-      cell5.innerHTML = data.project;
-      cell6.innerHTML = data.brand;
-      cell7.innerHTML = data.start;
-      cell8.innerHTML = data.end;
-      cell9.innerHTML = data.status;
-      cell10.innerHTML = data.id;
+      cell4.innerHTML = data.owner_id;
+      cell5.innerHTML = data.company;
+      cell6.innerHTML = data.project;
+      cell7.innerHTML = data.brand;
+      cell8.innerHTML = data.start;
+      cell9.innerHTML = data.end;
+      cell10.innerHTML = data.status;
+      cell12.innerHTML = data.id;
       
-      var cell11 = row.insertCell(10);
+      var cell11 = row.insertCell(11);
     var editButton = document.createElement("button");
     editButton.className = "task_actions_button1";
     editButton.innerHTML = "<i class='material-icons notranslate'>edit</i>";
     editButton.onclick = function() {
-      getTaskToChange1(data);
-      getAccountings1(data);
-      animateBox2();
-      globalThis.currentTask1 = data;
-      renderGraph1();
+      globalThis.currentTask = data;
+      getTaskAccountings(data);
+      getTaskToChange(data);
+      renderGraph();
     };
     cell11.className = 'cell11';
     cell11.style.display = 'flex'
@@ -76,7 +82,8 @@ function getOpenTasks() {
     editButton.className = "task_actions_button1";
     editButton.innerHTML = "<i class='material-icons notranslate'>delete</i>";
     editButton.onclick = function() {
-      deleteTaskGET(data);
+      globalThis.currentTask = data;
+      deleteTaskGET();
     };
     cell11.appendChild(editButton);
     
@@ -85,16 +92,10 @@ function getOpenTasks() {
   
   
   
-  
-  
-    function getAccountings1(data){
+    function getTaskAccountings(data){
       var table = document.getElementById("tableBody6");
-      var taskData = data;
-  
-  
-      const uid = getCookieValue('uid');
       const db = firebase.firestore();
-      const userTasksRef = db.collection('users').doc(uid).collection('tasks').doc(data.id).collection('accountings');
+      const userTasksRef = db.collection('companies').doc(data.company_id).collection('tasks').doc(data.id).collection('accountings');
     
       userTasksRef.get()
         .then((querySnapshot) => {
@@ -136,7 +137,7 @@ function getOpenTasks() {
       editButton.className = "task_actions_button1";
       editButton.innerHTML = "<i class='material-icons notranslate'>delete</i>";
       editButton.onclick = function() {
-        deleteAccounting1(data, taskData);
+        deleteAccounting(data);
       };
       cell6.appendChild(editButton);
   
@@ -151,6 +152,8 @@ function getOpenTasks() {
       }
     }
   
+
+
   
   
     function getCompanies1(data){
@@ -234,21 +237,78 @@ function getOpenTasks() {
 
 
 
-    function getTaskToChange1(data) { 
+    function getTaskToChange(data) { 
       getAndPopulateTags();
-      const uid = getCookieValue('uid');
       const db = firebase.firestore();
-
-      
-      // Riferimento alla collezione delle attività dell'utente
-      const userTasksRef = db.collection('users').doc(uid).collection('tasks').doc(data.id);
+      const userTasksRef = db.collection('companies').doc(data.company_id).collection('tasks').doc(data.id);
       
       userTasksRef.get()
       .then((doc) => {
         if (doc.exists) {
       document.getElementById("change_task1").style.display = "flex";
       document.getElementById("change1").value = data.name;
-      document.getElementById("change2").value = data.owner;
+      document.getElementById("change2").value = data.description;
+    
+
+      var selectElement3 = document.getElementById('change3');
+      var selectedCompany = data.company;
+      var newOption3 = document.createElement('option');
+      newOption3.text = selectedCompany;
+      newOption3.value = selectedCompany;
+      selectElement3.appendChild(newOption3);
+      selectElement3.value = selectedCompany;
+    
+      var selectedBrand = data.brand;
+      var selectElement4 = document.getElementById('change4');
+      var newOption4 = document.createElement('option');
+      newOption4.text = selectedBrand;
+      newOption4.value = selectedBrand;
+      selectElement4.appendChild(newOption4);
+      selectElement4.value = selectedBrand;
+      
+      var selectedProject = data.project;
+      var selectElement5 = document.getElementById('change5');
+      var newOption5 = document.createElement('option');
+      newOption5.text = selectedProject;
+      newOption5.value = selectedProject;
+      selectElement5.appendChild(newOption5);
+      selectElement5.value = selectedProject;
+      
+        var startDateInput = data.start; 
+        var inputDate = document.getElementById('change9');
+        inputDate.value = startDateInput;
+    
+        var endDateInput = data.end; 
+        var inputDate1 = document.getElementById('change10');
+        inputDate1.value = endDateInput;
+       
+        
+        } else {
+          alert("Task non trovato");
+        }
+      })
+      .catch((error) => {
+        alert('Errore durante il recupero dei dati:', error);
+      });
+    }
+
+
+
+    function getCompanyTaskToChange1(data) { 
+      getAndPopulateTags();
+      const uid = getCookieValue('uid');
+      const db = firebase.firestore();
+
+      
+      // Riferimento alla collezione delle attività dell'utente
+      const userTasksRef = db.collection('companies').doc(globalThis.currentCompany1).collection('tasks').doc(data.id);
+      
+      userTasksRef.get()
+      .then((doc) => {
+        if (doc.exists) {
+      document.getElementById("change_task1").style.display = "flex";
+      document.getElementById("change1").value = data.name;
+      document.getElementById("change2").value = data.description;
     
 
       var selectElement3 = document.getElementById('change3');
@@ -298,17 +358,12 @@ function getOpenTasks() {
 
 
 function getCompanyToChange1(data) { 
-   
-  const db = firebase.firestore();
-  
-  // Riferimento alla collezione delle attività dell'utente
   const userTasksRef = db.collection('companies').doc(data.id);
-  
   userTasksRef.get()
   .then((doc) => {
     if (doc.exists) {
   document.getElementById("change_company1").style.display = "flex";
-  globalThis.currentCompany1 = data;
+ 
   document.getElementById("change_company_name_input1").value = data.name;
   document.getElementById("change_company_p_iva_input1").value = data.p_iva;
 
@@ -320,7 +375,6 @@ function getCompanyToChange1(data) {
   selectElement3.appendChild(newOption3);
   selectElement3.value = selectedCompany;
 
-  
     var startDateInput = data.start; 
     var inputDate = document.getElementById('change_company_start_input1');
     inputDate.value = startDateInput;
@@ -336,8 +390,6 @@ function getCompanyToChange1(data) {
   .catch((error) => {
     console.error('Errore durante il recupero dei dati: ', error);
   });
-
-
 }
 
 
@@ -415,33 +467,32 @@ function createTableRow(data, taskName) {
 
 function getAndPopulateTags() {
   var tagsArray = [];
-  const uid = getCookieValue('uid');
 
   db.collection('companies').get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
       var data = doc.data();
-      if (data.hasOwnProperty('name')) {
-        tagsArray.push(data.name);
+      if (data.hasOwnProperty('name') && data.hasOwnProperty('id')) {
+        tagsArray.push({ name: data.name, id: data.id });
         getAndPopulateTags2(data);
       }
     });
     populateSelection(tagsArray);
   }).catch((error) => {
-    console.error("Errore nell'ottenere l'elenco delle aziende per popolare le selezioni del task: ", error);
+    console.error("Errore nell'ottenere l'elenco generale delle aziende per il menù a tendina: ", error);
   });
-
+}
 
 function populateSelection(tags) {
   var selectionInput = document.getElementById("change3");
   selectionInput.innerHTML = "";
   tags.forEach((tag) => {
     var option = document.createElement("option");
-    option.text = tag;
-    option.value = tag;
+    option.text = tag.name; // Popola il nome della option con data.name
+    option.value = tag.id; // Popola il value della option con data.id
     selectionInput.add(option);
   });
 }
-}
+
 
 
 function getAndPopulateTags2(data) {
@@ -534,7 +585,32 @@ var collectionRef = firebase.firestore().collection('companies');
 
 
 
+function populateSelectWithTags() {
+  const tagsCollectionRef = db.collection('general').doc('users_list');
 
+  tagsCollectionRef.get().then((doc) => {
+      if (doc.exists) {
+          const selectElement = document.getElementById('select_task_owner');
+          const tagData = doc.data();
 
+          while (selectElement.firstChild) {
+              selectElement.removeChild(selectElement.firstChild);
+          }
+
+          for (const key in tagData) {
+              if (Object.hasOwnProperty.call(tagData, key)) {
+                  const option = document.createElement('option');
+                  option.value = key;
+                  option.textContent = tagData[key];
+                  selectElement.appendChild(option);
+              }
+          }
+      } else {
+          console.error('Il documento non esiste.');
+      }
+  }).catch((error) => {
+      console.error('Errore nel recupero dei tag:', error);
+  });
+}
 
 

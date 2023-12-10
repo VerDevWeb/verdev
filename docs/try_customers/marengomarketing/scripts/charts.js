@@ -1,6 +1,6 @@
 var chart = null; 
 
-function renderGraph1() {
+function renderGraph() {
   var db = firebase.firestore();
   var chartSeries1 = [];
   var chartSectors1 = [];
@@ -14,7 +14,7 @@ function renderGraph1() {
     return totalMinutes;
   }
 
-  db.collection('users').doc(uid).collection('tasks').doc(globalThis.currentTask1.id).collection('accountings').get().then((querySnapshot) => {
+  db.collection('companies').doc(globalThis.currentTask.company_id).collection('tasks').doc(globalThis.currentTask.id).collection('accountings').get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
       var dedicatedTime = doc.data().dedicated_time;
       var description = doc.data().owner;

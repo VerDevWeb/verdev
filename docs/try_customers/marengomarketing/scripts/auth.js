@@ -41,6 +41,8 @@ document.getElementById("logoutBtn").addEventListener("click", function () {
     // Disconnetti l'utente da Firebase
     firebase.auth().signOut().then(function() {
       // Operazione di disconnessione riuscita
+      document.cookie = 'uid' + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;";
+      document.cookie = 'userEmail' + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;";
       alert("Disconnesso con successo!");
     }).catch(function(error) {
       // Gestisci eventuali errori
@@ -101,17 +103,4 @@ document.getElementById("logoutBtn").addEventListener("click", function () {
     }
 
 
-    function submitNameRegister() {
-      var name = document.getElementById("name_register_input").value;
-      const uid = getCookieValue('uid');
-      var databaseRef = firebase.database().ref("/user_datas/" + uid + '/user_infos/');
-  
-      databaseRef.set({
-        name: name,
-
-      }).then(function() {
-      }).catch(function(error) {
-        alert("Si è verificato un errore durante la registrazione del tuo nome " + error);
-      });
-    }
-  
+   

@@ -16,6 +16,10 @@
             color: rgb(40, 39, 39);;
         }
 
+        #add_task_form{
+            background-color: rgba(0, 0, 0, 0.372);
+        }
+
         #change_task1{
             background-color: rgba(0, 0, 0, 0.372);
         }

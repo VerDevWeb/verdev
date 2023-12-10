@@ -5,6 +5,7 @@ document.getElementById("dash_button").addEventListener("click", function () {
     document.getElementById("account_settings").style.display = "none";
     document.getElementById("create1").style.display = "none";
     document.getElementById("company1").style.display = "none";
+    document.getElementById("projects").style.display = "none";
 });
 
 document.getElementById("team_button").addEventListener("click", function () {
@@ -14,6 +15,7 @@ document.getElementById("team_button").addEventListener("click", function () {
     document.getElementById("company1").style.display = "none";
     document.getElementById("account_settings").style.display = "none";
     document.getElementById("create1").style.display = "none";
+    document.getElementById("projects").style.display = "none";
 });
 
 
@@ -50,6 +52,7 @@ function notifications_function(){
     document.getElementById("company1").style.display = "none";
     document.getElementById("account_settings").style.display = "none";
     document.getElementById("create1").style.display = "none";
+    document.getElementById("projects").style.display = "none";
 }
 
 function showNotifications(){
@@ -59,6 +62,7 @@ function showNotifications(){
   document.getElementById("account_settings").style.display = "none";
   document.getElementById("create1").style.display = "none";
   document.getElementById("notifications").style.display = "flex";
+  document.getElementById("projects").style.display = "none";
 }
 
 function dash_function(){
@@ -68,6 +72,7 @@ function dash_function(){
     document.getElementById("company1").style.display = "none";
     document.getElementById("account_settings").style.display = "none";
     document.getElementById("create1").style.display = "none";
+    document.getElementById("projects").style.display = "none";
 }
 
 
@@ -78,6 +83,7 @@ function account_button(){
     document.getElementById("team").style.display = "none";
     document.getElementById("create1").style.display = "none";
     document.getElementById("account_settings").style.display = "flex";
+    document.getElementById("projects").style.display = "none";
 }
 
 
@@ -88,6 +94,7 @@ function add_function(){
     document.getElementById("team").style.display = "none";
     document.getElementById("account_settings").style.display = "none";
     document.getElementById("create1").style.display = "flex";
+    document.getElementById("projects").style.display = "none";
 }
 
 function company_function(){
@@ -97,25 +104,19 @@ function company_function(){
   document.getElementById("account_settings").style.display = "none";
   document.getElementById("create1").style.display = "none";
   document.getElementById("company1").style.display = "flex";
+  document.getElementById("projects").style.display = "none";
 }
 
-function show1(){
-    document.getElementById("instr_outcome_form").style.display = "none";
-    document.getElementById("add_task_form").style.display = "flex";
-    document.getElementById("add_selection").style.display = "none";
+function projects_function(){
+  document.getElementById("dash").style.display = "none";
+  document.getElementById("notifications").style.display = "none";
+  document.getElementById("team").style.display = "none";
+  document.getElementById("account_settings").style.display = "none";
+  document.getElementById("create1").style.display = "none";
+  document.getElementById("company1").style.display = "none";
+  document.getElementById("projects").style.display = "flex";
 }
 
-function show2(){
-    document.getElementById("instr_outcome_form").style.display = "flex";
-    document.getElementById("add_task_form").style.display = "none";
-    document.getElementById("add_selection").style.display = "none";
-}
-
-function show_default(){
-    document.getElementById("instr_outcome_form").style.display = "none";
-    document.getElementById("add_task_form").style.display = "none";
-    document.getElementById("add_selection").style.display = "flex";
-}
 
 function showRegister(){
     document.getElementById("login").style.display = "none";
@@ -217,71 +218,80 @@ console.log(error);
         }
 
 
-function registerUser() {
-    var email = document.getElementById("register_mail").value;
-    var password = document.getElementById("register_password").value;
 
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then(function(user) {
-        submitNameRegister();
-        document.getElementById("log_interface").style.display = "none";
-        document.getElementById("logged_interface").style.display = "block";
+        function registerUser() {
+          var email = document.getElementById("register_mail").value;
+          var password = document.getElementById("register_password").value;
+      
+          firebase.auth().createUserWithEmailAndPassword(email, password)
+              .then(function(userCredential) {
+                  var user = userCredential.user;
+      
+                  // Imposta i cookie per mail e uid
+                  document.cookie = "mail=" + user.email + ";";
+                  document.cookie = "uid=" + user.uid + ";";
+      
+             
+                  // Ottieni l'uid dai cookie
+                  const uid = getCookieValue('uid');
+      
+                  // Salva l'utente nella lista utenti generale
+                  const nameValue = document.getElementById('name_register_input').value;
+                  saveUserToGeneralList(uid, nameValue);
+              })
+              .catch(function(error) {
+                  var errorCode = error.code;
+                  var errorMessage = error.message;
+                  if (errorCode === "auth/email-already-in-use") {
+                      alert("Mail already used");
+                  } else {
+                  }
+              });
+            }
+      
+      function getCookieValue(cookieName) {
+          const name = cookieName + "=";
+          const decodedCookie = decodeURIComponent(document.cookie);
+          const cookieArray = decodedCookie.split(';');
+      
+          for (let i = 0; i < cookieArray.length; i++) {
+              let cookie = cookieArray[i];
+              while (cookie.charAt(0) === ' ') { 
+                  cookie = cookie.substring(1);
+              }
+              if (cookie.indexOf(name) === 0) {
+                  return cookie.substring(name.length, cookie.length);
+              }
+          }
+          return "";
+      }
+      
 
-        //dopo questa riga i codici javascript di questa funzione non funzionano, credo sia dovuto al salvataggio nei cookie
-        var userEmail = user.email;
-        document.cookie = "mail=" + userEmail + ";";
-
-        var uid = user.uid;
-        document.cookie = "uid=" + uid + ";";
-
-        refresh1();
-      })
-
-      .catch(function(error) {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-  if (errorCode === "auth/email-already-in-use") {
-    alert("Mail already used");
-  } else {
-    alert("An error occurred signing in, have you inserted credential before signing in?");
-  }
- });
-  }
+      function saveUserToGeneralList(uid, name) {
+          const docRef = db.collection('general').doc('users_list');
+          docRef.update({
+                  [uid]: name
+              })
+              .then(() => {
+                  console.log('L\'utente è stato aggiunto alla lista utenti.');
+              })
+              .catch((error) => {
+                  console.error("Errore nell'aggiunta dell'utente alla lista utenti: ", error);
+              });
+      }
+      
 
 
     
-    var selectElement = document.getElementById('select_task_type1');
-    selectElement.addEventListener('change', function() {
-
-      var selection = document.getElementById('select_task_type1').value;
-      switch (selection) {
-        case 'private':
-          document.getElementById("owner_task_input").style.display = "none";
-          document.getElementById("team_selector1").style.display = "none";
-          break;
-        case 'team':
-          document.getElementById("team_selector1").style.display = "flex";
-          document.getElementById("owner_task_input").placeholder = "Membro del team";
-          document.getElementById("owner_task_input").style.display = "flex";
-          break;
-        case 'general':
-          document.getElementById("team_selector1").style.display = "none";
-          document.getElementById("owner_task_input").style.display = "flex";
-          document.getElementById("owner_task_input").placeholder = "A chi vuoi assegnare il task?";
-          break;
-        default:
-          console.log('Assicurati di aver selezionato un owner');
-      }
-
-    });
 
 
     
    function refresh1(){
-    getOpenTasks();
     getCompanies1();
     animateDash();
+    getOpenCompanyTasks();
     fillSelectionsTeams();
+    populateSelectWithTags();
   }
 
   document.addEventListener("DOMContentLoaded", function() {
@@ -307,6 +317,6 @@ inputDate.value = today;
   });
 
 
-  document.getElementById('start_task_date_input').addEventListener('change', function() {
-    document.getElementById('start_div1').style.display = "block"
+  document.getElementById('end_task_date_input').addEventListener('change', function() {
+    document.getElementById('end_div1').style.display = "block"
   });

@@ -50,25 +50,69 @@ function changeCompany1() {
   
 
 function writeChangedTask1(){
-  writeChangedPrivateTask();
+  const db = firebase.firestore();
+  
+  const name = document.getElementById('change1').value;
+  const description = document.getElementById('change2').value;
+  const status = document.getElementById('change6').value;
+  
+  var inputStartDateElement = document.getElementById('change9');
+  var valoreStartDataStringa = inputStartDateElement.value;
+  var startData = new Date(valoreStartDataStringa);
+  var startDataFormatted = startData.toISOString().split('T')[0];
+
+  var inputEndDateElement = document.getElementById('change10');
+  var valoreEndDataStringa = inputEndDateElement.value;
+  var endData = new Date(valoreEndDataStringa);
+  var endDataFormatted = endData.toISOString().split('T')[0];
+
+  const documentRef = db.collection('companies').doc(globalThis.currentTask.company_id).collection('tasks').doc(globalThis.currentTask.id);
+
+
+  // Dati da aggiungere o aggiornare nel documento esistente
+  const datiDaAggiornare = {
+    name: name,
+    description: description,
+    start: startDataFormatted,
+    end: endDataFormatted,
+    status: status,
+  };
+  
+  // Aggiorna i dati nel documento usando il metodo update()
+  documentRef.update(datiDaAggiornare)
+    .then(() => {
+      alert("Il task è stato aggiornato con successo");
+    })
+    .catch((error) => {
+      alert("Errore durante l'aggiornamento del task: ", error);
+    });
 }
 
 
 
-function deleteTaskGET(data) {
-const uid = getCookieValue('uid');
-const db = firebase.firestore();
-const docRef = db.collection('users').doc(uid).collection('tasks').doc(data.id);
-
-docRef.delete()
-  .then(() => {
-    alert("Task eliminato con successo");
-    getOpenTasks();
-  })
-  .catch((error) => {
-    alert("Errore durante l'eliminazione del task: ", error);
+function deleteTaskGET() {
+  const db = firebase.firestore();
+  const taskId = globalThis.currentTask.id;
+  const companyId = globalThis.currentTask.company_id;
+  const taskRef = db.collection('companies').doc(companyId).collection('tasks').doc(taskId);
+  const deleteAccountings = taskRef.collection('accountings').get().then((snapshot) => {
+    const deletePromises = [];
+    snapshot.forEach((doc) => {
+      deletePromises.push(doc.ref.delete());
+    });
+    return Promise.all(deletePromises);
   });
+  const deleteTask = taskRef.delete();
+  Promise.all([deleteAccountings, deleteTask])
+    .then(() => {
+      getOpenCompanyTasks();
+      alert("Task eliminato con successo");
+    })
+    .catch((error) => {
+      alert("Errore durante l'eliminazione del task: " + error.message);
+    });
 }
+
 
 
 
@@ -91,18 +135,17 @@ docRef.delete()
 
 
 
-function deleteAccounting1(data, taskData) {
-const uid = getCookieValue('uid');
+function deleteAccounting(data) {
 const db = firebase.firestore();
-const docRef = db.collection('users').doc(uid).collection('tasks').doc(taskData.id).collection('accountings').doc(data.id);
+const docRef = db.collection('companies').doc(globalThis.currentTask.company_id).collection('tasks').doc(globalThis.currentTask.id).collection('accountings').doc(data.id);
 
 docRef.delete()
   .then(() => {
     alert("Contabilizzazione eliminata con successo");
-    getAccountings1(taskData);
+    getTaskAccountings(globalThis.currentTask);
   })
   .catch((error) => {
-    alert("Errore durante l'eliminazione della contabilizzazione: ", error);
+    alert("Errore durante l'eliminazione della contabilizzazione: " + error.message);
   });
 }
 
@@ -114,56 +157,15 @@ function deleteProject1(data) {
   
   docRef.delete()
     .then(() => {
-      alert("Contabilizzazione eliminata con successo");
+      alert("Progetto eliminato con successo");
       getCompanyProjects1(data);
     })
     .catch((error) => {
-      alert("Errore durante l'eliminazione della contabilizzazione: ", error);
+      alert("Errore durante l'eliminazione del progetto: ", error);
     });
   }
   
 
 
-
-  function writeChangedPrivateTask() {
-      const uid = getCookieValue('uid');
-      const db = firebase.firestore();
-  
-      const name = document.getElementById('change1').value;
-      const description = document.getElementById('change2').value;
-      const status = document.getElementById('change6').value;
-      
-      var inputStartDateElement = document.getElementById('change9');
-      var valoreStartDataStringa = inputStartDateElement.value;
-      var startData = new Date(valoreStartDataStringa);
-      var startDataFormatted = startData.toISOString().split('T')[0];
-    
-      var inputEndDateElement = document.getElementById('change10');
-      var valoreEndDataStringa = inputEndDateElement.value;
-      var endData = new Date(valoreEndDataStringa);
-      var endDataFormatted = endData.toISOString().split('T')[0];
-    
-      const documentRef = db.collection('users').doc(uid).collection('tasks').doc(globalThis.currentTask1.id);
-
-
-      // Dati da aggiungere o aggiornare nel documento esistente
-      const datiDaAggiornare = {
-        name: name,
-        description: description,
-        start: startDataFormatted,
-        end: endDataFormatted,
-        status: status,
-      };
-      
-      // Aggiorna i dati nel documento usando il metodo update()
-      documentRef.update(datiDaAggiornare)
-        .then(() => {
-          alert("Il task è stato aggiornato con successo");
-        })
-        .catch((error) => {
-          alert("Errore durante l'aggiornamento del task: ", error);
-        });
-    }
-    
 
 

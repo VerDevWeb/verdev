@@ -56,6 +56,15 @@ body{
     height: 100%;
     }
 
+    #projects{
+        display: none;
+        flex-direction: column;
+        padding-right: 1.3rem;
+        width: 100%;
+        height: 100%;
+        }
+    
+
 #create_team1{
     display: none;
     position: fixed;
@@ -165,6 +174,14 @@ body{
 
 #add_task_form{
     display: none;
+    flex-direction: column;
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0rem;
 }
 
 #change_task_form{

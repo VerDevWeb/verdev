@@ -1,12 +1,14 @@
 function submitToGoogleSheet1() {
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwwm-gSWiJDsZy_CYiNBGC-Wo0WGMMeQ08h5JbGUetS1Wu0H8rIOk-KSTahkTUEeBK6/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzV1EBj5gQFCTM7ssMI3qz6_DkXN2WRNtEWo8GWWlspqGx93l3wFdX6ZhTuPxh_v6l5/exec';
     const form = document.getElementById('add_task_form');
     const name = document.getElementById('name_task_input').value;
     const description = document.getElementById('description_task_input').value;
     const company = document.getElementById('company_task_input').value;
     const brand = document.getElementById('brand_task_input').value;
+    var selectElement = document.getElementById('select_task_owner');
+    var owner = selectElement.options[selectElement.selectedIndex].text;
+    const owner_id = document.getElementById('select_task_owner').value;
     const project = document.getElementById('project_task_input').value;
-    const owner = document.getElementById('owner_task_input').value;
 
     var inputStartDateElement = document.getElementById('end_task_date_input');
     var valoreStartDataStringa = inputStartDateElement.value;
@@ -25,7 +27,7 @@ function submitToGoogleSheet1() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, description, brand, company, project, owner, startDataFormatted, endDataFormatted}),
+      body: JSON.stringify({ name, description, brand, company, project, owner, owner_id, startDataFormatted, endDataFormatted}),
     })
     .then(response => {
       console.log('Dati inviati con successo!', response);
