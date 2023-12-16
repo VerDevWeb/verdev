@@ -1,0 +1,301 @@
+/*LIGHT TEME*/
+.light-theme{
+    background:#e2e3e8;
+    border: 0;
+    margin: 0;
+    font-family: 'Montserrat';
+    overflow-y: hidden;
+
+    .image0{
+        background-color: rgba(0, 0, 0, 0.824);
+        padding: 5px;
+        border-radius: 0.2rem;
+        }
+
+        .buttonLEFT:hover{
+            background-color: #00000012;
+            width: 90%;
+            border-top-right-radius: 50rem;
+            border-bottom-right-radius: 50rem;
+            }
+            
+            .buttonLEFT:focus{
+                background-color: #00000012;
+                width: 90%;
+                font-weight: bold;
+                border-top-right-radius: 50rem;
+                border-bottom-right-radius: 50rem;
+                }
+
+        .settings_button{
+            color: rgb(40, 39, 39);;
+        }
+
+
+        .under_button2{
+            background: transparent;
+            border: 1px solid transparent;
+            color: rgb(40, 39, 39);
+        }    
+
+
+        ::-webkit-scrollbar-thumb {
+            background: #00000052;
+            border-radius: 10px;
+           }
+            
+
+           .task_actions_button1{
+            color: rgb(40, 39, 39);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: 1px solid rgba(0, 0, 0, 0.107);
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            margin-left: 0.2rem;
+            margin-right: 0.2rem;
+        }
+        
+        .task_actions_button1:hover{
+            background-color: rgba(0, 0, 0, 0.208);
+        }
+        
+
+        #under_bar{
+            height: 9%;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.822);
+            border: 1px solid rgba(0, 0, 0, 0.219);
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
+
+        .under_button1{
+            color: rgb(40, 39, 39);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            width: 50px;
+            border: 1px solid rgba(0, 0, 0, 0.219);
+            border-radius: 50%;
+            background: transparent;
+        }
+
+
+.general_paragraph{
+color: rgb(40, 39, 39);
+margin-top: 0px;
+}
+
+.general_title{
+color: rgb(40, 39, 39);
+margin-top: 0px;
+}
+
+
+#container1{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 90%;
+}
+
+#crd1010{
+    background-color: rgb(255, 255, 255);
+}
+
+
+.card1{
+background-color: rgb(255, 255, 255);
+border: 1px solid rgba(0, 0, 0, 0.137);
+box-shadow: 5px 5px 10px 2px #3333331b;
+border-radius: 1rem;
+padding: 0.9rem;
+}
+
+
+.message_element1{
+border-bottom: 1px solid rgba(0, 0, 0, 0.219);
+margin-bottom: 1rem;
+}
+
+
+.left1{
+max-width: 20%;
+height: 100%;
+background-color: rgba(255, 255, 255, 0.822);
+border: 1px solid rgba(0, 0, 0, 0.219);
+box-shadow: 5px 5px 10px 2px #3333331b;
+border-top-right-radius: 1rem;
+border-bottom-right-radius: 1rem;
+}
+
+.button1{
+    width: 100%;
+    background: transparent;
+    border: transparent;
+    color: rgb(40, 39, 39);
+    font-family: 'Montserrat';
+    font-size: 18px;
+    padding-left: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    margin-right: 3rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.button1::after{
+background: black;
+}
+
+.material_icons1{
+margin-right: 5px;
+}
+
+#up_bar{
+display: flex;
+width: 100%;
+height: 9%;
+background-color: rgba(255, 255, 255, 0.822);
+border-bottom: 1px solid rgba(0, 0, 0, 0.219);
+align-items: center;
+justify-content: space-between;
+}
+
+.divider1{
+width: 100%;
+height: 1px;
+background-color: rgba(0, 0, 0, 0.279);
+}
+
+
+.general_link{
+color: black;
+font-weight: bold;
+margin-top: 10px;
+text-decoration: none;
+}
+
+.table_container1{
+border: 1px solid rgba(0, 0, 0, 0.128);
+border-radius: 10px; 
+overflow-x: auto;
+margin-bottom: 1.5rem;
+}
+
+.table1 {
+border-collapse: collapse;
+border-radius: 10px;
+}
+
+.table1 th, .table1 td {
+text-align: left;
+border: 1px solid rgba(0, 0, 0, 0.128);
+padding: 8px;
+color: black;
+}
+
+    
+
+.general_link{}
+
+
+#notifications{
+display: none;
+width: 100%;
+height: 100%;
+padding-left: 1.3rem;
+padding-right: 1.3rem;
+overflow-y: auto;
+flex-direction: column;
+}
+
+
+
+
+.button2{
+background-color: rgba(0, 0, 0, 0.068);
+border: 1px solid rgba(0, 0, 0, 0.107);
+border-radius: 1rem;
+padding: 0.3rem;
+padding-left: 0.3rem;
+padding-right: 0.3rem;
+color: black;
+font-family: 'Montserrat';
+}
+
+.button2:hover{
+background-color: rgba(0, 0, 0, 0.208);
+}
+
+.input1{
+background-color: rgba(0, 0, 0, 0.068);
+border: 1px solid rgba(0, 0, 0, 0.107);
+border-radius: 1rem;
+padding: 0.3rem;
+color: black;
+font-family: 'Montserrat';
+width: 100%;
+}
+
+.input1::placeholder{
+color: black;
+}
+
+.input1:focus{
+outline: 1.5px solid rgba(0, 0, 0, 0.107);
+}
+
+.date_input1{
+background-color: rgba(0, 0, 0, 0.068);
+border: 1px solid rgba(0, 0, 0, 0.107);
+border-radius: 1rem;
+padding: 0.3rem;
+color: black;
+font-family: 'Montserrat';
+width: 100%;
+}
+
+.date_input1:focus{
+outline: 1.5px solid rgba(0, 0, 0, 0.107);
+}
+
+.task_actions{
+display: none;
+flex-direction: row;
+align-items: center;
+justify-content: space-around;
+}
+
+
+
+.tr1{
+color: black;
+}
+
+.button4{
+color: black;
+display: flex;
+align-items: center;
+justify-content: center;
+background: rgba(0, 0, 0, 0.153);
+border: 1px solid rgba(255, 255, 255, 0.107);
+border-radius: 50%;
+height: 50px;
+width: 50px;
+}
+
+}
