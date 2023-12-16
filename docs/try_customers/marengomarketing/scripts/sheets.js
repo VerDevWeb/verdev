@@ -3,12 +3,12 @@ function submitToGoogleSheet1() {
     const form = document.getElementById('add_task_form');
     const name = document.getElementById('name_task_input').value;
     const description = document.getElementById('description_task_input').value;
-    const company = document.getElementById('company_task_input').value;
-    const brand = document.getElementById('brand_task_input').value;
+    const company = globalThis.currentCompany.name;
+    const brand = globalThis.currentBrand.name;
     var selectElement = document.getElementById('select_task_owner');
     var owner = selectElement.options[selectElement.selectedIndex].text;
     const owner_id = document.getElementById('select_task_owner').value;
-    const project = document.getElementById('project_task_input').value;
+    const project = globalThis.currentProject.name;
 
     var inputStartDateElement = document.getElementById('end_task_date_input');
     var valoreStartDataStringa = inputStartDateElement.value;
