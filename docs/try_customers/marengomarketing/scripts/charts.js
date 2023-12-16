@@ -14,7 +14,7 @@ function renderGraph() {
     return totalMinutes;
   }
 
-  db.collection('companies').doc(globalThis.currentTask.company_id).collection('tasks').doc(globalThis.currentTask.id).collection('accountings').get().then((querySnapshot) => {
+  db.collection('companies').doc(globalThis.currentCompany.id).collection('projects').doc(globalThis.currentProject.id).collection('brands').doc(globalThis.currentBrand.id).collection('tasks').doc(globalThis.currentTask.id).collection('accountings').get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
       var dedicatedTime = doc.data().dedicated_time;
       var description = doc.data().owner;
@@ -57,3 +57,72 @@ function renderGraph() {
     console.log("Errore nel recupero dei dati:", error);
   });
 }
+
+
+
+
+
+    
+var options = {
+  series: [{
+  name: 'series1',
+  data: [31, 40, 28, 51, 42, 109, 100]
+}, {
+  name: 'series2',
+  data: [11, 32, 45, 32, 34, 52, 41]
+}],
+  chart: {
+  height: 350,
+  type: 'area'
+},
+dataLabels: {
+  enabled: false
+},
+stroke: {
+  curve: 'smooth'
+},
+xaxis: {
+  type: 'datetime',
+  categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+},
+tooltip: {
+  x: {
+    format: 'dd/MM/yy HH:mm'
+  },
+},
+};
+
+var chart0 = new ApexCharts(document.querySelector("#chart2"), options);
+chart0.render();
+
+
+
+  
+var options = {
+  series: [{
+  data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+}],
+  chart: {
+  type: 'bar',
+  height: 350
+},
+plotOptions: {
+  bar: {
+    borderRadius: 4,
+    horizontal: true,
+  }
+},
+dataLabels: {
+  enabled: false
+},
+xaxis: {
+  categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
+    'United States', 'China', 'Germany'
+  ],
+}
+};
+
+var chart1 = new ApexCharts(document.querySelector("#chart3"), options);
+chart1.render();
+
+

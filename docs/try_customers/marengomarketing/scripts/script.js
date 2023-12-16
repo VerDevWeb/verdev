@@ -3,9 +3,11 @@ document.getElementById("dash_button").addEventListener("click", function () {
     document.getElementById("notifications").style.display = "none";
     document.getElementById("team").style.display = "none";
     document.getElementById("account_settings").style.display = "none";
-    document.getElementById("create1").style.display = "none";
     document.getElementById("company1").style.display = "none";
     document.getElementById("projects").style.display = "none";
+    document.getElementById("brands").style.display = "none";
+
+    animate1('dash');
 });
 
 document.getElementById("team_button").addEventListener("click", function () {
@@ -14,12 +16,11 @@ document.getElementById("team_button").addEventListener("click", function () {
     document.getElementById("team").style.display = "flex";
     document.getElementById("company1").style.display = "none";
     document.getElementById("account_settings").style.display = "none";
-    document.getElementById("create1").style.display = "none";
     document.getElementById("projects").style.display = "none";
+    document.getElementById("brands").style.display = "none";
+
+    animate1('team');
 });
-
-
-
 
 
 function toggleTheme() {
@@ -51,8 +52,10 @@ function notifications_function(){
     document.getElementById("team").style.display = "flex";
     document.getElementById("company1").style.display = "none";
     document.getElementById("account_settings").style.display = "none";
-    document.getElementById("create1").style.display = "none";
     document.getElementById("projects").style.display = "none";
+    document.getElementById("brands").style.display = "none";
+
+    animate1('team');
 }
 
 function showNotifications(){
@@ -60,9 +63,11 @@ function showNotifications(){
   document.getElementById("team").style.display = "none";
   document.getElementById("company1").style.display = "none";
   document.getElementById("account_settings").style.display = "none";
-  document.getElementById("create1").style.display = "none";
   document.getElementById("notifications").style.display = "flex";
   document.getElementById("projects").style.display = "none";
+  document.getElementById("brands").style.display = "none";
+
+  animate1('notifications');
 }
 
 function dash_function(){
@@ -71,8 +76,10 @@ function dash_function(){
     document.getElementById("team").style.display = "none";
     document.getElementById("company1").style.display = "none";
     document.getElementById("account_settings").style.display = "none";
-    document.getElementById("create1").style.display = "none";
     document.getElementById("projects").style.display = "none";
+    document.getElementById("brands").style.display = "none";
+
+    animate1('dash');
 }
 
 
@@ -81,30 +88,24 @@ function account_button(){
     document.getElementById("company1").style.display = "none";
     document.getElementById("notifications").style.display = "none";
     document.getElementById("team").style.display = "none";
-    document.getElementById("create1").style.display = "none";
     document.getElementById("account_settings").style.display = "flex";
     document.getElementById("projects").style.display = "none";
+    document.getElementById("brands").style.display = "none";
+
+    animate1('account_settings');
 }
 
-
-function add_function(){
-    document.getElementById("dash").style.display = "none";
-    document.getElementById("company1").style.display = "none";
-    document.getElementById("notifications").style.display = "none";
-    document.getElementById("team").style.display = "none";
-    document.getElementById("account_settings").style.display = "none";
-    document.getElementById("create1").style.display = "flex";
-    document.getElementById("projects").style.display = "none";
-}
 
 function company_function(){
   document.getElementById("dash").style.display = "none";
   document.getElementById("notifications").style.display = "none";
   document.getElementById("team").style.display = "none";
   document.getElementById("account_settings").style.display = "none";
-  document.getElementById("create1").style.display = "none";
   document.getElementById("company1").style.display = "flex";
   document.getElementById("projects").style.display = "none";
+  document.getElementById("brands").style.display = "none";
+
+  animate1('company1');
 }
 
 function projects_function(){
@@ -112,20 +113,38 @@ function projects_function(){
   document.getElementById("notifications").style.display = "none";
   document.getElementById("team").style.display = "none";
   document.getElementById("account_settings").style.display = "none";
-  document.getElementById("create1").style.display = "none";
   document.getElementById("company1").style.display = "none";
   document.getElementById("projects").style.display = "flex";
+  document.getElementById("brands").style.display = "none";
+
+  animate1('projects');
+}
+
+function brands_function(){
+  document.getElementById("dash").style.display = "none";
+  document.getElementById("notifications").style.display = "none";
+  document.getElementById("team").style.display = "none";
+  document.getElementById("account_settings").style.display = "none";
+  document.getElementById("company1").style.display = "none";
+  document.getElementById("projects").style.display = "none";
+  document.getElementById("brands").style.display = "flex";
+
+  animate1('brands');
 }
 
 
 function showRegister(){
     document.getElementById("login").style.display = "none";
     document.getElementById("register").style.display = "flex";
+
+    animate1('register');
 }
 
 function showLogin(){
     document.getElementById("login").style.display = "flex";
     document.getElementById("register").style.display = "none";
+
+    animate1('login');
 }
 
 
@@ -147,7 +166,6 @@ function showLogin(){
   }
 
 
-  
 
 const firebaseConfig = {
   apiKey: "AIzaSyC1OehS_NbBUQVp_BIXrS6tWeALPkFADAc",
@@ -238,6 +256,7 @@ console.log(error);
                   // Salva l'utente nella lista utenti generale
                   const nameValue = document.getElementById('name_register_input').value;
                   saveUserToGeneralList(uid, nameValue);
+                  document.cookie = "name=" + nameValue + ";";
               })
               .catch(function(error) {
                   var errorCode = error.code;
@@ -281,17 +300,15 @@ console.log(error);
       }
       
 
-
-    
-
-
     
    function refresh1(){
     getCompanies1();
-    animateDash();
-    getOpenCompanyTasks();
+    animate1('master_container');
     fillSelectionsTeams();
     populateSelectWithTags();
+
+    document.getElementById('dash_mail_display').innerText = getCookieValue('mail');
+    document.getElementById('dash_name_display').innerText = getCookieValue('name');
   }
 
   document.addEventListener("DOMContentLoaded", function() {
@@ -319,4 +336,14 @@ inputDate.value = today;
 
   document.getElementById('end_task_date_input').addEventListener('change', function() {
     document.getElementById('end_div1').style.display = "block"
+    document.getElementById('start_task_date_input').value = document.getElementById('end_task_date_input').value;
   });
+
+
+function add_accounting1(){
+  if (document.getElementById("accounting_create1").style.display === "flex"){
+   document.getElementById("accounting_create1").style.display = "none";
+  }else{
+   document.getElementById("accounting_create1").style.display = "flex";
+  }
+ }

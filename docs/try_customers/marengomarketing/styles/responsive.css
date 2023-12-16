@@ -1,5 +1,48 @@
 @media screen and (max-width: 1000px){
 
+    #dash_div1{
+        flex-direction: column !important;
+        align-items: start !important;
+    }
+
+    .dash_divider1{
+        margin-left: 0rem !important;
+        width: 90% !important;
+        height: 1px !important;
+    }
+
+    .dash_div2{
+        margin-left: 1rem !important;
+    }
+
+    .dash_div3{
+        flex-direction: column !important;
+    }
+
+    .dash_title1{
+        margin-top: 1.2rem !important;
+        margin-left: 0rem !important;
+    }
+
+    #company1{
+        padding-right: 0rem !important;
+    }
+
+    #teams_overview1{
+        display: none !important;
+    }
+
+    #chats{
+        overflow: auto;
+        justify-content: center;
+        align-items: center;
+        padding-left: 0rem !important;
+    }
+
+    #up_bar{
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+    }
 
     #company1{
         align-items: center;
@@ -25,6 +68,7 @@
     }
         
     #team{
+        flex-direction: column !important;
         align-items: center;
          padding-left: 0rem !important;
          padding-right: 0rem !important;
@@ -108,13 +152,20 @@
 @media screen and (min-width: 1001px) {
 
 
+    #chats{
+        margin-left: 1rem;
+    }
+
+
     #under_bar{
         display: none !important;
     }
 
     .row{
-        height: 88% !important;
-        padding-top: 1.5rem;
+        padding-top: 1rem;
+        position: relative;
+        height: 89%;
+        width: 100%;
     }
 
     .img1{

@@ -20,35 +20,7 @@
         color: white;
     }
 
-    #add_task_form{
-        background-color: rgba(0, 0, 0, 0.338);
-    }
-    
-    #change_task1{
-        background-color: rgba(0, 0, 0, 0.338);
-    }
-
-    #edit_company1{
-        background-color: rgba(0, 0, 0, 0.338);
-    }
-
-    #change_company1{
-        background-color: rgba(0, 0, 0, 0.338);
-    }
-
-
-    #send_mail1{
-        background-color: rgba(0, 0, 0, 0.372);
-    }
-
-
-    #add_task_card1{
-        background: linear-gradient(#3e3b45, #2d2e3d);
-    }
-    
-    #create_team1{
-        background-color: rgba(0, 0, 0, 0.372);
-    }
+   
 
     #crd1010{
         background: linear-gradient(#3e3b45, #2d2e3d);
@@ -163,14 +135,30 @@ border: transparent;
 color: white;
 font-family: 'Montserrat';
 font-size: 18px;
-margin-left: 0.2rem;
-margin-top: 10px;
+padding-left: 0.5rem;
 display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: start;
 margin-right: 3rem;
+padding-top: 0.5rem;
+padding-bottom: 0.5rem;
 }
+
+.buttonLEFT:hover{
+background-color: #ffffff12;
+width: 90%;
+border-top-right-radius: 50rem;
+border-bottom-right-radius: 50rem;
+}
+
+.buttonLEFT:focus{
+    background-color: #ffffff12;
+    width: 90%;
+    font-weight: bold;
+    border-top-right-radius: 50rem;
+    border-bottom-right-radius: 50rem;
+    }
 
 .material_icons1{
 margin-right: 5px;
@@ -184,8 +172,7 @@ background-color: rgba(255, 255, 255, 0.027);
 border-bottom: 1px solid rgba(255, 255, 255, 0.071);
 align-items: center;
 justify-content: space-between;
-border-bottom-left-radius: 1rem;
-border-bottom-right-radius: 1rem;
+
 }
 
 
