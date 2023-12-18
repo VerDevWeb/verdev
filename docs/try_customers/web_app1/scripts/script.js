@@ -1,0 +1,93 @@
+
+const clientID = '79b718cb91084843b5b4a9f3578244d4';
+const clientSecret = 'd29f841202b54d168e3344e2751f42b6';
+
+
+async function ottieniAccessToken() {
+  const tokenEndpoint = 'https://accounts.spotify.com/api/token';
+  const authString = btoa(`${clientID}:${clientSecret}`);
+  const headers = {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'Authorization': `Basic ${authString}`
+  };
+  const requestBody = 'grant_type=client_credentials';
+
+  try {
+    const response = await fetch(tokenEndpoint, {
+      method: 'POST',
+      headers: headers,
+      body: requestBody
+    });
+
+    const data = await response.json();
+    return data.access_token;
+  } catch (error) {
+    console.error('Errore nell\'ottenere l\'access token:', error);
+    return null;
+  }
+}
+
+async function cercaSuSpotify() {
+  const songTitle = document.getElementById('songTitle').value;
+  const formattedTitle = encodeURIComponent(songTitle);
+  const accessToken = await ottieniAccessToken();
+
+  const searchUrl = `https://api.spotify.com/v1/search?q=${formattedTitle}&type=track`;
+  
+  try {
+    const response = await fetch(searchUrl, {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`
+      }
+    });
+
+    const data = await response.json();
+    mostraRisultati(data);
+  } catch (error) {
+    console.error('Errore nella ricerca:', error);
+  }
+}
+
+function mostraRisultati(data) {
+    const risultatiDiv = document.getElementById('risultati');
+    risultatiDiv.innerHTML = '';
+  
+    const tracks = data.tracks.items;
+    if (tracks.length === 0) {
+      risultatiDiv.innerHTML = 'Nessun risultato trovato.';
+      return;
+    }
+  
+    const containerDiv = document.createElement('div'); // Creazione della div master
+  
+    tracks.forEach(track => {
+      const nomeArtista = track.artists.map(artist => artist.name).join(', ');
+      const nomeCanzone = track.name;
+      const linkSpotify = track.external_urls.spotify;
+  
+      const divRisultato = document.createElement('div'); // Creazione della div per ogni risultato
+      divRisultato.classList.add('card1'); // Aggiungi una classe per personalizzazione CSS
+  
+      const link = document.createElement('a');
+      link.href = linkSpotify;
+      link.target = '_blank';
+      link.textContent = `${nomeCanzone} - ${nomeArtista}`;
+      link.className = 'a1';
+  
+      const button = document.createElement('button');
+      button.textContent = 'add_circle';
+      button.className = 'material-symbols-outlined notranslate button1';
+      button.addEventListener('click', function() {
+        sendMessage(linkSpotify);
+      });
+  
+      divRisultato.appendChild(link);
+      divRisultato.appendChild(button);
+  
+      containerDiv.appendChild(divRisultato); // Aggiungi la div del risultato alla div master
+    });
+  
+    risultatiDiv.appendChild(containerDiv); // Aggiungi la div master al contenitore principale
+  }
+  
+
