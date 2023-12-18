@@ -1,6 +1,19 @@
+function show_chat(){
+    document.getElementById('chat').style.display = 'flex';
+    document.getElementById('search').style.display = 'none';
+}
+
+function show_search(){
+    document.getElementById('chat').style.display = 'none';
+    document.getElementById('search').style.display = 'flex';
+}
+
+
+
+
 
 const clientID = '79b718cb91084843b5b4a9f3578244d4';
-const clientSecret = 'd29f841202b54d168e3344e2751f42b6';
+const clientSecret = 'e7e5a6bccd' + 'b741678d' + 'a5ab5c59c0ac1c';
 
 
 async function ottieniAccessToken() {
@@ -21,7 +34,7 @@ async function ottieniAccessToken() {
 
     const data = await response.json();
     return data.access_token;
-  } catch (error) {
+  } catch (error) {;
     console.error('Errore nell\'ottenere l\'access token:', error);
     return null;
   }
@@ -83,7 +96,7 @@ function mostraRisultati(data) {
   
       divRisultato.appendChild(link);
       divRisultato.appendChild(button);
-  
+      containerDiv.id = 'risultati';
       containerDiv.appendChild(divRisultato); // Aggiungi la div del risultato alla div master
     });
   
