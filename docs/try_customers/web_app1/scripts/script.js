@@ -1,13 +1,24 @@
 function show_chat(){
     document.getElementById('chat').style.display = 'flex';
+    document.getElementById('home').style.display = 'none';
     document.getElementById('search').style.display = 'none';
+    animate1('chat');
 }
 
 function show_search(){
     document.getElementById('chat').style.display = 'none';
+    document.getElementById('home').style.display = 'none';
     document.getElementById('search').style.display = 'flex';
+    animate1('search');
 }
 
+
+function show_home(){
+  document.getElementById('chat').style.display = 'none';
+  document.getElementById('home').style.display = 'flex';
+  document.getElementById('search').style.display = 'none';
+  animate1('home');
+}
 
 
 
@@ -86,12 +97,13 @@ function mostraRisultati(data) {
       link.target = '_blank';
       link.textContent = `${nomeCanzone} - ${nomeArtista}`;
       link.className = 'a1';
+      var song_name = `${nomeCanzone} - ${nomeArtista}`;
   
       const button = document.createElement('button');
       button.textContent = 'add_circle';
       button.className = 'material-symbols-outlined notranslate button1';
       button.addEventListener('click', function() {
-        sendMessage(linkSpotify);
+        sendMessage(linkSpotify, song_name);
       });
   
       divRisultato.appendChild(link);

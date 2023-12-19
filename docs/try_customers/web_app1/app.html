@@ -13,11 +13,42 @@
 </head>
 <body>
 
+  <div id="master_container">
+  <div style="height: 8%; width: 100%;  background-color: rgba(255, 255, 255, 0.078); border-bottom-right-radius: 1rem; border-bottom-left-radius: 1rem; display: flex; flex-direction: row; align-items: center; border: 1px solid rgba(255, 255, 255, 0.059);">
+   <div style="width: 50px;"></div>
+    <div style="flex: 1;"></div>
+    <img src="res/icon.png" style="width: 40px; height: 40px;">
+    <div style="flex: 1;"></div>
+    <div style="width: 50px;"></div>
+</div>
+
+<div id="home">
+  <h3 style="margin-left: 1rem;">Home page</h3>
+  <div class="card1" style="border: 1px solid rgba(255, 255, 255, 0.119); flex-direction: column;">
+    <h3 style="width: 90%; margin-bottom: 0.5rem;">In riproduzione</h3>
+      <a id="current_song_display" style="margin-top: 0rem; width: 90%; overflow: hidden; margin-bottom: 1rem;">Carico...</a>
+  </div>
+  <div style="flex: 1;"></div>
+  <div class="card1" style="border: 1px solid rgba(255, 255, 255, 0.119); flex-direction: column; margin-bottom: 1rem;">
+    <h3 style="width: 90%; margin-bottom: 0.5rem;">Aggiungi</h3>
+      <p style="margin-top: 0rem; width: 90%;">Proponi la tua canzone per aggiungerla alla coda</p>
+      <button onclick="show_search();" style="margin-bottom: 1rem;" class="button1 card1">
+        <span style="color: rgb(255, 255, 255); font-size: 25px;" class="material-symbols-outlined notranslate">
+            search
+            </span>
+            <p style="font-family: 'Kanit'; margin-top: 0rem; margin-bottom: 0rem;">Cerca</p>
+    </button>
+  </div>
+</div>
+
     <div id="search">
-        <div style="width: 100%; overflow-x: hidden; overflow-y: auto; display: flex; flex-direction: column; align-items: center; flex: 1; " id="risultati"></div>
+      <h3 style="margin-left: 1rem;">Cerca canzoni</h3>
+        <div style="width: 100%; overflow-x: hidden; overflow-y: auto; display: flex; flex-direction: column; align-items: center; flex: 1; " id="risultati">
+          <p style="color: rgba(255, 255, 255, 0.37); width: 100%; text-align: left; padding-left: 2rem;">Cerca una canzone per visualizzare i risultati</p>
+        </div>
     <div style="width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: center; margin-bottom: 1rem; margin-top: 1rem;">
-        <input class="input1" type="text" id="songTitle" style="height: 35px; border-radius: 1rem; margin-right: 0.5rem; flex: 1; margin-left: 0.5rem; background: rgba(0, 0, 0, 0.224); color: white; border: 1px solid rgba(0, 0, 0, 0.251);   font-family: 'Kanit';" placeholder="Inserisci il titolo della canzone">
-        <button style="border-radius: 50%; width: 40px; height: 40px; margin-right: 0.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color:  rgba(0, 0, 0, 0.224);  border: 1px solid rgba(0, 0, 0, 0.251); cursor: pointer;" onclick="cercaSuSpotify()">
+        <input class="input1" type="text" id="songTitle" style="height: 35px; border-radius: 1rem; margin-right: 0.5rem; flex: 1; margin-left: 0.5rem; background: rgba(255, 255, 255, 0.027); color: white; border: 1px solid rgba(255, 255, 255, 0.119);   font-family: 'Kanit';" placeholder="Inserisci il titolo della canzone">
+        <button style="border-radius: 50%; width: 40px; height: 40px; margin-right: 0.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.027); color: white; border: 1px solid rgba(255, 255, 255, 0.119); cursor: pointer;" onclick="cercaSuSpotify()">
           <span style="color: rgb(255, 255, 255);" class="material-symbols-outlined notranslate">
               search
               </span>
@@ -26,35 +57,44 @@
   </div>
 
 <div style="flex: 1;"></div>
-
 <div id="chat">
-    <div id="messages">
+  <h3 style="margin-left: 1rem;">Canzoni richieste</h3>
+  <div style="flex: 1;"></div>
+    <div style="padding-bottom: 1rem;" id="messages">
         
     </div>
 </div>
 
-  <div style="height: 50px; width: 100%; background: rgba(0, 0, 0, 0.224); border-bottom-right-radius: 1rem; border-bottom-left-radius: 1rem; display: flex; flex-direction: row; align-items: center;">
+  <div style="height: 8%; width: 100%; background-color: rgba(255, 255, 255, 0.078); border-top-right-radius: 1rem; border-top-left-radius: 1rem; display: flex; flex-direction: row; align-items: center; border: 1px solid rgba(255, 255, 255, 0.059);">
     <button onclick="show_search();" class="button1">
         <span style="color: rgb(255, 255, 255); font-size: 25px;" class="material-symbols-outlined notranslate">
             search
             </span>
+            <p style="font-family: 'Kanit'; margin-top: 0rem; margin-bottom: 0rem;">Cerca</p>
     </button>
     <div style="flex: 1;"></div>
-    <img src="res/icon.png" style="width: 40px; height: 40px;">
+    <button onclick="show_home();" class="button1">
+      <span style="color: rgb(255, 255, 255); font-size: 25px;" class="material-symbols-outlined notranslate">
+          home
+          </span>
+          <p class="notranslate" style="font-family: 'Kanit'; margin-top: 0rem; margin-bottom: 0rem;">Home</p>
+  </button>
     <div style="flex: 1;"></div>
-    <button onclick="show_chat();" class="button1">
+    <button onclick="show_chat();" style="margin-right: 1rem;" class="button1">
         <span style="color: rgb(255, 255, 255); font-size: 25px;" class="material-symbols-outlined notranslate">
             chat
             </span>
+            <p class="notranslate" style="font-family: 'Kanit'; margin-top: 0rem; margin-bottom: 0rem;">Chat</p>
     </button>
 </div>
 
-
+</div>
 
  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
   <script src="scripts/script.js"></script>
   <script src="scripts/firebase.js"></script>
   <script src="scripts/chat.js"></script>
+  <script src="scripts/animations.js"></script>
 </body>
 </html>
