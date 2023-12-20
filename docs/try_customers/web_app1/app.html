@@ -11,15 +11,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
   <div id="master_container">
   <div style="height: 8%; width: 100%;  background-color: rgba(255, 255, 255, 0.078); border-bottom-right-radius: 1rem; border-bottom-left-radius: 1rem; display: flex; flex-direction: row; align-items: center; border: 1px solid rgba(255, 255, 255, 0.059);">
-   <div style="width: 50px;"></div>
-    <div style="flex: 1;"></div>
+   <p style="color: white; width: 80px; font-size: 12px; margin-left: 1rem;">LET'S PARTY APP</p>
+    <div style="flex: 0.7;"></div>
     <img src="res/icon.png" style="width: 40px; height: 40px;">
     <div style="flex: 1;"></div>
-    <div style="width: 50px;"></div>
+    <button onclick="show_admin();" style="margin-right: 1rem;" class="button1">
+      <span style="color: rgb(255, 255, 255); font-size: 30px;" class="material-symbols-outlined notranslate">
+          account_circle
+          </span>
+  </button>
 </div>
 
 <div id="home">
@@ -36,9 +41,16 @@
         <span style="color: rgb(255, 255, 255); font-size: 25px;" class="material-symbols-outlined notranslate">
             search
             </span>
-            <p style="font-family: 'Kanit'; margin-top: 0rem; margin-bottom: 0rem;">Cerca</p>
+            <p style="font-family: 'Kanit'; margin-top: 0rem; margin-bottom: 0rem;">Aggiungi</p>
     </button>
   </div>
+</div>
+
+<div id="admin">
+  <h3 style="margin-left: 1rem; width: 90%;">Accesso admin</h3>
+  <input type="email" id="login_mail" placeholder="E-Mail" class="card1 button1 input1" style="font-family: 'Kanit'; border: 1px solid rgba(255, 255, 255, 0.059);">
+  <input type="password" id="login_password" placeholder="Password" class="card1 button1 input1" style="font-family: 'Kanit'; border: 1px solid rgba(255, 255, 255, 0.059);">
+  <button onclick="loginUser();" class="card1 button1" style="width: 50%; font-family: 'Kanit'; border: 1px solid rgba(255, 255, 255, 0.059);">Login</button>
 </div>
 
     <div id="search">
@@ -70,7 +82,7 @@
         <span style="color: rgb(255, 255, 255); font-size: 25px;" class="material-symbols-outlined notranslate">
             search
             </span>
-            <p style="font-family: 'Kanit'; margin-top: 0rem; margin-bottom: 0rem;">Cerca</p>
+            <p style="font-family: 'Kanit'; margin-top: 0rem; margin-bottom: 0rem;">Aggiungi</p>
     </button>
     <div style="flex: 1;"></div>
     <button onclick="show_home();" class="button1">
@@ -90,11 +102,13 @@
 
 </div>
 
- <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
- <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
   <script src="scripts/script.js"></script>
   <script src="scripts/firebase.js"></script>
   <script src="scripts/chat.js"></script>
   <script src="scripts/animations.js"></script>
+  <script src="scripts/auth.js"></script>
 </body>
 </html>

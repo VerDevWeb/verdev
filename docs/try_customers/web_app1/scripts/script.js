@@ -2,6 +2,7 @@ function show_chat(){
     document.getElementById('chat').style.display = 'flex';
     document.getElementById('home').style.display = 'none';
     document.getElementById('search').style.display = 'none';
+    document.getElementById('admin').style.display = 'none';
     animate1('chat');
 }
 
@@ -9,6 +10,7 @@ function show_search(){
     document.getElementById('chat').style.display = 'none';
     document.getElementById('home').style.display = 'none';
     document.getElementById('search').style.display = 'flex';
+    document.getElementById('admin').style.display = 'none';
     animate1('search');
 }
 
@@ -17,10 +19,17 @@ function show_home(){
   document.getElementById('chat').style.display = 'none';
   document.getElementById('home').style.display = 'flex';
   document.getElementById('search').style.display = 'none';
+  document.getElementById('admin').style.display = 'none';
   animate1('home');
 }
 
-
+function show_admin(){
+  document.getElementById('chat').style.display = 'none';
+  document.getElementById('home').style.display = 'none';
+  document.getElementById('search').style.display = 'none';
+  document.getElementById('admin').style.display = 'flex';
+  animate1('admin');
+}
 
 
 const clientID = '79b718cb91084843b5b4a9f3578244d4';
@@ -82,15 +91,15 @@ function mostraRisultati(data) {
       return;
     }
   
-    const containerDiv = document.createElement('div'); // Creazione della div master
+    const containerDiv = document.createElement('div'); 
   
     tracks.forEach(track => {
       const nomeArtista = track.artists.map(artist => artist.name).join(', ');
       const nomeCanzone = track.name;
       const linkSpotify = track.external_urls.spotify;
   
-      const divRisultato = document.createElement('div'); // Creazione della div per ogni risultato
-      divRisultato.classList.add('card1'); // Aggiungi una classe per personalizzazione CSS
+      const divRisultato = document.createElement('div'); 
+      divRisultato.classList.add('card1'); 
   
       const link = document.createElement('a');
       link.href = linkSpotify;
@@ -109,10 +118,10 @@ function mostraRisultati(data) {
       divRisultato.appendChild(link);
       divRisultato.appendChild(button);
       containerDiv.id = 'risultati';
-      containerDiv.appendChild(divRisultato); // Aggiungi la div del risultato alla div master
+      containerDiv.appendChild(divRisultato); 
     });
-  
-    risultatiDiv.appendChild(containerDiv); // Aggiungi la div master al contenitore principale
+
+    risultatiDiv.appendChild(containerDiv);
   }
   
 

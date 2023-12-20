@@ -11,3 +11,12 @@ const firebaseConfig = {
   
   firebase.initializeApp(firebaseConfig);
   const database = firebase.database();
+  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+  
+.then(function() {
+
+ 
+  })
+  .catch(function(error) {
+  console.log(error);
+  });
