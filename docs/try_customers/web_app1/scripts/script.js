@@ -108,15 +108,25 @@ function mostraRisultati(data) {
       link.className = 'a1';
       var song_name = `${nomeCanzone} - ${nomeArtista}`;
   
+      const div = document.createElement('div');
+      div.style.display = 'flex';
+      div.style.flexDirection = 'column';
+
       const button = document.createElement('button');
+      const p = document.createElement('p');
+      p.textContent = 'Aggiungi';
+      p.style.marginTop = '0rem'
+      p.style.marginBottom = '0rem'
       button.textContent = 'add_circle';
       button.className = 'material-symbols-outlined notranslate button1';
-      button.addEventListener('click', function() {
+      div.addEventListener('click', function() {
         sendMessage(linkSpotify, song_name);
       });
   
       divRisultato.appendChild(link);
-      divRisultato.appendChild(button);
+      divRisultato.appendChild(div)
+      div.appendChild(button);
+      div.appendChild(p);
       containerDiv.id = 'risultati';
       containerDiv.appendChild(divRisultato); 
     });
