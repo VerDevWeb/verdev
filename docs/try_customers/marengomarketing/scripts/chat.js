@@ -10,8 +10,9 @@ var minute = currentDate.getMinutes();
 
     messagesRef.on('child_added', function(snapshot) {
       var message = snapshot.val();
-      getMessage(message);
+        getMessage(message);
     });
+    
 
     const mail = getCookieValue('mail');
 
@@ -79,7 +80,7 @@ Cordiali saluti _______`;
       textParagraph.className = "general_paragraph";
       textParagraph.innerText = message.mail;
       messageElement.appendChild(textParagraph);
-
+    
       var textParagraph = document.createElement("p");
       textParagraph.style.paddingTop = "0.5rem";
       textParagraph.className = "general_paragraph";

@@ -1,7 +1,7 @@
 /*TEMA SCURO*/
 
 .dark-theme {
-    background: linear-gradient(#3e3b45, #181924);
+    background: #12141a;
     border: 0;
     margin: 0;
     font-family: 'Montserrat', sans-serif;
@@ -23,7 +23,17 @@
    
 
     #crd1010{
-        background: linear-gradient(#3e3b45, #2d2e3d);
+        background-color: #171a20;
+box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+border: 1px solid rgba(255, 255, 255, 0.071);
+border-radius: 1rem;
+    }
+
+    .crd1010{
+        background-color: #171a20;
+        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.071);
+        border-radius: 1rem;
     }
 
     #toggle_theme{
@@ -34,6 +44,7 @@
     background: #ffffffa0;
     border-radius: 10px;
    }
+
 
    .input1:focus {
     outline: none; /* Rimuove l'outline evidenziato al focus */
@@ -111,64 +122,52 @@ height: 100%;
 }
 
 .card1{
-background-color: rgba(255, 255, 255, 0.068);
+background-color: #171a20;
+box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
 border: 1px solid rgba(255, 255, 255, 0.071);
 border-radius: 1rem;
 padding: 0.9rem;
-
 }
 
 
 .left1{
-max-width: 20%;
-height: 100%;
-background-color:  rgba(255, 255, 255, 0.068);
 border: 1px solid rgba(255, 255, 255, 0.071);
-border-top-right-radius: 1rem;
-border-bottom-right-radius: 1rem;
+background-color: #171a20;
+box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 .button1{
-width: 100%;
 background: transparent;
 border: transparent;
 color: white;
-font-family: 'Montserrat';
-font-size: 18px;
-padding-left: 0.5rem;
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: start;
-margin-right: 3rem;
-padding-top: 0.5rem;
-padding-bottom: 0.5rem;
 }
 
 .buttonLEFT:hover{
 background-color: #ffffff12;
-width: 90%;
-border-top-right-radius: 50rem;
-border-bottom-right-radius: 50rem;
+font-weight: bold;
+border-radius: 5rem;
+margin-right: 0.5rem;
+margin-left: 0.5rem;
 }
 
 .buttonLEFT:focus{
     background-color: #ffffff12;
-    width: 90%;
     font-weight: bold;
-    border-top-right-radius: 50rem;
-    border-bottom-right-radius: 50rem;
+    border-radius: 5rem;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
     }
 
 .material_icons1{
 margin-right: 5px;
+color: white;
 }
 
 #up_bar{
 display: flex;
 width: 100%;
 height: 9%;
-background-color: rgba(255, 255, 255, 0.027);
+background-color: rgba(255, 255, 255, 0.066);
 border-bottom: 1px solid rgba(255, 255, 255, 0.071);
 align-items: center;
 justify-content: space-between;
@@ -182,6 +181,15 @@ height: 1px;
 background-color: rgba(255, 255, 255, 0.279);
 }
 
+.divider2{
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.071);
+    }
+    
+.border_top1{
+    border-top: 1px solid rgba(255, 255, 255, 0.071);
+}
 
 .general_link{
 color: white;
@@ -196,10 +204,7 @@ border-radius: 10px;
 margin-bottom: 1.5rem;
 }
 
-.table1 {
-border-collapse: collapse;
-border-radius: 10px;
-}
+
 
 .table1 th, .table1 td {
 text-align: left;

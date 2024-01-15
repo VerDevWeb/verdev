@@ -1,3 +1,4 @@
+var chartTextColor1 = getCookieValue('apex-text-chart-color');
 var chart = null; 
 
 function renderGraph() {
@@ -62,7 +63,7 @@ function renderGraph() {
 
 
 
-    
+
 var options = {
   series: [{
   name: 'series1',
@@ -73,8 +74,13 @@ var options = {
 }],
   chart: {
   height: 350,
-  type: 'area'
+  type: 'area',
+    toolbar: {
+      show: true
+    },
+    fontFamily: ''
 },
+
 dataLabels: {
   enabled: false
 },
@@ -83,13 +89,26 @@ stroke: {
 },
 xaxis: {
   type: 'datetime',
-  categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+  categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"],
+  labels: {
+    style: {
+      colors: chartTextColor1
+    }
+  }
+},
+yaxis: {
+  labels: {
+    style: {
+      colors: chartTextColor1
+    }
+  }
 },
 tooltip: {
   x: {
-    format: 'dd/MM/yy HH:mm'
+    format: 'dd/MM/yy HH:mm',
   },
 },
+colors: ['#f1514d', '#6d3af6']
 };
 
 var chart0 = new ApexCharts(document.querySelector("#chart2"), options);
@@ -97,32 +116,46 @@ chart0.render();
 
 
 
-  
 var options = {
   series: [{
-  data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
-}],
+    data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+  }],
   chart: {
-  type: 'bar',
-  height: 350
-},
-plotOptions: {
-  bar: {
-    borderRadius: 4,
-    horizontal: true,
-  }
-},
-dataLabels: {
-  enabled: false
-},
-xaxis: {
-  categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
-    'United States', 'China', 'Germany'
-  ],
-}
+    type: 'bar',
+    height: 350,
+    toolbar: {
+      show: true
+    },
+    fontFamily: ''
+  },
+  plotOptions: {
+    bar: {
+      borderRadius: 4,
+      horizontal: true,
+    }
+  },
+  dataLabels: {
+    enabled: false
+  },
+  xaxis: {
+    categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
+      'United States', 'China', 'Germany'
+    ],
+    labels: {
+      style: {
+        colors: chartTextColor1
+      }
+    }
+  },
+  yaxis: {
+    labels: {
+      style: {
+        colors: chartTextColor1
+      }
+    }
+  },
+  colors: ['#ed4555']
 };
 
 var chart1 = new ApexCharts(document.querySelector("#chart3"), options);
 chart1.render();
-
-

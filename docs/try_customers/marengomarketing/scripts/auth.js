@@ -1,76 +1,119 @@
- // Ottieni il riferimento agli elementi della finestra modale e del pulsante per aprire la finestra
+ 
+
+
+    function loginUser() {
+      var email = document.getElementById("login_mail").value;
+      var password = document.getElementById("login_password").value;
+      
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(function(user) {
+          document.getElementById("no_logged").style.display = "none";
+          document.getElementById("logged").style.display = "flex";
+
+          var userEmail = user.email;
+          document.cookie = "mail=" + userEmail + ";";
+
+        var uid = user.uid;
+        document.cookie = "uid=" + uid + ";";
+
+        refresh1();
+        })
+      
+        .catch(function(error) {
+          var errorMessage = error.message;
+          if (errorMessage.includes("password")) {
+            alert("Wrong password, try again");
+          } else {
+            alert("Access error: " + errorMessage);
+          }
+        });
+      }
+
+
+
+      function registerUser() {
+        var email = document.getElementById("register_mail").value;
+        var password = document.getElementById("register_password").value;
+    
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then(function(userCredential) {
+                var user = userCredential.user;
+    
+                // Imposta i cookie per mail e uid
+                document.cookie = "mail=" + user.email + ";";
+                document.cookie = "uid=" + user.uid + ";";
+    
+           
+                // Ottieni l'uid dai cookie
+                const uid = getCookieValue('uid');
+    
+                // Salva l'utente nella lista utenti generale
+                const nameValue = document.getElementById('name_register_input').value;
+                saveUserToGeneralList(uid, nameValue);
+                document.cookie = "name=" + nameValue + ";";
+            })
+            .catch(function(error) {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                if (errorCode === "auth/email-already-in-use") {
+                    alert("Mail already used");
+                } else {
+                }
+            });
+          }
+
+
   var resetPasswordForm = document.getElementById("reset_password_form");
   var resetPasswordButton = document.getElementById("reset_password_button");
   var CancelResetPasswordButton = document.getElementById("CancelResetPasswordBtn");
   
   CancelResetPasswordButton.addEventListener("click", function () {
-    // Mostra il form per il reset della password
     resetPasswordForm.style.display = "none";
   });
 
 
-  // Aggiungi un gestore di eventi al pulsante che apre il form per il reset della password
   resetPasswordButton.addEventListener("click", function () {
-    // Mostra il form per il reset della password
     resetPasswordForm.style.display = "flex";
   });
 
 
 
  document.getElementById("resetPasswordBtn").addEventListener("click", function () {
-    // Ottieni l'indirizzo email inserito dall'utente
     var email = document.getElementById("emailInput").value;
-
-    // Invia l'email di reset password
     firebase.auth().sendPasswordResetEmail(email)
       .then(function() {
-        // Email inviata con successo
         alert("Un'email di reset password è stata inviata al tuo indirizzo.");
       })
       .catch(function(error) {
-        // Gestisci eventuali errori
         alert("Si è verificato un errore durante l'invio dell'email di reset password: " + error.message);
       });
   });
 
 
-  // DISCONNESSIONE ACCOUNT
-
-
 document.getElementById("logoutBtn").addEventListener("click", function () {
-    // Disconnetti l'utente da Firebase
     firebase.auth().signOut().then(function() {
-      // Operazione di disconnessione riuscita
       document.cookie = 'uid' + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;";
       document.cookie = 'userEmail' + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;";
       alert("Disconnesso con successo!");
     }).catch(function(error) {
-      // Gestisci eventuali errori
       alert("Errore durante la disconnessione: " + error.message);
     });
   });
 
 
-        // ELIMINAZIONE ACCOUNT
-      
-
     function deleteAccount() {
         const user = firebase.auth().currentUser;
     
         if (user) {
-          // Elimina l'account dell'utente
           user.delete()
             .then(() => {
-              // L'account è stato eliminato con successo
               alert("Account eliminato definitivamente.");
             })
             .catch((error) => {
-              // Si è verificato un errore durante l'eliminazione dell'account
               alert("Si è verificato un errore durante l'eliminazione dell'account.");
               console.error(error);
             });
         } else {
-          // L'utente non è stato trovato o non è effettuato l'accesso
           alert("Utente non trovato o accesso non effettuato.");
         }
       }
@@ -88,11 +131,11 @@ document.getElementById("logoutBtn").addEventListener("click", function () {
        }
       }
 
+
       function saveUserTeam1(){
         const uid = getCookieValue('uid');
         var databaseRef1 = firebase.database().ref('/user_datas/' + uid + '/user_infos/');
         var teamSelectorCHANGE = document.getElementById("user_team_selector");
-        
         databaseRef1.update({
             team: teamSelectorCHANGE.value,
         }).then(function() {
