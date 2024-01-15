@@ -175,7 +175,7 @@ document.getElementById("company_search1").addEventListener("input", function() 
           });
         })
         .catch((error) => {
-          alert('Errore durante il recupero dei progetti: ', error);
+          alert('Errore durante il recupero dei task personali in scadenza oggi: ', error);
         });
       
      
@@ -183,28 +183,28 @@ document.getElementById("company_search1").addEventListener("input", function() 
       table.innerHTML = '';
 
       var row = table.insertRow();
-      //cell 8 è la cella actions
-      var cell8 = row.insertCell(0);
-      var cell1 = row.insertCell(1);
-      var cell2 = row.insertCell(2);
-      var cell3 = row.insertCell(3);
-      var cell4 = row.insertCell(4);
-      var cell5 = row.insertCell(5);
-      var cell6 = row.insertCell(6);
-      var cell7 = row.insertCell(7);
-      var cell10 = row.insertCell(8);
-    
-      cell2.className = 'description_table_section'
-    
-      cell1.innerHTML = data.name; 
-      cell2.innerHTML = data.description; 
-      cell3.innerHTML = data.owner_name; 
-      cell4.innerHTML = data.estimated_days;
-      cell5.innerHTML = data.estimated_hours;
-      cell6.innerHTML = data.end;
-      cell7.innerHTML = data.project_company_name;
-      cell10.innerHTML = data.id;
-    
+//cell 8 sta per la casella dedicata alle actions
+var cell8 = row.insertCell(0);
+var cell1 = row.insertCell(1);
+var cell2 = row.insertCell(2);
+var cell3 = row.insertCell(3);
+var cell9 = row.insertCell(4)
+var cell4 = row.insertCell(5);
+var cell5 = row.insertCell(6);
+var cell6 = row.insertCell(7);
+var cell7 = row.insertCell(8);
+
+cell2.className = 'description_table_section'
+
+cell1.innerHTML = data.name; 
+cell2.innerHTML = data.description; 
+cell3.innerHTML = data.owner_name; 
+cell9.innerHTML = data.task_brand_name;
+cell4.innerHTML = data.start;
+cell5.innerHTML = data.end;
+cell6.innerHTML = data.status;
+cell7.innerHTML = data.id;
+
     
       cell8.className = 'cell9';
       cell8.style.flexdirection = 'column';
