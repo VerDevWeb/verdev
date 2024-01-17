@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionale riparazioni</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
+
+</head>
+<body>
+    <div id="notification1">
+        <div class="card1 crd1010" id="notification_card1" style="margin-top: 5.5rem !important; margin-right: 1rem !important; box-shadow: 1px 1px #8888882d;">
+            <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+                <span id="notification_icon1" class="material-symbols-outlined notranslate general_paragraph" style="margin-top: 0rem; margin-bottom: 0rem; margin-right: .5rem;">notifications</span>
+                <p id="notification_display1" class="general_paragraph" style="margin-top: 0rem; margin-bottom: 0rem;">Carico...</p>
+            </div>
+        </div>
+    </div>
+    <div id="login">
+        <div class="card1" style="width: 80%; height: 30rem; overflow: hidden;">
+            <h3 class="general_paragraph1" style="margin-left: 1rem;">Effettua il login per continuare</h3>
+            <div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <p style="width: 90%;" class="general_paragraph1">E-mail</p>
+                <input type="text" class="input1" id="login_email" style="width: 90%;">
+                <p style="width: 90%;" class="general_paragraph1">Password</p>
+                <input type="text" class="input1" id="login_password" style="width: 90%;">
+                <button class="button1" onclick="login();" style="height: 2rem; width: 10rem; margin-top: 2rem;">Login</button>
+            </div>
+        </div>
+    </div>
+    <div id="master_container">
+        <div id="left_bar" style="margin-right: 2rem;">
+            <span class="material-symbols-outlined general_paragraph1" style="font-size: 8rem; margin-top: 1rem; width: 100%; text-align: center; color:  rgb(98, 98, 183)">
+                construction
+                </span>
+            <button onclick="showCreate();" style="margin-top: 1rem;" class="button1">Nuova entrata</button>
+            <button onclick="showTutteLeRiparazioni();" style="margin-top: 1rem;" class="button1">Tutte le riparazioni</button>
+            <button onclick="showRiparazioniInterne();" style="margin-top: 1rem;" class="button1">Riparazioni interne</button>
+            <button onclick="showRiparazioniInGaranzia();" style="margin-top: 1rem;" class="button1">Riparazioni in garanzia</button>
+        </div>
+        <div id="change_repairs" class="card1" style="width: calc(100% - 18rem); height: 95%;">
+            <h3 style="width: 95%;" class="general_paragraph1">Modifica riparazione</h3>
+            <div style="width: 95%; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+                <div>
+                    <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Scheda numero</p>
+                    <input class="input1" type="text" id="schede_number2">
+                </div>
+                <div>
+                    <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Data ingresso</p>
+                    <input class="input1" type="date" id="start2" style="resize: none;">
+                </div>
+                <div>
+                    <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Data riconsegna</p>
+                    <input class="input1" type="date" id="end2" style="resize: none;">
+                </div>
+                <div>
+                    <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Stato riparazione</p>
+                    <select class="input1" type="date" id="status2">
+                        <option value="IN ENTRATA">IN ENTRATA</option>
+                        <option value="PREVENTIVO">PREVENTIVO</option>
+                        <option value="ATTESA RICAMBI">ATTESA RICAMBI</option>
+                        <option value="IN LAVORAZIONE">IN LAVORAZIONE</option>
+                        <option value="PRONTO">PRONTO</option>
+                        <option value="FUORI USO">FUORI USO</option>
+                    </select>
+                </div>
+                <div>
+                    <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Tipo riparazione</p>
+                    <select class="input1" type="date" id="repair_type2">
+                        <option value="INTERNA">INTERNA</option>
+                        <option value="GARANZIA">GARANZIA</option>
+                    </select>
+                </div>
+            </div>
+            <div style="width: 95%; display: flex; flex-direction: row; justify-content: space-between; margin-top: 2rem;">
+                <div style="display: flex; flex-direction: column; width: 50%; margin-right: 2rem;">
+                   <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%;">
+                    <div>
+                        <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Tipo apparecchio</p>
+                        <input class="input1" type="text" id="type2">
+                    </div>
+                    <div>
+                        <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Marca</p>
+                        <input class="input1" type="text" id="brand2">
+                    </div>
+                </div>
+                <p class="general_paragraph1">Accessori consegnati</p>
+                <textarea class="input1" style="width: 100%; min-height: 5rem;" id="accessories2" cols="30" rows="10"></textarea>
+                <p class="general_paragraph1">Stato generale</p>
+                <textarea class="input1" style="width: 100%; min-height: 5rem;" id="status_description2" cols="30" rows="10"></textarea>
+                </div>
+                <div style="display: flex; flex-direction: column; width: calc(50% - 2rem);">
+                    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 1rem; overflow-x: auto;">
+                        <div style="margin-right: 0.5rem;">
+                            <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Modello</p>
+                            <input class="input1" type="text" id="model2">
+                        </div>
+                        <div style="margin-right: 0.5rem;">
+                            <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Numero di serie</p>
+                            <input class="input1" type="text" id="serial_number2">
+                        </div>
+                        <div style="margin-right: 0.5rem;">
+                            <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Numero di serie 2</p>
+                            <input class="input1" type="text" id="serial_number_two2">
+                        </div>
+                    </div>
+                    <p class="general_paragraph1">Difetto segnalato</p>
+                    <textarea class="input1" style="width: 100%; flex: 1;" id="reported_defect2" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div style="width: 95%; display: flex; flex-direction: row; justify-content: start; margin-bottom: 2rem; margin-top: 1rem;">
+                <div style="display: flex; flex-direction: column; margin-right: 0.5rem">
+                    <p class="general_paragraph1">Cliente</p>
+                    <input class="input1" type="text" id="customer_name2">    
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <p class="general_paragraph1">Cellulare</p>
+                    <input class="input1" type="text" id="customer_phone2">    
+                </div>
+            </div>
+            <div style="width: 90%; display: flex; align-items: center; justify-content: center;">
+                <button class="button1" onclick="changeRepair();">Salva modifiche</button>
+            </div>
+        </div>
+        <div id="create_new" class="card1" style="width: calc(100% - 18rem); height: 95%;">
+            <h3 style="width: 95%;" class="general_paragraph1">Nuova entrata</h3>
+            <div style="width: 95%; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+                <div>
+                    <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Scheda numero</p>
+                    <input class="input1" type="text" id="schede_number1">
+                </div>
+                <div>
+                    <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Data ingresso</p>
+                    <input class="input1" type="date" id="start1" style="resize: none;">
+                </div>
+                <div>
+                    <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Data riconsegna</p>
+                    <input class="input1" type="date" id="end1" style="resize: none;">
+                </div>
+                <div>
+                    <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Stato riparazione</p>
+                    <select class="input1" type="date" id="status1">
+                        <option value="IN ENTRATA">IN ENTRATA</option>
+                        <option value="PREVENTIVO">PREVENTIVO</option>
+                        <option value="ATTESA RICAMBI">ATTESA RICAMBI</option>
+                        <option value="IN LAVORAZIONE">IN LAVORAZIONE</option>
+                        <option value="PRONTO">PRONTO</option>
+                        <option value="FUORI USO">FUORI USO</option>
+                    </select>
+                </div>
+                <div>
+                    <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Tipo riparazione</p>
+                    <select class="input1" type="date" id="repair_type1">
+                        <option value="INTERNA">INTERNA</option>
+                        <option value="GARANZIA">GARANZIA</option>
+                    </select>
+                </div>
+            </div>
+            <div style="width: 95%; display: flex; flex-direction: row; justify-content: space-between; margin-top: 2rem;">
+                <div style="display: flex; flex-direction: column; width: 50%; margin-right: 2rem;">
+                   <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%;">
+                    <div>
+                        <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Tipo apparecchio</p>
+                        <input class="input1" type="text" id="type1">
+                    </div>
+                    <div>
+                        <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Marca</p>
+                        <input class="input1" type="text" id="brand1">
+                    </div>
+                </div>
+                <p class="general_paragraph1">Accessori consegnati</p>
+                <textarea class="input1" style="width: 100%; min-height: 5rem;" id="accessories1" cols="30" rows="10"></textarea>
+                <p class="general_paragraph1">Stato generale</p>
+                <textarea class="input1" style="width: 100%; min-height: 5rem;" id="status_description1" cols="30" rows="10"></textarea>
+                </div>
+                <div style="display: flex; flex-direction: column; width: calc(50% - 2rem);">
+                    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 1rem; overflow-x: auto;">
+                        <div style="margin-right: 0.5rem;">
+                            <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Modello</p>
+                            <input class="input1" type="text" id="model1">
+                        </div>
+                        <div style="margin-right: 0.5rem;">
+                            <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Numero di serie</p>
+                            <input class="input1" type="text" id="serial_number1">
+                        </div>
+                        <div style="margin-right: 0.5rem;">
+                            <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Numero di serie 2</p>
+                            <input class="input1" type="text" id="serial_number_two1">
+                        </div>
+                    </div>
+                    <p class="general_paragraph1">Difetto segnalato</p>
+                    <textarea class="input1" style="width: 100%; flex: 1;" id="reported_defect1" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div style="width: 95%; display: flex; flex-direction: row; justify-content: start; margin-bottom: 2rem; margin-top: 1rem;">
+                <div style="display: flex; flex-direction: column; margin-right: 0.5rem">
+                    <p class="general_paragraph1">Cliente</p>
+                    <input class="input1" type="text" id="customer_name1">    
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <p class="general_paragraph1">Cellulare</p>
+                    <input class="input1" type="text" id="customer_phone1">    
+                </div>
+            </div>
+            <div style="width: 90%; display: flex; align-items: center; justify-content: center;">
+                <button class="button1" onclick="aggiungiRiparazione();">Aggiungi</button>
+            </div>
+        </div>
+        <div id="tutte_le_riparazioni" class="card1" style="width: calc(100% - 18rem); height: 95%;">
+            <h3 style="width: 90%;" class="general_paragraph1">Tutte le riparazioni</h3>
+                <div class="table_container1" style="margin-bottom: -0.1rem; width: 90%;">
+                    <table class="table1">
+                        <thead>
+                            <tr>
+                                <th>Azioni</th>
+                                <th>Scheda numero</th>
+                                <th>Data ingresso</th>
+                                <th>Data riconsegna</th>
+                                <th>Stato riparazione</th>
+                                <th>Cliente</th>
+                                <th>Cellulare</th>
+                                <th>Marca</th>
+                                <th>Modello</th>
+                                <th>Tipo apparecchio</th>
+                                <th>Tipo riparazione</th>
+                                <th>Numero di serie</th>
+                                <th>Numero di serie 2</th>
+                                <th>Accessori collegati</th>
+                                <th>Difetto segnalato</th>
+                                <th>Stato generale</th>
+                                <th>Id</th>  
+                            </tr>
+                        </thead>
+                        <tbody id="tutteLeRiparazioniTableBody">
+
+                        </tbody>
+                    </table>
+                    
+                </div>
+        </div>
+        <div id="riparazioni_interne" class="card1" style="width: calc(100% - 18rem); height: 95%;">
+            <h3 style="width: 90%;" class="general_paragraph1">Riparazioni interne</h3>
+            <div class="table_container1" style="margin-bottom: -0.1rem; width: 90%;">
+                <table class="table1">
+                    <thead>
+                        <tr>
+                            <th>Azioni</th>
+                                <th>Scheda numero</th>
+                                <th>Data ingresso</th>
+                                <th>Data riconsegna</th>
+                                <th>Stato riparazione</th>
+                                <th>Cliente</th>
+                                <th>Cellulare</th>
+                                <th>Marca</th>
+                                <th>Modello</th>
+                                <th>Tipo apparecchio</th>
+                                <th>Tipo riparazione</th>
+                                <th>Numero di serie</th>
+                                <th>Numero di serie 2</th>
+                                <th>Accessori collegati</th>
+                                <th>Difetto segnalato</th>
+                                <th>Stato generale</th>
+                                <th>Id</th>  
+                        </tr>
+                    </thead>
+                    <tbody id="riparazioniInterneTableBody">
+
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+        <div id="riparazioni_in_garanzia" class="card1" style="width: calc(100% - 18rem); height: 95%;">
+            <h3 style="width: 90%;" class="general_paragraph1">Riparazioni in garanzia</h3>
+            <div class="table_container1" style="margin-bottom: -0.1rem; width: 90%;">
+                <table class="table1">
+                    <thead>
+                        <tr>
+                            <th>Azioni</th>
+                            <th>Scheda numero</th>
+                            <th>Data ingresso</th>
+                            <th>Data riconsegna</th>
+                            <th>Stato riparazione</th>
+                            <th>Cliente</th>
+                            <th>Cellulare</th>
+                            <th>Marca</th>
+                            <th>Modello</th>
+                            <th>Tipo apparecchio</th>
+                            <th>Tipo riparazione</th>
+                            <th>Numero di serie</th>
+                            <th>Numero di serie 2</th>
+                            <th>Accessori collegati</th>
+                            <th>Difetto segnalato</th>
+                            <th>Stato generale</th>
+                            <th>Id</th>  
+                        </tr>
+                    </thead>
+                    <tbody id="riparazioniInGaranziaTableBody">
+
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
+    <script src="scripts/script.js"></script>
+    <script src="scripts/firebase.js"></script>
+    <script src="scripts/actions.js"></script>
+    <script src="scripts/read.js"></script>
+
+</body>
+</html>
