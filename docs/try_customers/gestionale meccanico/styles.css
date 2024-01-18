@@ -28,6 +28,10 @@ html, body{
     overflow-y: auto;
 }
 
+#under_bar{
+    display: none;
+}
+
 .card1{
     background: rgba(255, 255, 255, 0.664);
     border-radius: 2rem;
@@ -58,6 +62,7 @@ html, body{
 }
 
 #riparazioni_in_garanzia{
+    width: calc(100% - 18rem); ùheight: 95%;
     display: none;
     flex-direction: column;
     overflow-x: hidden;
@@ -66,6 +71,8 @@ html, body{
 }
 
 #riparazioni_interne{
+    width: calc(100% - 18rem); 
+    height: 95%;
     display: none;
     flex-direction: column;
     overflow-x: hidden;
@@ -74,6 +81,8 @@ html, body{
 }
 
 #tutte_le_riparazioni{
+    width: calc(100% - 18rem); 
+    height: 95%;
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
@@ -82,6 +91,8 @@ html, body{
 }
 
 #change_repairs{
+    width: calc(100% - 18rem); 
+    height: 95%;
     display: none;
     flex-direction: column;
     overflow-x: hidden;
@@ -91,6 +102,8 @@ html, body{
 
 
 #create_new{
+    width: calc(100% - 18rem); 
+    height: 95%;
     display: none;
     flex-direction: column;
     overflow-x: hidden;
@@ -98,6 +111,17 @@ html, body{
     align-items: center;
 }
 
+
+
+#change_repairs{
+    width: calc(100% - 18rem); 
+    height: 95%;
+    display: none;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    align-items: center;
+}
 
 #login{
     display: none;
@@ -181,4 +205,69 @@ html, body{
 .description_table_section{
     max-width: 10rem;
     overflow-x: auto;
+}
+
+
+
+@media screen and (max-width: 1000px) {
+    #left_bar{
+        display: none;
+    }
+
+    #master_container{
+        flex-direction: column;
+    }
+
+    #under_bar{
+        display: flex;
+        width: 95%;
+        height: 4rem;
+        margin-top: 1rem;
+        border-radius: 2rem;
+        background: rgba(255, 255, 255, 0.664);
+        border: 1px solid rgba(0, 0, 0, 0.046);
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    #riparazioni_in_garanzia{
+        height: calc(95% - 4rem);
+        width: 95%;
+    }
+    
+    #riparazioni_interne{
+        height: calc(95% - 4rem);
+        width: 95%;
+    }
+    
+    #tutte_le_riparazioni{
+        height: calc(95% - 4rem);
+        width: 95%;
+    }
+    
+    #change_repairs{
+        height: calc(95% - 4rem);
+        width: 95%;
+    }
+    
+    #create_new{
+        height: calc(95% - 4rem);
+        width: 95%;
+    }
+
+    #change_repairs{
+        height: calc(95% - 4rem);
+        width: 95%;
+    }
+
+    .under_bar_button1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: 1px solid transparent;
+        height: 90%;
+    }
 }

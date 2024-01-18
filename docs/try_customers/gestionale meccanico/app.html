@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestionale riparazioni</title>
+    <link rel="icon" href="res/logo.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,15 +36,13 @@
     </div>
     <div id="master_container">
         <div id="left_bar" style="margin-right: 2rem;">
-            <span class="material-symbols-outlined general_paragraph1" style="font-size: 8rem; margin-top: 1rem; width: 100%; text-align: center; color:  rgb(98, 98, 183)">
-                construction
-                </span>
+            <img src="res/logo.png" style="width: 100%; object-fit: contain; border-end-start-radius: 2rem; border-bottom-right-radius: 2rem;">
             <button onclick="showCreate();" style="margin-top: 1rem;" class="button1">Nuova entrata</button>
             <button onclick="showTutteLeRiparazioni();" style="margin-top: 1rem;" class="button1">Tutte le riparazioni</button>
             <button onclick="showRiparazioniInterne();" style="margin-top: 1rem;" class="button1">Riparazioni interne</button>
             <button onclick="showRiparazioniInGaranzia();" style="margin-top: 1rem;" class="button1">Riparazioni in garanzia</button>
         </div>
-        <div id="change_repairs" class="card1" style="width: calc(100% - 18rem); height: 95%;">
+        <div id="change_repairs" class="card1">
             <h3 style="width: 95%;" class="general_paragraph1">Modifica riparazione</h3>
             <div style="width: 95%; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
                 <div>
@@ -127,7 +126,7 @@
                 <button class="button1" onclick="changeRepair();">Salva modifiche</button>
             </div>
         </div>
-        <div id="create_new" class="card1" style="width: calc(100% - 18rem); height: 95%;">
+        <div id="create_new" class="card1">
             <h3 style="width: 95%;" class="general_paragraph1">Nuova entrata</h3>
             <div style="width: 95%; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
                 <div>
@@ -211,29 +210,20 @@
                 <button class="button1" onclick="aggiungiRiparazione();">Aggiungi</button>
             </div>
         </div>
-        <div id="tutte_le_riparazioni" class="card1" style="width: calc(100% - 18rem); height: 95%;">
+        <div id="tutte_le_riparazioni" class="card1">
             <h3 style="width: 90%;" class="general_paragraph1">Tutte le riparazioni</h3>
                 <div class="table_container1" style="margin-bottom: -0.1rem; width: 90%;">
                     <table class="table1">
                         <thead>
                             <tr>
                                 <th>Azioni</th>
-                                <th>Scheda numero</th>
+                                <th>N. Scheda</th>
                                 <th>Data ingresso</th>
-                                <th>Data riconsegna</th>
                                 <th>Stato riparazione</th>
                                 <th>Cliente</th>
-                                <th>Cellulare</th>
+                                <th>Tipo apparecchio</th>
                                 <th>Marca</th>
                                 <th>Modello</th>
-                                <th>Tipo apparecchio</th>
-                                <th>Tipo riparazione</th>
-                                <th>Numero di serie</th>
-                                <th>Numero di serie 2</th>
-                                <th>Accessori collegati</th>
-                                <th>Difetto segnalato</th>
-                                <th>Stato generale</th>
-                                <th>Id</th>  
                             </tr>
                         </thead>
                         <tbody id="tutteLeRiparazioniTableBody">
@@ -243,29 +233,20 @@
                     
                 </div>
         </div>
-        <div id="riparazioni_interne" class="card1" style="width: calc(100% - 18rem); height: 95%;">
+        <div id="riparazioni_interne" class="card1">
             <h3 style="width: 90%;" class="general_paragraph1">Riparazioni interne</h3>
             <div class="table_container1" style="margin-bottom: -0.1rem; width: 90%;">
                 <table class="table1">
                     <thead>
                         <tr>
                             <th>Azioni</th>
-                                <th>Scheda numero</th>
-                                <th>Data ingresso</th>
-                                <th>Data riconsegna</th>
-                                <th>Stato riparazione</th>
-                                <th>Cliente</th>
-                                <th>Cellulare</th>
-                                <th>Marca</th>
-                                <th>Modello</th>
-                                <th>Tipo apparecchio</th>
-                                <th>Tipo riparazione</th>
-                                <th>Numero di serie</th>
-                                <th>Numero di serie 2</th>
-                                <th>Accessori collegati</th>
-                                <th>Difetto segnalato</th>
-                                <th>Stato generale</th>
-                                <th>Id</th>  
+                            <th>N. Scheda</th>
+                            <th>Data ingresso</th>
+                            <th>Stato riparazione</th>
+                            <th>Cliente</th>
+                            <th>Tipo apparecchio</th>
+                            <th>Marca</th>
+                            <th>Modello</th>
                         </tr>
                     </thead>
                     <tbody id="riparazioniInterneTableBody">
@@ -275,29 +256,20 @@
                 
             </div>
         </div>
-        <div id="riparazioni_in_garanzia" class="card1" style="width: calc(100% - 18rem); height: 95%;">
+        <div id="riparazioni_in_garanzia" class="card1">
             <h3 style="width: 90%;" class="general_paragraph1">Riparazioni in garanzia</h3>
             <div class="table_container1" style="margin-bottom: -0.1rem; width: 90%;">
                 <table class="table1">
                     <thead>
                         <tr>
                             <th>Azioni</th>
-                            <th>Scheda numero</th>
+                            <th>N. Scheda</th>
                             <th>Data ingresso</th>
-                            <th>Data riconsegna</th>
                             <th>Stato riparazione</th>
                             <th>Cliente</th>
-                            <th>Cellulare</th>
+                            <th>Tipo apparecchio</th>
                             <th>Marca</th>
                             <th>Modello</th>
-                            <th>Tipo apparecchio</th>
-                            <th>Tipo riparazione</th>
-                            <th>Numero di serie</th>
-                            <th>Numero di serie 2</th>
-                            <th>Accessori collegati</th>
-                            <th>Difetto segnalato</th>
-                            <th>Stato generale</th>
-                            <th>Id</th>  
                         </tr>
                     </thead>
                     <tbody id="riparazioniInGaranziaTableBody">
@@ -306,6 +278,12 @@
                 </table>
                 
             </div>
+        </div>
+        <div id="under_bar">
+            <button onclick="showCreate();" class="under_bar_button1"><span class="material-symbols-outlined notranslate" style="font-size: 30px;">add_circle</span>Aggiungi</button>
+            <button onclick="showTutteLeRiparazioni();" class="under_bar_button1"><span class="material-symbols-outlined notranslate" style="font-size: 30px;">home</span>Tutte</button>
+            <button onclick="showRiparazioniInterne();" class="under_bar_button1"><span class="material-symbols-outlined notranslate" style="font-size: 30px;">store</span>Interne</button>
+            <button onclick="showRiparazioniInGaranzia();" class="under_bar_button1"><span class="material-symbols-outlined notranslate" style="font-size: 30px;">workspace_premium</span>In garanzia</button>
         </div>
     </div>
     
@@ -318,6 +296,7 @@
     <script src="scripts/firebase.js"></script>
     <script src="scripts/actions.js"></script>
     <script src="scripts/read.js"></script>
+    <script src="scripts/script.js"></script>
 
 </body>
 </html>

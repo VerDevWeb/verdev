@@ -30,36 +30,16 @@ function getAllRepairs(){
     var cell5 = row.insertCell(5);
     var cell6 = row.insertCell(6);
     var cell7 = row.insertCell(7);
-    var cell8 = row.insertCell(8);
-    var cell9 = row.insertCell(9);
-    var cell17 = row.insertCell(10);
-    var cell10 = row.insertCell(11);
-    var cell11 = row.insertCell(12);
-    var cell12 = row.insertCell(13);
-    var cell13 = row.insertCell(14);
-    var cell14 = row.insertCell(15);
-    var cell16 = row.insertCell(16);
-  
-    cell12.className = 'description_table_section';
-    cell13.className = 'description_table_section';
-    cell14.className = 'description_table_section';
+
+    cell2.className = 'data-cell';
   
     cell1.innerHTML = data.schede_number; 
     cell2.innerHTML = data.start; 
-    cell3.innerHTML = data.end;
-    cell4.innerHTML = data.status;
-    cell5.innerHTML = data.customer_name;
-    cell6.innerHTML = data.customer_phone;
-    cell7.innerHTML = data.brand;
-    cell8.innerHTML = data.model;
-    cell9.innerHTML = data.type;
-    cell17.innerHTML = data.repair_type;
-    cell10.innerHTML = data.serial_number;
-    cell11.innerHTML = data.serial_number_two;
-    cell12.innerHTML = data.accessories;
-    cell13.innerHTML = data.reported_defect;
-    cell14.innerHTML = data.status_description;
-    cell16.innerHTML = data.id;
+    cell3.innerHTML = data.status;
+    cell4.innerHTML = data.customer_name;
+    cell5.innerHTML = data.type;
+    cell6.innerHTML = data.brand;
+    cell7.innerHTML = data.model;
 
     cell15.style.display = 'flex'
     cell15.style.flexdirection = 'column';
@@ -81,7 +61,9 @@ function getAllRepairs(){
     };
     cell15.appendChild(editButton);
     }
-  }
+
+  
+}
 
 
   
@@ -112,36 +94,14 @@ function getAllRepairs(){
         var cell5 = row.insertCell(5);
         var cell6 = row.insertCell(6);
         var cell7 = row.insertCell(7);
-        var cell8 = row.insertCell(8);
-        var cell9 = row.insertCell(9);
-        var cell17 = row.insertCell(10);
-        var cell10 = row.insertCell(11);
-        var cell11 = row.insertCell(12);
-        var cell12 = row.insertCell(13);
-        var cell13 = row.insertCell(14);
-        var cell14 = row.insertCell(15);
-        var cell16 = row.insertCell(16);
       
-        cell12.className = 'description_table_section';
-        cell13.className = 'description_table_section';
-        cell14.className = 'description_table_section';
-      
-        cell1.innerHTML = data.schede_number; 
-        cell2.innerHTML = data.start; 
-        cell3.innerHTML = data.end;
-        cell4.innerHTML = data.status;
-        cell5.innerHTML = data.customer_name;
-        cell6.innerHTML = data.customer_phone;
-        cell7.innerHTML = data.brand;
-        cell8.innerHTML = data.model;
-        cell9.innerHTML = data.type;
-        cell17.innerHTML = data.repair_type;
-        cell10.innerHTML = data.serial_number;
-        cell11.innerHTML = data.serial_number_two;
-        cell12.innerHTML = data.accessories;
-        cell13.innerHTML = data.reported_defect;
-        cell14.innerHTML = data.status_description;
-        cell16.innerHTML = data.id;
+    cell1.innerHTML = data.schede_number; 
+    cell2.innerHTML = data.start; 
+    cell3.innerHTML = data.status;
+    cell4.innerHTML = data.customer_name;
+    cell5.innerHTML = data.type;
+    cell6.innerHTML = data.brand;
+    cell7.innerHTML = data.model;
     
         cell15.style.display = 'flex'
         cell15.style.flexdirection = 'column';
@@ -193,36 +153,14 @@ function getAllRepairs(){
         var cell5 = row.insertCell(5);
         var cell6 = row.insertCell(6);
         var cell7 = row.insertCell(7);
-        var cell8 = row.insertCell(8);
-        var cell9 = row.insertCell(9);
-        var cell17 = row.insertCell(10);
-        var cell10 = row.insertCell(11);
-        var cell11 = row.insertCell(12);
-        var cell12 = row.insertCell(13);
-        var cell13 = row.insertCell(14);
-        var cell14 = row.insertCell(15);
-        var cell16 = row.insertCell(16);
-      
-        cell12.className = 'description_table_section';
-        cell13.className = 'description_table_section';
-        cell14.className = 'description_table_section';
-      
+        
         cell1.innerHTML = data.schede_number; 
         cell2.innerHTML = data.start; 
-        cell3.innerHTML = data.end;
-        cell4.innerHTML = data.status;
-        cell5.innerHTML = data.customer_name;
-        cell6.innerHTML = data.customer_phone;
-        cell7.innerHTML = data.brand;
-        cell8.innerHTML = data.model;
-        cell9.innerHTML = data.type;
-        cell17.innerHTML = data.repair_type;
-        cell10.innerHTML = data.serial_number;
-        cell11.innerHTML = data.serial_number_two;
-        cell12.innerHTML = data.accessories;
-        cell13.innerHTML = data.reported_defect;
-        cell14.innerHTML = data.status_description;
-        cell16.innerHTML = data.id;
+        cell3.innerHTML = data.status;
+        cell4.innerHTML = data.customer_name;
+        cell5.innerHTML = data.type;
+        cell6.innerHTML = data.brand;
+        cell7.innerHTML = data.model;
     
         cell15.style.display = 'flex'
         cell15.style.flexdirection = 'column';

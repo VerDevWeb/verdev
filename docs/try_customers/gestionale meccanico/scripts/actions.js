@@ -1,10 +1,7 @@
 function aggiungiRiparazione() {
   if (document.getElementById('start1').value !== '') {
-    if (document.getElementById('end1').value !== '') {
 
       var schede_number= document.getElementById('schede_number1');
-      var start = document.getElementById('start1');
-      var end = document.getElementById('end1');
       var status = document.getElementById('status1');
       var type = document.getElementById('type1');
       var brand = document.getElementById('brand1');
@@ -17,7 +14,9 @@ function aggiungiRiparazione() {
       var customer_name = document.getElementById('customer_name1');
       var customer_phone = document.getElementById('customer_phone1');
 
-      
+      const endValue = document.getElementById('end1').value;
+      const end = endValue.trim() === '' ? ' ' : endValue;
+
       const db = firebase.firestore();
 
       const path = db.collection('repairs').doc();
@@ -26,7 +25,7 @@ function aggiungiRiparazione() {
         schede_number: document.getElementById('schede_number1').value,
         repair_type: document.getElementById('repair_type1').value,
         start: document.getElementById('start1').value,
-        end: document.getElementById('end1').value,
+        end: end,
         status: document.getElementById('status1').value,
         type: document.getElementById('type1').value,
         brand: document.getElementById('brand1').value,
@@ -66,9 +65,6 @@ function aggiungiRiparazione() {
       .catch((error) => {
         notificate("Errore durante l'aggiunta della riparazione: " + error, 'error');
       });
-  } else {
-    notificate('Si prega di inserire una data di riconsegna valida', 'error');
-  }
 } else {
   notificate('Si prega di inserire una data di ingresso valida', 'error');
 }

@@ -62,10 +62,11 @@ function notificate(message, type){
   }
 
 
-  const masterDuration = 200;
+
 
 
 function animate1(htmlId){
+  const masterDurationDef = 200;
   var mioElemento = document.getElementById(htmlId);
   
   // Definisci le keyframes per l'animazione di dissolvenza
@@ -76,7 +77,7 @@ function animate1(htmlId){
   
   // Opzioni per l'animazione
   var options = {
-    duration: masterDuration, // durata in millisecondi
+    duration: masterDurationDef, // durata in millisecondi
     easing: 'ease-in-out' // tipo di transizione
   };
   
