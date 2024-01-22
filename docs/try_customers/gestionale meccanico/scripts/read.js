@@ -60,9 +60,16 @@ function getAllRepairs(){
       deleteRepair(data);
     };
     cell15.appendChild(editButton);
-    }
 
-  
+
+    var editButton = document.createElement("button");
+    editButton.className = "task_actions_button1";
+    editButton.innerHTML = "<i class='material-icons notranslate'>description</i>";
+    editButton.onclick = function() {
+      showSchedaDiRiparazione(data);
+    };
+    cell15.appendChild(editButton);
+    }
 }
 
 
@@ -122,6 +129,14 @@ function getAllRepairs(){
           deleteRepair(data);
         };
         cell15.appendChild(editButton);
+
+        var editButton = document.createElement("button");
+        editButton.className = "task_actions_button1";
+        editButton.innerHTML = "<i class='material-icons notranslate'>description</i>";
+        editButton.onclick = function() {
+      showSchedaDiRiparazione(data);
+        };
+        cell15.appendChild(editButton);
         }
   }
 
@@ -179,6 +194,14 @@ function getAllRepairs(){
         editButton.innerHTML = "<i class='material-icons notranslate'>delete</i>";
         editButton.onclick = function() {
           deleteRepair(data);
+        };
+        cell15.appendChild(editButton);
+
+        var editButton = document.createElement("button");
+        editButton.className = "task_actions_button1";
+        editButton.innerHTML = "<i class='material-icons notranslate'>description</i>";
+        editButton.onclick = function() {
+      showSchedaDiRiparazione(data);
         };
         cell15.appendChild(editButton);
         }

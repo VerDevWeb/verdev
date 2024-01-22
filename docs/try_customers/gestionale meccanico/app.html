@@ -26,17 +26,17 @@
         <div class="card1" style="width: 80%; height: 30rem; overflow: hidden;">
             <h3 class="general_paragraph1" style="margin-left: 1rem;">Effettua il login per continuare</h3>
             <div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                <p style="width: 90%;" class="general_paragraph1">E-mail</p>
-                <input type="text" class="input1" id="login_email" style="width: 90%;">
-                <p style="width: 90%;" class="general_paragraph1">Password</p>
-                <input type="text" class="input1" id="login_password" style="width: 90%;">
+                <p style="width: 95%;" class="general_paragraph1">E-mail</p>
+                <input type="text" class="input1" id="login_email" style="width: 95%;">
+                <p style="width: 95%;" class="general_paragraph1">Password</p>
+                <input type="text" class="input1" id="login_password" style="width: 95%;">
                 <button class="button1" onclick="login();" style="height: 2rem; width: 10rem; margin-top: 2rem;">Login</button>
             </div>
         </div>
     </div>
     <div id="master_container">
         <div id="left_bar" style="margin-right: 2rem;">
-            <img src="res/logo.png" style="width: 100%; object-fit: contain; border-end-start-radius: 2rem; border-bottom-right-radius: 2rem;">
+            <img src="res/logo.png" style="width: 80%; margin-top: 1.5rem; border-radius: 1rem; border: 2px solid rgba(0, 0, 0, 0.032);">
             <button onclick="showCreate();" style="margin-top: 1rem;" class="button1">Nuova entrata</button>
             <button onclick="showTutteLeRiparazioni();" style="margin-top: 1rem;" class="button1">Tutte le riparazioni</button>
             <button onclick="showRiparazioniInterne();" style="margin-top: 1rem;" class="button1">Riparazioni interne</button>
@@ -44,7 +44,17 @@
         </div>
         <div id="change_repairs" class="card1">
             <h3 style="width: 95%;" class="general_paragraph1">Modifica riparazione</h3>
-            <div style="width: 95%; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+            <div style="width: 95%; display: flex; flex-direction: row; justify-content: start; flex-wrap: wrap;">
+                <div style="display: flex; flex-direction: column; margin-right: 0.5rem">
+                    <p class="general_paragraph1">Cliente</p>
+                    <input class="input1" type="text" id="customer_name2">    
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <p class="general_paragraph1">Cellulare</p>
+                    <input class="input1" type="text" id="customer_phone2">    
+                </div>
+            </div>
+            <div style="width: 95%; display: flex; flex-direction: row; align-items: center; justify-content: space-between; flex-wrap: wrap;">
                 <div>
                     <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Scheda numero</p>
                     <input class="input1" type="text" id="schede_number2">
@@ -76,9 +86,9 @@
                     </select>
                 </div>
             </div>
-            <div style="width: 95%; display: flex; flex-direction: row; justify-content: space-between; margin-top: 2rem;">
+            <div style="width: 95%; display: flex; flex-direction: row; justify-content: space-between; margin-top: 2rem; flex-wrap: wrap;">
                 <div style="display: flex; flex-direction: column; width: 50%; margin-right: 2rem;">
-                   <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%;">
+                   <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; flex-wrap: wrap;">
                     <div>
                         <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Tipo apparecchio</p>
                         <input class="input1" type="text" id="type2">
@@ -94,7 +104,7 @@
                 <textarea class="input1" style="width: 100%; min-height: 5rem;" id="status_description2" cols="30" rows="10"></textarea>
                 </div>
                 <div style="display: flex; flex-direction: column; width: calc(50% - 2rem);">
-                    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 1rem; overflow-x: auto;">
+                    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 1rem; overflow-x: auto; flex-wrap: wrap;">
                         <div style="margin-right: 0.5rem;">
                             <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Modello</p>
                             <input class="input1" type="text" id="model2">
@@ -112,27 +122,23 @@
                     <textarea class="input1" style="width: 100%; flex: 1;" id="reported_defect2" cols="30" rows="10"></textarea>
                 </div>
             </div>
-            <div style="width: 95%; display: flex; flex-direction: row; justify-content: start; margin-bottom: 2rem; margin-top: 1rem;">
-                <div style="display: flex; flex-direction: column; margin-right: 0.5rem">
-                    <p class="general_paragraph1">Cliente</p>
-                    <input class="input1" type="text" id="customer_name2">    
-                </div>
-                <div style="display: flex; flex-direction: column;">
-                    <p class="general_paragraph1">Cellulare</p>
-                    <input class="input1" type="text" id="customer_phone2">    
-                </div>
-            </div>
-            <div style="width: 90%; display: flex; align-items: center; justify-content: center;">
+            <div style="width: 95%; display: flex; align-items: center; justify-content: center; margin-top: 2rem; margin-bottom: 2rem;">
                 <button class="button1" onclick="changeRepair();">Salva modifiche</button>
             </div>
         </div>
         <div id="create_new" class="card1">
             <h3 style="width: 95%;" class="general_paragraph1">Nuova entrata</h3>
-            <div style="width: 95%; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
-                <div>
-                    <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Scheda numero</p>
-                    <input class="input1" type="text" id="schede_number1">
+            <div style="width: 95%; display: flex; flex-direction: row; justify-content: start;">
+                <div style="display: flex; flex-direction: column; margin-right: 0.5rem">
+                    <p class="general_paragraph1">Cliente</p>
+                    <input class="input1" type="text" id="customer_name1">    
                 </div>
+                <div style="display: flex; flex-direction: column;">
+                    <p class="general_paragraph1">Cellulare</p>
+                    <input class="input1" type="text" id="customer_phone1">    
+                </div>
+            </div>
+            <div style="width: 95%; display: flex; flex-direction: row; align-items: center; justify-content: space-between; flex-wrap: wrap;">
                 <div>
                     <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Data ingresso</p>
                     <input class="input1" type="date" id="start1" style="resize: none;">
@@ -160,9 +166,9 @@
                     </select>
                 </div>
             </div>
-            <div style="width: 95%; display: flex; flex-direction: row; justify-content: space-between; margin-top: 2rem;">
+            <div class="resp_div1" style="width: 95%; display: flex; flex-direction: row; justify-content: space-between; margin-top: 2rem; flex-wrap: wrap;">
                 <div style="display: flex; flex-direction: column; width: 50%; margin-right: 2rem;">
-                   <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%;">
+                   <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; flex-wrap: wrap;">
                     <div>
                         <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Tipo apparecchio</p>
                         <input class="input1" type="text" id="type1">
@@ -173,12 +179,10 @@
                     </div>
                 </div>
                 <p class="general_paragraph1">Accessori consegnati</p>
-                <textarea class="input1" style="width: 100%; min-height: 5rem;" id="accessories1" cols="30" rows="10"></textarea>
-                <p class="general_paragraph1">Stato generale</p>
-                <textarea class="input1" style="width: 100%; min-height: 5rem;" id="status_description1" cols="30" rows="10"></textarea>
+                <textarea class="input1" style="width: 100%; flex: 1;" id="accessories1" cols="30" rows="10"></textarea>
                 </div>
                 <div style="display: flex; flex-direction: column; width: calc(50% - 2rem);">
-                    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 1rem; overflow-x: auto;">
+                    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 1rem; overflow-x: auto; flex-wrap: wrap;">
                         <div style="margin-right: 0.5rem;">
                             <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Modello</p>
                             <input class="input1" type="text" id="model1">
@@ -187,37 +191,22 @@
                             <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Numero di serie</p>
                             <input class="input1" type="text" id="serial_number1">
                         </div>
-                        <div style="margin-right: 0.5rem;">
-                            <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Numero di serie 2</p>
-                            <input class="input1" type="text" id="serial_number_two1">
-                        </div>
                     </div>
                     <p class="general_paragraph1">Difetto segnalato</p>
                     <textarea class="input1" style="width: 100%; flex: 1;" id="reported_defect1" cols="30" rows="10"></textarea>
                 </div>
             </div>
-            <div style="width: 95%; display: flex; flex-direction: row; justify-content: start; margin-bottom: 2rem; margin-top: 1rem;">
-                <div style="display: flex; flex-direction: column; margin-right: 0.5rem">
-                    <p class="general_paragraph1">Cliente</p>
-                    <input class="input1" type="text" id="customer_name1">    
-                </div>
-                <div style="display: flex; flex-direction: column;">
-                    <p class="general_paragraph1">Cellulare</p>
-                    <input class="input1" type="text" id="customer_phone1">    
-                </div>
-            </div>
-            <div style="width: 90%; display: flex; align-items: center; justify-content: center;">
+            <div style="width: 95%; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; margin-top: 2rem;">
                 <button class="button1" onclick="aggiungiRiparazione();">Aggiungi</button>
             </div>
         </div>
         <div id="tutte_le_riparazioni" class="card1">
-            <h3 style="width: 90%;" class="general_paragraph1">Tutte le riparazioni</h3>
-                <div class="table_container1" style="margin-bottom: -0.1rem; width: 90%;">
+            <h3 style="width: 95%;" class="general_paragraph1">Tutte le riparazioni</h3>
+                <div class="table_container1" style="margin-bottom: -0.1rem; width: 95%;">
                     <table class="table1">
                         <thead>
                             <tr>
                                 <th>Azioni</th>
-                                <th>N. Scheda</th>
                                 <th>Data ingresso</th>
                                 <th>Stato riparazione</th>
                                 <th>Cliente</th>
@@ -234,8 +223,8 @@
                 </div>
         </div>
         <div id="riparazioni_interne" class="card1">
-            <h3 style="width: 90%;" class="general_paragraph1">Riparazioni interne</h3>
-            <div class="table_container1" style="margin-bottom: -0.1rem; width: 90%;">
+            <h3 style="width: 95%;" class="general_paragraph1">Riparazioni interne</h3>
+            <div class="table_container1" style="margin-bottom: -0.1rem; width: 95%;">
                 <table class="table1">
                     <thead>
                         <tr>
@@ -257,8 +246,8 @@
             </div>
         </div>
         <div id="riparazioni_in_garanzia" class="card1">
-            <h3 style="width: 90%;" class="general_paragraph1">Riparazioni in garanzia</h3>
-            <div class="table_container1" style="margin-bottom: -0.1rem; width: 90%;">
+            <h3 style="width: 95%;" class="general_paragraph1">Riparazioni in garanzia</h3>
+            <div class="table_container1" style="margin-bottom: -0.1rem; width: 95%;">
                 <table class="table1">
                     <thead>
                         <tr>
@@ -279,6 +268,52 @@
                 
             </div>
         </div>
+        <div id="scheda_di_lavorazione" class="card1">
+            <h3 class="general_paragraph1">SCHEDA DI LAVORAZIONE</h3>
+            <div style="width: 100%; flex-wrap: wrap; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 1rem;">
+                <input class="input1" type="text" id="input1" placeholder="QUANTITA'">
+                <input class="input1" type="text" id="input2" placeholder="ARTICOLO">
+                <input class="input1" type="text" id="input3" placeholder="DESCRIZIONE">
+                <input class="input1" type="text" id="input4" placeholder="PREZZO">
+            </div>
+            <div style="width: 100%; flex-wrap: wrap; display: flex; align-items: center; justify-content: center; margin-top: 1rem; margin-bottom: 1rem; gap: 10px;">
+                <button class="button1" onclick="aggiungiCelle()">Aggiungi</button>
+                <button class="button1" onclick="javascript:demoFromHTML();">Scarica Pdf</button>
+            </div>
+            <div style="width: 95%; background: rgba(0, 0, 0, 0.263); height: 1px; margin-top: 1rem; margin-bottom: 1rem;"><p> </p></div>
+            <div id="customers" style="width: 90%;">
+            <h1 style="width: 100%;" class="general_paragraph1">SCHEDA DI LAVORAZIONE</h1>
+            <h3 id="customer_name_pdf1" style="width: 100%;" class="general_paragraph1">NOME CLIENTE: </h3>
+            <h3 id="customer_phone_pdf1" style="width: 100%;" class="general_paragraph1">NUMERO CLIENTE: </h3>
+            <h3 id="start_pdf1" style="width: 100%;" class="general_paragraph1">DATA ENTRATA: </h3>
+            <h3 id="end_pdf1" style="width: 100%;" class="general_paragraph1">DATA USCITA: </h3>
+            <h3 id="brand_model_pdf1" style="width: 100%;" class="general_paragraph1">MARCA/MODELLO: </h3>
+            <h3 id="fault_pdf1" style="width: 100%;" class="general_paragraph1">ANOMALIA: </h3>
+            <h3 id="total_pdf1" style="width: 100%;" class="general_paragraph1">TOTALE RICAMBI: </h3>
+            <h3 id="hand_price_pdf1" style="width: 100%;" class="general_paragraph1">MANODOPERA: </h3>
+            <h3 id="total_iva_pdf1" style="width: 100%;" class="general_paragraph1">TOTALE C.IVA: </h3>
+            <div class="table_container1" style="margin-bottom: -0.1rem; width: 100%; margin-bottom: 2rem;">
+                <table id="pdf_table1" class="table1">
+                    <colgroup>
+                        <col width="20%">
+                            <col width="20%">
+                                <col width="20%">
+                                    <col width="20%">
+                    </colgroup>
+                    <thead>
+                        <tr class='warning'>
+                            <th>QUANTITA'</th>
+                            <th>ARTICOLO</th>
+                            <th>DESCRIZIONE</th>
+                            <th>PREZZO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
         <div id="under_bar">
             <button onclick="showCreate();" class="under_bar_button1"><span class="material-symbols-outlined notranslate" style="font-size: 30px;">add_circle</span>Aggiungi</button>
             <button onclick="showTutteLeRiparazioni();" class="under_bar_button1"><span class="material-symbols-outlined notranslate" style="font-size: 30px;">home</span>Tutte</button>
@@ -292,11 +327,15 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
     <script src="scripts/script.js"></script>
     <script src="scripts/firebase.js"></script>
     <script src="scripts/actions.js"></script>
     <script src="scripts/read.js"></script>
     <script src="scripts/script.js"></script>
+    <script src="scripts/pdf.js"></script>
 
 </body>
 </html>
