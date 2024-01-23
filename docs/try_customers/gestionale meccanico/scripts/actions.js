@@ -297,11 +297,11 @@ function deleteRepair(data) {
           })
           .then(() => {     
            const totalPrice = globalThis.totalPrice;
-       document.getElementById('total_pdf1').innerText = 'RICAMBI IVA INCLUSA: ' + totalPrice + ' EURO';
-       document.getElementById('total_iva_pdf1').innerText = 'RICAMBI IVA ESCLUSA: ' + (totalPrice - [(totalPrice * 22) /100]) + ' EURO';
-       document.getElementById('hand_price_pdf1').innerText = 'MANODOPERA: ' + manodopera.value + ' EURO';
-       var result1 = parseFloat(manodopera.value) + (parseFloat(totalPrice));
        if(document.getElementById('input5').value !== ''){
+        document.getElementById('total_pdf1').innerText = 'RICAMBI IVA INCLUSA: ' + totalPrice + ' EURO';
+        document.getElementById('total_iva_pdf1').innerText = 'RICAMBI IVA ESCLUSA: ' + (totalPrice - [(totalPrice * 22) /100]) + ' EURO';
+        document.getElementById('hand_price_pdf1').innerText = 'MANODOPERA: ' + manodopera.value + ' EURO';
+        var result1 = parseFloat(manodopera.value) + (parseFloat(totalPrice));
         document.getElementById('total_total_price_pdf1').innerText = 'PREZZO TOTALE: ' + result1 + ' EURO';
        }
        if(document.getElementById('input6').value !== ''){
