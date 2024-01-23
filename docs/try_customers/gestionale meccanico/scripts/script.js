@@ -50,6 +50,8 @@ function showChangeRepair(){
 }
 
 function showSchedaDiRiparazione(data){
+  globalThis.currentRepair = data;
+  getRepairProducts();
   document.getElementById('customer_name_pdf1').innerText = 'NOME CLIENTE: ' + data.customer_name;
   document.getElementById('customer_phone_pdf1').innerText = 'NUMERO CLIENTE: ' + data.customer_phone;
   document.getElementById('start_pdf1').innerText = 'DATA ENTRATA: ' + data.start;

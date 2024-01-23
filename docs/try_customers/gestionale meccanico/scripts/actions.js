@@ -88,6 +88,21 @@ function deleteRepair(data) {
     });
   }
 
+  function deleteRepairProduct(data) {
+    const db = firebase.firestore();
+    const docRef = db.collection('repairs').doc(globalThis.currentRepair.id).collection('products').doc(data.id);
+    
+    docRef.delete()
+      .then(() => {
+        notificate('Prodotto eliminato con successo', 'normal');
+        getRepairProducts();
+      })
+      .catch((error) => {
+        notificate("Errore durante l'eliminazione del prodotto:" + error, 'error');
+      });
+    }
+  
+
 
 
   function getRepairDataToFill(data) { 
@@ -190,4 +205,121 @@ function deleteRepair(data) {
         });
     }
   
+  
+
+    function aggiungiCelle() {
+      if (document.getElementById('input1').value !== '') {
+        if (document.getElementById('input2').value !== '') {
+          if (document.getElementById('input3').value !== '') {
+            if (document.getElementById('input4').value !== '') {
+
+        var quantity = document.getElementById('input1');
+        var product = document.getElementById('input2');
+        var product_description = document.getElementById('input3');
+        var product_price = document.getElementById('input4');
+
+        const db = firebase.firestore();
+  
+        const path = db.collection('repairs').doc(globalThis.currentRepair.id).collection('products').doc();
+  
+        const data = {
+          quantity: document.getElementById('input1').value,
+          product: document.getElementById('input2').value,
+          product_description: document.getElementById('input3').value,
+          product_price: document.getElementById('input4').value,
+        };
+  
+        path.set(data)
+        .then(() => {
+          const newDocId = path.id; 
+          return path.update({ id: newDocId }); 
+        })
+        .then(() => {
+          notificate("Articolo aggiunto con successo", 'normal');
+          quantity.value = '';
+          product.value = '';
+          product_description.value = '';
+          product_price.value = '';
+          getRepairProducts();
+        })
+        .catch((error) => {
+          notificate("Errore durante l'aggiunta dell' articolo: " + error, 'error');
+        });
+  } else {
+    notificate('Si prega di inserire una prezzo valido', 'error');
+  }
+}else {
+  notificate('Si prega di inserire una descrizione valida', 'error');
+}
+}else {
+  notificate('Si prega di inserire un articolo valido', 'error');
+}
+      }else {
+        notificate('Si prega di inserire una quantità valida', 'error');
+      }
+    }
+
+
+    function aggiungiDatiAlPdf() {
+      var manodopera = document.getElementById('input5');
+      var data_avviso = document.getElementById('input6');
+      var stato_veicolo = document.getElementById('input7');
+  
+      const db = firebase.firestore();
+    
+      const path = db.collection('repairs').doc(globalThis.currentRepair.id);
+    
+      const dataToUpdate = {};
+  
+      if (manodopera.value !== '') {
+          dataToUpdate.manodopera = manodopera.value;
+      }
+  
+      if (data_avviso.value !== '') {
+          dataToUpdate.data_avviso = data_avviso.value;
+      }
+  
+      if (stato_veicolo.value !== '') {
+          dataToUpdate.stato_veicolo = stato_veicolo.value;
+      }
+  
+      // Controlla se ci sono dati da aggiornare
+      if (Object.keys(dataToUpdate).length === 0) {
+          // Non ci sono dati da aggiornare, esci dalla funzione o gestisci di conseguenza
+          console.log('Nessun dato da aggiornare.');
+          return;
+      }
+  
+      path.update(dataToUpdate)
+          .then(() => {
+              const newDocId = path.id; 
+              return path.update({ id: newDocId }); 
+          })
+          .then(() => {     
+           const totalPrice = globalThis.totalPrice;
+       document.getElementById('total_pdf1').innerText = 'RICAMBI IVA INCLUSA: ' + totalPrice + ' EURO';
+       document.getElementById('total_iva_pdf1').innerText = 'RICAMBI IVA ESCLUSA: ' + (totalPrice - [(totalPrice * 22) /100]) + ' EURO';
+       document.getElementById('hand_price_pdf1').innerText = 'MANODOPERA: ' + manodopera.value + ' EURO';
+       var result1 = parseFloat(manodopera.value) + (parseFloat(totalPrice));
+       if(document.getElementById('input5').value !== ''){
+        document.getElementById('total_total_price_pdf1').innerText = 'PREZZO TOTALE: ' + result1 + ' EURO';
+       }
+       if(document.getElementById('input6').value !== ''){
+        document.getElementById('data_avviso_pdf1').innerText = 'DATA AVVISO: ' + data_avviso.value;
+       }
+       if(document.getElementById('input7').value !== ''){
+        document.getElementById('in_repair_veichle_status_pdf1').innerText = 'DATA AVVISO: ' + stato_veicolo.value;
+       }
+      
+        })
+          .then(() => {
+              notificate("Dati aggiunti con successo al pdf", 'normal');
+              manodopera.value = '';
+              data_avviso.value = '';
+              stato_veicolo.value = '';
+          })
+          .catch((error) => {
+              notificate("Errore durante l'aggiunta dei dati al pdf: " + error, 'error');
+          });
+  }
   

@@ -1,13 +1,4 @@
-function aggiungiCelle() {
-   var table = document.getElementById("pdf_table1");
-   var row = table.insertRow(1);
 
-   for (var i = 0; i < 4; i++) {
-     var cell = row.insertCell(i);
-     var inputId = "input" + (i + 1);
-     cell.innerHTML = document.getElementById(inputId).value;
-   }
- }
 
  function demoFromHTML() {
  var pdf = new jsPDF('p', 'pt', 'letter');
@@ -32,6 +23,6 @@ function aggiungiCelle() {
  },
 
  function (dispose) {
-     pdf.save('Test.pdf');
+     pdf.save('SCHEDA DI RIPARAZIONE.pdf');
  }, margins);
 }
