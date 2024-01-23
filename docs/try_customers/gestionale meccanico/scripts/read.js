@@ -290,7 +290,7 @@ function getAllRepairs(){
        var result1 = parseFloat(globalThis.currentRepair.manodopera) + (parseFloat(totalPrice));
        document.getElementById('total_total_price_pdf1').innerText = 'PREZZO TOTALE: ' + result1 + ' EURO';
        document.getElementById('data_avviso_pdf1').innerText = 'DATA AVVISO: ' + globalThis.currentRepair.data_avviso;
-       document.getElementById('in_repair_veichle_status_pdf1').innerText = 'DATA AVVISO: ' + globalThis.currentRepair.stato_veicolo;
+       document.getElementById('in_repair_veichle_status_pdf1').innerText = 'STATO VEICOLO: ' + globalThis.currentRepair.stato_veicolo;
 
        globalThis.totalPrice = totalPrice;
     }
