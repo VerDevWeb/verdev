@@ -308,7 +308,7 @@ function deleteRepair(data) {
         document.getElementById('data_avviso_pdf1').innerText = 'DATA AVVISO: ' + data_avviso.value;
        }
        if(document.getElementById('input7').value !== ''){
-        document.getElementById('in_repair_veichle_status_pdf1').innerText = 'DATA AVVISO: ' + stato_veicolo.value;
+        document.getElementById('in_repair_veichle_status_pdf1').innerText = 'STATO VEICOLO: ' + stato_veicolo.value;
        }
       
         })
