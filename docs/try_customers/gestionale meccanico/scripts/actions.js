@@ -1,15 +1,12 @@
 function aggiungiRiparazione() {
   if (document.getElementById('start1').value !== '') {
 
-      var schede_number= document.getElementById('schede_number1');
       var status = document.getElementById('status1');
       var type = document.getElementById('type1');
       var brand = document.getElementById('brand1');
       var model = document.getElementById('model1');
       var serial_number= document.getElementById('serial_number1');
-      var serial_number_two =  document.getElementById('serial_number_two1');
       var accessories = document.getElementById('accessories1');
-      var status_description = document.getElementById('status_description1');
       var reported_defect = document.getElementById('reported_defect1');
       var customer_name = document.getElementById('customer_name1');
       var customer_phone = document.getElementById('customer_phone1');
@@ -22,7 +19,6 @@ function aggiungiRiparazione() {
       const path = db.collection('repairs').doc();
 
       const data = {
-        schede_number: document.getElementById('schede_number1').value,
         repair_type: document.getElementById('repair_type1').value,
         start: document.getElementById('start1').value,
         end: end,
@@ -31,9 +27,7 @@ function aggiungiRiparazione() {
         brand: document.getElementById('brand1').value,
         model: document.getElementById('model1').value,
         serial_number: document.getElementById('serial_number1').value,
-        serial_number_two: document.getElementById('serial_number_two1').value,
         accessories: document.getElementById('accessories1').value,
-        status_description: document.getElementById('status_description1').value,
         reported_defect: document.getElementById('reported_defect1').value,
         customer_name: document.getElementById('customer_name1').value,
         customer_phone: document.getElementById('customer_phone1').value,
@@ -46,15 +40,12 @@ function aggiungiRiparazione() {
       })
       .then(() => {
         notificate("Riparazione aggiunta con successo", 'normal');
-        schede_number.value = '';
         status.value = '';
         type.value = '';
         brand.value = '';
         model.value = '';
         serial_number.value = '';
-        serial_number_two.value = '';
         accessories.value = '';
-        status_description.value = '';
         reported_defect.value = '';
         customer_name.value = '';
         customer_phone.value = '';
@@ -109,7 +100,6 @@ function deleteRepair(data) {
     globalThis.currentRepair = data;
     showChangeRepair();
 
-    var schede_number= document.getElementById('schede_number2');
     var start = document.getElementById('start2');
     var end = document.getElementById('end2');
     var status = document.getElementById('status2');
@@ -117,7 +107,6 @@ function deleteRepair(data) {
     var brand = document.getElementById('brand2');
     var model = document.getElementById('model2');
     var serial_number= document.getElementById('serial_number2');
-    var serial_number_two =  document.getElementById('serial_number_two2');
     var accessories = document.getElementById('accessories2');
     var status_description = document.getElementById('status_description2');
     var reported_defect = document.getElementById('reported_defect2');
@@ -125,12 +114,10 @@ function deleteRepair(data) {
     var customer_phone = document.getElementById('customer_phone2');
 
 
-    schede_number.value = data.schede_number;
     type.value = data.type;
     brand.value = data.brand;
     model.value = data.model;
     serial_number.value = data.serial_number;
-    serial_number_two.value = data.serial_number_two;
     accessories.value = data.accessories;
     status_description.value = data.status_description;
     reported_defect.value = data.reported_defect;
@@ -173,7 +160,6 @@ function deleteRepair(data) {
       const path = db.collection('repairs').doc(globalThis.currentRepair.id);
       
       const data = {
-        schede_number: document.getElementById('schede_number2').value,
         repair_type: document.getElementById('repair_type2').value,
         start: document.getElementById('start2').value,
         end: document.getElementById('end2').value,
@@ -182,7 +168,6 @@ function deleteRepair(data) {
         brand: document.getElementById('brand2').value,
         model: document.getElementById('model2').value,
         serial_number: document.getElementById('serial_number2').value,
-        serial_number_two: document.getElementById('serial_number_two2').value,
         accessories: document.getElementById('accessories2').value,
         status_description: document.getElementById('status_description2').value,
         reported_defect: document.getElementById('reported_defect2').value,
@@ -298,8 +283,7 @@ function deleteRepair(data) {
           .then(() => {     
            const totalPrice = globalThis.totalPrice;
        if(document.getElementById('input5').value !== ''){
-        document.getElementById('total_pdf1').innerText = 'RICAMBI IVA INCLUSA: ' + totalPrice + ' EURO';
-        document.getElementById('total_iva_pdf1').innerText = 'RICAMBI IVA ESCLUSA: ' + (totalPrice - [(totalPrice * 22) /100]) + ' EURO';
+        document.getElementById('total_pdf1').innerText = 'TOTALE RICAMBI IVA ESCLUSA: ' + totalPrice + ' EURO';
         document.getElementById('hand_price_pdf1').innerText = 'MANODOPERA: ' + manodopera.value + ' EURO';
         var result1 = parseFloat(manodopera.value) + (parseFloat(totalPrice));
         document.getElementById('total_total_price_pdf1').innerText = 'PREZZO TOTALE: ' + result1 + ' EURO';

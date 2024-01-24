@@ -56,10 +56,6 @@
             </div>
             <div style="width: 95%; display: flex; flex-direction: row; align-items: center; justify-content: space-between; flex-wrap: wrap;">
                 <div>
-                    <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Scheda numero</p>
-                    <input class="input1" type="text" id="schede_number2">
-                </div>
-                <div>
                     <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Data ingresso</p>
                     <input class="input1" type="date" id="start2" style="resize: none;">
                 </div>
@@ -99,9 +95,9 @@
                     </div>
                 </div>
                 <p class="general_paragraph1">Accessori consegnati</p>
-                <textarea class="input1" style="width: 100%; min-height: 5rem;" id="accessories2" cols="30" rows="10"></textarea>
+                <textarea class="input1" style="width: 100%; min-height: 5rem; border-radius: 1rem;" id="accessories2" cols="30" rows="10"></textarea>
                 <p class="general_paragraph1">Stato generale</p>
-                <textarea class="input1" style="width: 100%; min-height: 5rem;" id="status_description2" cols="30" rows="10"></textarea>
+                <textarea class="input1" style="width: 100%; min-height: 5rem; border-radius: 1rem;" id="status_description2" cols="30" rows="10"></textarea>
                 </div>
                 <div style="display: flex; flex-direction: column; width: calc(50% - 2rem);">
                     <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 1rem; overflow-x: auto; flex-wrap: wrap;">
@@ -113,13 +109,9 @@
                             <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Numero di serie</p>
                             <input class="input1" type="text" id="serial_number2">
                         </div>
-                        <div style="margin-right: 0.5rem;">
-                            <p class="general_paragraph1" style="margin-bottom: 0.5rem;">Numero di serie 2</p>
-                            <input class="input1" type="text" id="serial_number_two2">
-                        </div>
                     </div>
                     <p class="general_paragraph1">Difetto segnalato</p>
-                    <textarea class="input1" style="width: 100%; flex: 1;" id="reported_defect2" cols="30" rows="10"></textarea>
+                    <textarea class="input1" style="width: 100%; flex: 1; border-radius: 1rem;" id="reported_defect2" cols="30" rows="10"></textarea>
                 </div>
             </div>
             <div style="width: 95%; display: flex; align-items: center; justify-content: center; margin-top: 2rem; margin-bottom: 2rem;">
@@ -179,7 +171,7 @@
                     </div>
                 </div>
                 <p class="general_paragraph1">Accessori consegnati</p>
-                <textarea class="input1" style="width: 100%; flex: 1;" id="accessories1" cols="30" rows="10"></textarea>
+                <textarea class="input1" style="width: 100%; flex: 1; border-radius: 1rem;" id="accessories1" cols="30" rows="10"></textarea>
                 </div>
                 <div style="display: flex; flex-direction: column; width: calc(50% - 2rem);">
                     <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 1rem; overflow-x: auto; flex-wrap: wrap;">
@@ -193,7 +185,7 @@
                         </div>
                     </div>
                     <p class="general_paragraph1">Difetto segnalato</p>
-                    <textarea class="input1" style="width: 100%; flex: 1;" id="reported_defect1" cols="30" rows="10"></textarea>
+                    <textarea class="input1" style="width: 100%; flex: 1; border-radius: 1rem;" id="reported_defect1" cols="30" rows="10"></textarea>
                 </div>
             </div>
             <div style="width: 95%; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; margin-top: 2rem;">
@@ -286,7 +278,7 @@
                 <input class="input1" type="number" id="input5" placeholder="MANODOPERA">
                 <label class="general_paragraph1" for="input6">DATA AVVISO</label>
                 <input class="input1" style="resize: none;" type="date" id="input6">
-                <label class="general_paragraph1" for="input7">STATO VEICOLO</label>
+                <label class="general_paragraph1" for="input7">STATO ATTUALE</label>
                 <select class="input1" type="" id="input7">
                     <option value="FUORI USO">FUORI USO</option>
                     <option value="PREVENTIVO">PREVENTIVO</option>
@@ -321,13 +313,12 @@
                     </tbody>
                 </table>
             </div>
-            <h3 id="total_pdf1" style="width: 100%;" class="general_paragraph1">TOTALE RICAMBI: </h3>
-            <h3 id="total_iva_pdf1" style="width: 100%;" class="general_paragraph1">TOTALE C.IVA: </h3>
+            <h3 id="total_pdf1" style="width: 100%;" class="general_paragraph1">TOTALE RICAMBI IVA ESCLUSA: </h3>
             <h3 id="hand_price_pdf1" style="width: 100%;" class="general_paragraph1">MANODOPERA: </h3>
             <h3 id="total_total_price_pdf1" style="width: 100%;" class="general_paragraph1">PREZZO TOTALE CON MANODOPERA: </h3>
             <h3>///////////////////////////////</h3>
+            <h3 id="in_repair_veichle_status_pdf1" style="width: 100%;" class="general_paragraph1">STATO ATTUALE:</h3>
             <h3 id="data_avviso_pdf1" style="width: 100%;" class="general_paragraph1">AVVISATO IL: </h3>
-            <h3 id="in_repair_veichle_status_pdf1" style="width: 100%;" class="general_paragraph1">STATO VEICOLO:</h3>
 
         </div>
         </div>

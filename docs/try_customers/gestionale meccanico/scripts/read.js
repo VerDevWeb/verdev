@@ -284,11 +284,10 @@ function getAllRepairs(){
           alert('Impossibile mostrare correttamente i dati nel pdf' + error);
         });
     
-       document.getElementById('total_pdf1').innerText = 'RICAMBI IVA INCLUSA: ' + totalPrice + ' EURO';
-       document.getElementById('total_iva_pdf1').innerText = 'RICAMBI IVA ESCLUSA: ' + (totalPrice - [(totalPrice * 22) /100]) + ' EURO';
+       document.getElementById('total_pdf1').innerText = 'TOTALE RICAMBI IVA INCLUSA: ' + totalPrice + ' EURO';
        document.getElementById('hand_price_pdf1').innerText = 'MANODOPERA: ' + globalThis.currentRepair.manodopera + ' EURO';
        var result1 = parseFloat(globalThis.currentRepair.manodopera) + (parseFloat(totalPrice));
-       document.getElementById('total_total_price_pdf1').innerText = 'PREZZO TOTALE: ' + result1 + ' EURO';
+       document.getElementById('total_total_price_pdf1').innerText = 'TOTALE IVA ESCLUSA: ' + result1 + ' EURO';
        document.getElementById('data_avviso_pdf1').innerText = 'DATA AVVISO: ' + globalThis.currentRepair.data_avviso;
        document.getElementById('in_repair_veichle_status_pdf1').innerText = 'STATO VEICOLO: ' + globalThis.currentRepair.stato_veicolo;
 
