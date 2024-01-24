@@ -113,7 +113,7 @@ function createTableRow(data, taskName) {
   cell4.innerHTML = data.estimated_days;
   cell5.innerHTML = data.estimated_hours;
   cell6.innerHTML = data.end;
-  cell7.innerHTML = data.project_company_name;
+  cell7.innerHTML = data.project_brand_name;
   cell10.innerHTML = data.id;
 
 
@@ -186,12 +186,12 @@ function createTableRow(data, taskName) {
   var cell7 = row.insertCell(8);
   var cell9 = row.insertCell(9)
 
-  cell2.className = 'description_table_section'
+  cell2.className = 'description_table_section';
 
   cell1.innerHTML = data.name; 
   cell2.innerHTML = data.description; 
   cell3.innerHTML = data.owner_name; 
-  cell10.innerHTML = data.brand_project_name;
+  cell10.innerHTML = data.brand_company_name;
   cell4.innerHTML = data.estimated_days;
   cell5.innerHTML = data.estimated_hours;
   cell6.innerHTML = data.end;
@@ -340,10 +340,12 @@ function createTableRow(data, taskName) {
   var cell1 = row.insertCell(1);
   var cell2 = row.insertCell(2);
   var cell3 = row.insertCell(3);
-  var cell9 = row.insertCell(4)
-  var cell4 = row.insertCell(5);
-  var cell5 = row.insertCell(6);
-  var cell7 = row.insertCell(7);
+  var cell9 = row.insertCell(4);
+  var cell10 = row.insertCell(5);
+  var cell11 = row.insertCell(6);
+  var cell4 = row.insertCell(7);
+  var cell5 = row.insertCell(8);
+  var cell7 = row.insertCell(9);
 
   cell2.className = 'description_table_section'
 
@@ -351,6 +353,8 @@ function createTableRow(data, taskName) {
   cell2.innerHTML = data.description; 
   cell3.innerHTML = data.owner_mail; 
   cell9.innerHTML = data.accounting_task_name;
+  cell10.innerHTML = data.dedicated_hours;
+  cell11.innerHTML = data.dedicated_minutes;
   cell4.innerHTML = data.start;
   cell5.innerHTML = data.end;
   cell7.innerHTML = data.id;
@@ -437,10 +441,11 @@ function populateSelectWithTags() {
   var collectionRef = firebase.firestore().collection('companies');
 collectionRef.get().then((querySnapshot) => {
   
-  var selectElement1 = document.getElementById('project_company_selector1');
-  var selectElement2 = document.getElementById('project_company_selector2');
+  var selectElement1 = document.getElementById('brand_company_selector1');
+  var selectElement2 = document.getElementById('brand_company_selector2');
 
-  selectElement1.innerHTML = '';
+
+  selectElement1.innerHTML = ''; 
   selectElement2.innerHTML = ''; 
   
   querySnapshot.forEach((doc) => {
@@ -453,6 +458,7 @@ collectionRef.get().then((querySnapshot) => {
 
     var option2 = option1.cloneNode(true); 
     selectElement2.appendChild(option2);
+
   });
 }).catch((error) => {
   console.log("Errore nel recuperare le aziende:", error);
@@ -462,10 +468,10 @@ collectionRef.get().then((querySnapshot) => {
 
 
  function fillProjectSelections() {
+  //può servire per i task ma per ora non la sto richiamando
   var collectionRef = firebase.firestore().collection('projects');
   collectionRef.get().then((querySnapshot) => {
-    var selectElement1 = document.getElementById('brand_project_selector1');
-    var selectElement2 = document.getElementById('brand_project_selector2');
+    var selectElement1 = document.getElementById('brand_project_selector2');
 
     selectElement1.innerHTML = '';
     selectElement2.innerHTML = '';
@@ -495,9 +501,13 @@ function fillBrandsSelections() {
   collectionRef.get().then((querySnapshot) => {
     var selectElement1 = document.getElementById('task_brand_selector1');
     var selectElement2 = document.getElementById('task_brand_selector2');
+    var selectElement3 = document.getElementById('project_brand_selector1');
+    var selectElement4 = document.getElementById('project_brand_selector2');
 
     selectElement1.innerHTML = '';
     selectElement2.innerHTML = '';
+    selectElement3.innerHTML = '';
+    selectElement4.innerHTML = '';
 
     querySnapshot.forEach((doc) => {
       var data = doc.data();
@@ -510,8 +520,19 @@ function fillBrandsSelections() {
       option2.value = doc.id;
       option2.text = data.name;
 
+      var option3 = document.createElement('option');
+      option3.value = doc.id;
+      option3.text = data.name;
+
+      var option4 = document.createElement('option');
+      option4.value = doc.id;
+      option4.text = data.name;
+
       selectElement1.appendChild(option1);
       selectElement2.appendChild(option2);
+      selectElement3.appendChild(option3);
+      selectElement4.appendChild(option4);
+
     });
   }).catch((error) => {
     console.log("Errore nel recuperare i brand:", error);
@@ -547,83 +568,4 @@ function fillTasksSelections() {
     console.log("Errore nel recuperare i task:", error);
   });
 }
-
-
-
-function getTaskAccountings(){ 
-  var table = document.getElementById("taskAccountingsTableBody");
-  const db = firebase.firestore();
-  const userTasksRef = db.collection('accountings');
-
-  userTasksRef.where('accounting_task_id', '==', globalThis.currentTask.id)
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        const data = doc.data();
-        createTableRow(data);
-      });
-    })
-    .catch((error) => {
-      alert('Errore durante il recupero delle contabilizzazioni: ' + error);
-    });
-
-  while (table.firstChild) {
-    table.removeChild(table.firstChild);
-  }
-  
-function createTableRow(data, taskName) {
-
-var row = table.insertRow();
-//cell 8 sta per la casella dedicata alle actions
-var cell8 = row.insertCell(0);
-var cell1 = row.insertCell(1);
-var cell2 = row.insertCell(2);
-var cell3 = row.insertCell(3);
-var cell9 = row.insertCell(4)
-var cell4 = row.insertCell(5);
-var cell5 = row.insertCell(6);
-var cell7 = row.insertCell(7);
-
-cell2.className = 'description_table_section'
-
-cell1.innerHTML = data.name; 
-cell2.innerHTML = data.description; 
-cell3.innerHTML = data.owner_mail; 
-cell9.innerHTML = data.accounting_task_name;
-cell4.innerHTML = data.start;
-cell5.innerHTML = data.end;
-cell7.innerHTML = data.id;
-
-
-cell8.className = 'cell9';
-cell8.style.flexdirection = 'column';
-
-var editButton = document.createElement("button");
-editButton.className = "task_actions_button1";
-editButton.innerHTML = "<i class='material-icons notranslate'>edit</i>";
-editButton.onclick = function() {
-  getAccountingDataToFill(data);
-};
-cell8.appendChild(editButton);
-
-
-var editButton = document.createElement("button");
-editButton.className = "task_actions_button1";
-editButton.innerHTML = "<i class='material-icons notranslate'>delete</i>";
-editButton.onclick = function() {
-  deleteAccounting(data);
-};
-cell8.appendChild(editButton);
-
-var editButton = document.createElement("button");
-editButton.className = "task_actions_button1";
-editButton.innerHTML = "<i class='material-icons notranslate'>mail</i>";
-editButton.onclick = function() {
-  initAccountingMail1(data, taskName);
-};
-cell8.appendChild(editButton);
-
-}
-}
-
 

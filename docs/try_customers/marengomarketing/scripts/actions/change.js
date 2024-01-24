@@ -57,8 +57,8 @@ function changeProject() {
   const endToStore = new Date(end.value);
   const endFormatted = endToStore.toISOString().split('T')[0];
 
-  const project_company_selector = document.getElementById('project_company_selector2');
-  const selectedCompanyName = project_company_selector.options[project_company_selector.selectedIndex].text;
+  const project_brand_selector = document.getElementById('project_brand_selector2');
+  const selectedBrandName = project_brand_selector.options[project_brand_selector.selectedIndex].text;
   
 
   if (name !== '') {
@@ -71,8 +71,8 @@ function changeProject() {
       owner_id: owner_id,
       end: endFormatted,
       status: status,
-      project_company_name : selectedCompanyName,
-      project_company_id : project_company_selector.value,
+      project_brand_name : selectedBrandName,
+      project_brand_id : project_brand_selector.value,
     };
 
     path.update(data)
@@ -101,8 +101,8 @@ function changeBrand() {
   const endToStore = new Date(end.value);
   const endFormatted = endToStore.toISOString().split('T')[0];
 
-  const brand_project_selector = document.getElementById('brand_project_selector2');
-  const selectedProjectName = brand_project_selector.options[brand_project_selector.selectedIndex].text;
+  const brand_company_selector = document.getElementById('brand_company_selector2');
+  const selectedCompanyName = brand_company_selector.options[brand_company_selector.selectedIndex].text;
 
 
   if (name !== '') {
@@ -114,8 +114,8 @@ function changeBrand() {
       owner_name: owner_name,
       owner_id: owner_id,
       end: endFormatted,
-      brand_project_name : selectedProjectName,
-      brand_project_id : brand_project_selector.value,
+      brand_company_name : selectedCompanyName,
+      brand_company_id : brand_company_selector.value,
       status: status,
     };
 
@@ -198,6 +198,8 @@ function changeAccounting() {
   const accounting_task_selector = document.getElementById('accounting_task_selector2');
   const accountingTaskName = accounting_task_selector.options[accounting_task_selector.selectedIndex].text;
 
+  const accounting_hours = document.getElementById('accounting_hours2').value
+  const accounting_minutes = document.getElementById('accounting_minutes2').value
 
   if (name !== '') {
     const path = db.collection('accountings').doc(globalThis.currentAccounting.id);
@@ -209,6 +211,8 @@ function changeAccounting() {
   owner_mail: getCookieValue('mail'),
   start : startFormatted,
   end : endFormatted,
+  dedicated_hours : accounting_hours,
+  dedicated_minutes : accounting_minutes,
   accounting_task_name : accountingTaskName,
   accounting_task_id : accounting_task_selector.value,
     };

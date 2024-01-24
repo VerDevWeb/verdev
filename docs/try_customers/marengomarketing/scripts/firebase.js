@@ -20,13 +20,14 @@ const firebaseConfig = {
       document.getElementById("logged").style.display = "flex";
       document.getElementById("no_logged").style.display = "none";
   
+      globalThis.user = user;
+
       var userEmail = user.email;
       document.cookie = "mail=" + userEmail + ";";
   
       var uid = user.uid;
       document.cookie = "uid=" + uid + ";";
   
-      refresh1();
     } else {
       document.getElementById("logged").style.display = "none";
       document.getElementById("no_logged").style.display = "flex";

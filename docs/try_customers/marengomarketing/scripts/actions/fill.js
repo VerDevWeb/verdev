@@ -1,5 +1,6 @@
 function getCompanyDataToFill(data) {
     globalThis.currentCompany = data;
+    getCompanyBrands();
     document.getElementById("change_company1").style.display = "flex";
   
     document.getElementById("change_company_name_input1").value = data.name;
@@ -28,9 +29,9 @@ function getProjectDataToFill(data) {
       }
     }
 
-    var menu2 = document.getElementById("project_company_selector2");
+    var menu2 = document.getElementById("project_brand_selector2");
     for (var i = 0; i < menu2.options.length; i++) {
-      if (menu2.options[i].value === data.project_company_id) {
+      if (menu2.options[i].value === data.project_brand_id) {
         menu2.selectedIndex = i;
         break;
       }
@@ -59,9 +60,9 @@ function getBrandDataToFill(data) {
     document.getElementById("brand_name2").value = data.name;
     document.getElementById("brand_description2").value = data.description;
 
-    var menu2 = document.getElementById("brand_project_selector2");
+    var menu2 = document.getElementById("brand_company_selector2");
     for (var i = 0; i < menu2.options.length; i++) {
-      if (menu2.options[i].value === data.brand_project_id) {
+      if (menu2.options[i].value === data.brand_company_id) {
         menu2.selectedIndex = i;
         break;
       }
@@ -120,6 +121,9 @@ function getAccountingDataToFill(data) {
   globalThis.currentAccounting = data;
   document.getElementById("change_accounting").style.display = "flex";
 
+  document.getElementById("accounting_hours2").value = data.dedicated_hours;
+  document.getElementById("accounting_minutes2").value = data.dedicated_minutes;
+
   document.getElementById("accounting_name2").value = data.name;
   document.getElementById("accounting_description2").value = data.description;
 
@@ -151,6 +155,17 @@ function getAccountingDataToFill(data) {
   var menu2 = document.getElementById("accounting_task_selector1");
   for (var i = 0; i < menu2.options.length; i++) {
     if (menu2.options[i].value === globalThis.currentTask.id) {
+      menu2.selectedIndex = i;
+      break;
+    }
+  }
+ }
+ 
+
+ function fillBrandFromCompany(){
+  var menu2 = document.getElementById("brand_company_selector1");
+  for (var i = 0; i < menu2.options.length; i++) {
+    if (menu2.options[i].value === globalThis.currentCompany.id) {
       menu2.selectedIndex = i;
       break;
     }

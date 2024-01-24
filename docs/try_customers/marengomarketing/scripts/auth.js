@@ -10,13 +10,10 @@
           document.getElementById("no_logged").style.display = "none";
           document.getElementById("logged").style.display = "flex";
 
-          var userEmail = user.email;
-          document.cookie = "mail=" + userEmail + ";";
+          document.cookie = "mail=" + user.email + ";";
+          document.cookie = "uid=" + user.uid + ";";
 
-        var uid = user.uid;
-        document.cookie = "uid=" + uid + ";";
 
-        refresh1();
         })
       
         .catch(function(error) {
@@ -28,8 +25,6 @@
           }
         });
       }
-
-
 
       function registerUser() {
         var email = document.getElementById("register_mail").value;
@@ -43,6 +38,7 @@
                 document.cookie = "mail=" + user.email + ";";
                 document.cookie = "uid=" + user.uid + ";";
     
+                console.log(user.uid)
            
                 // Ottieni l'uid dai cookie
                 const uid = getCookieValue('uid');
@@ -51,6 +47,8 @@
                 const nameValue = document.getElementById('name_register_input').value;
                 saveUserToGeneralList(uid, nameValue);
                 document.cookie = "name=" + nameValue + ";";
+
+
             })
             .catch(function(error) {
                 var errorCode = error.code;

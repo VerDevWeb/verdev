@@ -71,14 +71,14 @@ function addCompany(){
   const select = document.getElementById('project_owner1');
   const selectedOwnerName = select.options[select.selectedIndex].text;
 
-  const project_company_selector = document.getElementById('project_company_selector1');
-  const selectedCompanyName = project_company_selector.options[project_company_selector.selectedIndex].text;
+  const project_brand_selector = document.getElementById('project_brand_selector1');
+  const selectedBrandName = project_brand_selector.options[project_brand_selector.selectedIndex].text;
   
   const data = {
   id : path.doc().id,
   name: name1,
-  project_company_name : selectedCompanyName,
-  project_company_id : project_company_selector.value,
+  project_brand_name : selectedBrandName,
+  project_brand_id : project_brand_selector.value,
   description: description1,
   owner_id: document.getElementById('project_owner1').value,
   owner_name: selectedOwnerName,
@@ -127,8 +127,8 @@ function addCompany(){
   const select = document.getElementById('brand_owner');
   const selectedOwnerName = select.options[select.selectedIndex].text;
 
-  const brand_project_selector = document.getElementById('brand_project_selector1');
-  const selectedProjectName = brand_project_selector.options[brand_project_selector.selectedIndex].text;
+  const brand_company_selector = document.getElementById('brand_company_selector1');
+  const selectedCompanyName = brand_company_selector.options[brand_company_selector.selectedIndex].text;
   
   const data = {
   id : path.doc().id,
@@ -139,8 +139,8 @@ function addCompany(){
   estimated_days : document.getElementById('brand_day1').value,
   estimated_hours : document.getElementById('brand_time1').value,
   end : endDataFormatted,
-  brand_project_name : selectedProjectName,
-  brand_project_id : brand_project_selector.value,
+  brand_company_name : selectedCompanyName,
+  brand_company_id : brand_company_selector.value,
   status: 'ATTIVO',
   };
   
@@ -250,6 +250,9 @@ function addCompany(){
         const accountingTaskSelector = document.getElementById('accounting_task_selector1');
         const accountingTaskName = accountingTaskSelector.options[accountingTaskSelector.selectedIndex].text;
   
+        const dedicated_hours = document.getElementById('accounting_hours1').value;
+        const dedicated_minutes = document.getElementById('accounting_minutes1').value;
+
         const data = {
           name: name1,
           description: description1,
@@ -257,6 +260,8 @@ function addCompany(){
           owner_mail: getCookieValue('mail'),
           start: startFormatted,
           end: endFormatted,
+          dedicated_hours: dedicated_hours,
+          dedicated_minutes: dedicated_minutes,
           accounting_task_name: accountingTaskName,
           accounting_task_id: accountingTaskSelector.value,
         };

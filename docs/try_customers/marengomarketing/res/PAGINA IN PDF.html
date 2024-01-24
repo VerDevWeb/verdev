@@ -1,0 +1,39 @@
+
+<!-- saved from url=(0049)http://127.0.0.1:3002/endpoint_unsaved/Untitled-2 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" src="./PAGINA IN PDF_files/___vscode_livepreview_injected_script"></script>
+    <!-- Altri tag head come titolo, stili, ecc. -->
+</head>
+<body>
+    <!-- Contenuto della tua pagina HTML -->
+    <div id="content">
+        <h1>Ciao, mondo!</h1>
+        <p>Questo è il mio contenuto HTML.</p>
+    </div>
+
+    <!-- Script per convertire in PDF -->
+    <script src="./PAGINA IN PDF_files/jspdf.debug.js.download" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
+
+    <script>
+        // Funzione per convertire la pagina HTML in PDF
+        function htmlToPdf() {
+            // Crea un'istanza di jsPDF
+            const pdf = new jsPDF();
+
+            // Ottieni il contenuto HTML che vuoi convertire
+            const content = document.getElementById('content');
+
+            // Aggiungi il contenuto HTML al documento PDF
+            pdf.fromHTML(content, 15, 15);
+
+            // Salva il PDF
+            pdf.save('output.pdf');
+        }
+
+        // Chiama la funzione quando la pagina è completamente caricata
+        window.onload = function () {
+            htmlToPdf();
+        };
+    </script>
+
+
+</body></html>
