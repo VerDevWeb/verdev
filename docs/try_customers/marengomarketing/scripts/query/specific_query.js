@@ -87,7 +87,6 @@ document.getElementById("company_search1").addEventListener("keyup", function(ev
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
             const data = doc.data();
-            console.log(data);
             createTableRow(data);
           });
         })
@@ -393,6 +392,86 @@ editButton.className = "task_actions_button1";
 editButton.innerHTML = "<i class='material-icons notranslate'>delete</i>";
 editButton.onclick = function() {
   deleteBrand(data);
+};
+cell8.appendChild(editButton);
+
+var editButton = document.createElement("button");
+editButton.className = "task_actions_button1";
+editButton.innerHTML = "<i class='material-icons notranslate'>mail</i>";
+editButton.onclick = function() {
+  initAccountingMail1(data, taskName);
+};
+cell8.appendChild(editButton);
+}
+}
+
+
+
+
+function getBrandProjects(){ 
+  var table = document.getElementById("brandProjectsTableBody");
+  const db = firebase.firestore();
+  const userTasksRef = db.collection('projects');
+
+  userTasksRef.where('project_brand_id', '==', globalThis.currentBrand.id)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        createTableRow(data);
+      });
+    })
+    .catch((error) => {
+      alert('Errore durante il recupero dei progetti per questo marchio: ' + error);
+    });
+
+  while (table.firstChild) {
+    table.removeChild(table.firstChild);
+  }
+  
+function createTableRow(data, taskName) {
+  var row = table.insertRow();
+  //cell 8 è la cella actions
+  var cell8 = row.insertCell(0);
+  var cell1 = row.insertCell(1);
+  var cell2 = row.insertCell(2);
+  var cell3 = row.insertCell(3);
+  var cell4 = row.insertCell(4);
+  var cell5 = row.insertCell(5);
+  var cell6 = row.insertCell(6);
+  var cell7 = row.insertCell(7);
+  var cell10 = row.insertCell(8);
+
+  cell2.className = 'description_table_section'
+
+  cell1.innerHTML = data.name; 
+  cell2.innerHTML = data.description; 
+  cell3.innerHTML = data.owner_name; 
+  cell4.innerHTML = data.estimated_days;
+  cell5.innerHTML = data.estimated_hours;
+  cell6.innerHTML = data.end;
+  cell7.innerHTML = data.project_brand_name;
+  cell10.innerHTML = data.id;
+
+
+  cell8.className = 'cell9';
+  cell8.style.flexdirection = 'column';
+
+
+var editButton = document.createElement("button");
+editButton.className = "task_actions_button1";
+editButton.innerHTML = "<i class='material-icons notranslate'>edit</i>";
+editButton.onclick = function() {
+  getProjectDataToFill(data);
+};
+cell8.appendChild(editButton);
+
+
+var editButton = document.createElement("button");
+editButton.className = "task_actions_button1";
+editButton.innerHTML = "<i class='material-icons notranslate'>delete</i>";
+editButton.onclick = function() {
+  deleteProject(data);
 };
 cell8.appendChild(editButton);
 

@@ -48,6 +48,7 @@ function getProjectDataToFill(data) {
 function getBrandDataToFill(data) { 
     globalThis.currentBrand = data;
     document.getElementById("change_brand").style.display = "flex";
+    getBrandProjects();
 
     var menu = document.getElementById("brand_owner2");
     for (var i = 0; i < menu.options.length; i++) {
