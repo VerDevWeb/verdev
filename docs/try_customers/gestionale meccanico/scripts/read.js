@@ -30,6 +30,7 @@ function getAllRepairs(){
     var cell5 = row.insertCell(5);
     var cell6 = row.insertCell(6);
     var cell7 = row.insertCell(7);
+    var cell8 = row.insertCell(8);
 
     cell2.className = 'data-cell';
   
@@ -40,6 +41,7 @@ function getAllRepairs(){
     cell5.innerHTML = data.type;
     cell6.innerHTML = data.brand;
     cell7.innerHTML = data.model;
+    cell8.innerHTML = data.stato_veicolo;
 
     cell15.style.display = 'flex'
     cell15.style.flexdirection = 'column';
@@ -100,14 +102,18 @@ function getAllRepairs(){
         var cell5 = row.insertCell(5);
         var cell6 = row.insertCell(6);
         var cell7 = row.insertCell(7);
+        var cell8 = row.insertCell(8);
+    
+        cell2.className = 'data-cell';
       
-    cell1.innerHTML = data.schede_number; 
-    cell2.innerHTML = data.start; 
-    cell3.innerHTML = data.status;
-    cell4.innerHTML = data.customer_name;
-    cell5.innerHTML = data.type;
-    cell6.innerHTML = data.brand;
-    cell7.innerHTML = data.model;
+        cell1.innerHTML = data.schede_number; 
+        cell2.innerHTML = data.start; 
+        cell3.innerHTML = data.status;
+        cell4.innerHTML = data.customer_name;
+        cell5.innerHTML = data.type;
+        cell6.innerHTML = data.brand;
+        cell7.innerHTML = data.model;
+        cell8.innerHTML = data.stato_veicolo;
     
         cell15.style.display = 'flex'
         cell15.style.flexdirection = 'column';
@@ -157,7 +163,7 @@ function getAllRepairs(){
         alert('Errore durante il recupero delle riparazioni interne: ', error);
       });
       function createTableRow(data, taskName) {
-  
+
         var row = table.insertRow();
         var cell15 = row.insertCell(0);
         var cell1 = row.insertCell(1);
@@ -167,7 +173,10 @@ function getAllRepairs(){
         var cell5 = row.insertCell(5);
         var cell6 = row.insertCell(6);
         var cell7 = row.insertCell(7);
-        
+        var cell8 = row.insertCell(8);
+    
+        cell2.className = 'data-cell';
+      
         cell1.innerHTML = data.schede_number; 
         cell2.innerHTML = data.start; 
         cell3.innerHTML = data.status;
@@ -175,7 +184,8 @@ function getAllRepairs(){
         cell5.innerHTML = data.type;
         cell6.innerHTML = data.brand;
         cell7.innerHTML = data.model;
-    
+        cell8.innerHTML = data.stato_veicolo;
+        
         cell15.style.display = 'flex'
         cell15.style.flexdirection = 'column';
       
