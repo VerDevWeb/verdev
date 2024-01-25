@@ -82,7 +82,7 @@ document.getElementById("company_search1").addEventListener("keyup", function(ev
     
       const userTasksRef = db.collection('projects').where('owner_id', '==', getCookieValue('uid'));
 
-   
+      table.innerHTML = '';
       userTasksRef.get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
@@ -96,7 +96,6 @@ document.getElementById("company_search1").addEventListener("keyup", function(ev
       
      
     function createTableRow(data) {
-      table.innerHTML = '';
 
       var row = table.insertRow();
       //cell 8 è la cella actions
@@ -160,7 +159,8 @@ document.getElementById("company_search1").addEventListener("keyup", function(ev
     function getPersonalEndingTasks(){
       var table = document.getElementById("personalEndingTasksTableBody");
       const db = firebase.firestore();
-
+      table.innerHTML = '';
+      
         const today = new Date();
         const year = today.getFullYear();
         const month = String(today.getMonth() + 1).padStart(2, '0'); 
@@ -181,7 +181,6 @@ document.getElementById("company_search1").addEventListener("keyup", function(ev
       
      
     function createTableRow(data) {
-      table.innerHTML = '';
 
       var row = table.insertRow();
 //cell 8 sta per la casella dedicata alle actions
