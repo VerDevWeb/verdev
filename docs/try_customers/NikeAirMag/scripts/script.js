@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     animate1();
     animate2();
+    animate3();
 });
 
 function animate1(){
@@ -31,6 +32,25 @@ function animate1(){
 function animate2(){
     const triggerElement2 = document.getElementById('trigger2');
     const elementsToAnimate = document.querySelectorAll('.animated-div');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                elementsToAnimate.forEach(element => {
+                    element.classList.add('active');
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    });
+
+    observer.observe(triggerElement2);
+};
+
+
+function animate3(){
+    const triggerElement2 = document.getElementById('trigger3');
+    const elementsToAnimate = document.querySelectorAll('.animated-div2');
 
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {

@@ -157,3 +157,14 @@ html, body{
     opacity: 1;
     transform: translateY(0); /* Torna alla posizione originale */
 }
+
+.animated-div2 {
+    opacity: 0;
+    transform: translateY(-80px); /* Inizialmente spostato verso l'alto */
+    transition: opacity 4s, transform 4s;
+}
+
+.animated-div2.active {
+    opacity: 1;
+    transform: translateY(0); /* Torna alla posizione originale */
+}
