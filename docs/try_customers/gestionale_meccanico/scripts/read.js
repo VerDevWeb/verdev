@@ -324,62 +324,6 @@ repairDocRef.update(nuoviDati, { merge: true })
 
 
   
-document.getElementById("company_search1").addEventListener("keyup", function(event) {
-  if (event.key === 'Enter') {
-    getCompanyByName();
-  }
-});
-
-    function getCompanyByName() {
-      var table = document.getElementById("pdf_table1");
-      const myCollection = db.collection('repairs').doc(globalThis.currentRepair.id).collection('products');
-      const companyName = document.getElementById('company_search1').value.toLowerCase();
-    
-      myCollection.get().then((snapshot) => {
-        snapshot.forEach((doc) => {
-          const data = doc.data();
-          const companyNameInDoc = data.product.toLowerCase();
-          if (companyNameInDoc.includes(companyName)) {
-            createTableRow(data); 
-            
-            function createTableRow(data, taskName) {
-
-              table.innerHTML = '';
-  
-              var row = table.insertRow();
-              var cell15 = row.insertCell(0);
-              var cell1 = row.insertCell(1);
-              var cell2 = row.insertCell(2);
-              var cell3 = row.insertCell(3);
-              var cell4 = row.insertCell(4);
-          
-              cell3.className = 'data-cell';
-            
-              cell1.innerHTML = data.quantity; 
-              cell2.innerHTML = data.product; 
-              cell3.innerHTML = data.product_description;
-              cell4.innerHTML = data.product_price;
-          
-              cell15.style.display = 'flex'
-              cell15.style.flexdirection = 'column';
-          
-            
-              var editButton = document.createElement("button");
-              editButton.className = "task_actions_button1";
-              editButton.innerHTML = "<i class='material-icons notranslate'>delete</i>";
-              editButton.onclick = function() {
-                deleteRepairProduct(data);
-              };
-              cell15.appendChild(editButton);
-          }
-          }
-        });
-      }).catch((error) => {
-        console.error('Errore nella query per recuperare una specifica azienda:', error);
-      });
-    }
-
-
     function getAllRepairsDesc(){
       //più recente
       var table = document.getElementById("tutteLeRiparazioniTableBody");
@@ -762,9 +706,7 @@ function getWarrantyRepairsDesc(){
   const db = firebase.firestore();
   table.innerHTML = '';
 
-  const userTasksRef = db.collection('repairs')
-                         .where('repair_type', '==', 'GARANZIA')
-                         .orderBy('start', 'desc'); // Ordina per data di inizio in ordine decrescente
+  const userTasksRef = db.collection('repairs').where('repair_type', '==', 'GARANZIA').orderBy('start', 'desc'); // Ordina per data di inizio in ordine decrescente
                         
 
   userTasksRef.get()
