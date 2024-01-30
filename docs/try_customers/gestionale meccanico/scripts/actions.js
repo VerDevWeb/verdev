@@ -283,10 +283,10 @@ function deleteRepair(data) {
           .then(() => {     
            const totalPrice = globalThis.totalPrice;
        if(document.getElementById('input5').value !== ''){
-        document.getElementById('total_pdf1').innerText = 'TOTALE RICAMBI IVA ESCLUSA: ' + totalPrice + ' EURO';
+        document.getElementById('total_pdf1').innerText = 'TOTALE RICAMBI: ' + totalPrice + ' EURO';
         document.getElementById('hand_price_pdf1').innerText = 'MANODOPERA: ' + manodopera.value + ' EURO';
         var result1 = parseFloat(manodopera.value) + (parseFloat(totalPrice));
-        document.getElementById('total_total_price_pdf1').innerText = 'PREZZO TOTALE: ' + result1 + ' EURO';
+        document.getElementById('total_total_price_pdf1').innerText = 'TOTALE + IVA: ' + result1 + ' EURO';
        }
        if(document.getElementById('input6').value !== ''){
         document.getElementById('data_avviso_pdf1').innerText = 'DATA AVVISO: ' + data_avviso.value;

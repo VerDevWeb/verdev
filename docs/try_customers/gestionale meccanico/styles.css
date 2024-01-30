@@ -296,6 +296,7 @@ html, body{
 @media screen and (min-width: 1001px) {
     ::-webkit-scrollbar{
         border-radius: 1rem;
+        width: 10px;
     }
     
     ::-webkit-scrollbar-thumb{
