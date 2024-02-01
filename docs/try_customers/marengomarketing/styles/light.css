@@ -37,12 +37,6 @@
             border: 1px solid transparent;
             color: rgb(40, 39, 39);
         }    
-
-
-        ::-webkit-scrollbar-thumb {
-            background: #00000052;
-            border-radius: 10px;
-           }
             
 
            .task_actions_button1{

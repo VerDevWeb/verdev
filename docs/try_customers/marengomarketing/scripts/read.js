@@ -6,7 +6,7 @@ function getAndPopulateTags() {
       var data = doc.data();
       if (data.hasOwnProperty('name') && data.hasOwnProperty('id')) {
         tagsArray.push({ name: data.name, id: data.id });
-        getAndPopulateTags2(data);
+        getAndPopulateTags2(data);z
       }
     });
     populateSelection(tagsArray);

@@ -19,6 +19,7 @@ function getCompanyDataToFill(data) {
 
 function getProjectDataToFill(data) { 
     globalThis.currentProject = data;
+    getProjectTasks();
     document.getElementById("change_project").style.display = "flex";
 
     var menu = document.getElementById("project_owner2");
@@ -94,9 +95,9 @@ function getTaskDataToFill(data) {
   document.getElementById("task_name2").value = data.name;
   document.getElementById("task_description2").value = data.description;
 
-  var menu2 = document.getElementById("task_brand_selector2");
+  var menu2 = document.getElementById("task_project_selector2");
   for (var i = 0; i < menu2.options.length; i++) {
-    if (menu2.options[i].value === data.task_brand_id) {
+    if (menu2.options[i].value === data.task_project_id) {
       menu2.selectedIndex = i;
       break;
     }

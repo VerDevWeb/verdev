@@ -105,7 +105,7 @@ function createTableRow(data, taskName) {
   var cell7 = row.insertCell(7);
   var cell10 = row.insertCell(8);
 
-  cell2.className = 'description_table_section'
+  cell2.className = 'description_table_section';
 
   cell1.innerHTML = data.name; 
   cell2.innerHTML = data.description; 
@@ -272,7 +272,7 @@ function createTableRow(data, taskName) {
   cell1.innerHTML = data.name; 
   cell2.innerHTML = data.description; 
   cell3.innerHTML = data.owner_name; 
-  cell9.innerHTML = data.task_brand_name;
+  cell9.innerHTML = data.task_project_name;
   cell4.innerHTML = data.start;
   cell5.innerHTML = data.end;
   cell6.innerHTML = data.status;
@@ -471,13 +471,17 @@ collectionRef.get().then((querySnapshot) => {
   //può servire per i task ma per ora non la sto richiamando
   var collectionRef = firebase.firestore().collection('projects');
   collectionRef.get().then((querySnapshot) => {
-    var selectElement1 = document.getElementById('brand_project_selector2');
+    //task
+    var selectElement1 = document.getElementById('task_project_selector1');
+    var selectElement2 = document.getElementById('task_project_selector2');
+
 
     selectElement1.innerHTML = '';
     selectElement2.innerHTML = '';
 
     querySnapshot.forEach((doc) => {
       var data = doc.data();
+
 
       var option1 = document.createElement('option');
       option1.value = doc.id;
@@ -489,6 +493,7 @@ collectionRef.get().then((querySnapshot) => {
 
       selectElement1.appendChild(option1);
       selectElement2.appendChild(option2);
+
     });
   }).catch((error) => {
     console.log("Errore nel recuperare i progetti:", error);
@@ -499,15 +504,11 @@ collectionRef.get().then((querySnapshot) => {
 function fillBrandsSelections() {
   var collectionRef = firebase.firestore().collection('brands');
   collectionRef.get().then((querySnapshot) => {
-    var selectElement1 = document.getElementById('task_brand_selector1');
-    var selectElement2 = document.getElementById('task_brand_selector2');
-    var selectElement3 = document.getElementById('project_brand_selector1');
-    var selectElement4 = document.getElementById('project_brand_selector2');
+    var selectElement1 = document.getElementById('project_brand_selector1');
+    var selectElement2 = document.getElementById('project_brand_selector2');
 
     selectElement1.innerHTML = '';
     selectElement2.innerHTML = '';
-    selectElement3.innerHTML = '';
-    selectElement4.innerHTML = '';
 
     querySnapshot.forEach((doc) => {
       var data = doc.data();
@@ -520,18 +521,8 @@ function fillBrandsSelections() {
       option2.value = doc.id;
       option2.text = data.name;
 
-      var option3 = document.createElement('option');
-      option3.value = doc.id;
-      option3.text = data.name;
-
-      var option4 = document.createElement('option');
-      option4.value = doc.id;
-      option4.text = data.name;
-
       selectElement1.appendChild(option1);
       selectElement2.appendChild(option2);
-      selectElement3.appendChild(option3);
-      selectElement4.appendChild(option4);
 
     });
   }).catch((error) => {

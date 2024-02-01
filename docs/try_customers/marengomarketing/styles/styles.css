@@ -7,10 +7,12 @@ body{
 }
 
 .description_table_section{
-    max-width: 10rem;
-    overflow-x: auto;
+    width: 8rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow-y: auto;
 }
-
 
 #add_task1{
     display: none;
@@ -395,8 +397,12 @@ button:hover{
      }
     
     ::-webkit-scrollbar-thumb {
-     background: #989191a0;
+     background: #a48989a0;
      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover{
+        background: rgba(0, 0, 0, 0.416);
     }
 
     

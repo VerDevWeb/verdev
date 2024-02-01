@@ -188,8 +188,8 @@ function addCompany(){
   const select = document.getElementById('select_task_owner');
   const selectedOwnerName = select.options[select.selectedIndex].text;
 
-  const task_brand_selector = document.getElementById('task_brand_selector1');
-  const taskBrandName = task_brand_selector.options[task_brand_selector.selectedIndex].text;
+  const task_project_selector = document.getElementById('task_project_selector1');
+  const taskProjectName = task_project_selector.options[task_project_selector.selectedIndex].text;
 
   
   const data = {
@@ -200,8 +200,8 @@ function addCompany(){
   owner_name: selectedOwnerName,
   start : StartDataFormatted,
   end : endDataFormatted,
-  task_brand_name : taskBrandName,
-  task_brand_id : task_brand_selector.value,
+  task_project_name : taskProjectName,
+  task_project_id : task_project_selector.value,
   status: 'APERTO',
   };
   

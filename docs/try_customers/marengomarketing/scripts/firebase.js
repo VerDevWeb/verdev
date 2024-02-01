@@ -28,7 +28,7 @@ const firebaseConfig = {
       var uid = user.uid;
       document.cookie = "uid=" + uid + ";";
   
-      refresh1();
+      //refresh1();
 
     } else {
       document.getElementById("logged").style.display = "none";

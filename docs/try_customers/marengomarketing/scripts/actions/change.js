@@ -149,7 +149,7 @@ function changeTask() {
   const startToStore = new Date(start.value);
   const startFormatted = startToStore.toISOString().split('T')[0];
 
-  const task_brand_selector = document.getElementById('task_brand_selector2');
+  const task_brand_selector = document.getElementById('task_project_selector2');
   const taskBrandName = task_brand_selector.options[task_brand_selector.selectedIndex].text;
 
 

@@ -236,6 +236,7 @@ function showLogin(){
     animateALL()
     fillCompaniesSelections();
     fillBrandsSelections();
+    fillProjectSelections();
     fillTasksSelections();
     populateSelectWithTags();
 
