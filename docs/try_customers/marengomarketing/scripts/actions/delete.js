@@ -58,6 +58,14 @@ function deleteCompany(data) {
           function deleteAccounting(data) {
             const db = firebase.firestore();
             const docRef = db.collection('accountings').doc(data.id);
+
+            var docRef2 = db.collection('tasks').doc(data.accounting_task_id);
+docRef2.update({
+    dedicated_minutes: firebase.firestore.FieldValue.increment(-data.dedicated_minutes)
+})
+.catch(function(error) {
+    notificate("Errore nel sottrarre il tempo impiegato per questa contabilizzazione al tempo di lavoro complessivo per un task: " + error , 'error');
+});
             
             docRef.delete()
               .then(() => {

@@ -265,6 +265,15 @@ function addCompany(){
           accounting_task_name: accountingTaskName,
           accounting_task_id: accountingTaskSelector.value,
         };
+
+        // Ottenere un riferimento al documento
+var docRef = db.collection('tasks').doc(accountingTaskSelector.value);
+docRef.update({
+    dedicated_minutes: firebase.firestore.FieldValue.increment(dedicated_minutes)
+})
+.catch(function(error) {
+    notificate("Errore nell'aggiungere il tempo impiegato per questa contabilizzazione al tempo di lavoro complessivo per un task: " + error , 'error');
+});
   
         path.add(data)
           .then((docRef) => {
