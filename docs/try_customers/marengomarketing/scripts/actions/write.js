@@ -1,6 +1,8 @@
 function addCompany(){
     if(document.getElementById('company_name_input1').value !== "") {
       if(document.getElementById('company_start_input1').value !== '') {
+
+        submitCompanyToGoogleSheets('Companies');
   
   const status = document.getElementById('company_status_input1').value;
   const path = db.collection('companies');
@@ -58,6 +60,8 @@ function addCompany(){
   function addProject(){
     if(document.getElementById('project_name1').value !== "") {
       if (document.getElementById('project_end_date1').value !== '') {
+
+        submitProjectToGoogleSheets('Projects');
   
   const name1 = document.getElementById('project_name1').value;
   const description1 = document.getElementById('project_description1').value;
@@ -114,6 +118,8 @@ function addCompany(){
   function addBrand(){
     if(document.getElementById('brand_name1').value !== "") {
       if (document.getElementById('brand_end_date1').value !== '') {
+
+        submitBrandToGoogleSheets('Brands');
   
   const name1 = document.getElementById('brand_name1').value;
   const description1 = document.getElementById('brand_description1').value;
@@ -170,6 +176,8 @@ function addCompany(){
   function addTask(){
     if(document.getElementById('name_task_input').value !== "") {
       if (document.getElementById('end_task_date_input').value !== '') {
+
+        submitTaskToGoogleSheets('Tasks');
   
   const name1 = document.getElementById('name_task_input').value;
   const description1 = document.getElementById('description_task_input').value;
@@ -234,6 +242,9 @@ function addCompany(){
   
     if (accountingNameInput.value.trim() !== "") {
       if (accountingEndDateInput.value !== '') {
+
+        submitAccountingToGoogleSheets('Accountings');
+
         const name1 = accountingNameInput.value;
         const description1 = document.getElementById('accounting_description_input1').value;
         const path = db.collection('accountings');
