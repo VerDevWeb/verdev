@@ -231,9 +231,12 @@ function showLogin(){
     getBrands();
     getTasks();
     getAccountings();
+    //////////////////////
     getPersonalProjects();
-    getPersonalEndingTasks();
+    getPersonalTasks();
+    //////////////////////
     animateALL()
+    //////////////////////
     fillCompaniesSelections();
     fillBrandsSelections();
     fillProjectSelections();
