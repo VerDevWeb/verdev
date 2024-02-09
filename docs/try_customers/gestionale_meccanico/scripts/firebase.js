@@ -1,14 +1,13 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyBK8aB1PhRlX3ls_AAMqxElVLmK5hK9SoA",
-    authDomain: "buildable-4e170.firebaseapp.com",
-    databaseURL: "https://buildable-4e170-default-rtdb.firebaseio.com",
-    projectId: "buildable-4e170",
-    storageBucket: "buildable-4e170.appspot.com",
-    messagingSenderId: "905693761163",
-    appId: "1:905693761163:web:2b9cdad166817b548f8e8e",
-    measurementId: "G-8D1HGCRG4B"
-  };
-  
+  apiKey: "AIzaSyCEg7nrbEdgYWYPLzZvMyygAUoGnH82usk",
+  authDomain: "app1-723bd.firebaseapp.com",
+  projectId: "app1-723bd",
+  storageBucket: "app1-723bd.appspot.com",
+  messagingSenderId: "854378895091",
+  appId: "1:854378895091:web:69024710dfb90306da0986",
+  measurementId: "G-ES2EW7NQZE"
+};
+
   
   firebase.initializeApp(firebaseConfig);
   const database = firebase.database();
@@ -25,6 +24,11 @@ const firebaseConfig = {
   
       var uid = user.uid;
       document.cookie = "uid=" + uid + ";";
+
+      getAllRepairs();
+      getInternalRepairs();
+      getEsternalRepairs();
+      getWarrantyRepairs();
   
     } else {
       document.getElementById("login").style.display = "flex";

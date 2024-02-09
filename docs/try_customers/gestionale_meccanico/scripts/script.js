@@ -5,6 +5,7 @@ function showCreate(){
     document.getElementById('riparazioni_interne').style.display = 'none';
     document.getElementById('tutte_le_riparazioni').style.display = 'none';
     document.getElementById('scheda_di_lavorazione').style.display = 'none';
+    document.getElementById('riparazioni_esterne').style.display = 'none';
     animate1('create_new');
 }
 
@@ -14,7 +15,8 @@ function showRiparazioniInGaranzia(){
     document.getElementById('change_repairs').style.display = 'none';
     document.getElementById('riparazioni_interne').style.display = 'none';
     document.getElementById('tutte_le_riparazioni').style.display = 'none';
-    document.getElementById('scheda_di_lavorazione').style.display = 'none';
+    document.getElementById('scheda_di_lavorazione').style.display = 'none';    
+    document.getElementById('riparazioni_esterne').style.display = 'none';
     animate1('riparazioni_in_garanzia');
 
 }
@@ -26,7 +28,19 @@ function showRiparazioniInterne(){
     document.getElementById('riparazioni_interne').style.display = 'flex';
     document.getElementById('tutte_le_riparazioni').style.display = 'none';
     document.getElementById('scheda_di_lavorazione').style.display = 'none';
+    document.getElementById('riparazioni_esterne').style.display = 'none';
     animate1('riparazioni_interne');
+}
+
+function showRiparazioniEsterne(){
+  document.getElementById('create_new').style.display = 'none';
+  document.getElementById('riparazioni_in_garanzia').style.display = 'none';
+  document.getElementById('change_repairs').style.display = 'none';
+  document.getElementById('riparazioni_interne').style.display = 'none';
+  document.getElementById('riparazioni_esterne').style.display = 'flex';
+  document.getElementById('tutte_le_riparazioni').style.display = 'none';
+  document.getElementById('scheda_di_lavorazione').style.display = 'none';
+  animate1('riparazioni_esterne');
 }
 
 function showTutteLeRiparazioni(){
@@ -35,6 +49,7 @@ function showTutteLeRiparazioni(){
     document.getElementById('change_repairs').style.display = 'none';
     document.getElementById('riparazioni_interne').style.display = 'none';
     document.getElementById('tutte_le_riparazioni').style.display = 'flex';
+    document.getElementById('riparazioni_esterne').style.display = 'none';
     document.getElementById('scheda_di_lavorazione').style.display = 'none';
     animate1('tutte_le_riparazioni');
 }
@@ -45,6 +60,7 @@ function showChangeRepair(){
     document.getElementById('riparazioni_in_garanzia').style.display = 'none';
     document.getElementById('riparazioni_interne').style.display = 'none';
     document.getElementById('tutte_le_riparazioni').style.display = 'none';
+    document.getElementById('riparazioni_esterne').style.display = 'none';
     document.getElementById('scheda_di_lavorazione').style.display = 'none';
     animate1('change_repairs');
 }

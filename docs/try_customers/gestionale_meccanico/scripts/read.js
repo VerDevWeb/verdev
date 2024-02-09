@@ -41,6 +41,7 @@ function getAllRepairs(){
     cell5.innerHTML = data.brand;
     cell6.innerHTML = data.model;
     cell7.innerHTML = data.stato_veicolo;
+    cell8.innerHTML = data.serial_number;
 
     cell15.style.display = 'flex'
     cell15.style.flexdirection = 'column';
@@ -101,6 +102,7 @@ function getAllRepairs(){
         var cell5 = row.insertCell(5);
         var cell6 = row.insertCell(6);
         var cell7 = row.insertCell(7);
+        var cell8 = row.insertCell(8);
     
         cell2.className = 'data-cell';
       
@@ -111,6 +113,7 @@ function getAllRepairs(){
         cell5.innerHTML = data.brand;
         cell6.innerHTML = data.model;
         cell7.innerHTML = data.stato_veicolo;
+        cell8.innerHTML = data.serial_number;
     
         cell15.style.display = 'flex'
         cell15.style.flexdirection = 'column';
@@ -143,6 +146,76 @@ function getAllRepairs(){
   }
 
 
+  function getEsternalRepairs(){
+    var table = document.getElementById("riparazioniEsterneTableBody");
+    const db = firebase.firestore();
+  
+    const userTasksRef = db.collection('repairs').where('repair_type', '==', 'ESTERNA');
+
+    userTasksRef.get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          createTableRow(data);
+        });
+      })
+      .catch((error) => {
+        alert('Errore durante il recupero delle riparazioni esterne: ', error);
+      });
+      function createTableRow(data, taskName) {
+  
+        var row = table.insertRow();
+        var cell15 = row.insertCell(0);
+        var cell1 = row.insertCell(1);
+        var cell2 = row.insertCell(2);
+        var cell3 = row.insertCell(3);
+        var cell4 = row.insertCell(4);
+        var cell5 = row.insertCell(5);
+        var cell6 = row.insertCell(6);
+        var cell7 = row.insertCell(7);
+        var cell8 = row.insertCell(8);
+    
+        cell2.className = 'data-cell';
+      
+        cell1.innerHTML = data.start; 
+        cell2.innerHTML = data.status;
+        cell3.innerHTML = data.customer_name;
+        cell4.innerHTML = data.type;
+        cell5.innerHTML = data.brand;
+        cell6.innerHTML = data.model;
+        cell7.innerHTML = data.stato_veicolo;
+        cell8.innerHTML = data.serial_number;
+    
+        cell15.style.display = 'flex'
+        cell15.style.flexdirection = 'column';
+      
+        var editButton = document.createElement("button");
+        editButton.className = "task_actions_button1";
+        editButton.innerHTML = "<i class='material-icons notranslate'>edit</i>";
+        editButton.onclick = function() {
+          getRepairDataToFill(data);
+        };
+        cell15.appendChild(editButton);
+      
+      
+        var editButton = document.createElement("button");
+        editButton.className = "task_actions_button1";
+        editButton.innerHTML = "<i class='material-icons notranslate'>delete</i>";
+        editButton.onclick = function() {
+          deleteRepair(data);
+        };
+        cell15.appendChild(editButton);
+
+        var editButton = document.createElement("button");
+        editButton.className = "task_actions_button1";
+        editButton.innerHTML = "<i class='material-icons notranslate'>description</i>";
+        editButton.onclick = function() {
+      showSchedaDiRiparazione(data);
+        };
+        cell15.appendChild(editButton);
+        }
+  }
+
   function getWarrantyRepairs(){
     var table = document.getElementById("riparazioniInGaranziaTableBody");
     const db = firebase.firestore();
@@ -170,6 +243,7 @@ function getAllRepairs(){
         var cell5 = row.insertCell(5);
         var cell6 = row.insertCell(6);
         var cell7 = row.insertCell(7);
+        var cell8 = row.insertCell(8);
     
         cell2.className = 'data-cell';
       
@@ -180,6 +254,7 @@ function getAllRepairs(){
         cell5.innerHTML = data.brand;
         cell6.innerHTML = data.model;
         cell7.innerHTML = data.stato_veicolo;
+        cell8.innerHTML = data.serial_number;
         
         cell15.style.display = 'flex'
         cell15.style.flexdirection = 'column';
@@ -368,7 +443,8 @@ repairDocRef.update(nuoviDati, { merge: true })
       cell5.innerHTML = data.brand;
       cell6.innerHTML = data.model;
       cell7.innerHTML = data.stato_veicolo;
-  
+      cell8.innerHTML = data.serial_number;
+
       cell15.style.display = 'flex'
       cell15.style.flexdirection = 'column';
     
@@ -445,6 +521,7 @@ repairDocRef.update(nuoviDati, { merge: true })
     cell5.innerHTML = data.brand;
     cell6.innerHTML = data.model;
     cell7.innerHTML = data.stato_veicolo;
+    cell8.innerHTML = data.serial_number;
 
     cell15.style.display = 'flex'
     cell15.style.flexdirection = 'column';
@@ -511,6 +588,7 @@ function getInternalRepairsDesc(){
       var cell5 = row.insertCell(5);
       var cell6 = row.insertCell(6);
       var cell7 = row.insertCell(7);
+      var cell8 = row.insertCell(8);
   
       cell2.className = 'data-cell';
     
@@ -521,6 +599,7 @@ function getInternalRepairsDesc(){
       cell5.innerHTML = data.brand;
       cell6.innerHTML = data.model;
       cell7.innerHTML = data.stato_veicolo;
+      cell8.innerHTML = data.serial_number;
   
       cell15.style.display = 'flex'
       cell15.style.flexdirection = 'column';
@@ -585,6 +664,7 @@ function getInternalRepairsAsc(){
       var cell5 = row.insertCell(5);
       var cell6 = row.insertCell(6);
       var cell7 = row.insertCell(7);
+      var cell8 = row.insertCell(8);
   
       cell2.className = 'data-cell';
     
@@ -595,6 +675,7 @@ function getInternalRepairsAsc(){
       cell5.innerHTML = data.brand;
       cell6.innerHTML = data.model;
       cell7.innerHTML = data.stato_veicolo;
+      cell8.innerHTML = data.serial_number;
   
       cell15.style.display = 'flex'
       cell15.style.flexdirection = 'column';
@@ -625,6 +706,160 @@ function getInternalRepairsAsc(){
       cell15.appendChild(editButton);
       }
 }
+
+
+
+function getEsternalRepairsDesc(){
+  var table = document.getElementById("riparazioniEsterneTableBody");
+  const db = firebase.firestore();
+  table.innerHTML = '';
+
+  const userTasksRef = db.collection('repairs')
+                         .where('repair_type', '==', 'ESTERNA')
+                         .orderBy('start', 'desc'); // Ordina per data di inizio in ordine decrescente
+                        
+
+  userTasksRef.get()
+      .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+              const data = doc.data();
+              createTableRow(data);
+          });
+      })
+      .catch((error) => {
+        alert('Errore durante il recupero delle riparazioni interne: ' + error); // Aggiunto il messaggio di errore
+      });
+
+    function createTableRow(data, taskName) {
+
+      var row = table.insertRow();
+      var cell15 = row.insertCell(0);
+      var cell1 = row.insertCell(1);
+      var cell2 = row.insertCell(2);
+      var cell3 = row.insertCell(3);
+      var cell4 = row.insertCell(4);
+      var cell5 = row.insertCell(5);
+      var cell6 = row.insertCell(6);
+      var cell7 = row.insertCell(7);
+      var cell8 = row.insertCell(8);
+  
+      cell2.className = 'data-cell';
+    
+      cell1.innerHTML = data.start; 
+      cell2.innerHTML = data.status;
+      cell3.innerHTML = data.customer_name;
+      cell4.innerHTML = data.type;
+      cell5.innerHTML = data.brand;
+      cell6.innerHTML = data.model;
+      cell7.innerHTML = data.stato_veicolo;
+      cell8.innerHTML = data.serial_number;
+  
+      cell15.style.display = 'flex'
+      cell15.style.flexdirection = 'column';
+    
+      var editButton = document.createElement("button");
+      editButton.className = "task_actions_button1";
+      editButton.innerHTML = "<i class='material-icons notranslate'>edit</i>";
+      editButton.onclick = function() {
+        getRepairDataToFill(data);
+      };
+      cell15.appendChild(editButton);
+    
+    
+      var editButton = document.createElement("button");
+      editButton.className = "task_actions_button1";
+      editButton.innerHTML = "<i class='material-icons notranslate'>delete</i>";
+      editButton.onclick = function() {
+        deleteRepair(data);
+      };
+      cell15.appendChild(editButton);
+
+      var editButton = document.createElement("button");
+      editButton.className = "task_actions_button1";
+      editButton.innerHTML = "<i class='material-icons notranslate'>description</i>";
+      editButton.onclick = function() {
+    showSchedaDiRiparazione(data);
+      };
+      cell15.appendChild(editButton);
+      }
+}
+
+
+function getEsternalRepairsAsc(){
+  var table = document.getElementById("riparazioniEsterneTableBody");
+  const db = firebase.firestore();
+  table.innerHTML = '';
+
+  const userTasksRef = db.collection('repairs')
+                         .where('repair_type', '==', 'ESTERNA')
+                         .orderBy('start', 'asc'); // Ordina per data di inizio in ordine decrescente
+                        
+
+  userTasksRef.get()
+      .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+              const data = doc.data();
+              createTableRow(data);
+          });
+      })
+      .catch((error) => {
+          alert('Errore durante il recupero delle riparazioni interne: ' + error); // Aggiunto il messaggio di errore
+      });
+
+    function createTableRow(data, taskName) {
+
+      var row = table.insertRow();
+      var cell15 = row.insertCell(0);
+      var cell1 = row.insertCell(1);
+      var cell2 = row.insertCell(2);
+      var cell3 = row.insertCell(3);
+      var cell4 = row.insertCell(4);
+      var cell5 = row.insertCell(5);
+      var cell6 = row.insertCell(6);
+      var cell7 = row.insertCell(7);
+      var cell8 = row.insertCell(8);
+  
+      cell2.className = 'data-cell';
+    
+      cell1.innerHTML = data.start; 
+      cell2.innerHTML = data.status;
+      cell3.innerHTML = data.customer_name;
+      cell4.innerHTML = data.type;
+      cell5.innerHTML = data.brand;
+      cell6.innerHTML = data.model;
+      cell7.innerHTML = data.stato_veicolo;
+      cell8.innerHTML = data.serial_number;
+  
+      cell15.style.display = 'flex'
+      cell15.style.flexdirection = 'column';
+    
+      var editButton = document.createElement("button");
+      editButton.className = "task_actions_button1";
+      editButton.innerHTML = "<i class='material-icons notranslate'>edit</i>";
+      editButton.onclick = function() {
+        getRepairDataToFill(data);
+      };
+      cell15.appendChild(editButton);
+    
+    
+      var editButton = document.createElement("button");
+      editButton.className = "task_actions_button1";
+      editButton.innerHTML = "<i class='material-icons notranslate'>delete</i>";
+      editButton.onclick = function() {
+        deleteRepair(data);
+      };
+      cell15.appendChild(editButton);
+
+      var editButton = document.createElement("button");
+      editButton.className = "task_actions_button1";
+      editButton.innerHTML = "<i class='material-icons notranslate'>description</i>";
+      editButton.onclick = function() {
+    showSchedaDiRiparazione(data);
+      };
+      cell15.appendChild(editButton);
+      }
+}
+
 
 
 function getWarrantyRepairsAsc(){
@@ -659,6 +894,7 @@ function getWarrantyRepairsAsc(){
       var cell5 = row.insertCell(5);
       var cell6 = row.insertCell(6);
       var cell7 = row.insertCell(7);
+      var cell8 = row.insertCell(8);
   
       cell2.className = 'data-cell';
     
@@ -669,6 +905,7 @@ function getWarrantyRepairsAsc(){
       cell5.innerHTML = data.brand;
       cell6.innerHTML = data.model;
       cell7.innerHTML = data.stato_veicolo;
+      cell8.innerHTML = data.serial_number;
   
       cell15.style.display = 'flex'
       cell15.style.flexdirection = 'column';
@@ -731,6 +968,7 @@ function getWarrantyRepairsDesc(){
       var cell5 = row.insertCell(5);
       var cell6 = row.insertCell(6);
       var cell7 = row.insertCell(7);
+      var cell8 = row.insertCell(8)
   
       cell2.className = 'data-cell';
     
@@ -741,6 +979,7 @@ function getWarrantyRepairsDesc(){
       cell5.innerHTML = data.brand;
       cell6.innerHTML = data.model;
       cell7.innerHTML = data.stato_veicolo;
+      cell8.innerHTML = data.serial_number;
   
       cell15.style.display = 'flex'
       cell15.style.flexdirection = 'column';
@@ -774,6 +1013,3 @@ function getWarrantyRepairsDesc(){
 
   
 
-  getAllRepairs();
-  getInternalRepairs();
-  getWarrantyRepairs();

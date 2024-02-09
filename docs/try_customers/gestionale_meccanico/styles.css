@@ -8,11 +8,13 @@ html, body{
 
 #master_container{
     display: flex;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
     flex-direction: row;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 #left_bar{
@@ -23,6 +25,7 @@ html, body{
     border: 1px solid rgba(0, 0, 0, 0.046);
     display: flex;
     flex-direction: column;
+    padding-bottom: 1.5rem;
     align-items: center;
     overflow-x: hidden;
     overflow-y: auto;
@@ -42,7 +45,7 @@ html, body{
     background: rgb(255, 255, 255);
     width: 80%;
     height: 2rem;
-    border: 1px solid rgba(0, 0, 0, 0.105);
+    border: 1px solid rgba(0, 0, 0, 0.228);
     border-radius: 2rem;
     color: black;
     cursor: pointer;
@@ -51,7 +54,7 @@ html, body{
 
 .button1:hover{
     font-weight: bold;
-    border: 1px solid rgba(0, 0, 0, 0.34);
+    border: 1px solid rgba(0, 0, 0, 0.527);
 }
 
 .general_paragraph1{
@@ -70,9 +73,10 @@ html, body{
     width: calc(100% - 18rem); 
     height: 95%;
     display: none;
+    padding-bottom: 1.5rem;
     flex-direction: column;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
     align-items: center;
 }
 
@@ -80,6 +84,18 @@ html, body{
     width: calc(100% - 18rem); 
     height: 95%;
     display: none;
+    flex-direction: column;
+    padding-bottom: 1.5rem;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    align-items: center;
+}
+
+#riparazioni_esterne{
+    width: calc(100% - 18rem); 
+    height: 95%;
+    display: none;
+    padding-bottom: 1.5rem;
     flex-direction: column;
     overflow-x: hidden;
     overflow-y: auto;
@@ -91,8 +107,9 @@ html, body{
     height: 95%;
     display: flex;
     flex-direction: column;
+    padding-bottom: 1.5rem;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
     align-items: center;
 }
 
@@ -112,7 +129,7 @@ html, body{
     height: 95%;
     display: none;
     flex-direction: column;
-    overflow-x: hidden;
+    overflow-x: auto;
     overflow-y: auto;
     align-items: center;
 }
@@ -224,12 +241,27 @@ html, body{
 
 
 @media screen and (max-width: 1000px) {
+
+    .card1{
+        border-radius: 1rem;
+    }
+
+    .resp_div1{
+        flex-direction: column !important;
+    }
+    
+    .resp_div2{
+        width: 95% !important;
+    }
+
     #left_bar{
         display: none;
     }
 
     #master_container{
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     #under_bar{
@@ -260,6 +292,11 @@ html, body{
         height: calc(95% - 4rem);
         width: 95%;
     }
+
+    #riparazioni_esterne{
+        height: calc(95% - 4rem);
+        width: 95%;
+    }
     
     #tutte_le_riparazioni{
         height: calc(95% - 4rem);
@@ -282,6 +319,7 @@ html, body{
     }
 
     .under_bar_button1{
+        color: black;
         display: flex;
         flex-direction: column;
         align-items: center;
