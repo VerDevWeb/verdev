@@ -1,0 +1,49 @@
+
+@media screen and (max-width: 499px) {
+    .desktop-element {
+        display: none !important;
+    }
+
+    .resp-margin-left{
+        margin-left: 1rem !important;
+    }
+
+    .resp-text-align{
+        text-align: start !important;
+        width: 90% !important;
+        margin-left: 0.6rem !important;
+    }
+
+    .resp-width{
+        width: 90% !important;
+    }
+
+    #header{
+        width: 100% !important;
+    }
+
+    .button:active{
+        color: black;
+        background: white;
+        transition: 0.1s color ease-in, 0.1s background ease-in;
+    }
+
+    .desktop-element{
+        display: none !important;
+    }
+
+}
+
+@media screen and (min-width: 500px){
+
+    .button:hover{
+        color: black;
+        background: white;
+        transition: 0.05s color ease-in, 0.05s background ease-in;
+    }
+
+    .mobile-element{
+        display: none !important;
+    }
+    
+}
